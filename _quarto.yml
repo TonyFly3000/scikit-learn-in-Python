@@ -8,7 +8,11 @@ language:
 
 website:
   title: "Scikit learn with Python"
+
+  favicon: "1.png"
   navbar:
+    logo-href: "http://localhost:4382/home/1%20index.html"
+    logo: "1.png"
     left:
       - sidebar:home
       - sidebar:bar0  
