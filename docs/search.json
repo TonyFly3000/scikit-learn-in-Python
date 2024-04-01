@@ -1549,5 +1549,100 @@
       "Data",
       "Data manipulation with siuba"
     ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "About",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nhttps://tonyfly3000.github.io/scikit-learn-in-Python/\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "intro/4 data structure in Python .html#singular",
+    "href": "intro/4 data structure in Python .html#singular",
+    "title": "data structure in Python",
+    "section": "1.1 singular",
+    "text": "1.1 singular\n\n\nCode\na=1\ntype(a)\n\n\nint\n\n\n\n\nCode\na=1.3\ntype(a)\n\n\nfloat\n\n\n\n\nCode\na='hell'\ntype(a)\n\n\nstr",
+    "crumbs": [
+      "Intro",
+      "data structure in Python"
+    ]
+  },
+  {
+    "objectID": "intro/4 data structure in Python .html#list",
+    "href": "intro/4 data structure in Python .html#list",
+    "title": "data structure in Python",
+    "section": "1.2 list",
+    "text": "1.2 list\n\n\nCode\na=[1,2,3]\n\na\n\n\n[1, 2, 3]\n\n\n\n\nCode\ntype(a) \n\n\nlist\n\n\n\n\nCode\nfruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana','apple']\n\n\n\n1.2.1 find length of the list with len()\n\n\nCode\nlen(fruits)\n\n\n8\n\n\n\n\n1.2.2 find how many time in the list with count()\n\n\nCode\nfruits.count('apple')\n\n\n3\n\n\n\n\n1.2.3 find locaiton of on the list with index()\nshow the first ‘apple’ index. python list start at 0\n\n\nCode\nfruits.index('apple')\n\n\n1\n\n\nall ‘apple’ in the list\n\n\nCode\n[index for index, value in enumerate(fruits) if value == 'apple']\n\n\n[1, 5, 7]",
+    "crumbs": [
+      "Intro",
+      "data structure in Python"
+    ]
+  },
+  {
+    "objectID": "intro/4 data structure in Python .html#reverse-the-list",
+    "href": "intro/4 data structure in Python .html#reverse-the-list",
+    "title": "data structure in Python",
+    "section": "1.3 reverse the list",
+    "text": "1.3 reverse the list\n\n\nCode\nfruits.reverse()\nfruits\n\n\n['apple', 'banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange']\n\n\n\n1.3.1 sort the list\n\n\nCode\nfruits.sort()\nfruits\n\n\n['apple', 'apple', 'apple', 'banana', 'banana', 'kiwi', 'orange', 'pear']\n\n\n\n\n1.3.2 add element on the list\n\n\nCode\nfruits.append('grape')\nfruits\n\n\n['apple',\n 'apple',\n 'apple',\n 'banana',\n 'banana',\n 'kiwi',\n 'orange',\n 'pear',\n 'grape']",
+    "crumbs": [
+      "Intro",
+      "data structure in Python"
+    ]
+  },
+  {
+    "objectID": "intro/4 data structure in Python .html#drop-last-element",
+    "href": "intro/4 data structure in Python .html#drop-last-element",
+    "title": "data structure in Python",
+    "section": "1.4 drop last element",
+    "text": "1.4 drop last element\n\n\nCode\nfruits.pop()\n\nfruits\n\n\n['apple', 'apple', 'apple', 'banana', 'banana', 'kiwi', 'orange', 'pear']\n\n\n\n1.4.1 List Comprehensions\nusing loop:\n\n\nCode\nsquares = []\nfor x in range(10):\n  squares.append(x**2)\n  \nsquares\n\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\n\nusing List Comprehensions\n\n\nCode\nsquares = [x**2 for x in range(10)]\nsquares\n\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]",
+    "crumbs": [
+      "Intro",
+      "data structure in Python"
+    ]
+  },
+  {
+    "objectID": "intro/4 data structure in Python .html#tuples",
+    "href": "intro/4 data structure in Python .html#tuples",
+    "title": "data structure in Python",
+    "section": "1.5 Tuples",
+    "text": "1.5 Tuples\n\n\nCode\nfruits = ('orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana','apple')\n\nfruits\n\n\n('orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana', 'apple')\n\n\n\n\nCode\ntype(fruits)\n\n\ntuple\n\n\ntuple can not be modified.",
+    "crumbs": [
+      "Intro",
+      "data structure in Python"
+    ]
+  },
+  {
+    "objectID": "intro/4 data structure in Python .html#sets",
+    "href": "intro/4 data structure in Python .html#sets",
+    "title": "data structure in Python",
+    "section": "1.6 Sets",
+    "text": "1.6 Sets\nA set is an unordered collection with no duplicate elements.\n\n\nCode\nbasket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}\n\nbasket\n\n\n{'apple', 'banana', 'orange', 'pear'}\n\n\n\n\nCode\ntype(basket)\n\n\nset",
+    "crumbs": [
+      "Intro",
+      "data structure in Python"
+    ]
+  },
+  {
+    "objectID": "intro/4 data structure in Python .html#dictionaries",
+    "href": "intro/4 data structure in Python .html#dictionaries",
+    "title": "data structure in Python",
+    "section": "1.7 Dictionaries",
+    "text": "1.7 Dictionaries\n\n\nCode\ntel = {'jack': 4098, 'sape': 4139}\n\ntel\n\n\n{'jack': 4098, 'sape': 4139}\n\n\n\n\nCode\ntype(tel)\n\n\ndict\n\n\n\n\nCode\ntel['jack']\n\n\n4098",
+    "crumbs": [
+      "Intro",
+      "data structure in Python"
+    ]
+  },
+  {
+    "objectID": "intro/3 install package.html",
+    "href": "intro/3 install package.html",
+    "title": "install pacakge",
+    "section": "",
+    "text": "1 package\n\n\nCode\nimport os\nos.system('pip install -U scikit-learn')\n\n\n\n\n2 package version\n\n\nCode\nimport sklearn\nsklearn.show_versions()\n\n\n\nSystem:\n    python: 3.11.4 (v3.11.4:d2340ef257, Jun  6 2023, 19:15:51) [Clang 13.0.0 (clang-1300.0.29.30)]\nexecutable: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3\n   machine: macOS-14.1.1-arm64-arm-64bit\n\nPython dependencies:\n      sklearn: 1.4.1.post1\n          pip: 24.0\n   setuptools: 65.5.0\n        numpy: 1.26.4\n        scipy: 1.12.0\n       Cython: None\n       pandas: 2.2.1\n   matplotlib: 3.8.3\n       joblib: 1.3.2\nthreadpoolctl: 3.2.0\n\nBuilt with OpenMP: True\n\nthreadpoolctl info:\n       user_api: blas\n   internal_api: openblas\n    num_threads: 8\n         prefix: libopenblas\n       filepath: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/numpy/.dylibs/libopenblas64_.0.dylib\n        version: 0.3.23.dev\nthreading_layer: pthreads\n   architecture: armv8\n\n       user_api: openmp\n   internal_api: openmp\n    num_threads: 8\n         prefix: libomp\n       filepath: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sklearn/.dylibs/libomp.dylib\n        version: None\n\n       user_api: blas\n   internal_api: openblas\n    num_threads: 8\n         prefix: libopenblas\n       filepath: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/.dylibs/libopenblas.0.dylib\n        version: 0.3.21.dev\nthreading_layer: pthreads\n   architecture: armv8",
+    "crumbs": [
+      "Intro",
+      "install pacakge"
+    ]
   }
 ]

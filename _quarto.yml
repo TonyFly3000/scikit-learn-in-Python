@@ -11,10 +11,11 @@ website:
 
   favicon: "1.png"
   navbar:
-    logo-href: "/home/1%20index.html"
     logo: "1.png"
     left:
-      - sidebar:home
+      - text: "Home"
+        file: index.qmd
+      - sidebar:intro
       - sidebar:bar0  
       - sidebar:bar1
       - sidebar:bar2
@@ -24,12 +25,12 @@ website:
 
   sidebar:
 
-    - id: home
-      title: "Home"
+    - id: intro
+      title: "intro"
       style: "floating"
       background: light
       collapse-level: 2
-      contents: home
+      contents: intro
 
 
     - id: bar0
