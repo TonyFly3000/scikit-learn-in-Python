@@ -20,6 +20,17 @@ plotnine is an implementation of a grammar of graphics in Python based on ggplot
 
 
 ```{python}
+import plotnine
+print(plotnine.__version__)
+```
+
+```{python}
+from plotnine import *
+
+print(plotnine.__version__)
+```
+
+```{python}
 
 from plotnine import *
 import seaborn as sns
@@ -118,49 +129,67 @@ p
 # box plot
 
 ```{python}
+p=(
+    ggplot(data=tips)+aes(x='day',y='tip',fill="day")+geom_boxplot()
+)
 
+p
 ```
 
 ## color by group
 
 ```{python}
+p=(
+    ggplot(data=tips)+aes(x='day',y='tip',fill="sex")+geom_boxplot()
+)
 
+p
 ```
 
 # strip plot
 
 ```{python}
+p=(
+    ggplot(data=tips)+aes(x='day',y='tip')+geom_jitter(width=0.1)
+)
 
+p
 ```
 
 ## color by group
 
 ```{python}
+p=(
+    ggplot(data=tips)+aes(x='day',y='tip',fill="sex")+geom_jitter(position=position_jitterdodge())
+)
 
+p
 ```
 
-# join plot
 
-```{python}
 
-```
 
-# sub plot
-
-```{python}
-
-```
 
 # Facet plot
 
 ```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",y="total_bill")+ geom_point(aes(color="sex"))
+    + facet_wrap("day")
+)
 
+p
 ```
 
-make 2 plot per column
+make 3 plot per row
 
 ```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",y="total_bill")+ geom_point(aes(color="sex"))
+    + facet_wrap("day",ncol = 3)
+)
 
+p
 ```
 
 

@@ -16,7 +16,7 @@ format:
 
 ![](images/1.png)
 
-# package
+# install package
 
 ```{python}
 #| eval: false
@@ -26,9 +26,24 @@ os.system('pip install -U scikit-learn')
 
 ```
 
-# package version
+# check one package version
 
 ```{python}
 import sklearn
 sklearn.show_versions()
 ```
+
+
+# check all package version
+
+```{python}
+import os
+os.system('pip list')
+
+```
+
+
+
+
+
+
