@@ -382,14 +382,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>with pipeline</p>
 <section id="load-package" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> load package</h1>
-<div id="53868d81" class="cell" data-execution_count="1">
+<div id="1a56df91" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#os.system('pip install xgboost')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="eb0f3630" class="cell" data-execution_count="2">
+<div id="69cc4359" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -410,7 +410,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="2"><span class="header-section-number">2</span> data</h1>
 <section id="input-data" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="input-data"><span class="header-section-number">2.1</span> input data</h2>
-<div id="ced5c789" class="cell" data-execution_count="3">
+<div id="1ee21aa7" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the data</span></span>
@@ -585,13 +585,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="9f707fa2" class="cell" data-execution_count="4">
+<div id="2de5e855" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#df_train.info()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="819e7821" class="cell" data-execution_count="5">
+<div id="7dced568" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_train[<span class="st">'role'</span>] <span class="op">=</span> <span class="st">'train'</span></span>
@@ -611,7 +611,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="split-data" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="split-data"><span class="header-section-number">2.4</span> split data</h2>
-<div id="a7d879a4" class="cell" data-execution_count="6">
+<div id="95aaf688" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> df_train.SalePrice</span>
@@ -625,7 +625,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> X_test.drop(<span class="st">'role'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="a69479b8" class="cell" data-execution_count="7">
+<div id="fb25eb62" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_train.shape)</span>
@@ -636,7 +636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 (292, 80)</code></pre>
 </div>
 </div>
-<div id="d29a22ed" class="cell" data-execution_count="8">
+<div id="c1c8d8de" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Y_train.shape)</span>
@@ -647,7 +647,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 (292,)</code></pre>
 </div>
 </div>
-<div id="2c6f8bde" class="cell" data-execution_count="9">
+<div id="40a9af8f" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>categorical_cols <span class="op">=</span> [cname <span class="cf">for</span> cname <span class="kw">in</span> X_train.columns </span>
@@ -658,7 +658,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> X_train[cname].dtype <span class="kw">in</span> [<span class="st">'int64'</span>, <span class="st">'float64'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="5d86f46d" class="cell" data-execution_count="10">
+<div id="858ba450" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The total number of categorical columns:"</span>, <span class="bu">len</span>(categorical_cols))</span>
@@ -669,7 +669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 The total number of numerical columns: 37</code></pre>
 </div>
 </div>
-<div id="84c554b6" class="cell" data-execution_count="11">
+<div id="55180090" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>my_cols <span class="op">=</span> categorical_cols <span class="op">+</span> numerical_cols</span>
@@ -683,7 +683,7 @@ The total number of numerical columns: 37</code></pre>
 </section>
 <section id="pipelines-for-data-preprocessing" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="pipelines-for-data-preprocessing"><span class="header-section-number">2.5</span> Pipelines for Data Preprocessing</h2>
-<div id="926cf298" class="cell" data-execution_count="12">
+<div id="9aa0dedc" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
@@ -691,7 +691,7 @@ The total number of numerical columns: 37</code></pre>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="ca9393d7" class="cell" data-execution_count="13">
+<div id="5d16c708" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>numerical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
@@ -700,7 +700,7 @@ The total number of numerical columns: 37</code></pre>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="20cafef8" class="cell" data-execution_count="14">
+<div id="d44c0539" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
@@ -711,7 +711,7 @@ The total number of numerical columns: 37</code></pre>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="d76d7e19" class="cell" data-execution_count="15">
+<div id="a63bbe56" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
@@ -728,7 +728,7 @@ The total number of numerical columns: 37</code></pre>
 <section id="define-model" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="define-model"><span class="header-section-number">3.1</span> define model</h2>
 <p>random forest with hyper parameter tuning</p>
-<div id="f5b9c6b7" class="cell" data-execution_count="16">
+<div id="070c08ad" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
@@ -1148,7 +1148,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="define-pipline" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="define-pipline"><span class="header-section-number">3.2</span> define pipline</h2>
-<div id="4f698168" class="cell" data-execution_count="17">
+<div id="3d3a7955" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> Pipeline(</span>
@@ -1162,7 +1162,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="train-model" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="train-model"><span class="header-section-number">3.3</span> train model</h2>
-<div id="2c91970f" class="cell" data-execution_count="18">
+<div id="3f170261" class="cell" data-execution_count="18">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pipeline.fit(X_train, Y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1648,7 +1648,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                   'Functional', 'FireplaceQu', ...])])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">num</label><div class="sk-toggleable__content fitted"><pre>['Id', 'MSSubClass', 'LotFrontage', 'LotArea', 'OverallQual', 'OverallCond', 'YearBuilt', 'YearRemodAdd', 'MasVnrArea', 'BsmtFinSF1', 'BsmtFinSF2', 'BsmtUnfSF', 'TotalBsmtSF', '1stFlrSF', '2ndFlrSF', 'LowQualFinSF', 'GrLivArea', 'BsmtFullBath', 'BsmtHalfBath', 'FullBath', 'HalfBath', 'BedroomAbvGr', 'KitchenAbvGr', 'TotRmsAbvGrd', 'Fireplaces', 'GarageYrBlt', 'GarageCars', 'GarageArea', 'WoodDeckSF', 'OpenPorchSF', 'EnclosedPorch', '3SsnPorch', 'ScreenPorch', 'PoolArea', 'MiscVal', 'MoSold', 'YrSold']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;SimpleImputer<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></label><div class="sk-toggleable__content fitted"><pre>SimpleImputer(strategy='median')</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;StandardScaler<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox"><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">cat</label><div class="sk-toggleable__content fitted"><pre>['MSZoning', 'Street', 'Alley', 'LotShape', 'LandContour', 'Utilities', 'LotConfig', 'LandSlope', 'Condition1', 'Condition2', 'BldgType', 'HouseStyle', 'RoofStyle', 'RoofMatl', 'MasVnrType', 'ExterQual', 'ExterCond', 'Foundation', 'BsmtQual', 'BsmtCond', 'BsmtExposure', 'BsmtFinType1', 'BsmtFinType2', 'Heating', 'HeatingQC', 'CentralAir', 'Electrical', 'KitchenQual', 'Functional', 'FireplaceQu', 'GarageType', 'GarageFinish', 'GarageQual', 'GarageCond', 'PavedDrive', 'PoolQC', 'Fence', 'MiscFeature', 'SaleType', 'SaleCondition']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox"><label for="sk-estimator-id-8" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;SimpleImputer<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></label><div class="sk-toggleable__content fitted"><pre>SimpleImputer(strategy='most_frequent')</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox"><label for="sk-estimator-id-9" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;OneHotEncoder<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.preprocessing.OneHotEncoder.html">?<span>Documentation for OneHotEncoder</span></a></label><div class="sk-toggleable__content fitted"><pre>OneHotEncoder(handle_unknown='ignore')</pre></div> </div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox"><label for="sk-estimator-id-10" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;RandomForestRegressor<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.ensemble.RandomForestRegressor.html">?<span>Documentation for RandomForestRegressor</span></a></label><div class="sk-toggleable__content fitted"><pre>RandomForestRegressor(random_state=0)</pre></div> </div></div></div></div></div></div>
 </div>
 </div>
-<div id="279d8986" class="cell" data-execution_count="19">
+<div id="009c9c38" class="cell" data-execution_count="19">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>var<span class="op">=</span>pipeline[:<span class="op">-</span><span class="dv">1</span>].get_feature_names_out()</span>
@@ -1674,10 +1674,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
        'cat__LotShape_Reg', 'cat__LandContour_Bnk',
        'cat__LandContour_HLS', 'cat__LandContour_Low',
        'cat__LandContour_Lvl', 'cat__Utilities_AllPub',
-       'cat__Utilities_NoSeWa', 'cat__LotConfig_Corner',
-       'cat__LotConfig_CulDSac', 'cat__LotConfig_FR2',
-       'cat__LotConfig_FR3', 'cat__LotConfig_Inside',
-       'cat__LandSlope_Gtl', 'cat__LandSlope_Mod', 'cat__LandSlope_Sev',
+       'cat__LotConfig_Corner', 'cat__LotConfig_CulDSac',
+       'cat__LotConfig_FR2', 'cat__LotConfig_FR3',
+       'cat__LotConfig_Inside', 'cat__LandSlope_Gtl',
+       'cat__LandSlope_Mod', 'cat__LandSlope_Sev',
        'cat__Condition1_Artery', 'cat__Condition1_Feedr',
        'cat__Condition1_Norm', 'cat__Condition1_PosA',
        'cat__Condition1_PosN', 'cat__Condition1_RRAe',
@@ -1685,26 +1685,25 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
        'cat__Condition1_RRNn', 'cat__Condition2_Artery',
        'cat__Condition2_Feedr', 'cat__Condition2_Norm',
        'cat__Condition2_PosA', 'cat__Condition2_PosN',
-       'cat__Condition2_RRAe', 'cat__Condition2_RRAn',
-       'cat__Condition2_RRNn', 'cat__BldgType_1Fam',
-       'cat__BldgType_2fmCon', 'cat__BldgType_Duplex',
-       'cat__BldgType_Twnhs', 'cat__BldgType_TwnhsE',
-       'cat__HouseStyle_1.5Fin', 'cat__HouseStyle_1.5Unf',
-       'cat__HouseStyle_1Story', 'cat__HouseStyle_2.5Fin',
-       'cat__HouseStyle_2.5Unf', 'cat__HouseStyle_2Story',
-       'cat__HouseStyle_SFoyer', 'cat__HouseStyle_SLvl',
-       'cat__RoofStyle_Flat', 'cat__RoofStyle_Gable',
-       'cat__RoofStyle_Gambrel', 'cat__RoofStyle_Hip',
-       'cat__RoofStyle_Mansard', 'cat__RoofStyle_Shed',
-       'cat__RoofMatl_ClyTile', 'cat__RoofMatl_CompShg',
-       'cat__RoofMatl_Membran', 'cat__RoofMatl_Metal',
-       'cat__RoofMatl_Roll', 'cat__RoofMatl_Tar&amp;Grv',
-       'cat__RoofMatl_WdShake', 'cat__RoofMatl_WdShngl',
-       'cat__MasVnrType_BrkCmn', 'cat__MasVnrType_BrkFace',
-       'cat__MasVnrType_Stone', 'cat__ExterQual_Ex', 'cat__ExterQual_Fa',
-       'cat__ExterQual_Gd', 'cat__ExterQual_TA', 'cat__ExterCond_Ex',
-       'cat__ExterCond_Fa', 'cat__ExterCond_Gd', 'cat__ExterCond_Po',
-       'cat__ExterCond_TA', 'cat__Foundation_BrkTil',
+       'cat__Condition2_RRAe', 'cat__Condition2_RRNn',
+       'cat__BldgType_1Fam', 'cat__BldgType_2fmCon',
+       'cat__BldgType_Duplex', 'cat__BldgType_Twnhs',
+       'cat__BldgType_TwnhsE', 'cat__HouseStyle_1.5Fin',
+       'cat__HouseStyle_1.5Unf', 'cat__HouseStyle_1Story',
+       'cat__HouseStyle_2.5Fin', 'cat__HouseStyle_2.5Unf',
+       'cat__HouseStyle_2Story', 'cat__HouseStyle_SFoyer',
+       'cat__HouseStyle_SLvl', 'cat__RoofStyle_Flat',
+       'cat__RoofStyle_Gable', 'cat__RoofStyle_Gambrel',
+       'cat__RoofStyle_Hip', 'cat__RoofStyle_Mansard',
+       'cat__RoofStyle_Shed', 'cat__RoofMatl_ClyTile',
+       'cat__RoofMatl_CompShg', 'cat__RoofMatl_Membran',
+       'cat__RoofMatl_Metal', 'cat__RoofMatl_Roll',
+       'cat__RoofMatl_Tar&amp;Grv', 'cat__RoofMatl_WdShake',
+       'cat__RoofMatl_WdShngl', 'cat__MasVnrType_BrkCmn',
+       'cat__MasVnrType_BrkFace', 'cat__MasVnrType_Stone',
+       'cat__ExterQual_Ex', 'cat__ExterQual_Fa', 'cat__ExterQual_Gd',
+       'cat__ExterQual_TA', 'cat__ExterCond_Ex', 'cat__ExterCond_Fa',
+       'cat__ExterCond_Gd', 'cat__ExterCond_TA', 'cat__Foundation_BrkTil',
        'cat__Foundation_CBlock', 'cat__Foundation_PConc',
        'cat__Foundation_Slab', 'cat__Foundation_Stone',
        'cat__Foundation_Wood', 'cat__BsmtQual_Ex', 'cat__BsmtQual_Fa',
@@ -1746,8 +1745,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
        'cat__Fence_GdPrv', 'cat__Fence_GdWo', 'cat__Fence_MnPrv',
        'cat__Fence_MnWw', 'cat__MiscFeature_Gar2',
        'cat__MiscFeature_Othr', 'cat__MiscFeature_Shed',
-       'cat__MiscFeature_TenC', 'cat__SaleType_COD', 'cat__SaleType_CWD',
-       'cat__SaleType_Con', 'cat__SaleType_ConLD', 'cat__SaleType_ConLI',
+       'cat__SaleType_COD', 'cat__SaleType_CWD', 'cat__SaleType_Con',
+       'cat__SaleType_ConLD', 'cat__SaleType_ConLI',
        'cat__SaleType_ConLw', 'cat__SaleType_New', 'cat__SaleType_Oth',
        'cat__SaleType_WD', 'cat__SaleCondition_Abnorml',
        'cat__SaleCondition_AdjLand', 'cat__SaleCondition_Alloca',
@@ -1755,14 +1754,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
        'cat__SaleCondition_Partial'], dtype=object)</code></pre>
 </div>
 </div>
-<div id="a03da94a" class="cell" data-execution_count="20">
+<div id="b02d37d3" class="cell" data-execution_count="20">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fitted_model<span class="op">=</span>pipeline.steps[<span class="dv">1</span>][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>variable importance</p>
-<div id="53427f61" class="cell" data-execution_count="21">
+<div id="1a27eb70" class="cell" data-execution_count="21">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> fitted_model.feature_importances_</span>
@@ -1787,27 +1786,27 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>num__OverallQual</td>
-<td>6.020234e-01</td>
+<td>0.555139</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">16</td>
 <td>num__GrLivArea</td>
-<td>1.184263e-01</td>
+<td>0.112957</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">12</td>
 <td>num__TotalBsmtSF</td>
-<td>3.276525e-02</td>
+<td>0.039629</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>num__BsmtFinSF1</td>
-<td>2.627399e-02</td>
-</tr>
-<tr class="odd">
 <td data-quarto-table-cell-role="th">26</td>
 <td>num__GarageCars</td>
-<td>2.277061e-02</td>
+<td>0.026531</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">13</td>
+<td>num__1stFlrSF</td>
+<td>0.025871</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">...</td>
@@ -1815,34 +1814,34 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <td>...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">79</td>
-<td>cat__Condition2_RRAn</td>
-<td>3.114047e-08</td>
+<td data-quarto-table-cell-role="th">147</td>
+<td>cat__Heating_Floor</td>
+<td>0.000000</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">165</td>
-<td>cat__Electrical_FuseP</td>
-<td>2.017559e-09</td>
+<td data-quarto-table-cell-role="th">129</td>
+<td>cat__BsmtCond_Po</td>
+<td>0.000000</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">104</td>
-<td>cat__RoofMatl_Roll</td>
-<td>0.000000e+00</td>
+<td data-quarto-table-cell-role="th">77</td>
+<td>cat__Condition2_RRAe</td>
+<td>0.000000</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">99</td>
-<td>cat__RoofStyle_Shed</td>
-<td>0.000000e+00</td>
+<td data-quarto-table-cell-role="th">174</td>
+<td>cat__Functional_Sev</td>
+<td>0.000000</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">76</td>
-<td>cat__Condition2_PosA</td>
-<td>0.000000e+00</td>
+<td data-quarto-table-cell-role="th">54</td>
+<td>cat__Utilities_AllPub</td>
+<td>0.000000</td>
 </tr>
 </tbody>
 </table>
 
-<p>232 rows × 2 columns</p>
+<p>228 rows × 2 columns</p>
 </div>
 </div>
 </div>
@@ -1850,36 +1849,36 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="preformance" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="preformance"><span class="header-section-number">3.4</span> Preformance</h2>
-<div id="ec246167" class="cell" data-execution_count="22">
+<div id="ff3afb56" class="cell" data-execution_count="22">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Y_pred_dt <span class="op">=</span>pipeline.predict(X_test) <span class="co">#always gets x and retuns y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>R 2</p>
-<div id="fdaee3ae" class="cell" data-execution_count="23">
+<div id="42f880c5" class="cell" data-execution_count="23">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> r2_score</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>r2_score(Y_test, Y_pred_dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="23">
-<pre><code>0.8738373220842524</code></pre>
+<pre><code>0.8769362016723407</code></pre>
 </div>
 </div>
 <p>MAE</p>
-<div id="aa2985a4" class="cell" data-execution_count="24">
+<div id="d5a494fa" class="cell" data-execution_count="24">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(Y_test, Y_pred_dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="24">
-<pre><code>16591.730136986298</code></pre>
+<pre><code>18018.556061643834</code></pre>
 </div>
 </div>
 <p>RMSE</p>
-<div id="223a38e0" class="cell" data-execution_count="25">
+<div id="70a08cb0" class="cell" data-execution_count="25">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span>  math <span class="im">import</span> sqrt</span>
@@ -1889,13 +1888,13 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>rmse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="25">
-<pre><code>27704.74856770407</code></pre>
+<pre><code>29600.7303437137</code></pre>
 </div>
 </div>
 </section>
 <section id="k-fold-cross-validation" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="k-fold-cross-validation"><span class="header-section-number">3.5</span> k-Fold Cross-Validation</h2>
-<div id="6faacb76" class="cell" data-execution_count="26">
+<div id="dea5d5a7" class="cell" data-execution_count="26">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1903,30 +1902,30 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="8b9ebcb1" class="cell" data-execution_count="27">
+<div id="b1c2e0c5" class="cell" data-execution_count="27">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>kf_dt <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>,shuffle<span class="op">=</span><span class="va">True</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="d621ab28" class="cell" data-execution_count="28">
+<div id="983a27a2" class="cell" data-execution_count="28">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(pipeline, X_train, Y_train, cv<span class="op">=</span>kf_dt)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>np.mean(cv_dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="28">
-<pre><code>0.8442740125584562</code></pre>
+<pre><code>0.8398654485710771</code></pre>
 </div>
 </div>
-<div id="3374b1e3" class="cell" data-execution_count="29">
+<div id="3c3958d6" class="cell" data-execution_count="29">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(pipeline, X_train, Y_train, cv<span class="op">=</span>kf_dt,scoring <span class="op">=</span> <span class="st">'neg_mean_squared_error'</span>)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>np.mean(np.sqrt(np.<span class="bu">abs</span>(cv_dt)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="29">
-<pre><code>30836.193801751524</code></pre>
+<pre><code>30030.318678382853</code></pre>
 </div>
 </div>
 </section>
