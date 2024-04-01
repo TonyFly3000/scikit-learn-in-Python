@@ -1,0 +1,3022 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Scikit learn with Python - Regression model with decision tree</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Scikit learn with Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-home" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Home</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-home">    
+        <li class="dropdown-header">Home</li>
+        <li>
+    <a class="dropdown-item" href="../home/1 index.html">
+ <span class="dropdown-text">new modeling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../home/2 about.html">
+ <span class="dropdown-text">About</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../home/3 install package.html">
+ <span class="dropdown-text">install pacakge</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../home/4 data structure in Python .html">
+ <span class="dropdown-text">data structure in Python</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-model-type" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">model type</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-model-type">    
+        <li class="dropdown-header">model type</li>
+        <li>
+    <a class="dropdown-item" href="../model type/1 decision tree.html">
+ <span class="dropdown-text">Decision tree</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../model type/2 random forest.html">
+ <span class="dropdown-text">Random forest</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../model type/3 gradient boosted trees.html">
+ <span class="dropdown-text">Gradient boosted trees</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classification" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Classification</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-classification">    
+        <li class="dropdown-header">Classification</li>
+        <li>
+    <a class="dropdown-item" href="../classification/1 decision tree on titanic data.html">
+ <span class="dropdown-text">Classification with decision tree</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/2 Logistic Regression on titanic data.html">
+ <span class="dropdown-text">Classification with Logistic Regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/3 Support Vector Machines on titanic data.html">
+ <span class="dropdown-text">Classification with Support Vector Machines</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/4 KNN on titanic data.html">
+ <span class="dropdown-text">Classification with K-Nearest Neighbors</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/5 Random Forest on titanic dat.html">
+ <span class="dropdown-text">Classification with Random Forest</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-regression" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Regression</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-regression">    
+        <li class="dropdown-header">Regression</li>
+        <li>
+    <a class="dropdown-item" href="../regression/1 KNN on house price data.html">
+ <span class="dropdown-text">Regression model with decision tree</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/1 KNN on house price data.html">Regression</a></li><li class="breadcrumb-item"><a href="../regression/1 KNN on house price data.html">Regression model with decision tree</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Regression</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regression/1 KNN on house price data.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Regression model with decision tree</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#load-package" id="toc-load-package" class="nav-link active" data-scroll-target="#load-package"><span class="header-section-number">1</span> load package</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> data</a>
+  <ul class="collapse">
+  <li><a href="#input-data" id="toc-input-data" class="nav-link" data-scroll-target="#input-data"><span class="header-section-number">2.1</span> input data</a></li>
+  <li><a href="#data-eda" id="toc-data-eda" class="nav-link" data-scroll-target="#data-eda"><span class="header-section-number">2.2</span> data EDA</a></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling"><span class="header-section-number">2.3</span> Data Wrangling</a></li>
+  <li><a href="#split-data" id="toc-split-data" class="nav-link" data-scroll-target="#split-data"><span class="header-section-number">2.4</span> split data</a></li>
+  <li><a href="#pipelines-for-data-preprocessing" id="toc-pipelines-for-data-preprocessing" class="nav-link" data-scroll-target="#pipelines-for-data-preprocessing"><span class="header-section-number">2.5</span> Pipelines for Data Preprocessing</a></li>
+  </ul></li>
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model"><span class="header-section-number">3</span> model</a>
+  <ul class="collapse">
+  <li><a href="#define-model" id="toc-define-model" class="nav-link" data-scroll-target="#define-model"><span class="header-section-number">3.1</span> define model</a></li>
+  <li><a href="#define-pipline" id="toc-define-pipline" class="nav-link" data-scroll-target="#define-pipline"><span class="header-section-number">3.2</span> define pipline</a></li>
+  <li><a href="#train-model" id="toc-train-model" class="nav-link" data-scroll-target="#train-model"><span class="header-section-number">3.3</span> train model</a></li>
+  <li><a href="#preformance" id="toc-preformance" class="nav-link" data-scroll-target="#preformance"><span class="header-section-number">3.4</span> Preformance</a></li>
+  <li><a href="#k-fold-cross-validation" id="toc-k-fold-cross-validation" class="nav-link" data-scroll-target="#k-fold-cross-validation"><span class="header-section-number">3.5</span> k-Fold Cross-Validation</a></li>
+  </ul></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">4</span> reference:</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/1 KNN on house price data.html">Regression</a></li><li class="breadcrumb-item"><a href="../regression/1 KNN on house price data.html">Regression model with decision tree</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Regression model with decision tree</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<p class="subtitle lead">with house price data</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="load-package" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> load package</h1>
+<div id="450fe1d1" class="cell" data-execution_count="1">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#os.system('pip install xgboost')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="38e61ed3" class="cell" data-execution_count="2">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeRegressor</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> explained_variance_score</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="data" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> data</h1>
+<section id="input-data" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="input-data"><span class="header-section-number">2.1</span> input data</h2>
+<div id="7d025019" class="cell" data-execution_count="3">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_train <span class="op">=</span> pd.read_csv(<span class="st">'./data/train.csv'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> pd.read_csv(<span class="st">'./data/test.csv'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Store our test passenger IDs for easy access</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>Id <span class="op">=</span> df_train[<span class="st">'Id'</span>]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Showing overview of the train dataset</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>df_train.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Id</th>
+<th data-quarto-table-cell-role="th">MSSubClass</th>
+<th data-quarto-table-cell-role="th">MSZoning</th>
+<th data-quarto-table-cell-role="th">LotFrontage</th>
+<th data-quarto-table-cell-role="th">LotArea</th>
+<th data-quarto-table-cell-role="th">Street</th>
+<th data-quarto-table-cell-role="th">Alley</th>
+<th data-quarto-table-cell-role="th">LotShape</th>
+<th data-quarto-table-cell-role="th">LandContour</th>
+<th data-quarto-table-cell-role="th">Utilities</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">PoolArea</th>
+<th data-quarto-table-cell-role="th">PoolQC</th>
+<th data-quarto-table-cell-role="th">Fence</th>
+<th data-quarto-table-cell-role="th">MiscFeature</th>
+<th data-quarto-table-cell-role="th">MiscVal</th>
+<th data-quarto-table-cell-role="th">MoSold</th>
+<th data-quarto-table-cell-role="th">YrSold</th>
+<th data-quarto-table-cell-role="th">SaleType</th>
+<th data-quarto-table-cell-role="th">SaleCondition</th>
+<th data-quarto-table-cell-role="th">SalePrice</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>60</td>
+<td>RL</td>
+<td>65.0</td>
+<td>8450</td>
+<td>Pave</td>
+<td>NaN</td>
+<td>Reg</td>
+<td>Lvl</td>
+<td>AllPub</td>
+<td>...</td>
+<td>0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0</td>
+<td>2</td>
+<td>2008</td>
+<td>WD</td>
+<td>Normal</td>
+<td>208500</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>20</td>
+<td>RL</td>
+<td>80.0</td>
+<td>9600</td>
+<td>Pave</td>
+<td>NaN</td>
+<td>Reg</td>
+<td>Lvl</td>
+<td>AllPub</td>
+<td>...</td>
+<td>0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0</td>
+<td>5</td>
+<td>2007</td>
+<td>WD</td>
+<td>Normal</td>
+<td>181500</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>60</td>
+<td>RL</td>
+<td>68.0</td>
+<td>11250</td>
+<td>Pave</td>
+<td>NaN</td>
+<td>IR1</td>
+<td>Lvl</td>
+<td>AllPub</td>
+<td>...</td>
+<td>0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0</td>
+<td>9</td>
+<td>2008</td>
+<td>WD</td>
+<td>Normal</td>
+<td>223500</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>70</td>
+<td>RL</td>
+<td>60.0</td>
+<td>9550</td>
+<td>Pave</td>
+<td>NaN</td>
+<td>IR1</td>
+<td>Lvl</td>
+<td>AllPub</td>
+<td>...</td>
+<td>0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0</td>
+<td>2</td>
+<td>2006</td>
+<td>WD</td>
+<td>Abnorml</td>
+<td>140000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>60</td>
+<td>RL</td>
+<td>84.0</td>
+<td>14260</td>
+<td>Pave</td>
+<td>NaN</td>
+<td>IR1</td>
+<td>Lvl</td>
+<td>AllPub</td>
+<td>...</td>
+<td>0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0</td>
+<td>12</td>
+<td>2008</td>
+<td>WD</td>
+<td>Normal</td>
+<td>250000</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 81 columns</p>
+</div>
+</div>
+</div>
+</div>
+<div id="4c9ace73" class="cell" data-execution_count="4">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#df_train.info()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="93f48d86" class="cell" data-execution_count="5">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_train[<span class="st">'role'</span>] <span class="op">=</span> <span class="st">'train'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_test[<span class="st">'role'</span>] <span class="op">=</span> <span class="st">'test'</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Concatenate training and test sets</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.concat([df_train.drop([<span class="st">'SalePrice'</span>], axis<span class="op">=</span><span class="dv">1</span>), df_test])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="data-eda" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="data-eda"><span class="header-section-number">2.2</span> data EDA</h2>
+<div id="b613029c" class="cell" data-execution_count="6">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_train.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Id</th>
+<th data-quarto-table-cell-role="th">MSSubClass</th>
+<th data-quarto-table-cell-role="th">LotFrontage</th>
+<th data-quarto-table-cell-role="th">LotArea</th>
+<th data-quarto-table-cell-role="th">OverallQual</th>
+<th data-quarto-table-cell-role="th">OverallCond</th>
+<th data-quarto-table-cell-role="th">YearBuilt</th>
+<th data-quarto-table-cell-role="th">YearRemodAdd</th>
+<th data-quarto-table-cell-role="th">MasVnrArea</th>
+<th data-quarto-table-cell-role="th">BsmtFinSF1</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">WoodDeckSF</th>
+<th data-quarto-table-cell-role="th">OpenPorchSF</th>
+<th data-quarto-table-cell-role="th">EnclosedPorch</th>
+<th data-quarto-table-cell-role="th">3SsnPorch</th>
+<th data-quarto-table-cell-role="th">ScreenPorch</th>
+<th data-quarto-table-cell-role="th">PoolArea</th>
+<th data-quarto-table-cell-role="th">MiscVal</th>
+<th data-quarto-table-cell-role="th">MoSold</th>
+<th data-quarto-table-cell-role="th">YrSold</th>
+<th data-quarto-table-cell-role="th">SalePrice</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1201.000000</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1452.000000</td>
+<td>1460.000000</td>
+<td>...</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+<td>1460.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>730.500000</td>
+<td>56.897260</td>
+<td>70.049958</td>
+<td>10516.828082</td>
+<td>6.099315</td>
+<td>5.575342</td>
+<td>1971.267808</td>
+<td>1984.865753</td>
+<td>103.685262</td>
+<td>443.639726</td>
+<td>...</td>
+<td>94.244521</td>
+<td>46.660274</td>
+<td>21.954110</td>
+<td>3.409589</td>
+<td>15.060959</td>
+<td>2.758904</td>
+<td>43.489041</td>
+<td>6.321918</td>
+<td>2007.815753</td>
+<td>180921.195890</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>421.610009</td>
+<td>42.300571</td>
+<td>24.284752</td>
+<td>9981.264932</td>
+<td>1.382997</td>
+<td>1.112799</td>
+<td>30.202904</td>
+<td>20.645407</td>
+<td>181.066207</td>
+<td>456.098091</td>
+<td>...</td>
+<td>125.338794</td>
+<td>66.256028</td>
+<td>61.119149</td>
+<td>29.317331</td>
+<td>55.757415</td>
+<td>40.177307</td>
+<td>496.123024</td>
+<td>2.703626</td>
+<td>1.328095</td>
+<td>79442.502883</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1.000000</td>
+<td>20.000000</td>
+<td>21.000000</td>
+<td>1300.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1872.000000</td>
+<td>1950.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>...</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+<td>2006.000000</td>
+<td>34900.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>365.750000</td>
+<td>20.000000</td>
+<td>59.000000</td>
+<td>7553.500000</td>
+<td>5.000000</td>
+<td>5.000000</td>
+<td>1954.000000</td>
+<td>1967.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>...</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>5.000000</td>
+<td>2007.000000</td>
+<td>129975.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>730.500000</td>
+<td>50.000000</td>
+<td>69.000000</td>
+<td>9478.500000</td>
+<td>6.000000</td>
+<td>5.000000</td>
+<td>1973.000000</td>
+<td>1994.000000</td>
+<td>0.000000</td>
+<td>383.500000</td>
+<td>...</td>
+<td>0.000000</td>
+<td>25.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>6.000000</td>
+<td>2008.000000</td>
+<td>163000.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>1095.250000</td>
+<td>70.000000</td>
+<td>80.000000</td>
+<td>11601.500000</td>
+<td>7.000000</td>
+<td>6.000000</td>
+<td>2000.000000</td>
+<td>2004.000000</td>
+<td>166.000000</td>
+<td>712.250000</td>
+<td>...</td>
+<td>168.000000</td>
+<td>68.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>8.000000</td>
+<td>2009.000000</td>
+<td>214000.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>1460.000000</td>
+<td>190.000000</td>
+<td>313.000000</td>
+<td>215245.000000</td>
+<td>10.000000</td>
+<td>9.000000</td>
+<td>2010.000000</td>
+<td>2010.000000</td>
+<td>1600.000000</td>
+<td>5644.000000</td>
+<td>...</td>
+<td>857.000000</td>
+<td>547.000000</td>
+<td>552.000000</td>
+<td>508.000000</td>
+<td>480.000000</td>
+<td>738.000000</td>
+<td>15500.000000</td>
+<td>12.000000</td>
+<td>2010.000000</td>
+<td>755000.000000</td>
+</tr>
+</tbody>
+</table>
+
+<p>8 rows × 38 columns</p>
+</div>
+</div>
+</div>
+</div>
+<div id="7a3baf8c" class="cell" data-execution_count="7">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_train.describe(include<span class="op">=</span>[<span class="bu">object</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">MSZoning</th>
+<th data-quarto-table-cell-role="th">Street</th>
+<th data-quarto-table-cell-role="th">Alley</th>
+<th data-quarto-table-cell-role="th">LotShape</th>
+<th data-quarto-table-cell-role="th">LandContour</th>
+<th data-quarto-table-cell-role="th">Utilities</th>
+<th data-quarto-table-cell-role="th">LotConfig</th>
+<th data-quarto-table-cell-role="th">LandSlope</th>
+<th data-quarto-table-cell-role="th">Neighborhood</th>
+<th data-quarto-table-cell-role="th">Condition1</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">GarageFinish</th>
+<th data-quarto-table-cell-role="th">GarageQual</th>
+<th data-quarto-table-cell-role="th">GarageCond</th>
+<th data-quarto-table-cell-role="th">PavedDrive</th>
+<th data-quarto-table-cell-role="th">PoolQC</th>
+<th data-quarto-table-cell-role="th">Fence</th>
+<th data-quarto-table-cell-role="th">MiscFeature</th>
+<th data-quarto-table-cell-role="th">SaleType</th>
+<th data-quarto-table-cell-role="th">SaleCondition</th>
+<th data-quarto-table-cell-role="th">role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>1460</td>
+<td>1460</td>
+<td>91</td>
+<td>1460</td>
+<td>1460</td>
+<td>1460</td>
+<td>1460</td>
+<td>1460</td>
+<td>1460</td>
+<td>1460</td>
+<td>...</td>
+<td>1379</td>
+<td>1379</td>
+<td>1379</td>
+<td>1460</td>
+<td>7</td>
+<td>281</td>
+<td>54</td>
+<td>1460</td>
+<td>1460</td>
+<td>1460</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">unique</td>
+<td>5</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
+<td>5</td>
+<td>3</td>
+<td>25</td>
+<td>9</td>
+<td>...</td>
+<td>3</td>
+<td>5</td>
+<td>5</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+<td>9</td>
+<td>6</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">top</td>
+<td>RL</td>
+<td>Pave</td>
+<td>Grvl</td>
+<td>Reg</td>
+<td>Lvl</td>
+<td>AllPub</td>
+<td>Inside</td>
+<td>Gtl</td>
+<td>NAmes</td>
+<td>Norm</td>
+<td>...</td>
+<td>Unf</td>
+<td>TA</td>
+<td>TA</td>
+<td>Y</td>
+<td>Gd</td>
+<td>MnPrv</td>
+<td>Shed</td>
+<td>WD</td>
+<td>Normal</td>
+<td>train</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">freq</td>
+<td>1151</td>
+<td>1454</td>
+<td>50</td>
+<td>925</td>
+<td>1311</td>
+<td>1459</td>
+<td>1052</td>
+<td>1382</td>
+<td>225</td>
+<td>1260</td>
+<td>...</td>
+<td>605</td>
+<td>1311</td>
+<td>1326</td>
+<td>1340</td>
+<td>3</td>
+<td>157</td>
+<td>49</td>
+<td>1267</td>
+<td>1198</td>
+<td>1460</td>
+</tr>
+</tbody>
+</table>
+
+<p>4 rows × 44 columns</p>
+</div>
+</div>
+</div>
+</div>
+<div id="51d74c5a" class="cell" data-execution_count="8">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sns.catplot(x='Survived', col='Sex', kind='count', data=df_train);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Missing Data</p>
+<div id="43ef7da5" class="cell" data-execution_count="9">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_train.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>Id                 0
+MSSubClass         0
+MSZoning           0
+LotFrontage      259
+LotArea            0
+                ... 
+YrSold             0
+SaleType           0
+SaleCondition      0
+SalePrice          0
+role               0
+Length: 82, dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="data-wrangling" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="data-wrangling"><span class="header-section-number">2.3</span> Data Wrangling</h2>
+</section>
+<section id="split-data" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="split-data"><span class="header-section-number">2.4</span> split data</h2>
+<div id="3d513464" class="cell" data-execution_count="10">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> df_train.SalePrice</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_train.drop([<span class="st">'SalePrice'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>X_train,X_test,Y_train,Y_test<span class="op">=</span>train_test_split(X,Y,train_size <span class="op">=</span> <span class="fl">0.8</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> X_train.drop(<span class="st">'role'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> X_test.drop(<span class="st">'role'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="3203154a" class="cell" data-execution_count="11">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_train.shape)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_test.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1168, 80)
+(292, 80)</code></pre>
+</div>
+</div>
+<div id="6337315b" class="cell" data-execution_count="12">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Y_train.shape)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Y_test.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1168,)
+(292,)</code></pre>
+</div>
+</div>
+<div id="43c134e0" class="cell" data-execution_count="13">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>categorical_cols <span class="op">=</span> [cname <span class="cf">for</span> cname <span class="kw">in</span> X_train.columns </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> X_train[cname].nunique() <span class="op">&lt;</span> <span class="dv">10</span> <span class="kw">and</span> X_train[cname].dtype <span class="op">==</span> <span class="st">"object"</span>]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>numerical_cols <span class="op">=</span> numerical_cols <span class="op">=</span> [cname <span class="cf">for</span> cname <span class="kw">in</span> X_train.columns </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> X_train[cname].dtype <span class="kw">in</span> [<span class="st">'int64'</span>, <span class="st">'float64'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="935ea43f" class="cell" data-execution_count="14">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The total number of categorical columns:"</span>, <span class="bu">len</span>(categorical_cols))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The total number of numerical columns:"</span>, <span class="bu">len</span>(numerical_cols))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>The total number of categorical columns: 40
+The total number of numerical columns: 37</code></pre>
+</div>
+</div>
+<div id="f8ecbe2f" class="cell" data-execution_count="15">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>my_cols <span class="op">=</span> categorical_cols <span class="op">+</span> numerical_cols</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> X_train[my_cols].copy()</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>X_test<span class="op">=</span> X_test[my_cols].copy()</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>X_final <span class="op">=</span> df_test[my_cols].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="pipelines-for-data-preprocessing" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="pipelines-for-data-preprocessing"><span class="header-section-number">2.5</span> Pipelines for Data Preprocessing</h2>
+<div id="25fb2760" class="cell" data-execution_count="16">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.impute <span class="im">import</span> SimpleImputer</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="461a7511" class="cell" data-execution_count="17">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>numerical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'imputer_num'</span>, SimpleImputer(strategy<span class="op">=</span><span class="st">'median'</span>)), </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'scaler'</span>, StandardScaler())</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="86f75fbf" class="cell" data-execution_count="18">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>categorical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'imputer_cat'</span>, SimpleImputer(strategy<span class="op">=</span><span class="st">'most_frequent'</span>)),</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'onehot'</span>, OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">'ignore'</span>))</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="252ede61" class="cell" data-execution_count="19">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>preprocessor <span class="op">=</span> ColumnTransformer(transformers<span class="op">=</span>[</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'num'</span>, numerical_transformer, numerical_cols),</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'cat'</span>, categorical_transformer, categorical_cols)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+</section>
+<section id="model" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> model</h1>
+<section id="define-model" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="define-model"><span class="header-section-number">3.1</span> define model</h2>
+<div id="b974ca16" class="cell" data-execution_count="20">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ml_model <span class="op">=</span> DecisionTreeRegressor(random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>ml_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</a></style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeRegressor(random_state=0)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;&nbsp;DecisionTreeRegressor<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.tree.DecisionTreeRegressor.html">?<span>Documentation for DecisionTreeRegressor</span></a><span class="sk-estimator-doc-link ">i<span>Not fitted</span></span></label><div class="sk-toggleable__content "><pre>DecisionTreeRegressor(random_state=0)</pre></div> </div></div></div></div>
+</div>
+</div>
+</section>
+<section id="define-pipline" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="define-pipline"><span class="header-section-number">3.2</span> define pipline</h2>
+<div id="9cf6111d" class="cell" data-execution_count="21">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> Pipeline(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  steps<span class="op">=</span>[</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>         (<span class="st">'preprocessor'</span>, preprocessor), </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>         (<span class="st">'model_dt'</span>, ml_model)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>         ]</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="train-model" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="train-model"><span class="header-section-number">3.3</span> train model</h2>
+<div id="0878e242" class="cell" data-execution_count="22">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pipeline.fit(X_train, Y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<style>#sk-container-id-2 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-2 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-2 pre {
+  padding: 0;
+}
+
+#sk-container-id-2 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-2 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-2 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-2 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-2 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-2 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-2 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-2 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-2 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-2 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-2 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-2 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-2 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-2 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-2 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-2 div.sk-label label.sk-toggleable__label,
+#sk-container-id-2 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-2 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-2 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-2 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-2 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-2 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-2 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-2 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-2 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-2 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</a></style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num',
+                                                  Pipeline(steps=[('imputer_num',
+                                                                   SimpleImputer(strategy='median')),
+                                                                  ('scaler',
+                                                                   StandardScaler())]),
+                                                  ['Id', 'MSSubClass',
+                                                   'LotFrontage', 'LotArea',
+                                                   'OverallQual', 'OverallCond',
+                                                   'YearBuilt', 'YearRemodAdd',
+                                                   'MasVnrArea', 'BsmtFinSF1',
+                                                   'BsmtFinSF2', 'BsmtUnfSF',
+                                                   'TotalBsmtSF', '1stFlrSF',
+                                                   '2ndFlrSF'...
+                                                   'LotConfig', 'LandSlope',
+                                                   'Condition1', 'Condition2',
+                                                   'BldgType', 'HouseStyle',
+                                                   'RoofStyle', 'RoofMatl',
+                                                   'MasVnrType', 'ExterQual',
+                                                   'ExterCond', 'Foundation',
+                                                   'BsmtQual', 'BsmtCond',
+                                                   'BsmtExposure',
+                                                   'BsmtFinType1',
+                                                   'BsmtFinType2', 'Heating',
+                                                   'HeatingQC', 'CentralAir',
+                                                   'Electrical', 'KitchenQual',
+                                                   'Functional', 'FireplaceQu', ...])])),
+                ('model_dt', DecisionTreeRegressor(random_state=0))])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox"><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;Pipeline<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num',
+                                                  Pipeline(steps=[('imputer_num',
+                                                                   SimpleImputer(strategy='median')),
+                                                                  ('scaler',
+                                                                   StandardScaler())]),
+                                                  ['Id', 'MSSubClass',
+                                                   'LotFrontage', 'LotArea',
+                                                   'OverallQual', 'OverallCond',
+                                                   'YearBuilt', 'YearRemodAdd',
+                                                   'MasVnrArea', 'BsmtFinSF1',
+                                                   'BsmtFinSF2', 'BsmtUnfSF',
+                                                   'TotalBsmtSF', '1stFlrSF',
+                                                   '2ndFlrSF'...
+                                                   'LotConfig', 'LandSlope',
+                                                   'Condition1', 'Condition2',
+                                                   'BldgType', 'HouseStyle',
+                                                   'RoofStyle', 'RoofMatl',
+                                                   'MasVnrType', 'ExterQual',
+                                                   'ExterCond', 'Foundation',
+                                                   'BsmtQual', 'BsmtCond',
+                                                   'BsmtExposure',
+                                                   'BsmtFinType1',
+                                                   'BsmtFinType2', 'Heating',
+                                                   'HeatingQC', 'CentralAir',
+                                                   'Electrical', 'KitchenQual',
+                                                   'Functional', 'FireplaceQu', ...])])),
+                ('model_dt', DecisionTreeRegressor(random_state=0))])</pre></div> </div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox"><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;preprocessor: ColumnTransformer<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for preprocessor: ColumnTransformer</span></a></label><div class="sk-toggleable__content fitted"><pre>ColumnTransformer(transformers=[('num',
+                                 Pipeline(steps=[('imputer_num',
+                                                  SimpleImputer(strategy='median')),
+                                                 ('scaler', StandardScaler())]),
+                                 ['Id', 'MSSubClass', 'LotFrontage', 'LotArea',
+                                  'OverallQual', 'OverallCond', 'YearBuilt',
+                                  'YearRemodAdd', 'MasVnrArea', 'BsmtFinSF1',
+                                  'BsmtFinSF2', 'BsmtUnfSF', 'TotalBsmtSF',
+                                  '1stFlrSF', '2ndFlrSF', 'LowQualFinSF',
+                                  'GrLivArea', 'Bsm...
+                                 ['MSZoning', 'Street', 'Alley', 'LotShape',
+                                  'LandContour', 'Utilities', 'LotConfig',
+                                  'LandSlope', 'Condition1', 'Condition2',
+                                  'BldgType', 'HouseStyle', 'RoofStyle',
+                                  'RoofMatl', 'MasVnrType', 'ExterQual',
+                                  'ExterCond', 'Foundation', 'BsmtQual',
+                                  'BsmtCond', 'BsmtExposure', 'BsmtFinType1',
+                                  'BsmtFinType2', 'Heating', 'HeatingQC',
+                                  'CentralAir', 'Electrical', 'KitchenQual',
+                                  'Functional', 'FireplaceQu', ...])])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">num</label><div class="sk-toggleable__content fitted"><pre>['Id', 'MSSubClass', 'LotFrontage', 'LotArea', 'OverallQual', 'OverallCond', 'YearBuilt', 'YearRemodAdd', 'MasVnrArea', 'BsmtFinSF1', 'BsmtFinSF2', 'BsmtUnfSF', 'TotalBsmtSF', '1stFlrSF', '2ndFlrSF', 'LowQualFinSF', 'GrLivArea', 'BsmtFullBath', 'BsmtHalfBath', 'FullBath', 'HalfBath', 'BedroomAbvGr', 'KitchenAbvGr', 'TotRmsAbvGrd', 'Fireplaces', 'GarageYrBlt', 'GarageCars', 'GarageArea', 'WoodDeckSF', 'OpenPorchSF', 'EnclosedPorch', '3SsnPorch', 'ScreenPorch', 'PoolArea', 'MiscVal', 'MoSold', 'YrSold']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;SimpleImputer<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></label><div class="sk-toggleable__content fitted"><pre>SimpleImputer(strategy='median')</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;StandardScaler<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox"><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">cat</label><div class="sk-toggleable__content fitted"><pre>['MSZoning', 'Street', 'Alley', 'LotShape', 'LandContour', 'Utilities', 'LotConfig', 'LandSlope', 'Condition1', 'Condition2', 'BldgType', 'HouseStyle', 'RoofStyle', 'RoofMatl', 'MasVnrType', 'ExterQual', 'ExterCond', 'Foundation', 'BsmtQual', 'BsmtCond', 'BsmtExposure', 'BsmtFinType1', 'BsmtFinType2', 'Heating', 'HeatingQC', 'CentralAir', 'Electrical', 'KitchenQual', 'Functional', 'FireplaceQu', 'GarageType', 'GarageFinish', 'GarageQual', 'GarageCond', 'PavedDrive', 'PoolQC', 'Fence', 'MiscFeature', 'SaleType', 'SaleCondition']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox"><label for="sk-estimator-id-8" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;SimpleImputer<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></label><div class="sk-toggleable__content fitted"><pre>SimpleImputer(strategy='most_frequent')</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox"><label for="sk-estimator-id-9" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;OneHotEncoder<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.preprocessing.OneHotEncoder.html">?<span>Documentation for OneHotEncoder</span></a></label><div class="sk-toggleable__content fitted"><pre>OneHotEncoder(handle_unknown='ignore')</pre></div> </div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox"><label for="sk-estimator-id-10" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;DecisionTreeRegressor<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.tree.DecisionTreeRegressor.html">?<span>Documentation for DecisionTreeRegressor</span></a></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeRegressor(random_state=0)</pre></div> </div></div></div></div></div></div>
+</div>
+</div>
+<div id="12deaaa3" class="cell" data-execution_count="23">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fitted_model<span class="op">=</span>pipeline.steps[<span class="dv">1</span>][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="9385e0f6" class="cell" data-execution_count="24">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>var<span class="op">=</span>pipeline[:<span class="op">-</span><span class="dv">1</span>].get_feature_names_out()</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>array(['num__Id', 'num__MSSubClass', 'num__LotFrontage', 'num__LotArea',
+       'num__OverallQual', 'num__OverallCond', 'num__YearBuilt',
+       'num__YearRemodAdd', 'num__MasVnrArea', 'num__BsmtFinSF1',
+       'num__BsmtFinSF2', 'num__BsmtUnfSF', 'num__TotalBsmtSF',
+       'num__1stFlrSF', 'num__2ndFlrSF', 'num__LowQualFinSF',
+       'num__GrLivArea', 'num__BsmtFullBath', 'num__BsmtHalfBath',
+       'num__FullBath', 'num__HalfBath', 'num__BedroomAbvGr',
+       'num__KitchenAbvGr', 'num__TotRmsAbvGrd', 'num__Fireplaces',
+       'num__GarageYrBlt', 'num__GarageCars', 'num__GarageArea',
+       'num__WoodDeckSF', 'num__OpenPorchSF', 'num__EnclosedPorch',
+       'num__3SsnPorch', 'num__ScreenPorch', 'num__PoolArea',
+       'num__MiscVal', 'num__MoSold', 'num__YrSold',
+       'cat__MSZoning_C (all)', 'cat__MSZoning_FV', 'cat__MSZoning_RH',
+       'cat__MSZoning_RL', 'cat__MSZoning_RM', 'cat__Street_Grvl',
+       'cat__Street_Pave', 'cat__Alley_Grvl', 'cat__Alley_Pave',
+       'cat__LotShape_IR1', 'cat__LotShape_IR2', 'cat__LotShape_IR3',
+       'cat__LotShape_Reg', 'cat__LandContour_Bnk',
+       'cat__LandContour_HLS', 'cat__LandContour_Low',
+       'cat__LandContour_Lvl', 'cat__Utilities_AllPub',
+       'cat__Utilities_NoSeWa', 'cat__LotConfig_Corner',
+       'cat__LotConfig_CulDSac', 'cat__LotConfig_FR2',
+       'cat__LotConfig_FR3', 'cat__LotConfig_Inside',
+       'cat__LandSlope_Gtl', 'cat__LandSlope_Mod', 'cat__LandSlope_Sev',
+       'cat__Condition1_Artery', 'cat__Condition1_Feedr',
+       'cat__Condition1_Norm', 'cat__Condition1_PosA',
+       'cat__Condition1_PosN', 'cat__Condition1_RRAe',
+       'cat__Condition1_RRAn', 'cat__Condition1_RRNe',
+       'cat__Condition1_RRNn', 'cat__Condition2_Artery',
+       'cat__Condition2_Feedr', 'cat__Condition2_Norm',
+       'cat__Condition2_PosA', 'cat__Condition2_PosN',
+       'cat__Condition2_RRAe', 'cat__Condition2_RRAn',
+       'cat__Condition2_RRNn', 'cat__BldgType_1Fam',
+       'cat__BldgType_2fmCon', 'cat__BldgType_Duplex',
+       'cat__BldgType_Twnhs', 'cat__BldgType_TwnhsE',
+       'cat__HouseStyle_1.5Fin', 'cat__HouseStyle_1.5Unf',
+       'cat__HouseStyle_1Story', 'cat__HouseStyle_2.5Fin',
+       'cat__HouseStyle_2.5Unf', 'cat__HouseStyle_2Story',
+       'cat__HouseStyle_SFoyer', 'cat__HouseStyle_SLvl',
+       'cat__RoofStyle_Flat', 'cat__RoofStyle_Gable',
+       'cat__RoofStyle_Gambrel', 'cat__RoofStyle_Hip',
+       'cat__RoofStyle_Mansard', 'cat__RoofStyle_Shed',
+       'cat__RoofMatl_CompShg', 'cat__RoofMatl_Membran',
+       'cat__RoofMatl_Metal', 'cat__RoofMatl_Roll',
+       'cat__RoofMatl_Tar&amp;Grv', 'cat__RoofMatl_WdShake',
+       'cat__RoofMatl_WdShngl', 'cat__MasVnrType_BrkCmn',
+       'cat__MasVnrType_BrkFace', 'cat__MasVnrType_Stone',
+       'cat__ExterQual_Ex', 'cat__ExterQual_Fa', 'cat__ExterQual_Gd',
+       'cat__ExterQual_TA', 'cat__ExterCond_Ex', 'cat__ExterCond_Fa',
+       'cat__ExterCond_Gd', 'cat__ExterCond_Po', 'cat__ExterCond_TA',
+       'cat__Foundation_BrkTil', 'cat__Foundation_CBlock',
+       'cat__Foundation_PConc', 'cat__Foundation_Slab',
+       'cat__Foundation_Stone', 'cat__Foundation_Wood',
+       'cat__BsmtQual_Ex', 'cat__BsmtQual_Fa', 'cat__BsmtQual_Gd',
+       'cat__BsmtQual_TA', 'cat__BsmtCond_Fa', 'cat__BsmtCond_Gd',
+       'cat__BsmtCond_Po', 'cat__BsmtCond_TA', 'cat__BsmtExposure_Av',
+       'cat__BsmtExposure_Gd', 'cat__BsmtExposure_Mn',
+       'cat__BsmtExposure_No', 'cat__BsmtFinType1_ALQ',
+       'cat__BsmtFinType1_BLQ', 'cat__BsmtFinType1_GLQ',
+       'cat__BsmtFinType1_LwQ', 'cat__BsmtFinType1_Rec',
+       'cat__BsmtFinType1_Unf', 'cat__BsmtFinType2_ALQ',
+       'cat__BsmtFinType2_BLQ', 'cat__BsmtFinType2_GLQ',
+       'cat__BsmtFinType2_LwQ', 'cat__BsmtFinType2_Rec',
+       'cat__BsmtFinType2_Unf', 'cat__Heating_Floor', 'cat__Heating_GasA',
+       'cat__Heating_GasW', 'cat__Heating_Grav', 'cat__Heating_OthW',
+       'cat__Heating_Wall', 'cat__HeatingQC_Ex', 'cat__HeatingQC_Fa',
+       'cat__HeatingQC_Gd', 'cat__HeatingQC_Po', 'cat__HeatingQC_TA',
+       'cat__CentralAir_N', 'cat__CentralAir_Y', 'cat__Electrical_FuseA',
+       'cat__Electrical_FuseF', 'cat__Electrical_FuseP',
+       'cat__Electrical_Mix', 'cat__Electrical_SBrkr',
+       'cat__KitchenQual_Ex', 'cat__KitchenQual_Fa',
+       'cat__KitchenQual_Gd', 'cat__KitchenQual_TA',
+       'cat__Functional_Maj1', 'cat__Functional_Maj2',
+       'cat__Functional_Min1', 'cat__Functional_Min2',
+       'cat__Functional_Mod', 'cat__Functional_Sev',
+       'cat__Functional_Typ', 'cat__FireplaceQu_Ex',
+       'cat__FireplaceQu_Fa', 'cat__FireplaceQu_Gd',
+       'cat__FireplaceQu_Po', 'cat__FireplaceQu_TA',
+       'cat__GarageType_2Types', 'cat__GarageType_Attchd',
+       'cat__GarageType_Basment', 'cat__GarageType_BuiltIn',
+       'cat__GarageType_CarPort', 'cat__GarageType_Detchd',
+       'cat__GarageFinish_Fin', 'cat__GarageFinish_RFn',
+       'cat__GarageFinish_Unf', 'cat__GarageQual_Ex',
+       'cat__GarageQual_Fa', 'cat__GarageQual_Gd', 'cat__GarageQual_Po',
+       'cat__GarageQual_TA', 'cat__GarageCond_Ex', 'cat__GarageCond_Fa',
+       'cat__GarageCond_Gd', 'cat__GarageCond_Po', 'cat__GarageCond_TA',
+       'cat__PavedDrive_N', 'cat__PavedDrive_P', 'cat__PavedDrive_Y',
+       'cat__PoolQC_Ex', 'cat__PoolQC_Fa', 'cat__PoolQC_Gd',
+       'cat__Fence_GdPrv', 'cat__Fence_GdWo', 'cat__Fence_MnPrv',
+       'cat__Fence_MnWw', 'cat__MiscFeature_Gar2',
+       'cat__MiscFeature_Othr', 'cat__MiscFeature_Shed',
+       'cat__MiscFeature_TenC', 'cat__SaleType_COD', 'cat__SaleType_CWD',
+       'cat__SaleType_Con', 'cat__SaleType_ConLD', 'cat__SaleType_ConLI',
+       'cat__SaleType_ConLw', 'cat__SaleType_New', 'cat__SaleType_Oth',
+       'cat__SaleType_WD', 'cat__SaleCondition_Abnorml',
+       'cat__SaleCondition_AdjLand', 'cat__SaleCondition_Alloca',
+       'cat__SaleCondition_Family', 'cat__SaleCondition_Normal',
+       'cat__SaleCondition_Partial'], dtype=object)</code></pre>
+</div>
+</div>
+<p>variable importance</p>
+<div id="3456694e" class="cell" data-execution_count="25">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> fitted_model.feature_importances_</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>pd.DataFrame({<span class="st">"variable"</span>:var,<span class="st">"importances"</span>:importances})</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>vi.sort_values(<span class="st">'importances'</span>,ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>vi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">variable</th>
+<th data-quarto-table-cell-role="th">importances</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>num__OverallQual</td>
+<td>0.621728</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16</td>
+<td>num__GrLivArea</td>
+<td>0.107462</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>num__2ndFlrSF</td>
+<td>0.063436</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">12</td>
+<td>num__TotalBsmtSF</td>
+<td>0.027207</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9</td>
+<td>num__BsmtFinSF1</td>
+<td>0.024391</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">70</td>
+<td>cat__Condition1_RRAn</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">71</td>
+<td>cat__Condition1_RRNe</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">72</td>
+<td>cat__Condition1_RRNn</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">135</td>
+<td>cat__BsmtExposure_Mn</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">163</td>
+<td>cat__Electrical_FuseF</td>
+<td>0.000000</td>
+</tr>
+</tbody>
+</table>
+
+<p>231 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="preformance" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="preformance"><span class="header-section-number">3.4</span> Preformance</h2>
+<div id="c96d9c58" class="cell" data-execution_count="26">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>Y_pred_dt <span class="op">=</span>pipeline.predict(X_test) <span class="co">#always gets x and retuns y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>R 2</p>
+<div id="cccd29ac" class="cell" data-execution_count="27">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> r2_score</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>r2_score(Y_test, Y_pred_dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>0.7395885552435282</code></pre>
+</div>
+</div>
+<p>MAE</p>
+<div id="90ab2e6f" class="cell" data-execution_count="28">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(Y_test, Y_pred_dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>25511.835616438355</code></pre>
+</div>
+</div>
+<p>RMSE</p>
+<div id="8b553fb8" class="cell" data-execution_count="29">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span>  math <span class="im">import</span> sqrt</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>mse<span class="op">=</span>mean_squared_error(Y_test, Y_pred_dt)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>rmse<span class="op">=</span>sqrt(mse)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>rmse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>42197.1945889544</code></pre>
+</div>
+</div>
+</section>
+<section id="k-fold-cross-validation" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="k-fold-cross-validation"><span class="header-section-number">3.5</span> k-Fold Cross-Validation</h2>
+<div id="9a3c835e" class="cell" data-execution_count="30">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="fa19acad" class="cell" data-execution_count="31">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>kf_dt <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>,shuffle<span class="op">=</span><span class="va">True</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="539aa6bc" class="cell" data-execution_count="32">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(pipeline, X_train, Y_train, cv<span class="op">=</span>kf_dt)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>np.mean(cv_dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>0.710316031815006</code></pre>
+</div>
+</div>
+<div id="7905b645" class="cell" data-execution_count="33">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(pipeline, X_train, Y_train, cv<span class="op">=</span>kf_dt,scoring <span class="op">=</span> <span class="st">'neg_mean_squared_error'</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>np.mean(np.sqrt(np.<span class="bu">abs</span>(cv_dt)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>42183.50882431197</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="reference" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> reference:</h1>
+<p>https://github.com/alicevillar/titanic-kaggle/blob/main/Titanic_DecisionTree.ipynb</p>
+<p>https://scikit-learn.org/stable/modules/tree.html</p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb44" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Regression model with decision tree"</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "with house price data"</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-bg: true</span></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-border-left: "#31BAE9"</span></span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># load package</span></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a><span class="co">#os.system('pip install xgboost')</span></span>
+<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-26"><a href="#cb44-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-30"><a href="#cb44-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-31"><a href="#cb44-31" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb44-32"><a href="#cb44-32" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb44-33"><a href="#cb44-33" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb44-34"><a href="#cb44-34" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb44-35"><a href="#cb44-35" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb44-36"><a href="#cb44-36" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb44-37"><a href="#cb44-37" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeRegressor</span>
+<span id="cb44-38"><a href="#cb44-38" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
+<span id="cb44-39"><a href="#cb44-39" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> explained_variance_score</span>
+<span id="cb44-40"><a href="#cb44-40" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb44-41"><a href="#cb44-41" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb44-42"><a href="#cb44-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-43"><a href="#cb44-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-44"><a href="#cb44-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-45"><a href="#cb44-45" aria-hidden="true" tabindex="-1"></a><span class="fu"># data</span></span>
+<span id="cb44-46"><a href="#cb44-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-47"><a href="#cb44-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## input data</span></span>
+<span id="cb44-50"><a href="#cb44-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-51"><a href="#cb44-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the data</span></span>
+<span id="cb44-52"><a href="#cb44-52" aria-hidden="true" tabindex="-1"></a>df_train <span class="op">=</span> pd.read_csv(<span class="st">'./data/train.csv'</span>)</span>
+<span id="cb44-53"><a href="#cb44-53" aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> pd.read_csv(<span class="st">'./data/test.csv'</span>)</span>
+<span id="cb44-54"><a href="#cb44-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-55"><a href="#cb44-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Store our test passenger IDs for easy access</span></span>
+<span id="cb44-56"><a href="#cb44-56" aria-hidden="true" tabindex="-1"></a>Id <span class="op">=</span> df_train[<span class="st">'Id'</span>]</span>
+<span id="cb44-57"><a href="#cb44-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-58"><a href="#cb44-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-59"><a href="#cb44-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Showing overview of the train dataset</span></span>
+<span id="cb44-60"><a href="#cb44-60" aria-hidden="true" tabindex="-1"></a>df_train.head()</span>
+<span id="cb44-61"><a href="#cb44-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-62"><a href="#cb44-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-65"><a href="#cb44-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-66"><a href="#cb44-66" aria-hidden="true" tabindex="-1"></a><span class="co">#df_train.info()</span></span>
+<span id="cb44-67"><a href="#cb44-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-68"><a href="#cb44-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-69"><a href="#cb44-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-72"><a href="#cb44-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-73"><a href="#cb44-73" aria-hidden="true" tabindex="-1"></a>df_train[<span class="st">'role'</span>] <span class="op">=</span> <span class="st">'train'</span></span>
+<span id="cb44-74"><a href="#cb44-74" aria-hidden="true" tabindex="-1"></a>df_test[<span class="st">'role'</span>] <span class="op">=</span> <span class="st">'test'</span></span>
+<span id="cb44-75"><a href="#cb44-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-76"><a href="#cb44-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Concatenate training and test sets</span></span>
+<span id="cb44-77"><a href="#cb44-77" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.concat([df_train.drop([<span class="st">'SalePrice'</span>], axis<span class="op">=</span><span class="dv">1</span>), df_test])</span>
+<span id="cb44-78"><a href="#cb44-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-79"><a href="#cb44-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-80"><a href="#cb44-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-81"><a href="#cb44-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## data EDA</span></span>
+<span id="cb44-82"><a href="#cb44-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-85"><a href="#cb44-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-86"><a href="#cb44-86" aria-hidden="true" tabindex="-1"></a>df_train.describe()</span>
+<span id="cb44-87"><a href="#cb44-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-88"><a href="#cb44-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-89"><a href="#cb44-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-92"><a href="#cb44-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-93"><a href="#cb44-93" aria-hidden="true" tabindex="-1"></a>df_train.describe(include<span class="op">=</span>[<span class="bu">object</span>])</span>
+<span id="cb44-94"><a href="#cb44-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-95"><a href="#cb44-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-96"><a href="#cb44-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-99"><a href="#cb44-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-100"><a href="#cb44-100" aria-hidden="true" tabindex="-1"></a><span class="co">#sns.catplot(x='Survived', col='Sex', kind='count', data=df_train);</span></span>
+<span id="cb44-101"><a href="#cb44-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-102"><a href="#cb44-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-103"><a href="#cb44-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-104"><a href="#cb44-104" aria-hidden="true" tabindex="-1"></a>Missing Data</span>
+<span id="cb44-107"><a href="#cb44-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-108"><a href="#cb44-108" aria-hidden="true" tabindex="-1"></a>df_train.isnull().<span class="bu">sum</span>()</span>
+<span id="cb44-109"><a href="#cb44-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-110"><a href="#cb44-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-111"><a href="#cb44-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Wrangling</span></span>
+<span id="cb44-112"><a href="#cb44-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-113"><a href="#cb44-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-114"><a href="#cb44-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-115"><a href="#cb44-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-116"><a href="#cb44-116" aria-hidden="true" tabindex="-1"></a><span class="fu">## split data</span></span>
+<span id="cb44-117"><a href="#cb44-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-120"><a href="#cb44-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-121"><a href="#cb44-121" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> df_train.SalePrice</span>
+<span id="cb44-122"><a href="#cb44-122" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_train.drop([<span class="st">'SalePrice'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb44-123"><a href="#cb44-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-124"><a href="#cb44-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-125"><a href="#cb44-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-126"><a href="#cb44-126" aria-hidden="true" tabindex="-1"></a>X_train,X_test,Y_train,Y_test<span class="op">=</span>train_test_split(X,Y,train_size <span class="op">=</span> <span class="fl">0.8</span>)</span>
+<span id="cb44-127"><a href="#cb44-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-128"><a href="#cb44-128" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> X_train.drop(<span class="st">'role'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb44-129"><a href="#cb44-129" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> X_test.drop(<span class="st">'role'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb44-130"><a href="#cb44-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-131"><a href="#cb44-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-132"><a href="#cb44-132" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-133"><a href="#cb44-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-134"><a href="#cb44-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-137"><a href="#cb44-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-138"><a href="#cb44-138" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_train.shape)</span>
+<span id="cb44-139"><a href="#cb44-139" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_test.shape)</span>
+<span id="cb44-140"><a href="#cb44-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-141"><a href="#cb44-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-144"><a href="#cb44-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-145"><a href="#cb44-145" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Y_train.shape)</span>
+<span id="cb44-146"><a href="#cb44-146" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Y_test.shape)</span>
+<span id="cb44-147"><a href="#cb44-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-148"><a href="#cb44-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-151"><a href="#cb44-151" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-152"><a href="#cb44-152" aria-hidden="true" tabindex="-1"></a>categorical_cols <span class="op">=</span> [cname <span class="cf">for</span> cname <span class="kw">in</span> X_train.columns </span>
+<span id="cb44-153"><a href="#cb44-153" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> X_train[cname].nunique() <span class="op">&lt;</span> <span class="dv">10</span> <span class="kw">and</span> X_train[cname].dtype <span class="op">==</span> <span class="st">"object"</span>]</span>
+<span id="cb44-154"><a href="#cb44-154" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb44-155"><a href="#cb44-155" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb44-156"><a href="#cb44-156" aria-hidden="true" tabindex="-1"></a>numerical_cols <span class="op">=</span> numerical_cols <span class="op">=</span> [cname <span class="cf">for</span> cname <span class="kw">in</span> X_train.columns </span>
+<span id="cb44-157"><a href="#cb44-157" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> X_train[cname].dtype <span class="kw">in</span> [<span class="st">'int64'</span>, <span class="st">'float64'</span>]]</span>
+<span id="cb44-158"><a href="#cb44-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-159"><a href="#cb44-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-162"><a href="#cb44-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-163"><a href="#cb44-163" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The total number of categorical columns:"</span>, <span class="bu">len</span>(categorical_cols))</span>
+<span id="cb44-164"><a href="#cb44-164" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The total number of numerical columns:"</span>, <span class="bu">len</span>(numerical_cols))</span>
+<span id="cb44-165"><a href="#cb44-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-166"><a href="#cb44-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-167"><a href="#cb44-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-170"><a href="#cb44-170" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-171"><a href="#cb44-171" aria-hidden="true" tabindex="-1"></a>my_cols <span class="op">=</span> categorical_cols <span class="op">+</span> numerical_cols</span>
+<span id="cb44-172"><a href="#cb44-172" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> X_train[my_cols].copy()</span>
+<span id="cb44-173"><a href="#cb44-173" aria-hidden="true" tabindex="-1"></a>X_test<span class="op">=</span> X_test[my_cols].copy()</span>
+<span id="cb44-174"><a href="#cb44-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-175"><a href="#cb44-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-176"><a href="#cb44-176" aria-hidden="true" tabindex="-1"></a>X_final <span class="op">=</span> df_test[my_cols].copy()</span>
+<span id="cb44-177"><a href="#cb44-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-178"><a href="#cb44-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-179"><a href="#cb44-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-180"><a href="#cb44-180" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pipelines for Data Preprocessing</span></span>
+<span id="cb44-181"><a href="#cb44-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-184"><a href="#cb44-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-185"><a href="#cb44-185" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
+<span id="cb44-186"><a href="#cb44-186" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.impute <span class="im">import</span> SimpleImputer</span>
+<span id="cb44-187"><a href="#cb44-187" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb44-188"><a href="#cb44-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-189"><a href="#cb44-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-190"><a href="#cb44-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-193"><a href="#cb44-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-194"><a href="#cb44-194" aria-hidden="true" tabindex="-1"></a>numerical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
+<span id="cb44-195"><a href="#cb44-195" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'imputer_num'</span>, SimpleImputer(strategy<span class="op">=</span><span class="st">'median'</span>)), </span>
+<span id="cb44-196"><a href="#cb44-196" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'scaler'</span>, StandardScaler())</span>
+<span id="cb44-197"><a href="#cb44-197" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb44-198"><a href="#cb44-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-199"><a href="#cb44-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-200"><a href="#cb44-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-201"><a href="#cb44-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-202"><a href="#cb44-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-205"><a href="#cb44-205" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-206"><a href="#cb44-206" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
+<span id="cb44-207"><a href="#cb44-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-208"><a href="#cb44-208" aria-hidden="true" tabindex="-1"></a>categorical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
+<span id="cb44-209"><a href="#cb44-209" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'imputer_cat'</span>, SimpleImputer(strategy<span class="op">=</span><span class="st">'most_frequent'</span>)),</span>
+<span id="cb44-210"><a href="#cb44-210" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'onehot'</span>, OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">'ignore'</span>))</span>
+<span id="cb44-211"><a href="#cb44-211" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb44-212"><a href="#cb44-212" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-213"><a href="#cb44-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-214"><a href="#cb44-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-217"><a href="#cb44-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-218"><a href="#cb44-218" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
+<span id="cb44-219"><a href="#cb44-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-220"><a href="#cb44-220" aria-hidden="true" tabindex="-1"></a>preprocessor <span class="op">=</span> ColumnTransformer(transformers<span class="op">=</span>[</span>
+<span id="cb44-221"><a href="#cb44-221" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'num'</span>, numerical_transformer, numerical_cols),</span>
+<span id="cb44-222"><a href="#cb44-222" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'cat'</span>, categorical_transformer, categorical_cols)])</span>
+<span id="cb44-223"><a href="#cb44-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-224"><a href="#cb44-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-225"><a href="#cb44-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-226"><a href="#cb44-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-227"><a href="#cb44-227" aria-hidden="true" tabindex="-1"></a><span class="fu"># model</span></span>
+<span id="cb44-228"><a href="#cb44-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-229"><a href="#cb44-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-230"><a href="#cb44-230" aria-hidden="true" tabindex="-1"></a><span class="fu">## define model</span></span>
+<span id="cb44-233"><a href="#cb44-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-234"><a href="#cb44-234" aria-hidden="true" tabindex="-1"></a>ml_model <span class="op">=</span> DecisionTreeRegressor(random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb44-235"><a href="#cb44-235" aria-hidden="true" tabindex="-1"></a>ml_model</span>
+<span id="cb44-236"><a href="#cb44-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-237"><a href="#cb44-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-238"><a href="#cb44-238" aria-hidden="true" tabindex="-1"></a><span class="fu">## define pipline</span></span>
+<span id="cb44-239"><a href="#cb44-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-242"><a href="#cb44-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-243"><a href="#cb44-243" aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> Pipeline(</span>
+<span id="cb44-244"><a href="#cb44-244" aria-hidden="true" tabindex="-1"></a>  steps<span class="op">=</span>[</span>
+<span id="cb44-245"><a href="#cb44-245" aria-hidden="true" tabindex="-1"></a>         (<span class="st">'preprocessor'</span>, preprocessor), </span>
+<span id="cb44-246"><a href="#cb44-246" aria-hidden="true" tabindex="-1"></a>         (<span class="st">'model_dt'</span>, ml_model)</span>
+<span id="cb44-247"><a href="#cb44-247" aria-hidden="true" tabindex="-1"></a>         ]</span>
+<span id="cb44-248"><a href="#cb44-248" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb44-249"><a href="#cb44-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-250"><a href="#cb44-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-251"><a href="#cb44-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-252"><a href="#cb44-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-253"><a href="#cb44-253" aria-hidden="true" tabindex="-1"></a><span class="fu">## train model</span></span>
+<span id="cb44-256"><a href="#cb44-256" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-257"><a href="#cb44-257" aria-hidden="true" tabindex="-1"></a>pipeline.fit(X_train, Y_train)</span>
+<span id="cb44-258"><a href="#cb44-258" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-259"><a href="#cb44-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-260"><a href="#cb44-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-263"><a href="#cb44-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-264"><a href="#cb44-264" aria-hidden="true" tabindex="-1"></a>fitted_model<span class="op">=</span>pipeline.steps[<span class="dv">1</span>][<span class="dv">1</span>]</span>
+<span id="cb44-265"><a href="#cb44-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-266"><a href="#cb44-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-267"><a href="#cb44-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-270"><a href="#cb44-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-271"><a href="#cb44-271" aria-hidden="true" tabindex="-1"></a>var<span class="op">=</span>pipeline[:<span class="op">-</span><span class="dv">1</span>].get_feature_names_out()</span>
+<span id="cb44-272"><a href="#cb44-272" aria-hidden="true" tabindex="-1"></a>var</span>
+<span id="cb44-273"><a href="#cb44-273" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-274"><a href="#cb44-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-275"><a href="#cb44-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-276"><a href="#cb44-276" aria-hidden="true" tabindex="-1"></a>variable importance </span>
+<span id="cb44-279"><a href="#cb44-279" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-280"><a href="#cb44-280" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> fitted_model.feature_importances_</span>
+<span id="cb44-281"><a href="#cb44-281" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>pd.DataFrame({<span class="st">"variable"</span>:var,<span class="st">"importances"</span>:importances})</span>
+<span id="cb44-282"><a href="#cb44-282" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>vi.sort_values(<span class="st">'importances'</span>,ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb44-283"><a href="#cb44-283" aria-hidden="true" tabindex="-1"></a>vi</span>
+<span id="cb44-284"><a href="#cb44-284" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-285"><a href="#cb44-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-286"><a href="#cb44-286" aria-hidden="true" tabindex="-1"></a><span class="fu">## Preformance</span></span>
+<span id="cb44-287"><a href="#cb44-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-288"><a href="#cb44-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-291"><a href="#cb44-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-292"><a href="#cb44-292" aria-hidden="true" tabindex="-1"></a>Y_pred_dt <span class="op">=</span>pipeline.predict(X_test) <span class="co">#always gets x and retuns y</span></span>
+<span id="cb44-293"><a href="#cb44-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-294"><a href="#cb44-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-295"><a href="#cb44-295" aria-hidden="true" tabindex="-1"></a>R 2</span>
+<span id="cb44-296"><a href="#cb44-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-297"><a href="#cb44-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-300"><a href="#cb44-300" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-301"><a href="#cb44-301" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> r2_score</span>
+<span id="cb44-302"><a href="#cb44-302" aria-hidden="true" tabindex="-1"></a>r2_score(Y_test, Y_pred_dt)</span>
+<span id="cb44-303"><a href="#cb44-303" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-304"><a href="#cb44-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-305"><a href="#cb44-305" aria-hidden="true" tabindex="-1"></a>MAE</span>
+<span id="cb44-308"><a href="#cb44-308" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-309"><a href="#cb44-309" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
+<span id="cb44-310"><a href="#cb44-310" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(Y_test, Y_pred_dt)</span>
+<span id="cb44-311"><a href="#cb44-311" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-312"><a href="#cb44-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-313"><a href="#cb44-313" aria-hidden="true" tabindex="-1"></a>RMSE</span>
+<span id="cb44-316"><a href="#cb44-316" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-317"><a href="#cb44-317" aria-hidden="true" tabindex="-1"></a><span class="im">from</span>  math <span class="im">import</span> sqrt</span>
+<span id="cb44-318"><a href="#cb44-318" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
+<span id="cb44-319"><a href="#cb44-319" aria-hidden="true" tabindex="-1"></a>mse<span class="op">=</span>mean_squared_error(Y_test, Y_pred_dt)</span>
+<span id="cb44-320"><a href="#cb44-320" aria-hidden="true" tabindex="-1"></a>rmse<span class="op">=</span>sqrt(mse)</span>
+<span id="cb44-321"><a href="#cb44-321" aria-hidden="true" tabindex="-1"></a>rmse</span>
+<span id="cb44-322"><a href="#cb44-322" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-323"><a href="#cb44-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-324"><a href="#cb44-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-325"><a href="#cb44-325" aria-hidden="true" tabindex="-1"></a><span class="fu">## k-Fold Cross-Validation</span></span>
+<span id="cb44-326"><a href="#cb44-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-329"><a href="#cb44-329" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-330"><a href="#cb44-330" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb44-331"><a href="#cb44-331" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
+<span id="cb44-332"><a href="#cb44-332" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
+<span id="cb44-333"><a href="#cb44-333" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-334"><a href="#cb44-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-335"><a href="#cb44-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-338"><a href="#cb44-338" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-339"><a href="#cb44-339" aria-hidden="true" tabindex="-1"></a>kf_dt <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>,shuffle<span class="op">=</span><span class="va">True</span>)  </span>
+<span id="cb44-340"><a href="#cb44-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-341"><a href="#cb44-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-344"><a href="#cb44-344" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-345"><a href="#cb44-345" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(pipeline, X_train, Y_train, cv<span class="op">=</span>kf_dt)</span>
+<span id="cb44-346"><a href="#cb44-346" aria-hidden="true" tabindex="-1"></a>np.mean(cv_dt)</span>
+<span id="cb44-347"><a href="#cb44-347" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-348"><a href="#cb44-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-351"><a href="#cb44-351" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-352"><a href="#cb44-352" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(pipeline, X_train, Y_train, cv<span class="op">=</span>kf_dt,scoring <span class="op">=</span> <span class="st">'neg_mean_squared_error'</span>)</span>
+<span id="cb44-353"><a href="#cb44-353" aria-hidden="true" tabindex="-1"></a>np.mean(np.sqrt(np.<span class="bu">abs</span>(cv_dt)))</span>
+<span id="cb44-354"><a href="#cb44-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-355"><a href="#cb44-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-356"><a href="#cb44-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-357"><a href="#cb44-357" aria-hidden="true" tabindex="-1"></a><span class="fu"># reference:</span></span>
+<span id="cb44-358"><a href="#cb44-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-359"><a href="#cb44-359" aria-hidden="true" tabindex="-1"></a>https://github.com/alicevillar/titanic-kaggle/blob/main/Titanic_DecisionTree.ipynb</span>
+<span id="cb44-360"><a href="#cb44-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-361"><a href="#cb44-361" aria-hidden="true" tabindex="-1"></a>https://scikit-learn.org/stable/modules/tree.html</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This website is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

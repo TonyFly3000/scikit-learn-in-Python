@@ -1,0 +1,101 @@
+---
+title: "Data manipulation with Pandas"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+![](images/Pandas_logo.svg.png){width="600"}
+
+
+```{python}
+import sys
+print(sys.version)
+```
+
+```{python}
+
+import pandas as pd
+print('pandas version', pd.__version__)
+```
+
+## Reading from parquet
+
+```{python}
+df = pd.read_parquet("data/Combined_Flights_2022.parquet")
+```
+
+
+## get first 3
+```{python}
+df.head(3)
+```
+
+## get last 3
+```{python}
+df.tail(3)
+```
+
+## get ramdon 5
+
+```{python}
+df.sample(5, random_state=42)
+```
+
+
+## get columns names
+```{python}
+df.columns
+```
+
+## get row index
+```{python}
+df.index
+```
+
+## get long info 
+```{python}
+df.info()
+```
+
+
+
+## get short info 
+```{python}
+df.info(verbose=False)
+```
+
+
+## summary of numeric column
+```{python}
+df.describe()
+```
+
+
+## summary of categorical column
+```{python}
+df[["Airline"]].describe()
+```
+
+
+
+
+# Reference:
+
+https://www.youtube.com/watch?v=DkjCaAMBGWM
+
+https://www.youtube.com/watch?v=_gaAoJBMJ_Q
+
+https://pandas.pydata.org/
+
+https://www.kaggle.com/code/lizhecheng/pandas-2-0-1-tutorial/notebook
+

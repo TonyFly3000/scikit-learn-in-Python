@@ -1,0 +1,150 @@
+---
+title: "seaborn chart"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+![](images/logo-wide-lightbg.svg)
+
+Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.
+
+```{python}
+# Import seaborn
+import seaborn as sns
+
+import matplotlib.pyplot as plt
+
+# Apply the default theme
+sns.set_theme()
+
+# Load an example dataset
+tips = sns.load_dataset("tips")
+tips.head()
+```
+
+# Scatter Plot
+
+```{python}
+sns.scatterplot(data=tips,x='tip',y='total_bill')
+```
+
+## color by group
+
+```{python}
+sns.scatterplot(data=tips,x='tip',y='total_bill',hue='sex')
+```
+
+## size by group
+
+```{python}
+sns.scatterplot(data=tips,x='tip',y='total_bill',size='size')
+```
+
+# line Plot
+
+```{python}
+sns.lineplot(data=tips,x='tip',y='total_bill')
+```
+
+## color by group
+
+```{python}
+sns.lineplot(data=tips,x='tip',y='total_bill',hue='sex')
+```
+
+# histogram
+
+```{python}
+sns.histplot(data=tips,x='tip')
+```
+
+## color by group
+
+```{python}
+sns.histplot(data=tips,x='tip',hue='sex',multiple="dodge")
+```
+
+# bar chart
+
+```{python}
+sns.barplot(data=tips,x='sex',y='tip')
+```
+
+# box plot
+
+```{python}
+sns.boxplot(data=tips,x='day',y='tip')
+```
+
+## color by group
+
+```{python}
+sns.boxplot(data=tips,x='day',y='tip',hue='sex')
+```
+
+# strip plot
+
+```{python}
+sns.stripplot(data=tips,x='day',y='tip')
+```
+
+## color by group
+
+```{python}
+sns.stripplot(data=tips,x='day',y='tip',hue='sex',dodge=True)
+```
+
+# join plot
+
+```{python}
+sns.jointplot(data=tips,x='total_bill',y='tip',kind='reg')
+```
+
+# sub plot
+
+```{python}
+sns.set()
+
+#define plotting region (1 rows, 2 columns)
+fig, axes = plt.subplots(1, 2)
+
+
+sns.boxplot(data=tips,x='day',y='tip',hue='sex',ax=axes[0])
+sns.boxplot(data=tips,x='day',y='tip',ax=axes[1])
+```
+
+# Facet plot
+
+```{python}
+g = sns.FacetGrid(data=tips, col="day", hue="sex")
+
+g.map_dataframe(sns.scatterplot, x="total_bill", y="tip")
+
+g.add_legend()
+```
+
+make 2 plot per column
+
+```{python}
+g = sns.FacetGrid(data=tips, col="day",col_wrap=2, hue="sex")
+
+g.map_dataframe(sns.scatterplot, x="total_bill", y="tip")
+
+g.add_legend()
+```
+
+# reference:
+
+https://seaborn.pydata.org/index.html
+
+https://www.youtube.com/watch?v=ooqXQ37XHMM

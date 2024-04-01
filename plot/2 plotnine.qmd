@@ -1,0 +1,171 @@
+---
+title: "plotnine chart"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+![](images/logo-540.png){width="300"}
+
+plotnine is an implementation of a grammar of graphics in Python based on ggplot2.
+
+
+```{python}
+
+from plotnine import *
+import seaborn as sns
+
+
+# Apply the default theme
+
+
+# Load an example dataset
+tips = sns.load_dataset("tips")
+tips.head()
+```
+
+
+# Scatter Plot
+
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",y="total_bill")+ geom_point()
+)
+
+p
+```
+
+
+
+## color by group
+
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",y="total_bill")+ geom_point(aes(color="sex"))
+)
+
+p
+```
+
+## size by group
+
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",y="total_bill",size="size")+ geom_point()
+)
+
+p
+```
+
+# line Plot
+
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",y="total_bill")+ geom_line()
+)
+
+p
+```
+
+## color by group
+
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",y="total_bill")+ geom_line(aes(color="sex"))
+)
+
+p
+```
+
+# histogram
+
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip")+ geom_histogram()
+)
+
+p
+```
+
+## color by group
+
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",fill = 'sex')+ geom_histogram(position = 'dodge')
+)
+
+p
+```
+
+# bar chart
+
+```{python}
+p=(
+    ggplot(data=tips)+aes(x='sex',y='tip',fill="sex")+geom_col()
+)
+
+p
+```
+# box plot
+
+```{python}
+
+```
+
+## color by group
+
+```{python}
+
+```
+
+# strip plot
+
+```{python}
+
+```
+
+## color by group
+
+```{python}
+
+```
+
+# join plot
+
+```{python}
+
+```
+
+# sub plot
+
+```{python}
+
+```
+
+# Facet plot
+
+```{python}
+
+```
+
+make 2 plot per column
+
+```{python}
+
+```
+
+
+
+
+# reference:
+
+https://plotnine.org/

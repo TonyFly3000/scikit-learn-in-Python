@@ -1,0 +1,289 @@
+---
+title: "Housing Prices Dataset"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+![](images/kaggle_5407_media_housesbanner.png)
+
+# load package
+
+```{python}
+import os
+#os.system('pip install sweetviz')
+```
+
+```{python}
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import explained_variance_score
+from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import train_test_split
+
+```
+
+# data
+
+## download data
+
+https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques
+
+## input data
+
+```{python}
+# Loading the data
+df_train = pd.read_csv('./data/train.csv')
+df_test = pd.read_csv('./data/test.csv')
+
+# Store our test passenger IDs for easy access
+Id = df_train['Id']
+
+
+# Showing overview of the train dataset
+df_train.head()
+
+```
+
+```{python}
+#df_train.info()
+```
+
+```{python}
+df_train['role'] = 'train'
+df_test['role'] = 'test'
+
+# Concatenate training and test sets
+data = pd.concat([df_train.drop(['SalePrice'], axis=1), df_test])
+```
+
+## data EDA
+
+```{python}
+df_train.describe()
+```
+
+```{python}
+df_train.describe(include=[object])
+```
+
+Missing Data
+
+```{python}
+df_train.isnull().sum()
+```
+
+```{python}
+import seaborn as sns
+sns.histplot(data=df_train,x='SalePrice')
+```
+
+```{python}
+import sweetviz as sv
+my_report = sv.analyze(df_train)
+```
+
+```{python}
+my_report.show_notebook()
+```
+
+## feature vs target
+
+```{python}
+my_report2 = sv.analyze(df_train,target_feat='SalePrice')
+```
+
+```{python}
+my_report2.show_notebook()
+```
+
+## compare train data and test data
+
+```{python}
+compare = sv.compare(source=df_train, compare=df_test)
+```
+
+```{python}
+compare.show_notebook()
+```
+
+## data dictionary
+
+SalePrice - the property's sale price in dollars. This is the target variable that you're trying to predict.
+
+MSSubClass: The building class
+
+MSZoning: The general zoning classification
+
+LotFrontage: Linear feet of street connected to property
+
+LotArea: Lot size in square feet
+
+Street: Type of road access
+
+Alley: Type of alley access
+
+LotShape: General shape of property
+
+LandContour: Flatness of the property
+
+Utilities: Type of utilities available
+
+LotConfig: Lot configuration
+
+LandSlope: Slope of property
+
+Neighborhood: Physical locations within Ames city limits
+
+Condition1: Proximity to main road or railroad
+
+Condition2: Proximity to main road or railroad (if a second is present)
+
+BldgType: Type of dwelling
+
+HouseStyle: Style of dwelling
+
+OverallQual: Overall material and finish quality
+
+OverallCond: Overall condition rating
+
+YearBuilt: Original construction date
+
+YearRemodAdd: Remodel date
+
+RoofStyle: Type of roof
+
+RoofMatl: Roof material
+
+Exterior1st: Exterior covering on house
+
+Exterior2nd: Exterior covering on house (if more than one material)
+
+MasVnrType: Masonry veneer type
+
+MasVnrArea: Masonry veneer area in square feet
+
+ExterQual: Exterior material quality
+
+ExterCond: Present condition of the material on the exterior
+
+Foundation: Type of foundation
+
+BsmtQual: Height of the basement
+
+BsmtCond: General condition of the basement
+
+BsmtExposure: Walkout or garden level basement walls
+
+BsmtFinType1: Quality of basement finished area
+
+BsmtFinSF1: Type 1 finished square feet
+
+BsmtFinType2: Quality of second finished area (if present)
+
+BsmtFinSF2: Type 2 finished square feet
+
+BsmtUnfSF: Unfinished square feet of basement area
+
+TotalBsmtSF: Total square feet of basement area
+
+Heating: Type of heating
+
+HeatingQC: Heating quality and condition
+
+CentralAir: Central air conditioning
+
+Electrical: Electrical system
+
+1stFlrSF: First Floor square feet
+
+2ndFlrSF: Second floor square feet
+
+LowQualFinSF: Low quality finished square feet (all floors)
+
+GrLivArea: Above grade (ground) living area square feet
+
+BsmtFullBath: Basement full bathrooms
+
+BsmtHalfBath: Basement half bathrooms
+
+FullBath: Full bathrooms above grade
+
+HalfBath: Half baths above grade
+
+Bedroom: Number of bedrooms above basement level
+
+Kitchen: Number of kitchens
+
+KitchenQual: Kitchen quality
+
+TotRmsAbvGrd: Total rooms above grade (does not include bathrooms)
+
+Functional: Home functionality rating
+
+Fireplaces: Number of fireplaces
+
+FireplaceQu: Fireplace quality
+
+GarageType: Garage location
+
+GarageYrBlt: Year garage was built
+
+GarageFinish: Interior finish of the garage
+
+GarageCars: Size of garage in car capacity
+
+GarageArea: Size of garage in square feet
+
+GarageQual: Garage quality
+
+GarageCond: Garage condition
+
+PavedDrive: Paved driveway
+
+WoodDeckSF: Wood deck area in square feet
+
+OpenPorchSF: Open porch area in square feet
+
+EnclosedPorch: Enclosed porch area in square feet
+
+3SsnPorch: Three season porch area in square feet
+
+ScreenPorch: Screen porch area in square feet
+
+PoolArea: Pool area in square feet
+
+PoolQC: Pool quality
+
+Fence: Fence quality
+
+MiscFeature: Miscellaneous feature not covered in other categories
+
+MiscVal: \$Value of miscellaneous feature
+
+MoSold: Month Sold
+
+YrSold: Year Sold
+
+SaleType: Type of sale
+
+SaleCondition: Condition of sale
+
+# reference:
+
+https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques

@@ -1,0 +1,89 @@
+project:
+  type: website
+  output-dir: docs
+
+
+language: 
+  search-box-placeholder: Search
+
+website:
+  title: "Scikit learn with Python"
+  navbar:
+    left:
+      - sidebar:home
+      - sidebar:bar0  
+      - sidebar:bar1
+      - sidebar:bar2
+      - sidebar:bar3   
+      - sidebar:bar4
+
+
+  sidebar:
+
+    - id: home
+      title: "Home"
+      style: "floating"
+      background: light
+      collapse-level: 2
+      contents: home
+
+
+    - id: bar0
+      title: "Data"
+      style: "floating"
+      background: light
+      collapse-level: 2
+      contents: data
+
+
+
+    - id: bar1
+      title: "Ploting"
+      style: "floating"
+      background: light
+      collapse-level: 2
+      contents: plot
+
+
+
+
+    - id: bar2
+      title: "model type"
+      style: "floating"
+      background: light
+      collapse-level: 2
+      contents: model type
+
+
+    - id: bar3
+      title: "Classification"
+      style: "floating"
+      background: light
+      collapse-level: 2
+      contents: classification
+
+
+    - id: bar4
+      title: "Regression"
+      style: "floating"
+      background: light
+      collapse-level: 2
+      contents: regression
+
+
+  page-footer:
+    right: "This website is built with ❤️ and [Quarto](https://quarto.org/)."
+
+    
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    grid:
+      sidebar-width: 300px
+      body-width: 1000px
+      margin-width: 200px
+      gutter-width: 1rem
+
+

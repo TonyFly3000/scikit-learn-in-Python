@@ -1,0 +1,237 @@
+---
+title: "Classification with Logistic Regression"
+subtitle: "with titanic data"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+# load package
+
+```{python}
+import os
+#os.system('pip install xgboost')
+```
+
+
+```{python}
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import re
+import numpy as np
+from sklearn import tree
+from sklearn.model_selection import train_test_split
+
+```
+
+# data
+
+## input data
+```{python}
+# Loading the data
+df_train = pd.read_csv('./data/train.csv')
+df_test = pd.read_csv('./data/test.csv')
+
+# Store our test passenger IDs for easy access
+PassengerId = df_train['PassengerId']
+
+
+# Showing overview of the train dataset
+df_train.head()
+
+```
+## data EDA
+
+```{python}
+sns.countplot(x='Survived', data=df_train);
+```
+
+
+```{python}
+sns.catplot(x='Survived', col='Sex', kind='count', data=df_train);
+```
+
+
+```{python}
+print(df_train[df_train.Sex == 'female'].Survived.sum()/df_train[df_train.Sex == 'female'].Survived.count())
+print(df_train[df_train.Sex == 'male'].Survived.sum()/df_train[df_train.Sex == 'male'].Survived.count())
+```
+
+
+## Data Wrangling
+
+```{python}
+# Store target variable of training data in a safe place
+survived_train = df_train.Survived
+
+
+
+df_train['role'] = 'train'
+df_test['role'] = 'test'
+
+# Concatenate training and test sets
+data = pd.concat([df_train.drop(['Survived'], axis=1), df_test])
+```
+
+
+```{python}
+data.info()
+
+```
+
+
+```{python}
+# Dealing with missing numerical variables
+data['Age'] = data.Age.fillna(data.Age.median())
+data['Fare'] = data.Fare.fillna(data.Fare.median())
+
+# Check out info of data
+data.info()
+```
+
+
+```{python}
+# Tranform Sex feature to numeric value
+# create a new column for each of the options in 'Sex'
+# creates a new column for female, called 'Sex_female', 
+# creates a new column for 'Sex_male'
+# more then two categorical values it is better to use one-hot-encode
+data = pd.get_dummies(data, columns=['Sex'], drop_first=True)
+data.head()
+```
+
+
+```{python}
+# Select features columns
+data = data[['Sex_male', 'Fare', 'Age','Pclass', 'SibSp','role']]
+data.head()
+```
+
+
+
+## split data
+
+```{python}
+Y=df_train['Survived']
+X=data[data.role =='train']
+
+X_train,X_test,Y_train,Y_test=train_test_split(X,Y,train_size = 0.8)
+
+X_train = X_train.drop('role', axis=1)
+X_test = X_test.drop('role', axis=1)
+
+
+```
+
+
+```{python}
+X_train.info()
+```
+
+
+# model
+
+## define model
+
+The solvers implemented in the class Logistic Regression are “liblinear”, “newton-cg”, “lbfgs”, “sag” and “saga”. According to Scikit Documentation: The “liblinear” solver was the one used by default for historical reasons before version 0.22. Since then, default use is lbfgs Algorithm.
+
+```{python}
+from sklearn.linear_model import LogisticRegression
+ml_model = LogisticRegression(solver='liblinear')
+ml_model
+```
+
+
+## train model
+```{python}
+ml_model.fit(X_train,Y_train)
+```
+
+variable importance 
+```{python}
+coefficients = ml_model.coef_[0]
+
+feature_importance = pd.DataFrame({'Feature': X_train.columns, 'Importance': np.abs(coefficients)})
+feature_importance = feature_importance.sort_values('Importance', ascending=False)
+feature_importance
+```
+
+
+## Preformance
+
+```{python}
+#Using predict method to test the model
+Y_pred_dt = ml_model.predict(X_test) #always gets x and retuns y
+```
+
+a) Accuracy
+```{python}
+# Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives
+# Here is another way to find the accuracy score
+from sklearn import metrics
+accuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  
+accuracy
+```
+
+b) Precision
+```{python}
+# Precision = true positive / true positive + false positive
+precision_dt = metrics.precision_score(Y_test,Y_pred_dt)  
+precision_dt
+```
+
+c) Recall
+```{python}
+# Recall = true positive / true positive + false negative
+recall_dt = metrics.recall_score(Y_test,Y_pred_dt)  
+recall_dt
+```
+
+d) Confusion matrix
+
+```{python}
+import seaborn as sns
+confusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)
+confusion_matrix_dt
+```
+
+e) AUC - ROC Curve
+
+```{python}
+auc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score
+auc_dt
+```
+
+## k-Fold Cross-Validation
+
+
+```{python}
+import numpy as np
+from sklearn.model_selection import KFold
+from sklearn.model_selection import cross_val_score
+```
+
+
+```{python}
+kf_dt = KFold(n_splits=5,shuffle=True)  
+cv_dt = cross_val_score(ml_model, X_train, Y_train, cv=kf_dt)
+np.mean(cv_dt)
+```
+
+# reference:
+
+https://github.com/alicevillar/titanic-kaggle/blob/main/Titanic_DecisionTree.ipynb
+
+https://scikit-learn.org/stable/modules/tree.html
+

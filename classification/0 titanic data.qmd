@@ -1,0 +1,132 @@
+---
+title: "Titanic Dataset"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+![](images/14047.webp){width="500"}
+
+# load package
+
+```{python}
+import os
+#os.system('pip install xgboost')
+```
+
+```{python}
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import re
+import numpy as np
+from sklearn import tree
+from sklearn.model_selection import train_test_split
+
+```
+
+# data
+
+## download data
+
+https://www.kaggle.com/c/titanic/data
+
+## input data
+
+```{python}
+# Loading the data
+df_train = pd.read_csv('./data/train.csv')
+df_test = pd.read_csv('./data/test.csv')
+
+# Store our test passenger IDs for easy access
+PassengerId = df_train['PassengerId']
+
+
+# Showing overview of the train dataset
+df_train.head()
+
+```
+
+## data EDA
+
+```{python}
+df_train.describe()
+```
+
+```{python}
+df_train.describe(include=[object])
+```
+
+Missing Data
+
+```{python}
+df_train.isnull().sum()
+```
+
+```{python}
+import seaborn as sns
+sns.catplot(x='Survived', col='Sex', kind='count', data=df_train);
+```
+
+```{python}
+import sweetviz as sv
+my_report = sv.analyze(df_train)
+```
+
+```{python}
+my_report.show_notebook()
+```
+
+## feature vs target
+
+```{python}
+my_report2 = sv.analyze(df_train,target_feat='Survived')
+```
+
+```{python}
+my_report2.show_notebook()
+```
+
+## compare train data and test data
+
+```{python}
+compare = sv.compare(source=df_train, compare=df_test)
+```
+
+```{python}
+compare.show_notebook()
+```
+
+## data dictionary
+
+pclass: A proxy for socio-economic status (SES) 1st = Upper 2nd = Middle 3rd = Lower
+
+age: Age is fractional if less than 1. If the age is estimated, is it in the form of xx.5
+
+sibsp: The dataset defines family relations in this way...
+
+Sibling = brother, sister, stepbrother, stepsister
+
+Spouse = husband, wife (mistresses and fiancés were ignored)
+
+parch: The dataset defines family relations in this way...
+
+Parent = mother, father
+
+Child = daughter, son, stepdaughter, stepson Some children travelled only with a nanny, therefore parch=0 for them.
+
+# reference:
+
+https://github.com/alicevillar/titanic-kaggle/blob/main/Titanic_DecisionTree.ipynb
+
+https://scikit-learn.org/stable/modules/tree.html
