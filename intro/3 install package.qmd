@@ -29,10 +29,9 @@ os.system('pip install -U scikit-learn')
 # check one package version
 
 ```{python}
-import sklearn
-sklearn.show_versions()
+import os
+os.system('pip show scikit-learn')
 ```
-
 
 # check all package version
 
@@ -41,7 +40,6 @@ import os
 os.system('pip list')
 
 ```
-
 
 
 

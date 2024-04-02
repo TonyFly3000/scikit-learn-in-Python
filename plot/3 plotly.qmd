@@ -1,0 +1,127 @@
+---
+title: "Plotly chart"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+![](images/Plotly-logo.png){width="650"}
+
+Plotly's Python graphing library makes interactive, publication-quality graphs. Examples of how to make line plots, scatter plots, area charts, bar charts, error bars, box plots, histograms, heatmaps, subplots, multiple-axes, polar charts, and bubble charts.
+
+```{python}
+import plotly
+print(plotly.__version__)
+```
+
+
+
+```{python}
+
+from plotnine import *
+import seaborn as sns
+import plotly.express as px
+
+# Apply the default theme
+
+
+# Load an example dataset
+tips = sns.load_dataset("tips")
+tips.head()
+```
+
+# Scatter Plot
+
+```{python}
+fig = px.scatter(tips,x="tip", y="total_bill")
+fig.show()
+```
+
+## color by group
+
+```{python}
+fig = px.scatter(tips,x="tip", y="total_bill",color="sex")
+fig.show()
+```
+
+## size by group
+
+```{python}
+
+fig = px.scatter(tips,x="tip", y="total_bill",size="size")
+fig.show()
+
+```
+
+# line Plot
+
+
+```{python}
+import plotly.express as px
+
+df = px.data.gapminder().query("country=='Canada'")
+fig = px.line(df, x="year", y="lifeExp", title='Life expectancy in Canada')
+fig.show()
+```
+
+## color by group
+```{python}
+import plotly.express as px
+
+df = px.data.gapminder().query("continent=='Oceania'")
+fig = px.line(df, x="year", y="lifeExp", color='country')
+fig.show()
+```
+
+# histogram
+
+```{python}
+fig = px.histogram(tips, x="total_bill")
+fig.show()
+```
+
+
+## color by group
+
+
+
+# bar chart
+
+
+
+# box plot
+
+
+
+## color by group
+
+
+
+# strip plot
+
+
+
+## color by group
+
+
+
+# Facet plot
+
+
+
+make 3 plot per row
+
+
+
+# reference:
+
+https://plotly.com/python/

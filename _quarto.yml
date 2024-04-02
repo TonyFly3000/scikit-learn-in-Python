@@ -38,7 +38,7 @@ website:
       style: "floating"
       background: light
       collapse-level: 2
-      contents: data
+      contents: data manipulation
 
 
 

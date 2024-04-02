@@ -297,7 +297,7 @@
     "href": "intro/3 install package.html",
     "title": "install pacakge",
     "section": "",
-    "text": "1 install package\n\n\nCode\nimport os\nos.system('pip install -U scikit-learn')\n\n\n\n\n2 check one package version\n\n\nCode\nimport sklearn\nsklearn.show_versions()\n\n\n\nSystem:\n    python: 3.11.4 (v3.11.4:d2340ef257, Jun  6 2023, 19:15:51) [Clang 13.0.0 (clang-1300.0.29.30)]\nexecutable: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3\n   machine: macOS-14.1.1-arm64-arm-64bit\n\nPython dependencies:\n      sklearn: 1.4.1.post1\n          pip: 24.0\n   setuptools: 65.5.0\n        numpy: 1.26.4\n        scipy: 1.12.0\n       Cython: None\n       pandas: 2.2.1\n   matplotlib: 3.8.3\n       joblib: 1.3.2\nthreadpoolctl: 3.2.0\n\nBuilt with OpenMP: True\n\nthreadpoolctl info:\n       user_api: blas\n   internal_api: openblas\n    num_threads: 8\n         prefix: libopenblas\n       filepath: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/numpy/.dylibs/libopenblas64_.0.dylib\n        version: 0.3.23.dev\nthreading_layer: pthreads\n   architecture: armv8\n\n       user_api: openmp\n   internal_api: openmp\n    num_threads: 8\n         prefix: libomp\n       filepath: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/sklearn/.dylibs/libomp.dylib\n        version: None\n\n       user_api: blas\n   internal_api: openblas\n    num_threads: 8\n         prefix: libopenblas\n       filepath: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/.dylibs/libopenblas.0.dylib\n        version: 0.3.21.dev\nthreading_layer: pthreads\n   architecture: armv8\n\n\n\n\n3 check all package version\n\n\nCode\nimport os\nos.system('pip list')\n\n\nPackage                      Version\n---------------------------- ------------\nabsl-py                      1.4.0\naioquic-mitmproxy            0.9.21.1\nannotated-types              0.6.0\nanyio                        4.0.0\nappdirs                      1.4.4\nappnope                      0.1.3\nargon2-cffi                  23.1.0\nargon2-cffi-bindings         21.2.0\narrow                        1.3.0\nasgiref                      3.7.2\nasttokens                    2.4.0\nastunparse                   1.6.3\nasync-lru                    2.0.4\nattrs                        23.1.0\naudioread                    3.0.1\nBabel                        2.13.0\nbackcall                     0.2.0\nbeautifulsoup4               4.12.2\nbleach                       6.1.0\nblinker                      1.7.0\nBrotli                       1.1.0\ncachetools                   5.3.1\ncertifi                      2023.7.22\ncffi                         1.16.0\ncharset-normalizer           3.3.0\nclick                        8.1.7\ncomm                         0.1.4\ncontourpy                    1.1.1\ncryptography                 41.0.7\ncycler                       0.12.1\ndacite                       1.8.1\ndebugpy                      1.8.0\ndecorator                    5.1.1\ndefusedxml                   0.7.1\ndill                         0.3.8\ndm-tree                      0.1.8\netils                        1.8.0\nexecuting                    2.0.0\nfastjsonschema               2.18.1\nfilelock                     3.12.4\nFlask                        3.0.0\nflatbuffers                  23.5.26\nfonttools                    4.43.1\nfqdn                         1.5.1\nfsspec                       2023.9.2\nfuture                       1.0.0\ngast                         0.5.4\ngoogle-auth                  2.23.3\ngoogle-auth-oauthlib         1.0.0\ngoogle-pasta                 0.2.0\ngoogleapis-common-protos     1.63.0\ngrpcio                       1.59.0\nh11                          0.14.0\nh2                           4.1.0\nh5py                         3.10.0\nhpack                        4.0.0\nhtmlmin                      0.1.12\nhtmltools                    0.5.1\nhuggingface-hub              0.17.3\nhyperframe                   6.0.1\nidna                         3.4\nImageHash                    4.3.1\nimportlib_resources          6.4.0\ninstall                      1.3.5\nipykernel                    6.25.2\nipython                      8.16.1\nipython-genutils             0.2.0\nipywidgets                   8.1.1\nisoduration                  20.11.0\nitsdangerous                 2.1.2\njedi                         0.19.1\nJinja2                       3.1.2\njoblib                       1.3.2\njson5                        0.9.14\njsonpointer                  2.4\njsonschema                   4.19.1\njsonschema-specifications    2023.7.1\njupyter                      1.0.0\njupyter_client               8.3.1\njupyter-console              6.6.3\njupyter_core                 5.3.2\njupyter-events               0.7.0\njupyter-lsp                  2.2.0\njupyter_server               2.7.3\njupyter_server_terminals     0.4.4\njupyterlab                   4.0.6\njupyterlab-pygments          0.2.2\njupyterlab_server            2.25.0\njupyterlab-widgets           3.0.9\nkaggle                       1.5.16\nkaitaistruct                 0.10\nkeras                        3.1.1\nKeras-Preprocessing          1.1.2\nkiwisolver                   1.4.5\nlazy_loader                  0.3\nldap3                        2.9.1\nlibclang                     16.0.6\nlibrosa                      0.10.1\nlinkify-it-py                2.0.3\nllvmlite                     0.41.0\nlxml                         4.9.3\nlzstring                     1.0.4\nMarkdown                     3.5\nmarkdown-it-py               3.0.0\nMarkupSafe                   2.1.3\nmatplotlib                   3.8.3\nmatplotlib-inline            0.1.6\nmdit-py-plugins              0.4.0\nmdurl                        0.1.2\nmissingno                    0.5.2\nmistune                      3.0.2\nmitmproxy                    10.1.5\nmitmproxy-macos              0.4.1\nmitmproxy_rs                 0.4.1\nmizani                       0.11.1\nml-dtypes                    0.3.2\nmpmath                       1.3.0\nmsgpack                      1.0.7\nmultimethod                  1.10\nmutagen                      1.47.0\nnamex                        0.0.7\nnbclient                     0.8.0\nnbconvert                    7.9.2\nnbformat                     5.9.2\nnest-asyncio                 1.5.8\nnetworkx                     3.1\nnltk                         3.8.1\nnotebook                     7.0.4\nnotebook_shim                0.2.3\nnumba                        0.58.0\nnumpy                        1.26.4\noauthlib                     3.2.2\nopencv-python                4.8.1.78\nopendatasets                 0.1.22\nopt-einsum                   3.3.0\noptree                       0.10.0\noutcome                      1.3.0.post0\noverrides                    7.4.0\npackaging                    23.2\npandas                       2.2.1\npandas-profiling             3.2.0\npandocfilters                1.5.0\nparso                        0.8.3\npasslib                      1.7.4\npatchworklib                 0.6.4\npatsy                        0.5.3\npexpect                      4.8.0\nphik                         0.12.3\npickleshare                  0.7.5\nPillow                       10.0.1\npip                          24.0\nplatformdirs                 3.11.0\nplotly                       5.20.0\nplotnine                     0.13.3\npooch                        1.7.0\nprometheus-client            0.17.1\npromise                      2.3\nprompt-toolkit               3.0.36\nprotobuf                     3.20.3\npsutil                       5.9.5\nptyprocess                   0.7.0\npublicsuffix2                2.20191221\npure-eval                    0.2.2\npyarrow                      15.0.2\npyasn1                       0.5.0\npyasn1-modules               0.3.0\npycparser                    2.21\npycryptodomex                3.20.0\npydantic                     1.10.13\npydantic_core                2.10.1\npydantic-settings            2.0.3\nPygments                     2.16.1\npylsqpack                    0.3.18\npyOpenSSL                    23.3.0\npyparsing                    3.1.1\npyperclip                    1.8.2\nPySocks                      1.7.1\npython-dateutil              2.8.2\npython-dotenv                1.0.0\npython-json-logger           2.0.7\npython-multipart             0.0.9\npython-slugify               8.0.1\npytz                         2023.3.post1\nPyWavelets                   1.4.1\nPyYAML                       6.0.1\npyzmq                        25.1.1\nqtconsole                    5.4.4\nQtPy                         2.4.0\nquestionary                  2.0.1\nreferencing                  0.30.2\nregex                        2023.10.3\nrequests                     2.31.0\nrequests-oauthlib            1.3.1\nrfc3339-validator            0.1.4\nrfc3986-validator            0.1.1\nrich                         13.7.1\nrpds-py                      0.10.4\nrsa                          4.9\nruamel.yaml                  0.18.5\nruamel.yaml.clib             0.2.8\nsafetensors                  0.4.0\nscikit-learn                 1.4.1.post1\nscipy                        1.12.0\nseaborn                      0.12.2\nselenium                     4.15.2\nSend2Trash                   1.8.2\nservice-identity             23.1.0\nsetuptools                   65.5.0\nshiny                        0.7.1\nshinylive                    0.2.2\nsiuba                        0.4.4\nsix                          1.16.0\nsniffio                      1.3.0\nsortedcontainers             2.4.0\nsoundfile                    0.12.1\nsoupsieve                    2.5\nsoxr                         0.3.7\nSQLAlchemy                   2.0.22\nstack-data                   0.6.3\nstarlette                    0.34.0\nstatsmodels                  0.14.0\nsweetviz                     2.3.1\nsympy                        1.12\ntangled-up-in-unicode        0.2.0\ntenacity                     8.2.3\ntensorboard                  2.16.2\ntensorboard-data-server      0.7.1\ntensorflow                   2.16.1\ntensorflow-datasets          4.9.4\ntensorflow_decision_forests  1.9.0\ntensorflow-estimator         2.14.0\ntensorflow-io-gcs-filesystem 0.34.0\ntensorflow-macos             2.14.0\ntensorflow-metadata          1.14.0\ntermcolor                    2.3.0\nterminado                    0.17.1\ntext-unidecode               1.3\ntf_keras                     2.16.0\nthreadpoolctl                3.2.0\ntinycss2                     1.2.1\ntokenizers                   0.14.1\ntoml                         0.10.2\ntorch                        2.1.0\ntorchvision                  0.16.0\ntornado                      6.3.3\ntqdm                         4.66.1\ntraitlets                    5.11.2\ntransformers                 4.34.0\ntrio                         0.23.1\ntrio-websocket               0.11.1\ntypeguard                    4.1.5\ntypes-python-dateutil        2.8.19.14\ntyping_extensions            4.8.0\ntzdata                       2023.3\nuc-micro-py                  1.0.3\nuri-template                 1.3.0\nurllib3                      2.0.6\nurwid-mitmproxy              2.1.2.1\nuvicorn                      0.27.1\nvisions                      0.7.5\nwatchfiles                   0.21.0\nwcwidth                      0.2.8\nwebcolors                    1.13\nwebencodings                 0.5.1\nwebsocket-client             1.6.4\nwebsockets                   12.0\nWerkzeug                     3.0.0\nwheel                        0.41.2\nwidgetsnbextension           4.0.9\nwordcloud                    1.9.2\nwrapt                        1.14.1\nwsproto                      1.2.0\nwurlitzer                    3.0.3\nxgboost                      2.0.3\nydata-profiling              4.6.0\nyt-dlp                       2023.12.30\nzipp                         3.18.1\nzstandard                    0.22.0\n\n\n0",
+    "text": "1 install package\n\n\nCode\nimport os\nos.system('pip install -U scikit-learn')\n\n\n\n\n2 check one package version\n\n\nCode\nimport os\nos.system('pip show scikit-learn')\n\n\nName: scikit-learn\nVersion: 1.4.1.post1\nSummary: A set of python modules for machine learning and data mining\nHome-page: https://scikit-learn.org\nAuthor: \nAuthor-email: \nLicense: new BSD\nLocation: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages\nRequires: joblib, numpy, scipy, threadpoolctl\nRequired-by: librosa\n\n\n0\n\n\n\n\n3 check all package version\n\n\nCode\nimport os\nos.system('pip list')\n\n\nPackage                      Version\n---------------------------- ------------\nabsl-py                      1.4.0\naioquic-mitmproxy            0.9.21.1\nannotated-types              0.6.0\nanyio                        4.0.0\nappdirs                      1.4.4\nappnope                      0.1.3\nargon2-cffi                  23.1.0\nargon2-cffi-bindings         21.2.0\narrow                        1.3.0\nasgiref                      3.7.2\nasttokens                    2.4.0\nastunparse                   1.6.3\nasync-lru                    2.0.4\nattrs                        23.1.0\naudioread                    3.0.1\nBabel                        2.13.0\nbackcall                     0.2.0\nbeautifulsoup4               4.12.2\nbleach                       6.1.0\nblinker                      1.7.0\nBrotli                       1.1.0\ncachetools                   5.3.1\ncertifi                      2023.7.22\ncffi                         1.16.0\ncharset-normalizer           3.3.0\nclick                        8.1.7\ncomm                         0.1.4\ncontourpy                    1.1.1\ncryptography                 41.0.7\ncycler                       0.12.1\ndacite                       1.8.1\ndebugpy                      1.8.0\ndecorator                    5.1.1\ndefusedxml                   0.7.1\ndill                         0.3.8\ndm-tree                      0.1.8\netils                        1.8.0\nexecuting                    2.0.0\nfastjsonschema               2.18.1\nfilelock                     3.12.4\nFlask                        3.0.0\nflatbuffers                  23.5.26\nfonttools                    4.43.1\nfqdn                         1.5.1\nfsspec                       2023.9.2\nfuture                       1.0.0\ngast                         0.5.4\ngoogle-auth                  2.23.3\ngoogle-auth-oauthlib         1.0.0\ngoogle-pasta                 0.2.0\ngoogleapis-common-protos     1.63.0\ngrpcio                       1.59.0\nh11                          0.14.0\nh2                           4.1.0\nh5py                         3.10.0\nhpack                        4.0.0\nhtmlmin                      0.1.12\nhtmltools                    0.5.1\nhuggingface-hub              0.17.3\nhyperframe                   6.0.1\nidna                         3.4\nImageHash                    4.3.1\nimportlib_resources          6.4.0\ninstall                      1.3.5\nipykernel                    6.25.2\nipython                      8.16.1\nipython-genutils             0.2.0\nipywidgets                   8.1.1\nisoduration                  20.11.0\nitsdangerous                 2.1.2\njedi                         0.19.1\nJinja2                       3.1.2\njoblib                       1.3.2\njson5                        0.9.14\njsonpointer                  2.4\njsonschema                   4.19.1\njsonschema-specifications    2023.7.1\njupyter                      1.0.0\njupyter_client               8.3.1\njupyter-console              6.6.3\njupyter_core                 5.3.2\njupyter-events               0.7.0\njupyter-lsp                  2.2.0\njupyter_server               2.7.3\njupyter_server_terminals     0.4.4\njupyterlab                   4.0.6\njupyterlab-pygments          0.2.2\njupyterlab_server            2.25.0\njupyterlab-widgets           3.0.9\nkaggle                       1.5.16\nkaitaistruct                 0.10\nkeras                        3.1.1\nKeras-Preprocessing          1.1.2\nkiwisolver                   1.4.5\nlazy_loader                  0.3\nldap3                        2.9.1\nlibclang                     16.0.6\nlibrosa                      0.10.1\nlinkify-it-py                2.0.3\nllvmlite                     0.41.0\nlxml                         4.9.3\nlzstring                     1.0.4\nMarkdown                     3.5\nmarkdown-it-py               3.0.0\nMarkupSafe                   2.1.3\nmatplotlib                   3.8.3\nmatplotlib-inline            0.1.6\nmdit-py-plugins              0.4.0\nmdurl                        0.1.2\nmissingno                    0.5.2\nmistune                      3.0.2\nmitmproxy                    10.1.5\nmitmproxy-macos              0.4.1\nmitmproxy_rs                 0.4.1\nmizani                       0.11.1\nml-dtypes                    0.3.2\nmpmath                       1.3.0\nmsgpack                      1.0.7\nmultimethod                  1.10\nmutagen                      1.47.0\nnamex                        0.0.7\nnbclient                     0.8.0\nnbconvert                    7.9.2\nnbformat                     5.9.2\nnest-asyncio                 1.5.8\nnetworkx                     3.1\nnltk                         3.8.1\nnotebook                     7.0.4\nnotebook_shim                0.2.3\nnumba                        0.58.0\nnumpy                        1.26.4\noauthlib                     3.2.2\nopencv-python                4.8.1.78\nopendatasets                 0.1.22\nopt-einsum                   3.3.0\noptree                       0.10.0\noutcome                      1.3.0.post0\noverrides                    7.4.0\npackaging                    23.2\npandas                       2.2.1\npandas-profiling             3.2.0\npandocfilters                1.5.0\nparso                        0.8.3\npasslib                      1.7.4\npatchworklib                 0.6.4\npatsy                        0.5.3\npexpect                      4.8.0\nphik                         0.12.3\npickleshare                  0.7.5\nPillow                       10.0.1\npip                          24.0\nplatformdirs                 3.11.0\nplotly                       5.20.0\nplotnine                     0.13.3\npooch                        1.7.0\nprometheus-client            0.17.1\npromise                      2.3\nprompt-toolkit               3.0.36\nprotobuf                     3.20.3\npsutil                       5.9.5\nptyprocess                   0.7.0\npublicsuffix2                2.20191221\npure-eval                    0.2.2\npyarrow                      15.0.2\npyasn1                       0.5.0\npyasn1-modules               0.3.0\npycparser                    2.21\npycryptodomex                3.20.0\npydantic                     1.10.13\npydantic_core                2.10.1\npydantic-settings            2.0.3\nPygments                     2.16.1\npylsqpack                    0.3.18\npyOpenSSL                    23.3.0\npyparsing                    3.1.1\npyperclip                    1.8.2\npypi-latest                  0.1.2\nPySocks                      1.7.1\npython-dateutil              2.8.2\npython-dotenv                1.0.0\npython-json-logger           2.0.7\npython-multipart             0.0.9\npython-slugify               8.0.1\npytz                         2023.3.post1\nPyWavelets                   1.4.1\nPyYAML                       6.0.1\npyzmq                        25.1.1\nqtconsole                    5.4.4\nQtPy                         2.4.0\nquestionary                  2.0.1\nreferencing                  0.30.2\nregex                        2023.10.3\nrequests                     2.31.0\nrequests-oauthlib            1.3.1\nrfc3339-validator            0.1.4\nrfc3986-validator            0.1.1\nrich                         13.7.1\nrpds-py                      0.10.4\nrsa                          4.9\nruamel.yaml                  0.18.5\nruamel.yaml.clib             0.2.8\nsafetensors                  0.4.0\nscikit-learn                 1.4.1.post1\nscipy                        1.12.0\nseaborn                      0.12.2\nselenium                     4.15.2\nSend2Trash                   1.8.2\nservice-identity             23.1.0\nsetuptools                   65.5.0\nshiny                        0.7.1\nshinylive                    0.2.2\nsiuba                        0.4.4\nsix                          1.16.0\nsniffio                      1.3.0\nsortedcontainers             2.4.0\nsoundfile                    0.12.1\nsoupsieve                    2.5\nsoxr                         0.3.7\nSQLAlchemy                   2.0.22\nstack-data                   0.6.3\nstarlette                    0.34.0\nstatsmodels                  0.14.0\nsweetviz                     2.3.1\nsympy                        1.12\ntangled-up-in-unicode        0.2.0\ntenacity                     8.2.3\ntensorboard                  2.16.2\ntensorboard-data-server      0.7.1\ntensorflow                   2.16.1\ntensorflow-datasets          4.9.4\ntensorflow_decision_forests  1.9.0\ntensorflow-estimator         2.14.0\ntensorflow-io-gcs-filesystem 0.34.0\ntensorflow-macos             2.14.0\ntensorflow-metadata          1.14.0\ntermcolor                    2.3.0\nterminado                    0.17.1\ntext-unidecode               1.3\ntf_keras                     2.16.0\nthreadpoolctl                3.2.0\ntinycss2                     1.2.1\ntokenizers                   0.14.1\ntoml                         0.10.2\ntorch                        2.1.0\ntorchvision                  0.16.0\ntornado                      6.3.3\ntqdm                         4.66.1\ntraitlets                    5.11.2\ntransformers                 4.34.0\ntrio                         0.23.1\ntrio-websocket               0.11.1\ntypeguard                    4.1.5\ntypes-python-dateutil        2.8.19.14\ntyping_extensions            4.8.0\ntzdata                       2023.3\nuc-micro-py                  1.0.3\nuri-template                 1.3.0\nurllib3                      2.0.6\nurwid-mitmproxy              2.1.2.1\nuvicorn                      0.27.1\nvisions                      0.7.5\nwatchfiles                   0.21.0\nwcwidth                      0.2.8\nwebcolors                    1.13\nwebencodings                 0.5.1\nwebsocket-client             1.6.4\nwebsockets                   12.0\nWerkzeug                     3.0.0\nwheel                        0.41.2\nwidgetsnbextension           4.0.9\nwordcloud                    1.9.2\nwrapt                        1.14.1\nwsproto                      1.2.0\nwurlitzer                    3.0.3\nxgboost                      2.0.3\nydata-profiling              4.6.0\nyt-dlp                       2023.12.30\nzipp                         3.18.1\nzstandard                    0.22.0\n\n\n0",
     "crumbs": [
       "Intro",
       "install pacakge"
@@ -1544,6 +1544,545 @@
     "crumbs": [
       "model type",
       "Decision tree"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#comparison",
+    "href": "data/2 siuba.html#comparison",
+    "title": "Data manipulation with siuba",
+    "section": "1 Comparison",
+    "text": "1 Comparison",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#package-download",
+    "href": "data/2 siuba.html#package-download",
+    "title": "Data manipulation with siuba",
+    "section": "2 Package download",
+    "text": "2 Package download\n\n\nCode\nimport os\nos.system('pip install siuba')",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#load-package",
+    "href": "data/2 siuba.html#load-package",
+    "title": "Data manipulation with siuba",
+    "section": "3 load package",
+    "text": "3 load package\n\n\nCode\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pylab as plt\nimport seaborn as sns\n\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\nfrom siuba.data import mtcars,penguins\n\n\n\n\nCode\nimport os\nos.system('pip show siuba')\n\n\nName: siuba\nVersion: 0.4.4\nSummary: A package for quick, scrappy analyses with pandas and SQL\nHome-page: https://github.com/machow/siuba\nAuthor: Michael Chow\nAuthor-email: mc_al_gh_siuba@fastmail.com\nLicense: MIT\nLocation: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages\nRequires: numpy, pandas, PyYAML, SQLAlchemy\nRequired-by: \n\n\n0\n\n\n\n\nCode\nsmall_mtcars = mtcars &gt;&gt; select(_.cyl, _.mpg, _.hp)&gt;&gt; head(5)\nsmall_penguins=penguins&gt;&gt; head(5)",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#select",
+    "href": "data/2 siuba.html#select",
+    "title": "Data manipulation with siuba",
+    "section": "4 select",
+    "text": "4 select\n\n\nCode\nsmall_mtcars &gt;&gt; select(_.cyl, _.mpg)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\n\n\n\n\n0\n6\n21.0\n\n\n1\n6\n21.0\n\n\n2\n4\n22.8\n\n\n3\n6\n21.4\n\n\n4\n8\n18.7\n\n\n\n\n\n\n\n\nexclude\n\n\nCode\nsmall_mtcars &gt;&gt; select(~_.cyl)\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#renaming",
+    "href": "data/2 siuba.html#renaming",
+    "title": "Data manipulation with siuba",
+    "section": "5 Renaming",
+    "text": "5 Renaming\n\n\nCode\nsmall_mtcars &gt;&gt; rename(new_name_mpg = _.mpg)\n\n\n\n\n\n\n\n\n\n\ncyl\nnew_name_mpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#mutate",
+    "href": "data/2 siuba.html#mutate",
+    "title": "Data manipulation with siuba",
+    "section": "6 Mutate",
+    "text": "6 Mutate\n\n\nCode\nmtcars.head()&gt;&gt; mutate(gear2 = _.gear+1)\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\ngear2\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n5\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n5\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n5\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n4\n\n\n4\n18.7\n8\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n4",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#filter",
+    "href": "data/2 siuba.html#filter",
+    "title": "Data manipulation with siuba",
+    "section": "7 Filter",
+    "text": "7 Filter\n\n\nCode\nmtcars&gt;&gt; filter(_.gear ==4)\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n7\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n18\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\n19\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\n25\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\n31\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\nFilters with OR conditions\n\n\nCode\nmtcars &gt;&gt; filter((_.cyl == 4) | (_.gear == 5))\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n7\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n18\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\n19\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\n20\n21.5\n4\n120.1\n97\n3.70\n2.465\n20.01\n1\n0\n3\n1\n\n\n25\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\n26\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\n27\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\n31\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\nDropping NA values",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#group-by",
+    "href": "data/2 siuba.html#group-by",
+    "title": "Data manipulation with siuba",
+    "section": "8 group by",
+    "text": "8 group by\n\n8.1 average,min,max,sum\n\n\nCode\ntbl_query = (mtcars\n  &gt;&gt; group_by(_.cyl)\n  &gt;&gt; summarize(avg_hp = _.hp.mean()\n              ,min_hp=_.hp.min()\n              ,max_hp=_.hp.max()\n              ,totol_disp=_.disp.sum()\n  )\n  )\n\ntbl_query\n\n\n\n\n\n\n\n\n\n\ncyl\navg_hp\nmin_hp\nmax_hp\ntotol_disp\n\n\n\n\n0\n4\n82.636364\n52\n113\n1156.5\n\n\n1\n6\n122.285714\n105\n175\n1283.2\n\n\n2\n8\n209.214286\n150\n335\n4943.4\n\n\n\n\n\n\n\n\n\n\n8.2 count\n\n\nCode\nmtcars &gt;&gt; group_by(_.cyl)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\ncyl\nn\n\n\n\n\n0\n4\n11\n\n\n1\n6\n7\n\n\n2\n8\n14",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#order",
+    "href": "data/2 siuba.html#order",
+    "title": "Data manipulation with siuba",
+    "section": "9 order",
+    "text": "9 order\n\n\nCode\nsmall_mtcars &gt;&gt; arrange(_.hp)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n2\n4\n22.8\n93\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175\n\n\n\n\n\n\n\n\nSort in descending order\n\n\nCode\nsmall_mtcars &gt;&gt; arrange(-_.hp)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n4\n8\n18.7\n175\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n3\n6\n21.4\n110\n\n\n2\n4\n22.8\n93\n\n\n\n\n\n\n\n\nArrange by multiple variables\n\n\nCode\nsmall_mtcars &gt;&gt; arrange(_.cyl, -_.mpg)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n4\n8\n18.7\n175",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#using-siuba-with-database",
+    "href": "data/2 siuba.html#using-siuba-with-database",
+    "title": "Data manipulation with siuba",
+    "section": "10 using siuba with database",
+    "text": "10 using siuba with database\n\n10.1 set up a sqlite database, with an mtcars table.\n\n\nCode\nfrom sqlalchemy import create_engine\nfrom siuba.sql import LazyTbl\nfrom siuba import _, group_by, summarize, show_query, collect \nfrom siuba.data import mtcars\n\n# copy in to sqlite, using the pandas .to_sql() method\nengine = create_engine(\"sqlite:///:memory:\")\nmtcars.to_sql(\"mtcars\", engine, if_exists = \"replace\")\n\n\n32\n\n\n\n\n10.2 create table\n\n\nCode\n# Create a lazy SQL DataFrame\ntbl_mtcars = LazyTbl(engine, \"mtcars\")\ntbl_mtcars\n\n\n\n# Source: lazy query\n# DB Conn: Engine(sqlite:///:memory:)\n# Preview:\n\n\n\n\n\n\n\nindex\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n4\n4\n18.7\n8\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n\n\n\n\n# .. may have more rows\n\n\n\n\n\n10.3 create query\n\n\nCode\n# connect with siuba\n\ntbl_query = (tbl_mtcars\n  &gt;&gt; group_by(_.mpg)\n  &gt;&gt; summarize(avg_hp = _.hp.mean())\n  )\n\ntbl_query\n\n\n\n# Source: lazy query\n# DB Conn: Engine(sqlite:///:memory:)\n# Preview:\n\n\n\n\n\n\n\nmpg\navg_hp\n\n\n\n\n0\n10.4\n210.0\n\n\n1\n13.3\n245.0\n\n\n2\n14.3\n245.0\n\n\n3\n14.7\n230.0\n\n\n4\n15.0\n335.0\n\n\n\n\n# .. may have more rows\n\n\n\n\n\n10.4 show query\n\n\nCode\n tbl_query &gt;&gt; show_query()\n\n\nSELECT mtcars.mpg, avg(mtcars.hp) AS avg_hp \nFROM mtcars GROUP BY mtcars.mpg\n\n\n\n# Source: lazy query\n# DB Conn: Engine(sqlite:///:memory:)\n# Preview:\n\n\n\n\n\n\n\nmpg\navg_hp\n\n\n\n\n0\n10.4\n210.0\n\n\n1\n13.3\n245.0\n\n\n2\n14.3\n245.0\n\n\n3\n14.7\n230.0\n\n\n4\n15.0\n335.0\n\n\n\n\n# .. may have more rows\n\n\n\n\n\n10.5 Collect to DataFrame\nbecause lazy expressions,the collect function is actually running the sql.\n\n\nCode\ndata=tbl_query &gt;&gt; collect()\nprint(data)\n\n\n     mpg  avg_hp\n0   10.4   210.0\n1   13.3   245.0\n2   14.3   245.0\n3   14.7   230.0\n4   15.0   335.0\n5   15.2   165.0\n6   15.5   150.0\n7   15.8   264.0\n8   16.4   180.0\n9   17.3   180.0\n10  17.8   123.0\n11  18.1   105.0\n12  18.7   175.0\n13  19.2   149.0\n14  19.7   175.0\n15  21.0   110.0\n16  21.4   109.5\n17  21.5    97.0\n18  22.8    94.0\n19  24.4    62.0\n20  26.0    91.0\n21  27.3    66.0\n22  30.4    82.5\n23  32.4    66.0\n24  33.9    65.0",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#reference",
+    "href": "data/2 siuba.html#reference",
+    "title": "Data manipulation with siuba",
+    "section": "11 reference:",
+    "text": "11 reference:\nhttps://siuba.org/",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#select-column",
+    "href": "data/2 siuba.html#select-column",
+    "title": "Data manipulation with siuba",
+    "section": "4 select column",
+    "text": "4 select column\n\n\nCode\nsmall_mtcars &gt;&gt; select(_.cyl, _.mpg)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\n\n\n\n\n0\n6\n21.0\n\n\n1\n6\n21.0\n\n\n2\n4\n22.8\n\n\n3\n6\n21.4\n\n\n4\n8\n18.7\n\n\n\n\n\n\n\n\nexclude\n\n\nCode\nsmall_mtcars &gt;&gt; select(~_.cyl)\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#renaming-column",
+    "href": "data/2 siuba.html#renaming-column",
+    "title": "Data manipulation with siuba",
+    "section": "5 Renaming column",
+    "text": "5 Renaming column\n\n\nCode\nsmall_mtcars &gt;&gt; rename(new_name_mpg = _.mpg)\n\n\n\n\n\n\n\n\n\n\ncyl\nnew_name_mpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#filter-rows",
+    "href": "data/2 siuba.html#filter-rows",
+    "title": "Data manipulation with siuba",
+    "section": "7 Filter rows",
+    "text": "7 Filter rows\n\n\nCode\nmtcars&gt;&gt; filter(_.gear ==4)\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n7\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n18\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\n19\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\n25\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\n31\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\n\n7.1 Filters with AND conditions\n\n\nCode\nmtcars &gt;&gt; filter((_.cyl &gt;4) & (_.gear == 5))\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.17\n14.5\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.77\n15.5\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.57\n14.6\n0\n1\n5\n8\n\n\n\n\n\n\n\n\n\n\n7.2 Filters with OR conditions\n\n\nCode\nmtcars &gt;&gt; filter((_.cyl == 6) | (_.gear == 5))\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n5\n18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n26\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\n27\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\n\n\n\n\n\n\n\n\n7.3 Dropping NA values",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data/2 siuba.html#order-rows",
+    "href": "data/2 siuba.html#order-rows",
+    "title": "Data manipulation with siuba",
+    "section": "9 order rows",
+    "text": "9 order rows\n\n\nCode\nsmall_mtcars &gt;&gt; arrange(_.hp)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n2\n4\n22.8\n93\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175\n\n\n\n\n\n\n\n\n\n9.1 Sort in descending order\n\n\nCode\nsmall_mtcars &gt;&gt; arrange(-_.hp)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n4\n8\n18.7\n175\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n3\n6\n21.4\n110\n\n\n2\n4\n22.8\n93\n\n\n\n\n\n\n\n\n\n\n9.2 Arrange by multiple variables\n\n\nCode\nsmall_mtcars &gt;&gt; arrange(_.cyl, -_.mpg)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n4\n8\n18.7\n175",
+    "crumbs": [
+      "Data",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#comparison",
+    "href": "data manipulation/2 siuba.html#comparison",
+    "title": "Data manipulation with siuba",
+    "section": "1 Comparison",
+    "text": "1 Comparison",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#package-download",
+    "href": "data manipulation/2 siuba.html#package-download",
+    "title": "Data manipulation with siuba",
+    "section": "2 Package download",
+    "text": "2 Package download\n\n\nCode\nimport os\nos.system('pip install siuba')",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#load-package",
+    "href": "data manipulation/2 siuba.html#load-package",
+    "title": "Data manipulation with siuba",
+    "section": "3 load package",
+    "text": "3 load package\n\n\nCode\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pylab as plt\nimport seaborn as sns\n\nfrom siuba.data import mtcars,penguins\n\nfrom siuba.siu import call\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\nfrom siuba.data import mtcars,penguins\n\n\n\n\nCode\nimport os\nos.system('pip show siuba')\n\n\nName: siuba\nVersion: 0.4.4\nSummary: A package for quick, scrappy analyses with pandas and SQL\nHome-page: https://github.com/machow/siuba\nAuthor: Michael Chow\nAuthor-email: mc_al_gh_siuba@fastmail.com\nLicense: MIT\nLocation: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages\nRequires: numpy, pandas, PyYAML, SQLAlchemy\nRequired-by: \n\n\n0\n\n\n\n\nCode\nsmall_mtcars = mtcars &gt;&gt; select(_.cyl, _.mpg, _.hp)&gt;&gt; head(5)\nsmall_penguins=penguins&gt;&gt; head(5)",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#select-column",
+    "href": "data manipulation/2 siuba.html#select-column",
+    "title": "Data manipulation with siuba",
+    "section": "4 select column",
+    "text": "4 select column\n\n\nCode\nsmall_mtcars &gt;&gt; select(_.cyl, _.mpg)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\n\n\n\n\n0\n6\n21.0\n\n\n1\n6\n21.0\n\n\n2\n4\n22.8\n\n\n3\n6\n21.4\n\n\n4\n8\n18.7\n\n\n\n\n\n\n\n\nexclude\n\n\nCode\nsmall_mtcars &gt;&gt; select(~_.cyl)\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#renaming-column",
+    "href": "data manipulation/2 siuba.html#renaming-column",
+    "title": "Data manipulation with siuba",
+    "section": "5 Renaming column",
+    "text": "5 Renaming column\n\n\nCode\nsmall_mtcars &gt;&gt; rename(new_name_mpg = _.mpg)\n\n\n\n\n\n\n\n\n\n\ncyl\nnew_name_mpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#create-column",
+    "href": "data manipulation/2 siuba.html#create-column",
+    "title": "Data manipulation with siuba",
+    "section": "6 Create column",
+    "text": "6 Create column\n\n6.1 Mutate\n\n\nCode\nmtcars.head()&gt;&gt; mutate(gear2 = _.gear+1\n                      ,gear3=if_else(_.gear &gt; 3, \"long\", \"short\")\n                       ,qsec2=case_when({\n                                          _.qsec &lt;= 17: \"short\",\n                                          _.qsec &lt;= 18: \"Medium\",\n                                          True: \"long\"\n                                                     })\n                       )\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\ngear2\ngear3\nqsec2\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n5\nlong\nshort\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n5\nlong\nMedium\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n5\nlong\nlong\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n4\nshort\nlong\n\n\n4\n18.7\n8\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n4\nshort\nMedium\n\n\n\n\n\n\n\n\n\n\n6.2 Transmute,create column and only keep this column\n\n\nCode\nmtcars.head()&gt;&gt; transmute(gear2 = _.gear+1)\n\n\n\n\n\n\n\n\n\n\ngear2\n\n\n\n\n0\n5\n\n\n1\n5\n\n\n2\n5\n\n\n3\n4\n\n\n4\n4",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#filter-rows",
+    "href": "data manipulation/2 siuba.html#filter-rows",
+    "title": "Data manipulation with siuba",
+    "section": "7 Filter rows",
+    "text": "7 Filter rows\n\n\nCode\nmtcars&gt;&gt; filter(_.gear ==4)\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n7\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n18\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\n19\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\n25\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\n31\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\n\n7.1 Filters with AND conditions\n\n\nCode\nmtcars &gt;&gt; filter((_.cyl &gt;4) & (_.gear == 5))\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.17\n14.5\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.77\n15.5\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.57\n14.6\n0\n1\n5\n8\n\n\n\n\n\n\n\n\n\n\n7.2 Filters with OR conditions\n\n\nCode\nmtcars &gt;&gt; filter((_.cyl == 6) | (_.gear == 5))\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n5\n18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n26\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\n27\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\n\n\n\n\n\n\n\n\n7.3 Dropping NA values",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#group-by",
+    "href": "data manipulation/2 siuba.html#group-by",
+    "title": "Data manipulation with siuba",
+    "section": "8 group by",
+    "text": "8 group by\n\n8.1 average,min,max,sum\n\n\nCode\ntbl_query = (mtcars\n  &gt;&gt; group_by(_.cyl)\n  &gt;&gt; summarize(avg_hp = _.hp.mean()\n              ,min_hp=_.hp.min()\n              ,max_hp=_.hp.max()\n              ,totol_disp=_.disp.sum()\n  )\n  )\n\ntbl_query\n\n\n\n\n\n\n\n\n\n\ncyl\navg_hp\nmin_hp\nmax_hp\ntotol_disp\n\n\n\n\n0\n4\n82.636364\n52\n113\n1156.5\n\n\n1\n6\n122.285714\n105\n175\n1283.2\n\n\n2\n8\n209.214286\n150\n335\n4943.4\n\n\n\n\n\n\n\n\n\n\n8.2 count\n\n\nCode\nmtcars &gt;&gt; group_by(_.cyl)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\ncyl\nn\n\n\n\n\n0\n4\n11\n\n\n1\n6\n7\n\n\n2\n8\n14",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#order-rows",
+    "href": "data manipulation/2 siuba.html#order-rows",
+    "title": "Data manipulation with siuba",
+    "section": "9 order rows",
+    "text": "9 order rows\n\n\nCode\nsmall_mtcars &gt;&gt; arrange(_.hp)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n2\n4\n22.8\n93\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175\n\n\n\n\n\n\n\n\n\n9.1 Sort in descending order\n\n\nCode\nsmall_mtcars &gt;&gt; arrange(-_.hp)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n4\n8\n18.7\n175\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n3\n6\n21.4\n110\n\n\n2\n4\n22.8\n93\n\n\n\n\n\n\n\n\n\n\n9.2 Arrange by multiple variables\n\n\nCode\nsmall_mtcars &gt;&gt; arrange(_.cyl, -_.mpg)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n4\n8\n18.7\n175",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#join",
+    "href": "data manipulation/2 siuba.html#join",
+    "title": "Data manipulation with siuba",
+    "section": "10 join",
+    "text": "10 join\n\n\nCode\nlhs = pd.DataFrame({'id': [1,2,3], 'val': ['lhs.1', 'lhs.2', 'lhs.3']})\nrhs = pd.DataFrame({'id': [1,2,4], 'val': ['rhs.1', 'rhs.2', 'rhs.3']})\n\n\n\n\nCode\nlhs\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n0\n1\nlhs.1\n\n\n1\n2\nlhs.2\n\n\n2\n3\nlhs.3\n\n\n\n\n\n\n\n\n\n\nCode\nrhs\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n0\n1\nrhs.1\n\n\n1\n2\nrhs.2\n\n\n2\n4\nrhs.3\n\n\n\n\n\n\n\n\n\n10.1 inner_join\n\n\nCode\nresult=lhs &gt;&gt; inner_join(_, rhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n\n\n\n\n\n\n\n\n10.2 full join\n\n\nCode\nresult=rhs &gt;&gt; full_join(_, lhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nrhs.1\nlhs.1\n\n\n1\n2\nrhs.2\nlhs.2\n\n\n2\n3\nNaN\nlhs.3\n\n\n3\n4\nrhs.3\nNaN\n\n\n\n\n\n\n\n\n\n\n10.3 left join\n\n\nCode\nresult=lhs &gt;&gt; left_join(_, rhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n2\n3\nlhs.3\nNaN\n\n\n\n\n\n\n\n\n\n\n10.4 anti join\nkeep data in left which not in right\n\n\nCode\nresult=lhs &gt;&gt; anti_join(_, rhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n2\n3\nlhs.3\n\n\n\n\n\n\n\n\nkeep data in right which not in left\n\n\nCode\nresult=rhs &gt;&gt; anti_join(_, lhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n2\n4\nrhs.3",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#using-siuba-with-database",
+    "href": "data manipulation/2 siuba.html#using-siuba-with-database",
+    "title": "Data manipulation with siuba",
+    "section": "14 using siuba with database",
+    "text": "14 using siuba with database\n\n14.1 set up a sqlite database, with an mtcars table.\n\n\nCode\nfrom sqlalchemy import create_engine\nfrom siuba.sql import LazyTbl\nfrom siuba import _, group_by, summarize, show_query, collect \nfrom siuba.data import mtcars\n\n# copy in to sqlite, using the pandas .to_sql() method\nengine = create_engine(\"sqlite:///:memory:\")\nmtcars.to_sql(\"mtcars\", engine, if_exists = \"replace\")\n\n\n32\n\n\n\n\n14.2 create table\n\n\nCode\n# Create a lazy SQL DataFrame\ntbl_mtcars = LazyTbl(engine, \"mtcars\")\ntbl_mtcars\n\n\n\n# Source: lazy query\n# DB Conn: Engine(sqlite:///:memory:)\n# Preview:\n\n\n\n\n\n\n\nindex\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n4\n4\n18.7\n8\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n\n\n\n\n# .. may have more rows\n\n\n\n\n\n14.3 create query\n\n\nCode\n# connect with siuba\n\ntbl_query = (tbl_mtcars\n  &gt;&gt; group_by(_.mpg)\n  &gt;&gt; summarize(avg_hp = _.hp.mean())\n  )\n\ntbl_query\n\n\n\n# Source: lazy query\n# DB Conn: Engine(sqlite:///:memory:)\n# Preview:\n\n\n\n\n\n\n\nmpg\navg_hp\n\n\n\n\n0\n10.4\n210.0\n\n\n1\n13.3\n245.0\n\n\n2\n14.3\n245.0\n\n\n3\n14.7\n230.0\n\n\n4\n15.0\n335.0\n\n\n\n\n# .. may have more rows\n\n\n\n\n\n14.4 show query\n\n\nCode\n tbl_query &gt;&gt; show_query()\n\n\nSELECT mtcars.mpg, avg(mtcars.hp) AS avg_hp \nFROM mtcars GROUP BY mtcars.mpg\n\n\n\n# Source: lazy query\n# DB Conn: Engine(sqlite:///:memory:)\n# Preview:\n\n\n\n\n\n\n\nmpg\navg_hp\n\n\n\n\n0\n10.4\n210.0\n\n\n1\n13.3\n245.0\n\n\n2\n14.3\n245.0\n\n\n3\n14.7\n230.0\n\n\n4\n15.0\n335.0\n\n\n\n\n# .. may have more rows\n\n\n\n\n\n14.5 Collect to DataFrame\nbecause lazy expressions,the collect function is actually running the sql.\n\n\nCode\ndata=tbl_query &gt;&gt; collect()\nprint(data)\n\n\n     mpg  avg_hp\n0   10.4   210.0\n1   13.3   245.0\n2   14.3   245.0\n3   14.7   230.0\n4   15.0   335.0\n5   15.2   165.0\n6   15.5   150.0\n7   15.8   264.0\n8   16.4   180.0\n9   17.3   180.0\n10  17.8   123.0\n11  18.1   105.0\n12  18.7   175.0\n13  19.2   149.0\n14  19.7   175.0\n15  21.0   110.0\n16  21.4   109.5\n17  21.5    97.0\n18  22.8    94.0\n19  24.4    62.0\n20  26.0    91.0\n21  27.3    66.0\n22  30.4    82.5\n23  32.4    66.0\n24  33.9    65.0",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#reference",
+    "href": "data manipulation/2 siuba.html#reference",
+    "title": "Data manipulation with siuba",
+    "section": "15 reference:",
+    "text": "15 reference:\nhttps://siuba.org/",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html",
+    "href": "data manipulation/1 Pandas.html",
+    "title": "Data manipulation with Pandas",
+    "section": "",
+    "text": "Code\nimport sys\nprint(sys.version)\n\n\n3.11.4 (v3.11.4:d2340ef257, Jun  6 2023, 19:15:51) [Clang 13.0.0 (clang-1300.0.29.30)]\nCode\nimport pandas as pd\nprint('pandas version', pd.__version__)\n\n\npandas version 2.2.1",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#reading-from-parquet",
+    "href": "data manipulation/1 Pandas.html#reading-from-parquet",
+    "title": "Data manipulation with Pandas",
+    "section": "0.1 Reading from parquet",
+    "text": "0.1 Reading from parquet\n\n\nCode\ndf = pd.read_parquet(\"data/Combined_Flights_2022.parquet\")",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#get-first-3",
+    "href": "data manipulation/1 Pandas.html#get-first-3",
+    "title": "Data manipulation with Pandas",
+    "section": "0.2 get first 3",
+    "text": "0.2 get first 3\n\n\nCode\ndf.head(3)\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n0\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nGJT\nDEN\nFalse\nFalse\n1133\n1123.0\n0.0\n-10.0\n...\n1140.0\n1220.0\n8.0\n1245\n-17.0\n0.0\n-2.0\n1200-1259\n1\n0\n\n\n1\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nHRL\nIAH\nFalse\nFalse\n732\n728.0\n0.0\n-4.0\n...\n744.0\n839.0\n9.0\n849\n-1.0\n0.0\n-1.0\n0800-0859\n2\n0\n\n\n2\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\nDEN\nFalse\nFalse\n1529\n1514.0\n0.0\n-15.0\n...\n1535.0\n1622.0\n14.0\n1639\n-3.0\n0.0\n-1.0\n1600-1659\n2\n0\n\n\n\n\n3 rows × 61 columns",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#get-last-3",
+    "href": "data manipulation/1 Pandas.html#get-last-3",
+    "title": "Data manipulation with Pandas",
+    "section": "0.3 get last 3",
+    "text": "0.3 get last 3\n\n\nCode\ndf.tail(3)\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n590539\n2022-03-08\nRepublic Airlines\nALB\nORD\nFalse\nFalse\n1700\n2318.0\n378.0\n378.0\n...\n2337.0\n52.0\n7.0\n1838\n381.0\n1.0\n12.0\n1800-1859\n3\n0\n\n\n590540\n2022-03-25\nRepublic Airlines\nEWR\nPIT\nFalse\nTrue\n2129\n2322.0\n113.0\n113.0\n...\n2347.0\n933.0\n6.0\n2255\nNaN\nNaN\nNaN\n2200-2259\n2\n1\n\n\n590541\n2022-03-07\nRepublic Airlines\nEWR\nRDU\nFalse\nTrue\n1154\n1148.0\n0.0\n-6.0\n...\n1201.0\n1552.0\n4.0\n1333\nNaN\nNaN\nNaN\n1300-1359\n2\n1\n\n\n\n\n3 rows × 61 columns",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#get-ramdon-5",
+    "href": "data manipulation/1 Pandas.html#get-ramdon-5",
+    "title": "Data manipulation with Pandas",
+    "section": "0.4 get ramdon 5",
+    "text": "0.4 get ramdon 5\n\n\nCode\ndf.sample(5, random_state=42)\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n324021\n2022-03-19\nSkyWest Airlines Inc.\nASE\nDEN\nFalse\nFalse\n1831\n1826.0\n0.0\n-5.0\n...\n1845.0\n1916.0\n7.0\n1933\n-10.0\n0.0\n-1.0\n1900-1959\n1\n0\n\n\n34739\n2022-02-16\nSkyWest Airlines Inc.\nTYS\nDEN\nFalse\nFalse\n1605\n1605.0\n0.0\n0.0\n...\n1614.0\n1728.0\n44.0\n1737\n35.0\n1.0\n2.0\n1700-1759\n5\n0\n\n\n304494\n2022-01-18\nAmerican Airlines Inc.\nLAX\nOGG\nFalse\nFalse\n1719\n1714.0\n0.0\n-5.0\n...\n1728.0\n2042.0\n10.0\n2049\n3.0\n0.0\n0.0\n2000-2059\n10\n0\n\n\n205451\n2022-01-23\nSouthwest Airlines Co.\nLAS\nBWI\nFalse\nFalse\n1515\n1533.0\n18.0\n18.0\n...\n1548.0\n2259.0\n3.0\n2235\n27.0\n1.0\n1.0\n2200-2259\n9\n0\n\n\n173176\n2022-07-01\nDelta Air Lines Inc.\nDTW\nRDU\nFalse\nFalse\n715\n709.0\n0.0\n-6.0\n...\n721.0\n834.0\n3.0\n853\n-16.0\n0.0\n-2.0\n0800-0859\n3\n0\n\n\n\n\n5 rows × 61 columns",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#get-columns-names",
+    "href": "data manipulation/1 Pandas.html#get-columns-names",
+    "title": "Data manipulation with Pandas",
+    "section": "0.5 get columns names",
+    "text": "0.5 get columns names\n\n\nCode\ndf.columns\n\n\nIndex(['FlightDate', 'Airline', 'Origin', 'Dest', 'Cancelled', 'Diverted',\n       'CRSDepTime', 'DepTime', 'DepDelayMinutes', 'DepDelay', 'ArrTime',\n       'ArrDelayMinutes', 'AirTime', 'CRSElapsedTime', 'ActualElapsedTime',\n       'Distance', 'Year', 'Quarter', 'Month', 'DayofMonth', 'DayOfWeek',\n       'Marketing_Airline_Network', 'Operated_or_Branded_Code_Share_Partners',\n       'DOT_ID_Marketing_Airline', 'IATA_Code_Marketing_Airline',\n       'Flight_Number_Marketing_Airline', 'Operating_Airline',\n       'DOT_ID_Operating_Airline', 'IATA_Code_Operating_Airline',\n       'Tail_Number', 'Flight_Number_Operating_Airline', 'OriginAirportID',\n       'OriginAirportSeqID', 'OriginCityMarketID', 'OriginCityName',\n       'OriginState', 'OriginStateFips', 'OriginStateName', 'OriginWac',\n       'DestAirportID', 'DestAirportSeqID', 'DestCityMarketID', 'DestCityName',\n       'DestState', 'DestStateFips', 'DestStateName', 'DestWac', 'DepDel15',\n       'DepartureDelayGroups', 'DepTimeBlk', 'TaxiOut', 'WheelsOff',\n       'WheelsOn', 'TaxiIn', 'CRSArrTime', 'ArrDelay', 'ArrDel15',\n       'ArrivalDelayGroups', 'ArrTimeBlk', 'DistanceGroup',\n       'DivAirportLandings'],\n      dtype='object')",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#get-row-index",
+    "href": "data manipulation/1 Pandas.html#get-row-index",
+    "title": "Data manipulation with Pandas",
+    "section": "0.6 get row index",
+    "text": "0.6 get row index\n\n\nCode\ndf.index\n\n\nIndex([     0,      1,      2,      3,      4,      5,      6,      7,      8,\n            9,\n       ...\n       590532, 590533, 590534, 590535, 590536, 590537, 590538, 590539, 590540,\n       590541],\n      dtype='int64', length=4078318)",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#get-long-info",
+    "href": "data manipulation/1 Pandas.html#get-long-info",
+    "title": "Data manipulation with Pandas",
+    "section": "0.7 get long info",
+    "text": "0.7 get long info\n\n\nCode\ndf.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 4078318 entries, 0 to 590541\nData columns (total 61 columns):\n #   Column                                   Dtype         \n---  ------                                   -----         \n 0   FlightDate                               datetime64[us]\n 1   Airline                                  object        \n 2   Origin                                   object        \n 3   Dest                                     object        \n 4   Cancelled                                bool          \n 5   Diverted                                 bool          \n 6   CRSDepTime                               int64         \n 7   DepTime                                  float64       \n 8   DepDelayMinutes                          float64       \n 9   DepDelay                                 float64       \n 10  ArrTime                                  float64       \n 11  ArrDelayMinutes                          float64       \n 12  AirTime                                  float64       \n 13  CRSElapsedTime                           float64       \n 14  ActualElapsedTime                        float64       \n 15  Distance                                 float64       \n 16  Year                                     int64         \n 17  Quarter                                  int64         \n 18  Month                                    int64         \n 19  DayofMonth                               int64         \n 20  DayOfWeek                                int64         \n 21  Marketing_Airline_Network                object        \n 22  Operated_or_Branded_Code_Share_Partners  object        \n 23  DOT_ID_Marketing_Airline                 int64         \n 24  IATA_Code_Marketing_Airline              object        \n 25  Flight_Number_Marketing_Airline          int64         \n 26  Operating_Airline                        object        \n 27  DOT_ID_Operating_Airline                 int64         \n 28  IATA_Code_Operating_Airline              object        \n 29  Tail_Number                              object        \n 30  Flight_Number_Operating_Airline          int64         \n 31  OriginAirportID                          int64         \n 32  OriginAirportSeqID                       int64         \n 33  OriginCityMarketID                       int64         \n 34  OriginCityName                           object        \n 35  OriginState                              object        \n 36  OriginStateFips                          int64         \n 37  OriginStateName                          object        \n 38  OriginWac                                int64         \n 39  DestAirportID                            int64         \n 40  DestAirportSeqID                         int64         \n 41  DestCityMarketID                         int64         \n 42  DestCityName                             object        \n 43  DestState                                object        \n 44  DestStateFips                            int64         \n 45  DestStateName                            object        \n 46  DestWac                                  int64         \n 47  DepDel15                                 float64       \n 48  DepartureDelayGroups                     float64       \n 49  DepTimeBlk                               object        \n 50  TaxiOut                                  float64       \n 51  WheelsOff                                float64       \n 52  WheelsOn                                 float64       \n 53  TaxiIn                                   float64       \n 54  CRSArrTime                               int64         \n 55  ArrDelay                                 float64       \n 56  ArrDel15                                 float64       \n 57  ArrivalDelayGroups                       float64       \n 58  ArrTimeBlk                               object        \n 59  DistanceGroup                            int64         \n 60  DivAirportLandings                       int64         \ndtypes: bool(2), datetime64[us](1), float64(18), int64(23), object(17)\nmemory usage: 1.8+ GB",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#get-short-info",
+    "href": "data manipulation/1 Pandas.html#get-short-info",
+    "title": "Data manipulation with Pandas",
+    "section": "0.8 get short info",
+    "text": "0.8 get short info\n\n\nCode\ndf.info(verbose=False)\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 4078318 entries, 0 to 590541\nColumns: 61 entries, FlightDate to DivAirportLandings\ndtypes: bool(2), datetime64[us](1), float64(18), int64(23), object(17)\nmemory usage: 1.8+ GB",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#summary-of-numeric-column",
+    "href": "data manipulation/1 Pandas.html#summary-of-numeric-column",
+    "title": "Data manipulation with Pandas",
+    "section": "0.9 summary of numeric column",
+    "text": "0.9 summary of numeric column\n\n\nCode\ndf.describe()\n\n\n\n\n\n\n\n\n\n\nFlightDate\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\nArrTime\nArrDelayMinutes\nAirTime\nCRSElapsedTime\nActualElapsedTime\n...\nTaxiOut\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nDistanceGroup\nDivAirportLandings\n\n\n\n\ncount\n4078318\n4.078318e+06\n3.957885e+06\n3.957823e+06\n3.957823e+06\n3.954079e+06\n3.944916e+06\n3.944916e+06\n4.078318e+06\n3.944916e+06\n...\n3.955652e+06\n3.955652e+06\n3.954076e+06\n3.954076e+06\n4.078318e+06\n3.944916e+06\n3.944916e+06\n3.944916e+06\n4.078318e+06\n4.078318e+06\n\n\nmean\n2022-04-18 12:10:43.903101\n1.329587e+03\n1.334374e+03\n1.601494e+01\n1.309049e+01\n1.457886e+03\n1.578307e+01\n1.110075e+02\n1.413211e+02\n1.358624e+02\n...\n1.697375e+01\n1.356576e+03\n1.455073e+03\n7.894387e+00\n1.486058e+03\n7.528486e+00\n2.164715e-01\n-6.256103e-02\n3.663516e+00\n3.685098e-03\n\n\nmin\n2022-01-01 00:00:00\n1.000000e+00\n1.000000e+00\n0.000000e+00\n-7.800000e+01\n1.000000e+00\n0.000000e+00\n8.000000e+00\n-4.800000e+01\n1.400000e+01\n...\n1.000000e+00\n1.000000e+00\n1.000000e+00\n1.000000e+00\n1.000000e+00\n-1.000000e+02\n0.000000e+00\n-2.000000e+00\n1.000000e+00\n0.000000e+00\n\n\n25%\n2022-02-25 00:00:00\n9.140000e+02\n9.170000e+02\n0.000000e+00\n-5.000000e+00\n1.046000e+03\n0.000000e+00\n6.000000e+01\n8.900000e+01\n8.300000e+01\n...\n1.100000e+01\n9.320000e+02\n1.044000e+03\n4.000000e+00\n1.103000e+03\n-1.400000e+01\n0.000000e+00\n-1.000000e+00\n2.000000e+00\n0.000000e+00\n\n\n50%\n2022-04-19 00:00:00\n1.320000e+03\n1.325000e+03\n0.000000e+00\n-2.000000e+00\n1.500000e+03\n0.000000e+00\n9.400000e+01\n1.240000e+02\n1.190000e+02\n...\n1.500000e+01\n1.338000e+03\n1.456000e+03\n6.000000e+00\n1.513000e+03\n-5.000000e+00\n0.000000e+00\n-1.000000e+00\n3.000000e+00\n0.000000e+00\n\n\n75%\n2022-06-11 00:00:00\n1.735000e+03\n1.744000e+03\n1.100000e+01\n1.100000e+01\n1.914000e+03\n1.000000e+01\n1.410000e+02\n1.710000e+02\n1.670000e+02\n...\n1.900000e+01\n1.758000e+03\n1.909000e+03\n9.000000e+00\n1.920000e+03\n1.000000e+01\n0.000000e+00\n0.000000e+00\n5.000000e+00\n0.000000e+00\n\n\nmax\n2022-07-31 00:00:00\n2.359000e+03\n2.400000e+03\n7.223000e+03\n7.223000e+03\n2.400000e+03\n7.232000e+03\n7.270000e+02\n6.900000e+02\n7.640000e+02\n...\n2.210000e+02\n2.400000e+03\n2.400000e+03\n2.900000e+02\n2.359000e+03\n7.232000e+03\n1.000000e+00\n1.200000e+01\n1.100000e+01\n9.000000e+00\n\n\nstd\nNaN\n4.904801e+02\n5.056219e+02\n5.231498e+01\n5.332016e+01\n5.431841e+02\n5.198424e+01\n6.996246e+01\n7.179635e+01\n7.185501e+01\n...\n9.495407e+00\n5.075580e+02\n5.378428e+02\n6.663118e+00\n5.185078e+02\n5.524625e+01\n4.118393e-01\n2.487442e+00\n2.320848e+00\n1.141331e-01\n\n\n\n\n8 rows × 42 columns",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#summary-of-categorical-column",
+    "href": "data manipulation/1 Pandas.html#summary-of-categorical-column",
+    "title": "Data manipulation with Pandas",
+    "section": "0.10 summary of categorical column",
+    "text": "0.10 summary of categorical column\n\n\nCode\ndf[[\"Airline\"]].describe()\n\n\n\n\n\n\n\n\n\n\nAirline\n\n\n\n\ncount\n4078318\n\n\nunique\n21\n\n\ntop\nSouthwest Airlines Co.\n\n\nfreq\n731925",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#reshape-tables",
+    "href": "data manipulation/2 siuba.html#reshape-tables",
+    "title": "Data manipulation with siuba",
+    "section": "11 Reshape tables",
+    "text": "11 Reshape tables\n\n\nCode\ncosts = pd.DataFrame({\n    'id': [1,2],\n    'price_x': [.1, .2],\n    'price_y': [.4, .5],\n    'price_z': [.7, .8]\n})\n\ncosts\n\n\n\n\n\n\n\n\n\n\nid\nprice_x\nprice_y\nprice_z\n\n\n\n\n0\n1\n0.1\n0.4\n0.7\n\n\n1\n2\n0.2\n0.5\n0.8\n\n\n\n\n\n\n\n\n\n11.1 Gather data long\nBelow 3 method will give same result\n\n\nCode\n# selecting each variable manually\ncosts &gt;&gt; gather('measure', 'value', _.price_x, _.price_y, _.price_z)\n\n\n\n\n\n\n\n\n\n\nid\nmeasure\nvalue\n\n\n\n\n0\n1\nprice_x\n0.1\n\n\n1\n2\nprice_x\n0.2\n\n\n2\n1\nprice_y\n0.4\n\n\n3\n2\nprice_y\n0.5\n\n\n4\n1\nprice_z\n0.7\n\n\n5\n2\nprice_z\n0.8\n\n\n\n\n\n\n\n\n\n\nCode\n# selecting variables using a slice\ncosts &gt;&gt; gather('measure', 'value', _[\"price_x\":\"price_z\"])\n\n\n\n\n\n\n\n\n\n\nid\nmeasure\nvalue\n\n\n\n\n0\n1\nprice_x\n0.1\n\n\n1\n2\nprice_x\n0.2\n\n\n2\n1\nprice_y\n0.4\n\n\n3\n2\nprice_y\n0.5\n\n\n4\n1\nprice_z\n0.7\n\n\n5\n2\nprice_z\n0.8\n\n\n\n\n\n\n\n\n\n\nCode\n# selecting by excluding id\ncosts &gt;&gt; gather('measure', 'value', -_.id)\n\n\n\n\n\n\n\n\n\n\nid\nmeasure\nvalue\n\n\n\n\n0\n1\nprice_x\n0.1\n\n\n1\n2\nprice_x\n0.2\n\n\n2\n1\nprice_y\n0.4\n\n\n3\n2\nprice_y\n0.5\n\n\n4\n1\nprice_z\n0.7\n\n\n5\n2\nprice_z\n0.8\n\n\n\n\n\n\n\n\n\n\n11.2 Spread data wide",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#string",
+    "href": "data manipulation/2 siuba.html#string",
+    "title": "Data manipulation with siuba",
+    "section": "12 string",
+    "text": "12 string\n\n\nCode\ndf = pd.DataFrame({'text': ['abc', 'DDD','1243c','aeEe'], 'num': [3, 4,7,8]})\n\ndf\n\n\n\n\n\n\n\n\n\n\ntext\nnum\n\n\n\n\n0\nabc\n3\n\n\n1\nDDD\n4\n\n\n2\n1243c\n7\n\n\n3\naeEe\n8\n\n\n\n\n\n\n\n\n\n12.1 upper case\n\n\nCode\ndf&gt;&gt; mutate(text_new=_.text.str.upper())\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new\n\n\n\n\n0\nabc\n3\nABC\n\n\n1\nDDD\n4\nDDD\n\n\n2\n1243c\n7\n1243C\n\n\n3\naeEe\n8\nAEEE\n\n\n\n\n\n\n\n\n\n\n12.2 lower case\n\n\nCode\ndf&gt;&gt; mutate(text_new=_.text.str.lower())\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new\n\n\n\n\n0\nabc\n3\nabc\n\n\n1\nDDD\n4\nddd\n\n\n2\n1243c\n7\n1243c\n\n\n3\naeEe\n8\naeee\n\n\n\n\n\n\n\n\n\n\n12.3 match\n\n\nCode\ndf&gt;&gt; mutate(text_new1=if_else(_.text== \"abc\",'T','F')\n            ,text_new2=if_else(_.text.str.startswith(\"a\"),'T','F')\n            ,text_new3=if_else(_.text.str.endswith(\"c\"),'T','F')\n            ,text_new4=if_else(_.text.str.contains(\"4\"),'T','F')\n\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\ntext_new2\ntext_new3\ntext_new4\n\n\n\n\n0\nabc\n3\nT\nT\nT\nF\n\n\n1\nDDD\n4\nF\nF\nF\nF\n\n\n2\n1243c\n7\nF\nF\nT\nT\n\n\n3\naeEe\n8\nF\nT\nF\nF\n\n\n\n\n\n\n\n\n\n\n12.4 concatenation\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text+' is '+_.text\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\n\n\n\n\n0\nabc\n3\nabc is abc\n\n\n1\nDDD\n4\nDDD is DDD\n\n\n2\n1243c\n7\n1243c is 1243c\n\n\n3\naeEe\n8\naeEe is aeEe\n\n\n\n\n\n\n\n\n\n\n12.5 replace\nUse .str.replace(…, regex=True) with regular expressions to replace patterns in strings.\nFor example, the code below uses “p.”, where . is called a wildcard–which matches any character.\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text.str.replace(\"a.\", \"XX\", regex=True)\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\n\n\n\n\n0\nabc\n3\nXXc\n\n\n1\nDDD\n4\nDDD\n\n\n2\n1243c\n7\n1243c\n\n\n3\naeEe\n8\nXXEe\n\n\n\n\n\n\n\n\n\n\n12.6 extract\nUse str.extract() with a regular expression to pull out a matching piece of text.\nFor example the regular expression “^(.*) ” contains the following pieces:\n\na matches the literal letter “a”\n.* has a . which matches anything, and * which modifies it to apply 0 or more times.\n\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text.str.extract(\"a(.*)\")\n            ,text_new2=_.text.str.extract(\"(.*)c\")\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\ntext_new2\n\n\n\n\n0\nabc\n3\nbc\nab\n\n\n1\nDDD\n4\nNaN\nNaN\n\n\n2\n1243c\n7\nNaN\n1243\n\n\n3\naeEe\n8\neEe\nNaN",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#date",
+    "href": "data manipulation/2 siuba.html#date",
+    "title": "Data manipulation with siuba",
+    "section": "13 date",
+    "text": "13 date\n\n\nCode\ndf_dates = pd.DataFrame({\n    \"dates\": pd.to_datetime([\"2021-01-02\", \"2021-02-03\"]),\n    \"raw\": [\"2023-04-05 06:07:08\", \"2024-05-06 07:08:09\"],\n})\ndf_dates\n\n\n\n\n\n\n\n\n\n\ndates\nraw\n\n\n\n\n0\n2021-01-02\n2023-04-05 06:07:08\n\n\n1\n2021-02-03\n2024-05-06 07:08:09\n\n\n\n\n\n\n\n\n\n\nCode\nfrom datetime import datetime\n\ndf_date=df_dates&gt;&gt;mutate(month=_.dates.dt.month_name()\n                  ,date_format_raw = call(pd.to_datetime, _.raw)\n                  ,date_format_raw_year=_.date_format_raw.dt.year\n\n)\n\ndf_date\n\n\n\n\n\n\n\n\n\n\ndates\nraw\nmonth\ndate_format_raw\ndate_format_raw_year\n\n\n\n\n0\n2021-01-02\n2023-04-05 06:07:08\nJanuary\n2023-04-05 06:07:08\n2023\n\n\n1\n2021-02-03\n2024-05-06 07:08:09\nFebruary\n2024-05-06 07:08:09\n2024\n\n\n\n\n\n\n\n\n\n\nCode\ndf_date.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 2 entries, 0 to 1\nData columns (total 5 columns):\n #   Column                Non-Null Count  Dtype         \n---  ------                --------------  -----         \n 0   dates                 2 non-null      datetime64[ns]\n 1   raw                   2 non-null      object        \n 2   month                 2 non-null      object        \n 3   date_format_raw       2 non-null      datetime64[ns]\n 4   date_format_raw_year  2 non-null      int32         \ndtypes: datetime64[ns](2), int32(1), object(2)\nmemory usage: 204.0+ bytes",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html#comparison-with-different-python-dataframe-package",
+    "href": "data manipulation/2 siuba.html#comparison-with-different-python-dataframe-package",
+    "title": "Data manipulation with siuba",
+    "section": "1 Comparison with different python dataframe package",
+    "text": "1 Comparison with different python dataframe package",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html",
+    "href": "plot/3 plotly.html",
+    "title": "Plotly chart",
+    "section": "",
+    "text": "Plotly’s Python graphing library makes interactive, publication-quality graphs. Examples of how to make line plots, scatter plots, area charts, bar charts, error bars, box plots, histograms, heatmaps, subplots, multiple-axes, polar charts, and bubble charts.\nCode\nimport plotly\nprint(plotly.__version__)\n\n\n5.20.0\nCode\nfrom plotnine import *\nimport seaborn as sns\nimport plotly.express as px\n\n# Apply the default theme\n\n\n# Load an example dataset\ntips = sns.load_dataset(\"tips\")\ntips.head()\n\n\n\n\n\n\n\n\n\n\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3\n\n\n3\n23.68\n3.31\nMale\nNo\nSun\nDinner\n2\n\n\n4\n24.59\n3.61\nFemale\nNo\nSun\nDinner\n4",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html#color-by-group",
+    "href": "plot/3 plotly.html#color-by-group",
+    "title": "Plotly chart",
+    "section": "1.1 color by group",
+    "text": "1.1 color by group\n\n\nCode\nfig = px.scatter(tips,x=\"tip\", y=\"total_bill\",color=\"sex\")\nfig.show()",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html#size-by-group",
+    "href": "plot/3 plotly.html#size-by-group",
+    "title": "Plotly chart",
+    "section": "1.2 size by group",
+    "text": "1.2 size by group\n\n\nCode\nfig = px.scatter(tips,x=\"tip\", y=\"total_bill\",size=\"size\")\nfig.show()",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html#color-by-group-1",
+    "href": "plot/3 plotly.html#color-by-group-1",
+    "title": "Plotly chart",
+    "section": "2.1 color by group",
+    "text": "2.1 color by group\n\n\nCode\nimport plotly.express as px\n\ndf = px.data.gapminder().query(\"continent=='Oceania'\")\nfig = px.line(df, x=\"year\", y=\"lifeExp\", color='country')\nfig.show()",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html#color-by-group-2",
+    "href": "plot/3 plotly.html#color-by-group-2",
+    "title": "Plotly chart",
+    "section": "3.1 color by group",
+    "text": "3.1 color by group",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html#color-by-group-3",
+    "href": "plot/3 plotly.html#color-by-group-3",
+    "title": "Plotly chart",
+    "section": "5.1 color by group",
+    "text": "5.1 color by group",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html#color-by-group-4",
+    "href": "plot/3 plotly.html#color-by-group-4",
+    "title": "Plotly chart",
+    "section": "6.1 color by group",
+    "text": "6.1 color by group",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
     ]
   }
 ]

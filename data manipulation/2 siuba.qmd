@@ -1,0 +1,420 @@
+---
+title: "Data manipulation with siuba"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+![](images/siuba_small.svg){width="434"}
+
+
+## Comparison with different python dataframe package
+
+
+![](images/2.png){width="656"}
+
+## Package download
+
+```{python}
+#| eval: false
+import os
+os.system('pip install siuba')
+```
+
+## load package
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pylab as plt
+import seaborn as sns
+
+from siuba.data import mtcars,penguins
+
+from siuba.siu import call
+from siuba import _, mutate, filter, group_by, summarize,show_query
+from siuba import *
+
+from siuba.data import mtcars,penguins
+```
+
+```{python}
+import os
+os.system('pip show siuba')
+```
+
+
+
+
+```{python}
+small_mtcars = mtcars >> select(_.cyl, _.mpg, _.hp)>> head(5)
+small_penguins=penguins>> head(5)
+```
+
+## select column
+
+```{python}
+small_mtcars >> select(_.cyl, _.mpg)
+```
+
+exclude
+
+```{python}
+small_mtcars >> select(~_.cyl)
+```
+
+## Renaming column
+
+```{python}
+small_mtcars >> rename(new_name_mpg = _.mpg)
+```
+
+## Create column
+
+### Mutate
+```{python}
+mtcars.head()>> mutate(gear2 = _.gear+1
+                      ,gear3=if_else(_.gear > 3, "long", "short")
+                       ,qsec2=case_when({
+                                          _.qsec <= 17: "short",
+                                          _.qsec <= 18: "Medium",
+                                          True: "long"
+                                                     })
+                       )
+
+```
+### Transmute,create column and only keep this column
+
+```{python}
+mtcars.head()>> transmute(gear2 = _.gear+1)
+```
+
+
+
+
+## Filter rows
+
+```{python}
+mtcars>> filter(_.gear ==4)
+```
+
+### Filters with AND conditions
+
+```{python}
+mtcars >> filter((_.cyl >4) & (_.gear == 5))
+```
+
+
+### Filters with OR conditions
+
+
+
+
+```{python}
+mtcars >> filter((_.cyl == 6) | (_.gear == 5))
+```
+
+### Dropping NA values
+
+## group by
+
+### average,min,max,sum
+```{python}
+tbl_query = (mtcars
+  >> group_by(_.cyl)
+  >> summarize(avg_hp = _.hp.mean()
+              ,min_hp=_.hp.min()
+              ,max_hp=_.hp.max()
+              ,totol_disp=_.disp.sum()
+  )
+  )
+
+tbl_query
+```
+### count
+
+```{python}
+mtcars >> group_by(_.cyl)  >> summarize(n = _.shape[0])
+```
+
+
+
+
+## order rows
+
+```{python}
+small_mtcars >> arrange(_.hp)
+```
+
+### Sort in descending order
+
+```{python}
+small_mtcars >> arrange(-_.hp)
+```
+
+### Arrange by multiple variables
+
+```{python}
+small_mtcars >> arrange(_.cyl, -_.mpg)
+```
+
+
+## join
+
+```{python}
+
+lhs = pd.DataFrame({'id': [1,2,3], 'val': ['lhs.1', 'lhs.2', 'lhs.3']})
+rhs = pd.DataFrame({'id': [1,2,4], 'val': ['rhs.1', 'rhs.2', 'rhs.3']})
+```
+
+
+```{python}
+lhs
+```
+
+```{python}
+rhs
+```
+
+
+### inner_join
+
+```{python}
+result=lhs >> inner_join(_, rhs, on="id")
+result
+```
+
+
+### full join
+
+```{python}
+result=rhs >> full_join(_, lhs, on="id")
+result
+```
+
+
+
+### left join 
+
+```{python}
+result=lhs >> left_join(_, rhs, on="id")
+result
+```
+### anti join
+
+keep data in left which not in right
+```{python}
+result=lhs >> anti_join(_, rhs, on="id")
+result
+```
+
+
+keep data in right which not in left
+```{python}
+result=rhs >> anti_join(_, lhs, on="id")
+result
+```
+
+
+## Reshape tables
+
+
+```{python}
+costs = pd.DataFrame({
+    'id': [1,2],
+    'price_x': [.1, .2],
+    'price_y': [.4, .5],
+    'price_z': [.7, .8]
+})
+
+costs
+```
+
+
+### Gather data long
+
+Below 3 method will give same result
+
+```{python}
+# selecting each variable manually
+costs >> gather('measure', 'value', _.price_x, _.price_y, _.price_z)
+```
+
+
+```{python}
+# selecting variables using a slice
+costs >> gather('measure', 'value', _["price_x":"price_z"])
+```
+
+```{python}
+# selecting by excluding id
+costs >> gather('measure', 'value', -_.id)
+```
+
+### Spread data wide
+
+
+```{python}
+
+```
+
+
+
+
+## string
+
+```{python}
+
+df = pd.DataFrame({'text': ['abc', 'DDD','1243c','aeEe'], 'num': [3, 4,7,8]})
+
+df
+```
+
+### upper case
+
+```{python}
+df>> mutate(text_new=_.text.str.upper())
+```
+### lower case
+
+```{python}
+df>> mutate(text_new=_.text.str.lower())
+```
+### match
+
+```{python}
+df>> mutate(text_new1=if_else(_.text== "abc",'T','F')
+            ,text_new2=if_else(_.text.str.startswith("a"),'T','F')
+            ,text_new3=if_else(_.text.str.endswith("c"),'T','F')
+            ,text_new4=if_else(_.text.str.contains("4"),'T','F')
+
+)
+
+```
+
+###  concatenation
+
+```{python}
+df>> mutate(text_new1=_.text+' is '+_.text
+)
+
+```
+
+
+### replace
+
+Use .str.replace(..., regex=True) with regular expressions to replace patterns in strings.
+
+For example, the code below uses "p.", where . is called a wildcard–which matches any character.
+
+```{python}
+df>> mutate(text_new1=_.text.str.replace("a.", "XX", regex=True)
+)
+
+```
+### extract
+
+Use str.extract() with a regular expression to pull out a matching piece of text.
+
+For example the regular expression “^(.*) ” contains the following pieces:
+
+-  a matches the literal letter “a”
+
+- .* has a . which matches anything, and * which modifies it to apply 0 or more times.
+
+```{python}
+df>> mutate(text_new1=_.text.str.extract("a(.*)")
+            ,text_new2=_.text.str.extract("(.*)c")
+)
+
+```
+
+
+
+
+## date
+
+```{python}
+df_dates = pd.DataFrame({
+    "dates": pd.to_datetime(["2021-01-02", "2021-02-03"]),
+    "raw": ["2023-04-05 06:07:08", "2024-05-06 07:08:09"],
+})
+df_dates
+```
+
+
+```{python}
+from datetime import datetime
+
+df_date=df_dates>>mutate(month=_.dates.dt.month_name()
+                  ,date_format_raw = call(pd.to_datetime, _.raw)
+                  ,date_format_raw_year=_.date_format_raw.dt.year
+
+)
+
+df_date
+```
+```{python}
+df_date.info()
+```
+
+
+## using siuba with database
+
+### set up a sqlite database, with an mtcars table.
+```{python}
+from sqlalchemy import create_engine
+from siuba.sql import LazyTbl
+from siuba import _, group_by, summarize, show_query, collect 
+from siuba.data import mtcars
+
+# copy in to sqlite, using the pandas .to_sql() method
+engine = create_engine("sqlite:///:memory:")
+mtcars.to_sql("mtcars", engine, if_exists = "replace")
+```
+
+### create table
+```{python}
+# Create a lazy SQL DataFrame
+tbl_mtcars = LazyTbl(engine, "mtcars")
+tbl_mtcars
+```
+
+### create query
+```{python}
+# connect with siuba
+
+tbl_query = (tbl_mtcars
+  >> group_by(_.mpg)
+  >> summarize(avg_hp = _.hp.mean())
+  )
+
+tbl_query
+```
+
+### show query
+```{python}
+ tbl_query >> show_query()
+```
+### Collect to DataFrame
+
+because lazy expressions,the collect function is actually running the sql.
+```{python}
+data=tbl_query >> collect()
+print(data)
+```
+
+
+
+
+## reference:
+
+https://siuba.org/
