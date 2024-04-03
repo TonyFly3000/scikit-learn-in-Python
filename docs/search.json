@@ -2057,7 +2057,7 @@
     "href": "plot/3 plotly.html#color-by-group-2",
     "title": "Plotly chart",
     "section": "3.1 color by group",
-    "text": "3.1 color by group",
+    "text": "3.1 color by group\n\n\nCode\nfig = px.histogram(tips, x=\"total_bill\", color='sex', barmode='group')\nfig.show()",
     "crumbs": [
       "Plot",
       "Plotly chart"
@@ -2068,7 +2068,7 @@
     "href": "plot/3 plotly.html#color-by-group-3",
     "title": "Plotly chart",
     "section": "5.1 color by group",
-    "text": "5.1 color by group",
+    "text": "5.1 color by group\n\n\nCode\nfig = px.box(tips, y=\"total_bill\",x='sex',color='sex')\nfig.show()",
     "crumbs": [
       "Plot",
       "Plotly chart"
@@ -2079,7 +2079,7 @@
     "href": "plot/3 plotly.html#color-by-group-4",
     "title": "Plotly chart",
     "section": "6.1 color by group",
-    "text": "6.1 color by group",
+    "text": "6.1 color by group\n\n\nCode\nfig = px.strip(tips,x=\"day\", y=\"total_bill\",color='sex')\nfig.show()",
     "crumbs": [
       "Plot",
       "Plotly chart"

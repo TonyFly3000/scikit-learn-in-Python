@@ -92,35 +92,71 @@ fig.show()
 
 ## color by group
 
+```{python}
+fig = px.histogram(tips, x="total_bill", color='sex', barmode='group')
+fig.show()
+```
 
 
 # bar chart
 
+```{python}
+fig = px.bar(tips, x='sex', y='total_bill',color='sex')
+fig.show()
+```
 
 
 # box plot
 
-
+```{python}
+fig = px.box(tips, y="total_bill")
+fig.show()
+```
 
 ## color by group
 
+```{python}
+fig = px.box(tips, y="total_bill",x='sex',color='sex')
+fig.show()
+```
 
 
 # strip plot
+```{python}
+fig = px.strip(tips,x="day", y="total_bill")
+fig.show()
+```
 
 
 
 ## color by group
+
+```{python}
+fig = px.strip(tips,x="day", y="total_bill",color='sex')
+fig.show()
+```
 
 
 
 # Facet plot
 
 
+```{python}
+fig = px.scatter(tips, x="total_bill", y="tip", color="sex", facet_col="day")
+fig.show()
+```
+
+
+
+
+
 
 make 3 plot per row
 
-
+```{python}
+fig = px.scatter(tips, x="total_bill", y="tip", color="sex", facet_col="day",facet_col_wrap=3)
+fig.show()
+```
 
 # reference:
 
