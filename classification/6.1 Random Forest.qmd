@@ -1,5 +1,5 @@
 ---
-title: "Decision tree and hyperparameter tuning"
+title: "Random Forest"
 subtitle: "with titanic data"
 execute:
   warning: false
@@ -30,9 +30,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import re
 import numpy as np
-from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
 from sklearn.model_selection import train_test_split
-import time
 
 ```
 
@@ -144,181 +143,29 @@ X_train.info()
 # model
 
 ## define model
-```{python}
-model_dt = DecisionTreeClassifier()   #model with deph 3
-model_dt
-```
 
-defalt hyper-parameters:
-```{python}
-model_dt.get_params()
-```
-
-
-## define parameters
-```{python}
-parameters = {'criterion':['gini','entropy'],
-              'max_depth':np.arange(1,21).tolist()[0::2],
-              'min_samples_split':np.arange(2,11).tolist()[0::2],
-              'max_leaf_nodes':np.arange(3,26).tolist()[0::2]}
-```
-
-
-all parameters combinations
-```{python}
-import itertools
-a = parameters.values()
-combinations = list(itertools.product(*a))
-
-```
-
-1200 combinations
-```{python}
-len(combinations)
-```
+The solvers implemented in the class Logistic Regression are “liblinear”, “newton-cg”, “lbfgs”, “sag” and “saga”. According to Scikit Documentation: The “liblinear” solver was the one used by default for historical reasons before version 0.22. Since then, default use is lbfgs Algorithm.
 
 ```{python}
-combinations[0:5]
-```
-
-
-## define GridS
-
-
-### GridSearchCV
-```{python}
-from sklearn.model_selection import GridSearchCV
-
-# default cv is 5
-G1=GridSearchCV(DecisionTreeClassifier()
-                ,parameters
-                ,scoring='accuracy'
-                , cv=10, n_jobs=-1)
-```
-
-### RandomizedSearchCV
-
-make a very small RandomizedSearch with 3 parameters combinations
-```{python}
-from sklearn.model_selection import GridSearchCV,RandomizedSearchCV
-G2=RandomizedSearchCV(DecisionTreeClassifier()
-                      ,parameters
-                    ,scoring='accuracy'
-                    ,n_iter = 3, cv=10, n_jobs=-1)
+from sklearn.ensemble import RandomForestClassifier
+ml_model = RandomForestClassifier()
+ml_model
 ```
 
 
 ## train model
-
-### train GridSearchCV
 ```{python}
-start_time = time.time()
-
-G1.fit(X_train,Y_train)
-
-end_time = time.time()
-
-duration = end_time - start_time
-duration
-```
-
-### train RandomizedSearchCV
-
-```{python}
-start_time = time.time()
-
-G2.fit(X_train,Y_train)
-
-end_time = time.time()
-
-duration = end_time - start_time
-duration
-```
-
-
-
-#### tunning result
-
-##### GridSearchCV
-```{python}
-# get the parameter names
-column_results = [f"param_{name}" for name in parameters.keys()]
-column_results += ["mean_test_score", "std_test_score", "rank_test_score"]
-
-cv_results = pd.DataFrame(G1.cv_results_)
-cv_results = cv_results[column_results].sort_values(
-    "mean_test_score", ascending=False
-)
-
-
-def shorten_param(param_name):
-    if "__" in param_name:
-        return param_name.rsplit("__", 1)[1]
-    return param_name
-
-
-cv_results = cv_results.rename(shorten_param, axis=1)
-cv_results.head()
-```
-
-##### RandomizedSearchCV
-```{python}
-# get the parameter names
-column_results = [f"param_{name}" for name in parameters.keys()]
-column_results += ["mean_test_score", "std_test_score", "rank_test_score"]
-
-cv_results = pd.DataFrame(G2.cv_results_)
-cv_results = cv_results[column_results].sort_values(
-    "mean_test_score", ascending=False
-)
-
-
-def shorten_param(param_name):
-    if "__" in param_name:
-        return param_name.rsplit("__", 1)[1]
-    return param_name
-
-
-cv_results = cv_results.rename(shorten_param, axis=1)
-cv_results.head()
-```
-
-
-#### tunning best parameters
-```{python}
-G1.best_params_
-```
-
-```{python}
-G2.best_params_
-```
-
-#### tunning best model
-
-```{python}
-model_dt = G1.best_estimator_
-```
-
-```{python}
-model_dt2 = G2.best_estimator_
-```
-
-
-#### variable importance 
-```{python}
-importances = model_dt.feature_importances_
-vi=pd.DataFrame({"variable":X_train.columns,"importances":importances})
-vi=vi.sort_values('importances',ascending=False)
-vi
+ml_model.fit(X_train,Y_train)
 ```
 
 ## Preformance
 
 ```{python}
 #Using predict method to test the model
-Y_pred_dt = model_dt.predict(X_test) #always gets x and retuns y
-Y_pred_dt2 = model_dt2.predict(X_test) #always gets x and retuns y
+Y_pred_dt = ml_model.predict(X_test) #always gets x and retuns y
+Y_pred_dt
 ```
+
 
 a) Accuracy
 ```{python}
@@ -327,11 +174,6 @@ a) Accuracy
 from sklearn import metrics
 accuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  
 accuracy
-```
-
-```{python}
-accuracy2 = metrics.accuracy_score(Y_test,Y_pred_dt2)  
-accuracy2
 ```
 
 b) Precision
@@ -363,7 +205,6 @@ auc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain
 auc_dt
 ```
 
-
 ## k-Fold Cross-Validation
 
 
@@ -376,7 +217,7 @@ from sklearn.model_selection import cross_val_score
 
 ```{python}
 kf_dt = KFold(n_splits=5,shuffle=True)  
-cv_dt = cross_val_score(model_dt, X_train, Y_train, cv=kf_dt)
+cv_dt = cross_val_score(ml_model, X_train, Y_train, cv=kf_dt)
 np.mean(cv_dt)
 ```
 

@@ -2453,7 +2453,7 @@
     "href": "classification/1.2 decision tree and hyperparameter tuning.html#split-data",
     "title": "Decision tree and hyperparameter tuning",
     "section": "2.4 split data",
-    "text": "2.4 split data\n\n\nCode\nY=df_train['Survived']\nX=data[data.role =='train']\n\nX_train,X_test,Y_train,Y_test=train_test_split(X,Y,train_size = 0.8)\n\nX_train = X_train.drop('role', axis=1)\nX_test = X_test.drop('role', axis=1)\n\n\n\n\nCode\nX_train.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 712 entries, 638 to 214\nData columns (total 5 columns):\n #   Column    Non-Null Count  Dtype  \n---  ------    --------------  -----  \n 0   Sex_male  712 non-null    bool   \n 1   Fare      712 non-null    float64\n 2   Age       712 non-null    float64\n 3   Pclass    712 non-null    int64  \n 4   SibSp     712 non-null    int64  \ndtypes: bool(1), float64(2), int64(2)\nmemory usage: 28.5 KB",
+    "text": "2.4 split data\n\n\nCode\nY=df_train['Survived']\nX=data[data.role =='train']\n\nX_train,X_test,Y_train,Y_test=train_test_split(X,Y,train_size = 0.8)\n\nX_train = X_train.drop('role', axis=1)\nX_test = X_test.drop('role', axis=1)\n\n\n\n\nCode\nX_train.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 712 entries, 249 to 27\nData columns (total 5 columns):\n #   Column    Non-Null Count  Dtype  \n---  ------    --------------  -----  \n 0   Sex_male  712 non-null    bool   \n 1   Fare      712 non-null    float64\n 2   Age       712 non-null    float64\n 3   Pclass    712 non-null    int64  \n 4   SibSp     712 non-null    int64  \ndtypes: bool(1), float64(2), int64(2)\nmemory usage: 28.5 KB",
     "crumbs": [
       "Classification",
       "Decision tree and hyperparameter tuning"
@@ -2475,7 +2475,7 @@
     "href": "classification/1.2 decision tree and hyperparameter tuning.html#define-parameters",
     "title": "Decision tree and hyperparameter tuning",
     "section": "3.2 define parameters",
-    "text": "3.2 define parameters\n\n\nCode\nparameters = {'criterion':['gini','entropy'],\n              'max_depth':np.arange(1,21).tolist()[0::2],\n              'min_samples_split':np.arange(2,11).tolist()[0::2],\n              'max_leaf_nodes':np.arange(3,26).tolist()[0::2]}",
+    "text": "3.2 define parameters\n\n\nCode\nparameters = {'criterion':['gini','entropy'],\n              'max_depth':np.arange(1,21).tolist()[0::2],\n              'min_samples_split':np.arange(2,11).tolist()[0::2],\n              'max_leaf_nodes':np.arange(3,26).tolist()[0::2]}\n\n\nall parameters combinations\n\n\nCode\nimport itertools\na = parameters.values()\ncombinations = list(itertools.product(*a))\n\n\n1200 combinations\n\n\nCode\nlen(combinations)\n\n\n1200\n\n\n\n\nCode\ncombinations[0:5]\n\n\n[('gini', 1, 2, 3),\n ('gini', 1, 2, 5),\n ('gini', 1, 2, 7),\n ('gini', 1, 2, 9),\n ('gini', 1, 2, 11)]",
     "crumbs": [
       "Classification",
       "Decision tree and hyperparameter tuning"
@@ -2486,7 +2486,7 @@
     "href": "classification/1.2 decision tree and hyperparameter tuning.html#define-grids",
     "title": "Decision tree and hyperparameter tuning",
     "section": "3.3 define GridS",
-    "text": "3.3 define GridS\ndefault cv is 5\n\n\nCode\nfrom sklearn.model_selection import GridSearchCV\nG1=GridSearchCV(DecisionTreeClassifier(), parameters, cv=10, n_jobs=-1)",
+    "text": "3.3 define GridS\n\n3.3.1 GridSearchCV\n\n\nCode\nfrom sklearn.model_selection import GridSearchCV\n\n# default cv is 5\nG1=GridSearchCV(DecisionTreeClassifier()\n                ,parameters\n                ,scoring='accuracy'\n                , cv=10, n_jobs=-1)\n\n\n\n\n3.3.2 RandomizedSearchCV\nmake a very small RandomizedSearch with 3 parameters combinations\n\n\nCode\nfrom sklearn.model_selection import GridSearchCV,RandomizedSearchCV\nG2=RandomizedSearchCV(DecisionTreeClassifier()\n                      ,parameters\n                    ,scoring='accuracy'\n                    ,n_iter = 3, cv=10, n_jobs=-1)",
     "crumbs": [
       "Classification",
       "Decision tree and hyperparameter tuning"
@@ -2497,7 +2497,7 @@
     "href": "classification/1.2 decision tree and hyperparameter tuning.html#train-model",
     "title": "Decision tree and hyperparameter tuning",
     "section": "3.4 train model",
-    "text": "3.4 train model\n\n\nCode\nstart_time = time.time()\n\nG1.fit(X_train,Y_train)\n\nend_time = time.time()\n\nduration = end_time - start_time\nduration\n\n\n5.372183084487915\n\n\nbest parameters\n\n\nCode\nG1.best_params_\n\n\n{'criterion': 'gini',\n 'max_depth': 9,\n 'max_leaf_nodes': 25,\n 'min_samples_split': 4}\n\n\nbest model\n\n\nCode\nmodel_dt = G1.best_estimator_\n\n\nvariable importance\n\n\nCode\nimportances = model_dt.feature_importances_\nvi=pd.DataFrame({\"variable\":X_train.columns,\"importances\":importances})\nvi=vi.sort_values('importances',ascending=False)\nvi\n\n\n\n\n\n\n\n\n\n\nvariable\nimportances\n\n\n\n\n0\nSex_male\n0.462978\n\n\n3\nPclass\n0.194167\n\n\n2\nAge\n0.144467\n\n\n1\nFare\n0.133971\n\n\n4\nSibSp\n0.064417",
+    "text": "3.4 train model\n\n3.4.1 train GridSearchCV\n\n\nCode\nstart_time = time.time()\n\nG1.fit(X_train,Y_train)\n\nend_time = time.time()\n\nduration = end_time - start_time\nduration\n\n\n3.362335205078125\n\n\n\n\n3.4.2 train RandomizedSearchCV\n\n\nCode\nstart_time = time.time()\n\nG2.fit(X_train,Y_train)\n\nend_time = time.time()\n\nduration = end_time - start_time\nduration\n\n\n0.02845025062561035\n\n\n\n3.4.2.1 tunning result\n\n3.4.2.1.1 GridSearchCV\n\n\nCode\n# get the parameter names\ncolumn_results = [f\"param_{name}\" for name in parameters.keys()]\ncolumn_results += [\"mean_test_score\", \"std_test_score\", \"rank_test_score\"]\n\ncv_results = pd.DataFrame(G1.cv_results_)\ncv_results = cv_results[column_results].sort_values(\n    \"mean_test_score\", ascending=False\n)\n\n\ndef shorten_param(param_name):\n    if \"__\" in param_name:\n        return param_name.rsplit(\"__\", 1)[1]\n    return param_name\n\n\ncv_results = cv_results.rename(shorten_param, axis=1)\ncv_results.head()\n\n\n\n\n\n\n\n\n\n\nparam_criterion\nparam_max_depth\nparam_min_samples_split\nparam_max_leaf_nodes\nmean_test_score\nstd_test_score\nrank_test_score\n\n\n\n\n284\ngini\n9\n10\n19\n0.832844\n0.043377\n1\n\n\n223\ngini\n7\n8\n19\n0.831416\n0.043280\n2\n\n\n299\ngini\n9\n10\n25\n0.830047\n0.049699\n3\n\n\n283\ngini\n9\n8\n19\n0.830027\n0.044757\n4\n\n\n224\ngini\n7\n10\n19\n0.830008\n0.043500\n5\n\n\n\n\n\n\n\n\n\n\n3.4.2.1.2 RandomizedSearchCV\n\n\nCode\n# get the parameter names\ncolumn_results = [f\"param_{name}\" for name in parameters.keys()]\ncolumn_results += [\"mean_test_score\", \"std_test_score\", \"rank_test_score\"]\n\ncv_results = pd.DataFrame(G2.cv_results_)\ncv_results = cv_results[column_results].sort_values(\n    \"mean_test_score\", ascending=False\n)\n\n\ndef shorten_param(param_name):\n    if \"__\" in param_name:\n        return param_name.rsplit(\"__\", 1)[1]\n    return param_name\n\n\ncv_results = cv_results.rename(shorten_param, axis=1)\ncv_results.head()\n\n\n\n\n\n\n\n\n\n\nparam_criterion\nparam_max_depth\nparam_min_samples_split\nparam_max_leaf_nodes\nmean_test_score\nstd_test_score\nrank_test_score\n\n\n\n\n2\ngini\n17\n4\n9\n0.814652\n0.036319\n1\n\n\n1\nentropy\n1\n2\n7\n0.780908\n0.049522\n2\n\n\n0\ngini\n5\n6\n3\n0.769621\n0.035387\n3\n\n\n\n\n\n\n\n\n\n\n\n3.4.2.2 tunning best parameters\n\n\nCode\nG1.best_params_\n\n\n{'criterion': 'gini',\n 'max_depth': 9,\n 'max_leaf_nodes': 19,\n 'min_samples_split': 10}\n\n\n\n\nCode\nG2.best_params_\n\n\n{'min_samples_split': 4,\n 'max_leaf_nodes': 9,\n 'max_depth': 17,\n 'criterion': 'gini'}\n\n\n\n\n3.4.2.3 tunning best model\n\n\nCode\nmodel_dt = G1.best_estimator_\n\n\n\n\nCode\nmodel_dt2 = G2.best_estimator_\n\n\n\n\n3.4.2.4 variable importance\n\n\nCode\nimportances = model_dt.feature_importances_\nvi=pd.DataFrame({\"variable\":X_train.columns,\"importances\":importances})\nvi=vi.sort_values('importances',ascending=False)\nvi\n\n\n\n\n\n\n\n\n\n\nvariable\nimportances\n\n\n\n\n0\nSex_male\n0.506205\n\n\n3\nPclass\n0.176051\n\n\n1\nFare\n0.171851\n\n\n2\nAge\n0.134065\n\n\n4\nSibSp\n0.011828",
     "crumbs": [
       "Classification",
       "Decision tree and hyperparameter tuning"
@@ -2508,7 +2508,7 @@
     "href": "classification/1.2 decision tree and hyperparameter tuning.html#preformance",
     "title": "Decision tree and hyperparameter tuning",
     "section": "3.5 Preformance",
-    "text": "3.5 Preformance\n\n\nCode\n#Using predict method to test the model\nY_pred_dt = model_dt.predict(X_test) #always gets x and retuns y\n\n\n\nAccuracy\n\n\n\nCode\n# Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives\n# Here is another way to find the accuracy score\nfrom sklearn import metrics\naccuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  \naccuracy\n\n\n0.8379888268156425\n\n\n\nPrecision\n\n\n\nCode\n# Precision = true positive / true positive + false positive\nprecision_dt = metrics.precision_score(Y_test,Y_pred_dt)  \nprecision_dt\n\n\n0.8333333333333334\n\n\n\nRecall\n\n\n\nCode\n# Recall = true positive / true positive + false negative\nrecall_dt = metrics.recall_score(Y_test,Y_pred_dt)  \nrecall_dt\n\n\n0.7792207792207793\n\n\n\nConfusion matrix\n\n\n\nCode\nimport seaborn as sns\nconfusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)\nconfusion_matrix_dt\n\n\narray([[90, 12],\n       [17, 60]])\n\n\n\nAUC - ROC Curve\n\n\n\nCode\nauc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score\nauc_dt\n\n\n0.8307868601986249",
+    "text": "3.5 Preformance\n\n\nCode\n#Using predict method to test the model\nY_pred_dt = model_dt.predict(X_test) #always gets x and retuns y\nY_pred_dt2 = model_dt2.predict(X_test) #always gets x and retuns y\n\n\n\nAccuracy\n\n\n\nCode\n# Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives\n# Here is another way to find the accuracy score\nfrom sklearn import metrics\naccuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  \naccuracy\n\n\n0.8324022346368715\n\n\n\n\nCode\naccuracy2 = metrics.accuracy_score(Y_test,Y_pred_dt2)  \naccuracy2\n\n\n0.8044692737430168\n\n\n\nPrecision\n\n\n\nCode\n# Precision = true positive / true positive + false positive\nprecision_dt = metrics.precision_score(Y_test,Y_pred_dt)  \nprecision_dt\n\n\n0.9482758620689655\n\n\n\nRecall\n\n\n\nCode\n# Recall = true positive / true positive + false negative\nrecall_dt = metrics.recall_score(Y_test,Y_pred_dt)  \nrecall_dt\n\n\n0.6707317073170732\n\n\n\nConfusion matrix\n\n\n\nCode\nimport seaborn as sns\nconfusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)\nconfusion_matrix_dt\n\n\narray([[94,  3],\n       [27, 55]])\n\n\n\nAUC - ROC Curve\n\n\n\nCode\nauc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score\nauc_dt\n\n\n0.8199019361327635",
     "crumbs": [
       "Classification",
       "Decision tree and hyperparameter tuning"
@@ -2519,7 +2519,7 @@
     "href": "classification/1.2 decision tree and hyperparameter tuning.html#k-fold-cross-validation",
     "title": "Decision tree and hyperparameter tuning",
     "section": "3.6 k-Fold Cross-Validation",
-    "text": "3.6 k-Fold Cross-Validation\n\n\nCode\nimport numpy as np\nfrom sklearn.model_selection import KFold\nfrom sklearn.model_selection import cross_val_score\n\n\n\n\nCode\nkf_dt = KFold(n_splits=5,shuffle=True)  \ncv_dt = cross_val_score(model_dt, X_train, Y_train, cv=kf_dt)\nnp.mean(cv_dt)\n\n\n0.8329163793952526",
+    "text": "3.6 k-Fold Cross-Validation\n\n\nCode\nimport numpy as np\nfrom sklearn.model_selection import KFold\nfrom sklearn.model_selection import cross_val_score\n\n\n\n\nCode\nkf_dt = KFold(n_splits=5,shuffle=True)  \ncv_dt = cross_val_score(model_dt, X_train, Y_train, cv=kf_dt)\nnp.mean(cv_dt)\n\n\n0.821609376538954",
     "crumbs": [
       "Classification",
       "Decision tree and hyperparameter tuning"
@@ -3018,6 +3018,160 @@
     "crumbs": [
       "Classification",
       "Classification with Random Forest"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#get-first-3-rows",
+    "href": "data manipulation/1 Pandas.html#get-first-3-rows",
+    "title": "Data manipulation with Pandas",
+    "section": "0.2 get first 3 rows",
+    "text": "0.2 get first 3 rows\n\n\nCode\ndf.head(3)\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n0\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nGJT\nDEN\nFalse\nFalse\n1133\n1123.0\n0.0\n-10.0\n...\n1140.0\n1220.0\n8.0\n1245\n-17.0\n0.0\n-2.0\n1200-1259\n1\n0\n\n\n1\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nHRL\nIAH\nFalse\nFalse\n732\n728.0\n0.0\n-4.0\n...\n744.0\n839.0\n9.0\n849\n-1.0\n0.0\n-1.0\n0800-0859\n2\n0\n\n\n2\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\nDEN\nFalse\nFalse\n1529\n1514.0\n0.0\n-15.0\n...\n1535.0\n1622.0\n14.0\n1639\n-3.0\n0.0\n-1.0\n1600-1659\n2\n0\n\n\n\n\n3 rows × 61 columns",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#get-last-3-rows",
+    "href": "data manipulation/1 Pandas.html#get-last-3-rows",
+    "title": "Data manipulation with Pandas",
+    "section": "0.3 get last 3 rows",
+    "text": "0.3 get last 3 rows\n\n\nCode\ndf.tail(3)\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n590539\n2022-03-08\nRepublic Airlines\nALB\nORD\nFalse\nFalse\n1700\n2318.0\n378.0\n378.0\n...\n2337.0\n52.0\n7.0\n1838\n381.0\n1.0\n12.0\n1800-1859\n3\n0\n\n\n590540\n2022-03-25\nRepublic Airlines\nEWR\nPIT\nFalse\nTrue\n2129\n2322.0\n113.0\n113.0\n...\n2347.0\n933.0\n6.0\n2255\nNaN\nNaN\nNaN\n2200-2259\n2\n1\n\n\n590541\n2022-03-07\nRepublic Airlines\nEWR\nRDU\nFalse\nTrue\n1154\n1148.0\n0.0\n-6.0\n...\n1201.0\n1552.0\n4.0\n1333\nNaN\nNaN\nNaN\n1300-1359\n2\n1\n\n\n\n\n3 rows × 61 columns",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#get-ramdon-5-rows",
+    "href": "data manipulation/1 Pandas.html#get-ramdon-5-rows",
+    "title": "Data manipulation with Pandas",
+    "section": "0.4 get ramdon 5 rows",
+    "text": "0.4 get ramdon 5 rows\n\n\nCode\ndf.sample(5, random_state=42)\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n324021\n2022-03-19\nSkyWest Airlines Inc.\nASE\nDEN\nFalse\nFalse\n1831\n1826.0\n0.0\n-5.0\n...\n1845.0\n1916.0\n7.0\n1933\n-10.0\n0.0\n-1.0\n1900-1959\n1\n0\n\n\n34739\n2022-02-16\nSkyWest Airlines Inc.\nTYS\nDEN\nFalse\nFalse\n1605\n1605.0\n0.0\n0.0\n...\n1614.0\n1728.0\n44.0\n1737\n35.0\n1.0\n2.0\n1700-1759\n5\n0\n\n\n304494\n2022-01-18\nAmerican Airlines Inc.\nLAX\nOGG\nFalse\nFalse\n1719\n1714.0\n0.0\n-5.0\n...\n1728.0\n2042.0\n10.0\n2049\n3.0\n0.0\n0.0\n2000-2059\n10\n0\n\n\n205451\n2022-01-23\nSouthwest Airlines Co.\nLAS\nBWI\nFalse\nFalse\n1515\n1533.0\n18.0\n18.0\n...\n1548.0\n2259.0\n3.0\n2235\n27.0\n1.0\n1.0\n2200-2259\n9\n0\n\n\n173176\n2022-07-01\nDelta Air Lines Inc.\nDTW\nRDU\nFalse\nFalse\n715\n709.0\n0.0\n-6.0\n...\n721.0\n834.0\n3.0\n853\n-16.0\n0.0\n-2.0\n0800-0859\n3\n0\n\n\n\n\n5 rows × 61 columns",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "classification/1.3 decision tree and fast tuning.html",
+    "href": "classification/1.3 decision tree and fast tuning.html",
+    "title": "Decision tree and fast tuning",
+    "section": "",
+    "text": "Code\nimport os\n#os.system('pip install xgboost')\n\n\n\n\nCode\nimport os\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport re\nimport numpy as np\nfrom sklearn.tree import DecisionTreeClassifier\nfrom sklearn.model_selection import train_test_split\nimport time",
+    "crumbs": [
+      "Classification",
+      "Decision tree and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/1.3 decision tree and fast tuning.html#input-data",
+    "href": "classification/1.3 decision tree and fast tuning.html#input-data",
+    "title": "Decision tree and fast tuning",
+    "section": "2.1 input data",
+    "text": "2.1 input data\n\n\nCode\n# Loading the data\ndf_train = pd.read_csv('./data/train.csv')\ndf_test = pd.read_csv('./data/test.csv')\n\n# Store our test passenger IDs for easy access\nPassengerId = df_train['PassengerId']\n\n\n# Showing overview of the train dataset\ndf_train.head()\n\n\n\n\n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n0\n1\n0\n3\nBraund, Mr. Owen Harris\nmale\n22.0\n1\n0\nA/5 21171\n7.2500\nNaN\nS\n\n\n1\n2\n1\n1\nCumings, Mrs. John Bradley (Florence Briggs Th...\nfemale\n38.0\n1\n0\nPC 17599\n71.2833\nC85\nC\n\n\n2\n3\n1\n3\nHeikkinen, Miss. Laina\nfemale\n26.0\n0\n0\nSTON/O2. 3101282\n7.9250\nNaN\nS\n\n\n3\n4\n1\n1\nFutrelle, Mrs. Jacques Heath (Lily May Peel)\nfemale\n35.0\n1\n0\n113803\n53.1000\nC123\nS\n\n\n4\n5\n0\n3\nAllen, Mr. William Henry\nmale\n35.0\n0\n0\n373450\n8.0500\nNaN\nS",
+    "crumbs": [
+      "Classification",
+      "Decision tree and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/1.3 decision tree and fast tuning.html#data-eda",
+    "href": "classification/1.3 decision tree and fast tuning.html#data-eda",
+    "title": "Decision tree and fast tuning",
+    "section": "2.2 data EDA",
+    "text": "2.2 data EDA\n\n\nCode\nsns.countplot(x='Survived', data=df_train);\n\n\n\n\n\n\n\n\n\n\n\nCode\nsns.catplot(x='Survived', col='Sex', kind='count', data=df_train);\n\n\n\n\n\n\n\n\n\n\n\nCode\nprint(df_train[df_train.Sex == 'female'].Survived.sum()/df_train[df_train.Sex == 'female'].Survived.count())\nprint(df_train[df_train.Sex == 'male'].Survived.sum()/df_train[df_train.Sex == 'male'].Survived.count())\n\n\n0.7420382165605095\n0.18890814558058924",
+    "crumbs": [
+      "Classification",
+      "Decision tree and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/1.3 decision tree and fast tuning.html#data-wrangling",
+    "href": "classification/1.3 decision tree and fast tuning.html#data-wrangling",
+    "title": "Decision tree and fast tuning",
+    "section": "2.3 Data Wrangling",
+    "text": "2.3 Data Wrangling\n\n\nCode\n# Store target variable of training data in a safe place\nsurvived_train = df_train.Survived\n\n\n\ndf_train['role'] = 'train'\ndf_test['role'] = 'test'\n\n# Concatenate training and test sets\ndata = pd.concat([df_train.drop(['Survived'], axis=1), df_test])\n\n\n\n\nCode\ndata.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 1309 entries, 0 to 417\nData columns (total 12 columns):\n #   Column       Non-Null Count  Dtype  \n---  ------       --------------  -----  \n 0   PassengerId  1309 non-null   int64  \n 1   Pclass       1309 non-null   int64  \n 2   Name         1309 non-null   object \n 3   Sex          1309 non-null   object \n 4   Age          1046 non-null   float64\n 5   SibSp        1309 non-null   int64  \n 6   Parch        1309 non-null   int64  \n 7   Ticket       1309 non-null   object \n 8   Fare         1308 non-null   float64\n 9   Cabin        295 non-null    object \n 10  Embarked     1307 non-null   object \n 11  role         1309 non-null   object \ndtypes: float64(2), int64(4), object(6)\nmemory usage: 132.9+ KB\n\n\n\n\nCode\n# Dealing with missing numerical variables\ndata['Age'] = data.Age.fillna(data.Age.median())\ndata['Fare'] = data.Fare.fillna(data.Fare.median())\n\n# Check out info of data\ndata.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 1309 entries, 0 to 417\nData columns (total 12 columns):\n #   Column       Non-Null Count  Dtype  \n---  ------       --------------  -----  \n 0   PassengerId  1309 non-null   int64  \n 1   Pclass       1309 non-null   int64  \n 2   Name         1309 non-null   object \n 3   Sex          1309 non-null   object \n 4   Age          1309 non-null   float64\n 5   SibSp        1309 non-null   int64  \n 6   Parch        1309 non-null   int64  \n 7   Ticket       1309 non-null   object \n 8   Fare         1309 non-null   float64\n 9   Cabin        295 non-null    object \n 10  Embarked     1307 non-null   object \n 11  role         1309 non-null   object \ndtypes: float64(2), int64(4), object(6)\nmemory usage: 132.9+ KB\n\n\n\n\nCode\n# Tranform Sex feature to numeric value\n# create a new column for each of the options in 'Sex'\n# creates a new column for female, called 'Sex_female', \n# creates a new column for 'Sex_male'\n# more then two categorical values it is better to use one-hot-encode\ndata = pd.get_dummies(data, columns=['Sex'], drop_first=True)\ndata.head()\n\n\n\n\n\n\n\n\n\n\nPassengerId\nPclass\nName\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\nrole\nSex_male\n\n\n\n\n0\n1\n3\nBraund, Mr. Owen Harris\n22.0\n1\n0\nA/5 21171\n7.2500\nNaN\nS\ntrain\nTrue\n\n\n1\n2\n1\nCumings, Mrs. John Bradley (Florence Briggs Th...\n38.0\n1\n0\nPC 17599\n71.2833\nC85\nC\ntrain\nFalse\n\n\n2\n3\n3\nHeikkinen, Miss. Laina\n26.0\n0\n0\nSTON/O2. 3101282\n7.9250\nNaN\nS\ntrain\nFalse\n\n\n3\n4\n1\nFutrelle, Mrs. Jacques Heath (Lily May Peel)\n35.0\n1\n0\n113803\n53.1000\nC123\nS\ntrain\nFalse\n\n\n4\n5\n3\nAllen, Mr. William Henry\n35.0\n0\n0\n373450\n8.0500\nNaN\nS\ntrain\nTrue\n\n\n\n\n\n\n\n\n\n\nCode\n# Select features columns\ndata = data[['Sex_male', 'Fare', 'Age','Pclass', 'SibSp','role']]\ndata.head()\n\n\n\n\n\n\n\n\n\n\nSex_male\nFare\nAge\nPclass\nSibSp\nrole\n\n\n\n\n0\nTrue\n7.2500\n22.0\n3\n1\ntrain\n\n\n1\nFalse\n71.2833\n38.0\n1\n1\ntrain\n\n\n2\nFalse\n7.9250\n26.0\n3\n0\ntrain\n\n\n3\nFalse\n53.1000\n35.0\n1\n1\ntrain\n\n\n4\nTrue\n8.0500\n35.0\n3\n0\ntrain",
+    "crumbs": [
+      "Classification",
+      "Decision tree and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/1.3 decision tree and fast tuning.html#split-data",
+    "href": "classification/1.3 decision tree and fast tuning.html#split-data",
+    "title": "Decision tree and fast tuning",
+    "section": "2.4 split data",
+    "text": "2.4 split data\n\n\nCode\nY=df_train['Survived']\nX=data[data.role =='train']\n\nX_train,X_test,Y_train,Y_test=train_test_split(X,Y,train_size = 0.8)\n\nX_train = X_train.drop('role', axis=1)\nX_test = X_test.drop('role', axis=1)\n\n\n\n\nCode\nX_train.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 712 entries, 701 to 753\nData columns (total 5 columns):\n #   Column    Non-Null Count  Dtype  \n---  ------    --------------  -----  \n 0   Sex_male  712 non-null    bool   \n 1   Fare      712 non-null    float64\n 2   Age       712 non-null    float64\n 3   Pclass    712 non-null    int64  \n 4   SibSp     712 non-null    int64  \ndtypes: bool(1), float64(2), int64(2)\nmemory usage: 28.5 KB",
+    "crumbs": [
+      "Classification",
+      "Decision tree and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/1.3 decision tree and fast tuning.html#define-model",
+    "href": "classification/1.3 decision tree and fast tuning.html#define-model",
+    "title": "Decision tree and fast tuning",
+    "section": "3.1 define model",
+    "text": "3.1 define model\n\n\nCode\nmodel_dt = DecisionTreeClassifier()   #model with deph 3\nmodel_dt\n\n\nDecisionTreeClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  DecisionTreeClassifier?Documentation for DecisionTreeClassifieriNot fittedDecisionTreeClassifier() \n\n\ndefalt hyper-parameters:\n\n\nCode\nmodel_dt.get_params()\n\n\n{'ccp_alpha': 0.0,\n 'class_weight': None,\n 'criterion': 'gini',\n 'max_depth': None,\n 'max_features': None,\n 'max_leaf_nodes': None,\n 'min_impurity_decrease': 0.0,\n 'min_samples_leaf': 1,\n 'min_samples_split': 2,\n 'min_weight_fraction_leaf': 0.0,\n 'monotonic_cst': None,\n 'random_state': None,\n 'splitter': 'best'}",
+    "crumbs": [
+      "Classification",
+      "Decision tree and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/1.3 decision tree and fast tuning.html#define-parameters",
+    "href": "classification/1.3 decision tree and fast tuning.html#define-parameters",
+    "title": "Decision tree and fast tuning",
+    "section": "3.2 define parameters",
+    "text": "3.2 define parameters\n\n\nCode\nparameters = {'criterion':['gini','entropy'],\n              'max_depth':np.arange(1,21).tolist()[0::2],\n              'min_samples_split':np.arange(2,11).tolist()[0::2],\n              'max_leaf_nodes':np.arange(3,26).tolist()[0::2]}\n\n\nall parameters combinations\n\n\nCode\nimport itertools\na = parameters.values()\ncombinations = list(itertools.product(*a))\n\n\n1200 combinations\n\n\nCode\nlen(combinations)\n\n\n1200\n\n\n\n\nCode\ncombinations[0:5]\n\n\n[('gini', 1, 2, 3),\n ('gini', 1, 2, 5),\n ('gini', 1, 2, 7),\n ('gini', 1, 2, 9),\n ('gini', 1, 2, 11)]",
+    "crumbs": [
+      "Classification",
+      "Decision tree and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/1.3 decision tree and fast tuning.html#define-grids",
+    "href": "classification/1.3 decision tree and fast tuning.html#define-grids",
+    "title": "Decision tree and fast tuning",
+    "section": "3.3 define GridS",
+    "text": "3.3 define GridS\nusing Random Search limit to 100 combinations\n\n\nCode\nfrom sklearn.model_selection import GridSearchCV,RandomizedSearchCV\nG1=RandomizedSearchCV(DecisionTreeClassifier(), param_distributions=parameters,n_iter = 100, cv=10, n_jobs=-1)",
+    "crumbs": [
+      "Classification",
+      "Decision tree and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/1.3 decision tree and fast tuning.html#train-model",
+    "href": "classification/1.3 decision tree and fast tuning.html#train-model",
+    "title": "Decision tree and fast tuning",
+    "section": "3.4 train model",
+    "text": "3.4 train model\n\n\nCode\nstart_time = time.time()\n\nG1.fit(X_train,Y_train)\n\nend_time = time.time()\n\nduration = end_time - start_time\nduration\n\n\n2.8857500553131104\n\n\nbest parameters\n\n\nCode\nG1.best_params_\n\n\n{'min_samples_split': 2,\n 'max_leaf_nodes': 21,\n 'max_depth': 7,\n 'criterion': 'gini'}\n\n\nbest model\n\n\nCode\nmodel_dt = G1.best_estimator_\n\n\nvariable importance\n\n\nCode\nimportances = model_dt.feature_importances_\nvi=pd.DataFrame({\"variable\":X_train.columns,\"importances\":importances})\nvi=vi.sort_values('importances',ascending=False)\nvi\n\n\n\n\n\n\n\n\n\n\nvariable\nimportances\n\n\n\n\n0\nSex_male\n0.506731\n\n\n3\nPclass\n0.151602\n\n\n2\nAge\n0.144835\n\n\n1\nFare\n0.134373\n\n\n4\nSibSp\n0.062458",
+    "crumbs": [
+      "Classification",
+      "Decision tree and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/1.3 decision tree and fast tuning.html#preformance",
+    "href": "classification/1.3 decision tree and fast tuning.html#preformance",
+    "title": "Decision tree and fast tuning",
+    "section": "3.5 Preformance",
+    "text": "3.5 Preformance\n\n\nCode\n#Using predict method to test the model\nY_pred_dt = model_dt.predict(X_test) #always gets x and retuns y\n\n\n\nAccuracy\n\n\n\nCode\n# Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives\n# Here is another way to find the accuracy score\nfrom sklearn import metrics\naccuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  \naccuracy\n\n\n0.8100558659217877\n\n\n\nPrecision\n\n\n\nCode\n# Precision = true positive / true positive + false positive\nprecision_dt = metrics.precision_score(Y_test,Y_pred_dt)  \nprecision_dt\n\n\n0.75\n\n\n\nRecall\n\n\n\nCode\n# Recall = true positive / true positive + false negative\nrecall_dt = metrics.recall_score(Y_test,Y_pred_dt)  \nrecall_dt\n\n\n0.75\n\n\n\nConfusion matrix\n\n\n\nCode\nimport seaborn as sns\nconfusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)\nconfusion_matrix_dt\n\n\narray([[94, 17],\n       [17, 51]])\n\n\n\nAUC - ROC Curve\n\n\n\nCode\nauc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score\nauc_dt\n\n\n0.7984234234234234",
+    "crumbs": [
+      "Classification",
+      "Decision tree and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/1.3 decision tree and fast tuning.html#k-fold-cross-validation",
+    "href": "classification/1.3 decision tree and fast tuning.html#k-fold-cross-validation",
+    "title": "Decision tree and fast tuning",
+    "section": "3.6 k-Fold Cross-Validation",
+    "text": "3.6 k-Fold Cross-Validation\n\n\nCode\nimport numpy as np\nfrom sklearn.model_selection import KFold\nfrom sklearn.model_selection import cross_val_score\n\n\n\n\nCode\nkf_dt = KFold(n_splits=5,shuffle=True)  \ncv_dt = cross_val_score(model_dt, X_train, Y_train, cv=kf_dt)\nnp.mean(cv_dt)\n\n\n0.8315177779966513",
+    "crumbs": [
+      "Classification",
+      "Decision tree and fast tuning"
     ]
   }
 ]

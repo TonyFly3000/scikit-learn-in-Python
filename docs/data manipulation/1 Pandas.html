@@ -216,23 +216,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Titanic Dataset</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/1 decision tree on titanic data.html">
- <span class="dropdown-text">Classification with decision tree</span></a>
+    <a class="dropdown-item" href="../classification/1.1 decision tree on titanic data.html">
+ <span class="dropdown-text">Decision tree</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/2 Logistic Regression on titanic data.html">
+    <a class="dropdown-item" href="../classification/1.2 decision tree and hyperparameter tuning.html">
+ <span class="dropdown-text">Decision tree and hyperparameter tuning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/1.3 decision tree and fast tuning.html">
+ <span class="dropdown-text">Decision tree and fast tuning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/3 Logistic Regression on titanic data.html">
  <span class="dropdown-text">Classification with Logistic Regression</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/3 Support Vector Machines on titanic data.html">
+    <a class="dropdown-item" href="../classification/4 Support Vector Machines on titanic data.html">
  <span class="dropdown-text">Classification with Support Vector Machines</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/4 KNN on titanic data.html">
+    <a class="dropdown-item" href="../classification/5 KNN on titanic data.html">
  <span class="dropdown-text">Classification with K-Nearest Neighbors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/5 Random Forest on titanic dat.html">
+    <a class="dropdown-item" href="../classification/6 Random Forest on titanic dat.html">
  <span class="dropdown-text">Classification with Random Forest</span></a>
   </li>  
     </ul>
@@ -248,7 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Housing Prices Dataset</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../regression/2 Decision Tree on house price data copy.html">
+    <a class="dropdown-item" href="../regression/2 Decision Tree on house price data.html">
  <span class="dropdown-text">Decision tree</span></a>
   </li>  
         <li>
@@ -328,9 +336,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#reading-from-parquet" id="toc-reading-from-parquet" class="nav-link active" data-scroll-target="#reading-from-parquet"><span class="header-section-number">0.1</span> Reading from parquet</a></li>
-  <li><a href="#get-first-3" id="toc-get-first-3" class="nav-link" data-scroll-target="#get-first-3"><span class="header-section-number">0.2</span> get first 3</a></li>
-  <li><a href="#get-last-3" id="toc-get-last-3" class="nav-link" data-scroll-target="#get-last-3"><span class="header-section-number">0.3</span> get last 3</a></li>
-  <li><a href="#get-ramdon-5" id="toc-get-ramdon-5" class="nav-link" data-scroll-target="#get-ramdon-5"><span class="header-section-number">0.4</span> get ramdon 5</a></li>
+  <li><a href="#get-first-3-rows" id="toc-get-first-3-rows" class="nav-link" data-scroll-target="#get-first-3-rows"><span class="header-section-number">0.2</span> get first 3 rows</a></li>
+  <li><a href="#get-last-3-rows" id="toc-get-last-3-rows" class="nav-link" data-scroll-target="#get-last-3-rows"><span class="header-section-number">0.3</span> get last 3 rows</a></li>
+  <li><a href="#get-ramdon-5-rows" id="toc-get-ramdon-5-rows" class="nav-link" data-scroll-target="#get-ramdon-5-rows"><span class="header-section-number">0.4</span> get ramdon 5 rows</a></li>
   <li><a href="#get-columns-names" id="toc-get-columns-names" class="nav-link" data-scroll-target="#get-columns-names"><span class="header-section-number">0.5</span> get columns names</a></li>
   <li><a href="#get-row-index" id="toc-get-row-index" class="nav-link" data-scroll-target="#get-row-index"><span class="header-section-number">0.6</span> get row index</a></li>
   <li><a href="#get-long-info" id="toc-get-long-info" class="nav-link" data-scroll-target="#get-long-info"><span class="header-section-number">0.7</span> get long info</a></li>
@@ -364,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><img src="images/Pandas_logo.svg.png" class="img-fluid" width="600"></p>
-<div id="cacff938" class="cell" data-execution_count="1">
+<div id="8d017270" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -374,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>3.11.4 (v3.11.4:d2340ef257, Jun  6 2023, 19:15:51) [Clang 13.0.0 (clang-1300.0.29.30)]</code></pre>
 </div>
 </div>
-<div id="15f5151a" class="cell" data-execution_count="2">
+<div id="1064e789" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -386,16 +394,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="reading-from-parquet" class="level2" data-number="0.1">
 <h2 data-number="0.1" class="anchored" data-anchor-id="reading-from-parquet"><span class="header-section-number">0.1</span> Reading from parquet</h2>
-<div id="4ea36e40" class="cell" data-execution_count="3">
+<div id="3a665b2e" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(<span class="st">"data/Combined_Flights_2022.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="get-first-3" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="get-first-3"><span class="header-section-number">0.2</span> get first 3</h2>
-<div id="fa74bfbb" class="cell" data-execution_count="4">
+<section id="get-first-3-rows" class="level2" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="get-first-3-rows"><span class="header-section-number">0.2</span> get first 3 rows</h2>
+<div id="cd59d38a" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -514,9 +522,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="get-last-3" class="level2" data-number="0.3">
-<h2 data-number="0.3" class="anchored" data-anchor-id="get-last-3"><span class="header-section-number">0.3</span> get last 3</h2>
-<div id="782e5e17" class="cell" data-execution_count="5">
+<section id="get-last-3-rows" class="level2" data-number="0.3">
+<h2 data-number="0.3" class="anchored" data-anchor-id="get-last-3-rows"><span class="header-section-number">0.3</span> get last 3 rows</h2>
+<div id="dde722e0" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df.tail(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -635,9 +643,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="get-ramdon-5" class="level2" data-number="0.4">
-<h2 data-number="0.4" class="anchored" data-anchor-id="get-ramdon-5"><span class="header-section-number">0.4</span> get ramdon 5</h2>
-<div id="52301331" class="cell" data-execution_count="6">
+<section id="get-ramdon-5-rows" class="level2" data-number="0.4">
+<h2 data-number="0.4" class="anchored" data-anchor-id="get-ramdon-5-rows"><span class="header-section-number">0.4</span> get ramdon 5 rows</h2>
+<div id="3a975e61" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.sample(<span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -806,7 +814,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="get-columns-names" class="level2" data-number="0.5">
 <h2 data-number="0.5" class="anchored" data-anchor-id="get-columns-names"><span class="header-section-number">0.5</span> get columns names</h2>
-<div id="1d416fa6" class="cell" data-execution_count="7">
+<div id="7f517a42" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -835,7 +843,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="get-row-index" class="level2" data-number="0.6">
 <h2 data-number="0.6" class="anchored" data-anchor-id="get-row-index"><span class="header-section-number">0.6</span> get row index</h2>
-<div id="4e15a1f4" class="cell" data-execution_count="8">
+<div id="49b5c617" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -852,7 +860,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="get-long-info" class="level2" data-number="0.7">
 <h2 data-number="0.7" class="anchored" data-anchor-id="get-long-info"><span class="header-section-number">0.7</span> get long info</h2>
-<div id="db002421" class="cell" data-execution_count="9">
+<div id="780aa1e5" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -931,7 +939,7 @@ memory usage: 1.8+ GB</code></pre>
 </section>
 <section id="get-short-info" class="level2" data-number="0.8">
 <h2 data-number="0.8" class="anchored" data-anchor-id="get-short-info"><span class="header-section-number">0.8</span> get short info</h2>
-<div id="6d1ab888" class="cell" data-execution_count="10">
+<div id="839a8345" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.info(verbose<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -947,7 +955,7 @@ memory usage: 1.8+ GB</code></pre>
 </section>
 <section id="summary-of-numeric-column" class="level2" data-number="0.9">
 <h2 data-number="0.9" class="anchored" data-anchor-id="summary-of-numeric-column"><span class="header-section-number">0.9</span> summary of numeric column</h2>
-<div id="023419fb" class="cell" data-execution_count="11">
+<div id="70e99b0b" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1188,7 +1196,7 @@ memory usage: 1.8+ GB</code></pre>
 </section>
 <section id="summary-of-categorical-column" class="level2" data-number="0.10">
 <h2 data-number="0.10" class="anchored" data-anchor-id="summary-of-categorical-column"><span class="header-section-number">0.10</span> summary of categorical column</h2>
-<div id="98c90307" class="cell" data-execution_count="12">
+<div id="19fcd218" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"Airline"</span>]].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1717,17 +1725,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## get first 3</span></span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## get first 3 rows</span></span>
 <span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span>
 <span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## get last 3</span></span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## get last 3 rows</span></span>
 <span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>df.tail(<span class="dv">3</span>)</span>
 <span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## get ramdon 5</span></span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## get ramdon 5 rows</span></span>
 <span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>df.sample(<span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>

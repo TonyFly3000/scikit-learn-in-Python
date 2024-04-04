@@ -31,21 +31,23 @@ print('pandas version', pd.__version__)
 ## Reading from parquet
 
 ```{python}
-df = pd.read_parquet("data/Combined_Flights_2022.parquet")
+big_df = pd.read_parquet("data/Combined_Flights_2022.parquet")
+
+df=big_df.head(10)
 ```
 
 
-## get first 3
+## get first 3 rows
 ```{python}
 df.head(3)
 ```
 
-## get last 3
+## get last 3 rows
 ```{python}
 df.tail(3)
 ```
 
-## get ramdon 5
+## get ramdon 5 rows
 
 ```{python}
 df.sample(5, random_state=42)
@@ -63,6 +65,12 @@ df.index
 ```
 
 ## get long info 
+
+```{python}
+df.shape
+```
+
+
 ```{python}
 df.info()
 ```
@@ -87,6 +95,50 @@ df[["Airline"]].describe()
 ```
 
 
+# select column
+
+## select column by column names
+```{python}
+df[['FlightDate','Airline']]
+```
+## first 3 columns
+```{python}
+df[df.columns[:3]]
+```
+## last 3 columns
+```{python}
+df[df.columns[-3:]]
+```
+
+
+## select 3rd columns
+```{python}
+df.iloc[:,2]
+```
+
+
+## select int data type column
+
+```{python}
+df.select_dtypes('int')
+```
+
+# select cells
+
+
+## select 3 rows and 4 column cells
+```{python}
+df.iloc[2, 3]
+```
+
+## select first 5 rows and first 5 column cells
+```{python}
+df.iloc[:5, :5] 
+```
+## select 3rd rows
+```{python}
+df.iloc[[2]]
+```
 
 
 # Reference:

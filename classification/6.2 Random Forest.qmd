@@ -1,5 +1,5 @@
 ---
-title: "Classification with Random Forest"
+title: "Random Forest with pipeline and fast tuning"
 subtitle: "with titanic data"
 execute:
   warning: false
@@ -141,6 +141,11 @@ X_train.info()
 
 
 # model
+
+
+tune_sklearn
+
+
 
 ## define model
 
