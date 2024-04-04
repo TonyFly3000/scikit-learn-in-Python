@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scikit learn with Python - Decision tree</title>
+<title>Scikit learn with Python - Decision tree and hyperparameter tuning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -216,27 +216,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Titanic Dataset</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/1 decision tree and hyperparameter tuning.html">
- <span class="dropdown-text">Decision tree and hyperparameter tuning</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../classification/1 decision tree on titanic data.html">
+    <a class="dropdown-item" href="../classification/1.1 decision tree on titanic data.html">
  <span class="dropdown-text">Decision tree</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/2 Logistic Regression on titanic data.html">
+    <a class="dropdown-item" href="../classification/1.2 decision tree and hyperparameter tuning.html">
+ <span class="dropdown-text">Decision tree and hyperparameter tuning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/3 Logistic Regression on titanic data.html">
  <span class="dropdown-text">Classification with Logistic Regression</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/3 Support Vector Machines on titanic data.html">
+    <a class="dropdown-item" href="../classification/4 Support Vector Machines on titanic data.html">
  <span class="dropdown-text">Classification with Support Vector Machines</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/4 KNN on titanic data.html">
+    <a class="dropdown-item" href="../classification/5 KNN on titanic data.html">
  <span class="dropdown-text">Classification with K-Nearest Neighbors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/5 Random Forest on titanic dat.html">
+    <a class="dropdown-item" href="../classification/6 Random Forest on titanic dat.html">
  <span class="dropdown-text">Classification with Random Forest</span></a>
   </li>  
     </ul>
@@ -280,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../classification/0 titanic data.html">Classification</a></li><li class="breadcrumb-item"><a href="../classification/1 decision tree on titanic data.html">Decision tree</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../classification/0 titanic data.html">Classification</a></li><li class="breadcrumb-item"><a href="../classification/1.2 decision tree and hyperparameter tuning.html">Decision tree and hyperparameter tuning</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -309,37 +309,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../classification/1 decision tree and hyperparameter tuning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Decision tree and hyperparameter tuning</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../classification/1 decision tree on titanic data.html" class="sidebar-item-text sidebar-link active">
+  <a href="../classification/1.1 decision tree on titanic data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Decision tree</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../classification/2 Logistic Regression on titanic data.html" class="sidebar-item-text sidebar-link">
+  <a href="../classification/1.2 decision tree and hyperparameter tuning.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Decision tree and hyperparameter tuning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../classification/3 Logistic Regression on titanic data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Classification with Logistic Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../classification/3 Support Vector Machines on titanic data.html" class="sidebar-item-text sidebar-link">
+  <a href="../classification/4 Support Vector Machines on titanic data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Classification with Support Vector Machines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../classification/4 KNN on titanic data.html" class="sidebar-item-text sidebar-link">
+  <a href="../classification/5 KNN on titanic data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Classification with K-Nearest Neighbors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../classification/5 Random Forest on titanic dat.html" class="sidebar-item-text sidebar-link">
+  <a href="../classification/6 Random Forest on titanic dat.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Classification with Random Forest</span></a>
   </div>
 </li>
@@ -366,9 +366,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model"><span class="header-section-number">3</span> model</a>
   <ul class="collapse">
   <li><a href="#define-model" id="toc-define-model" class="nav-link" data-scroll-target="#define-model"><span class="header-section-number">3.1</span> define model</a></li>
-  <li><a href="#train-model" id="toc-train-model" class="nav-link" data-scroll-target="#train-model"><span class="header-section-number">3.2</span> train model</a></li>
-  <li><a href="#preformance" id="toc-preformance" class="nav-link" data-scroll-target="#preformance"><span class="header-section-number">3.3</span> Preformance</a></li>
-  <li><a href="#k-fold-cross-validation" id="toc-k-fold-cross-validation" class="nav-link" data-scroll-target="#k-fold-cross-validation"><span class="header-section-number">3.4</span> k-Fold Cross-Validation</a></li>
+  <li><a href="#define-parameters" id="toc-define-parameters" class="nav-link" data-scroll-target="#define-parameters"><span class="header-section-number">3.2</span> define parameters</a></li>
+  <li><a href="#define-grids" id="toc-define-grids" class="nav-link" data-scroll-target="#define-grids"><span class="header-section-number">3.3</span> define GridS</a></li>
+  <li><a href="#train-model" id="toc-train-model" class="nav-link" data-scroll-target="#train-model"><span class="header-section-number">3.4</span> train model</a></li>
+  <li><a href="#preformance" id="toc-preformance" class="nav-link" data-scroll-target="#preformance"><span class="header-section-number">3.5</span> Preformance</a></li>
+  <li><a href="#k-fold-cross-validation" id="toc-k-fold-cross-validation" class="nav-link" data-scroll-target="#k-fold-cross-validation"><span class="header-section-number">3.6</span> k-Fold Cross-Validation</a></li>
   </ul></li>
   <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">4</span> reference:</a></li>
   </ul>
@@ -377,9 +379,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../classification/0 titanic data.html">Classification</a></li><li class="breadcrumb-item"><a href="../classification/1 decision tree on titanic data.html">Decision tree</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../classification/0 titanic data.html">Classification</a></li><li class="breadcrumb-item"><a href="../classification/1.2 decision tree and hyperparameter tuning.html">Decision tree and hyperparameter tuning</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Decision tree</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Decision tree and hyperparameter tuning</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 <p class="subtitle lead">with titanic data</p>
 </div>
 
@@ -399,14 +401,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="load-package" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> load package</h1>
-<div id="0a9393bd" class="cell" data-execution_count="1">
+<div id="65d21b4e" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#os.system('pip install xgboost')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="d8fb3334" class="cell" data-execution_count="2">
+<div id="dedf9555" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -415,8 +417,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> tree</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -424,7 +427,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="2"><span class="header-section-number">2</span> data</h1>
 <section id="input-data" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="input-data"><span class="header-section-number">2.1</span> input data</h2>
-<div id="01dd5080" class="cell" data-execution_count="3">
+<div id="7091b900" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the data</span></span>
@@ -547,7 +550,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-eda" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="data-eda"><span class="header-section-number">2.2</span> data EDA</h2>
-<div id="ac8d8c23" class="cell" data-execution_count="4">
+<div id="a6223d94" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'Survived'</span>, data<span class="op">=</span>df_train)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -555,12 +558,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="1 decision tree on titanic data_files/figure-html/cell-5-output-1.png" width="593" height="429" class="figure-img"></p>
+<p><img src="1.2 decision tree and hyperparameter tuning_files/figure-html/cell-5-output-1.png" width="593" height="429" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="7a4a3d49" class="cell" data-execution_count="5">
+<div id="0d6d9be9" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(x<span class="op">=</span><span class="st">'Survived'</span>, col<span class="op">=</span><span class="st">'Sex'</span>, kind<span class="op">=</span><span class="st">'count'</span>, data<span class="op">=</span>df_train)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -568,12 +571,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="1 decision tree on titanic data_files/figure-html/cell-6-output-1.png" width="950" height="470" class="figure-img"></p>
+<p><img src="1.2 decision tree and hyperparameter tuning_files/figure-html/cell-6-output-1.png" width="950" height="470" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="45544641" class="cell" data-execution_count="6">
+<div id="d8e546ef" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_train[df_train.Sex <span class="op">==</span> <span class="st">'female'</span>].Survived.<span class="bu">sum</span>()<span class="op">/</span>df_train[df_train.Sex <span class="op">==</span> <span class="st">'female'</span>].Survived.count())</span>
@@ -587,7 +590,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-wrangling" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="data-wrangling"><span class="header-section-number">2.3</span> Data Wrangling</h2>
-<div id="4c356aa7" class="cell" data-execution_count="7">
+<div id="fa896552" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store target variable of training data in a safe place</span></span>
@@ -602,7 +605,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.concat([df_train.drop([<span class="st">'Survived'</span>], axis<span class="op">=</span><span class="dv">1</span>), df_test])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="6cba3052" class="cell" data-execution_count="8">
+<div id="41aa8b7f" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -629,7 +632,7 @@ dtypes: float64(2), int64(4), object(6)
 memory usage: 132.9+ KB</code></pre>
 </div>
 </div>
-<div id="d13b1f41" class="cell" data-execution_count="9">
+<div id="ffc9ee26" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dealing with missing numerical variables</span></span>
@@ -661,7 +664,7 @@ dtypes: float64(2), int64(4), object(6)
 memory usage: 132.9+ KB</code></pre>
 </div>
 </div>
-<div id="3f3b3d92" class="cell" data-execution_count="10">
+<div id="2b065747" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tranform Sex feature to numeric value</span></span>
@@ -778,7 +781,7 @@ memory usage: 132.9+ KB</code></pre>
 </div>
 </div>
 </div>
-<div id="f4fc4cd9" class="cell" data-execution_count="11">
+<div id="e70debf8" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select features columns</span></span>
@@ -858,7 +861,7 @@ memory usage: 132.9+ KB</code></pre>
 </section>
 <section id="split-data" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="split-data"><span class="header-section-number">2.4</span> split data</h2>
-<div id="4a694b2e" class="cell" data-execution_count="12">
+<div id="d5062b8f" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Y<span class="op">=</span>df_train[<span class="st">'Survived'</span>]</span>
@@ -870,14 +873,14 @@ memory usage: 132.9+ KB</code></pre>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> X_test.drop(<span class="st">'role'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="14103f84" class="cell" data-execution_count="13">
+<div id="a266bfcb" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>X_train.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-Index: 712 entries, 694 to 823
+Index: 712 entries, 638 to 214
 Data columns (total 5 columns):
  #   Column    Non-Null Count  Dtype  
 ---  ------    --------------  -----  
@@ -896,10 +899,10 @@ memory usage: 28.5 KB</code></pre>
 <h1 data-number="3"><span class="header-section-number">3</span> model</h1>
 <section id="define-model" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="define-model"><span class="header-section-number">3.1</span> define model</h2>
-<div id="52a43656" class="cell" data-execution_count="14">
+<div id="61a0560b" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>model_dt <span class="op">=</span> tree.DecisionTreeClassifier(max_depth<span class="op">=</span><span class="dv">3</span>)   <span class="co">#model with deph 3</span></span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>model_dt <span class="op">=</span> DecisionTreeClassifier()   <span class="co">#model with deph 3</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>model_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="14">
@@ -1307,435 +1310,103 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</a></style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeClassifier(max_depth=3)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;&nbsp;DecisionTreeClassifier<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a><span class="sk-estimator-doc-link ">i<span>Not fitted</span></span></label><div class="sk-toggleable__content "><pre>DecisionTreeClassifier(max_depth=3)</pre></div> </div></div></div></div>
+</a></style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeClassifier()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;&nbsp;DecisionTreeClassifier<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a><span class="sk-estimator-doc-link ">i<span>Not fitted</span></span></label><div class="sk-toggleable__content "><pre>DecisionTreeClassifier()</pre></div> </div></div></div></div>
+</div>
+</div>
+<p>defalt hyper-parameters:</p>
+<div id="9d716c13" class="cell" data-execution_count="15">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>model_dt.get_params()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>{'ccp_alpha': 0.0,
+ 'class_weight': None,
+ 'criterion': 'gini',
+ 'max_depth': None,
+ 'max_features': None,
+ 'max_leaf_nodes': None,
+ 'min_impurity_decrease': 0.0,
+ 'min_samples_leaf': 1,
+ 'min_samples_split': 2,
+ 'min_weight_fraction_leaf': 0.0,
+ 'monotonic_cst': None,
+ 'random_state': None,
+ 'splitter': 'best'}</code></pre>
 </div>
 </div>
 </section>
-<section id="train-model" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="train-model"><span class="header-section-number">3.2</span> train model</h2>
-<div id="0d2885e4" class="cell" data-execution_count="15">
+<section id="define-parameters" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="define-parameters"><span class="header-section-number">3.2</span> define parameters</h2>
+<div id="3a0ffda6" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>model_dt.fit(X_train,Y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">=</span> {<span class="st">'criterion'</span>:[<span class="st">'gini'</span>,<span class="st">'entropy'</span>],</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">'max_depth'</span>:np.arange(<span class="dv">1</span>,<span class="dv">21</span>).tolist()[<span class="dv">0</span>::<span class="dv">2</span>],</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">'min_samples_split'</span>:np.arange(<span class="dv">2</span>,<span class="dv">11</span>).tolist()[<span class="dv">0</span>::<span class="dv">2</span>],</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">'max_leaf_nodes'</span>:np.arange(<span class="dv">3</span>,<span class="dv">26</span>).tolist()[<span class="dv">0</span>::<span class="dv">2</span>]}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="15">
-<style>#sk-container-id-2 {
-  /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
-  --sklearn-color-line: gray;
-  /* Definition of color scheme for unfitted estimators */
-  --sklearn-color-unfitted-level-0: #fff5e6;
-  --sklearn-color-unfitted-level-1: #f6e4d2;
-  --sklearn-color-unfitted-level-2: #ffe0b3;
-  --sklearn-color-unfitted-level-3: chocolate;
-  /* Definition of color scheme for fitted estimators */
-  --sklearn-color-fitted-level-0: #f0f8ff;
-  --sklearn-color-fitted-level-1: #d4ebff;
-  --sklearn-color-fitted-level-2: #b3dbfd;
-  --sklearn-color-fitted-level-3: cornflowerblue;
-
-  /* Specific color for light theme */
-  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
-  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-icon: #696969;
-
-  @media (prefers-color-scheme: dark) {
-    /* Redefinition of color scheme for dark theme */
-    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
-    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-icon: #878787;
-  }
-}
-
-#sk-container-id-2 {
-  color: var(--sklearn-color-text);
-}
-
-#sk-container-id-2 pre {
-  padding: 0;
-}
-
-#sk-container-id-2 input.sk-hidden--visually {
-  border: 0;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-#sk-container-id-2 div.sk-dashed-wrapped {
-  border: 1px dashed var(--sklearn-color-line);
-  margin: 0 0.4em 0.5em 0.4em;
-  box-sizing: border-box;
-  padding-bottom: 0.4em;
-  background-color: var(--sklearn-color-background);
-}
-
-#sk-container-id-2 div.sk-container {
-  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
-     but bootstrap.min.css set `[hidden] { display: none !important; }`
-     so we also need the `!important` here to be able to override the
-     default hidden behavior on the sphinx rendered scikit-learn.org.
-     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
-  display: inline-block !important;
-  position: relative;
-}
-
-#sk-container-id-2 div.sk-text-repr-fallback {
-  display: none;
-}
-
-div.sk-parallel-item,
-div.sk-serial,
-div.sk-item {
-  /* draw centered vertical line to link estimators */
-  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
-  background-size: 2px 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-/* Parallel-specific style estimator block */
-
-#sk-container-id-2 div.sk-parallel-item::after {
-  content: "";
-  width: 100%;
-  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
-  flex-grow: 1;
-}
-
-#sk-container-id-2 div.sk-parallel {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  background-color: var(--sklearn-color-background);
-  position: relative;
-}
-
-#sk-container-id-2 div.sk-parallel-item {
-  display: flex;
-  flex-direction: column;
-}
-
-#sk-container-id-2 div.sk-parallel-item:first-child::after {
-  align-self: flex-end;
-  width: 50%;
-}
-
-#sk-container-id-2 div.sk-parallel-item:last-child::after {
-  align-self: flex-start;
-  width: 50%;
-}
-
-#sk-container-id-2 div.sk-parallel-item:only-child::after {
-  width: 0;
-}
-
-/* Serial-specific style estimator block */
-
-#sk-container-id-2 div.sk-serial {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--sklearn-color-background);
-  padding-right: 1em;
-  padding-left: 1em;
-}
-
-
-/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
-clickable and can be expanded/collapsed.
-- Pipeline and ColumnTransformer use this feature and define the default style
-- Estimators will overwrite some part of the style using the `sk-estimator` class
-*/
-
-/* Pipeline and ColumnTransformer style (default) */
-
-#sk-container-id-2 div.sk-toggleable {
-  /* Default theme specific background. It is overwritten whether we have a
-  specific estimator or a Pipeline/ColumnTransformer */
-  background-color: var(--sklearn-color-background);
-}
-
-/* Toggleable label */
-#sk-container-id-2 label.sk-toggleable__label {
-  cursor: pointer;
-  display: block;
-  width: 100%;
-  margin-bottom: 0;
-  padding: 0.5em;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-#sk-container-id-2 label.sk-toggleable__label-arrow:before {
-  /* Arrow on the left of the label */
-  content: "▸";
-  float: left;
-  margin-right: 0.25em;
-  color: var(--sklearn-color-icon);
-}
-
-#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {
-  color: var(--sklearn-color-text);
-}
-
-/* Toggleable content - dropdown */
-
-#sk-container-id-2 div.sk-toggleable__content {
-  max-height: 0;
-  max-width: 0;
-  overflow: hidden;
-  text-align: left;
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-2 div.sk-toggleable__content.fitted {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-#sk-container-id-2 div.sk-toggleable__content pre {
-  margin: 0.2em;
-  border-radius: 0.25em;
-  color: var(--sklearn-color-text);
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-2 div.sk-toggleable__content.fitted pre {
-  /* unfitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {
-  /* Expand drop-down */
-  max-height: 200px;
-  max-width: 100%;
-  overflow: auto;
-}
-
-#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
-  content: "▾";
-}
-
-/* Pipeline/ColumnTransformer-specific style */
-
-#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-2 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Estimator-specific style */
-
-/* Colorize estimator box */
-#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-2 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-#sk-container-id-2 div.sk-label label.sk-toggleable__label,
-#sk-container-id-2 div.sk-label label {
-  /* The background is the default theme color */
-  color: var(--sklearn-color-text-on-default-background);
-}
-
-/* On hover, darken the color of the background */
-#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-/* Label box, darken color on hover, fitted */
-#sk-container-id-2 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Estimator label */
-
-#sk-container-id-2 div.sk-label label {
-  font-family: monospace;
-  font-weight: bold;
-  display: inline-block;
-  line-height: 1.2em;
-}
-
-#sk-container-id-2 div.sk-label-container {
-  text-align: center;
-}
-
-/* Estimator-specific */
-#sk-container-id-2 div.sk-estimator {
-  font-family: monospace;
-  border: 1px dotted var(--sklearn-color-border-box);
-  border-radius: 0.25em;
-  box-sizing: border-box;
-  margin-bottom: 0.5em;
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-2 div.sk-estimator.fitted {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-/* on hover */
-#sk-container-id-2 div.sk-estimator:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-2 div.sk-estimator.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Specification for estimator info (e.g. "i" and "?") */
-
-/* Common style for "i" and "?" */
-
-.sk-estimator-doc-link,
-a:link.sk-estimator-doc-link,
-a:visited.sk-estimator-doc-link {
-  float: right;
-  font-size: smaller;
-  line-height: 1em;
-  font-family: monospace;
-  background-color: var(--sklearn-color-background);
-  border-radius: 1em;
-  height: 1em;
-  width: 1em;
-  text-decoration: none !important;
-  margin-left: 1ex;
-  /* unfitted */
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-  color: var(--sklearn-color-unfitted-level-1);
-}
-
-.sk-estimator-doc-link.fitted,
-a:link.sk-estimator-doc-link.fitted,
-a:visited.sk-estimator-doc-link.fitted {
-  /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
-}
-
-/* On hover */
-div.sk-estimator:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover,
-div.sk-label-container:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover,
-div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-/* Span, style for the box shown on hovering the info icon */
-.sk-estimator-doc-link span {
-  display: none;
-  z-index: 9999;
-  position: relative;
-  font-weight: normal;
-  right: .2ex;
-  padding: .5ex;
-  margin: .5ex;
-  width: min-content;
-  min-width: 20ex;
-  max-width: 50ex;
-  color: var(--sklearn-color-text);
-  box-shadow: 2pt 2pt 4pt #999;
-  /* unfitted */
-  background: var(--sklearn-color-unfitted-level-0);
-  border: .5pt solid var(--sklearn-color-unfitted-level-3);
-}
-
-.sk-estimator-doc-link.fitted span {
-  /* fitted */
-  background: var(--sklearn-color-fitted-level-0);
-  border: var(--sklearn-color-fitted-level-3);
-}
-
-.sk-estimator-doc-link:hover span {
-  display: block;
-}
-
-/* "?"-specific style due to the `<a>` HTML tag */
-
-#sk-container-id-2 a.estimator_doc_link {
-  float: right;
-  font-size: 1rem;
-  line-height: 1em;
-  font-family: monospace;
-  background-color: var(--sklearn-color-background);
-  border-radius: 1rem;
-  height: 1rem;
-  width: 1rem;
-  text-decoration: none;
-  /* unfitted */
-  color: var(--sklearn-color-unfitted-level-1);
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-}
-
-#sk-container-id-2 a.estimator_doc_link.fitted {
-  /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
-}
-
-/* On hover */
-#sk-container-id-2 a.estimator_doc_link:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-#sk-container-id-2 a.estimator_doc_link.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-3);
-}
-</a></style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeClassifier(max_depth=3)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;DecisionTreeClassifier<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeClassifier(max_depth=3)</pre></div> </div></div></div></div>
 </div>
+</section>
+<section id="define-grids" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="define-grids"><span class="header-section-number">3.3</span> define GridS</h2>
+<p>default cv is 5</p>
+<div id="999421c7" class="cell" data-execution_count="17">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>G1<span class="op">=</span>GridSearchCV(DecisionTreeClassifier(), parameters, cv<span class="op">=</span><span class="dv">10</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="train-model" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="train-model"><span class="header-section-number">3.4</span> train model</h2>
+<div id="cbd26243" class="cell" data-execution_count="18">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>G1.fit(X_train,Y_train)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>duration <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>duration</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>5.372183084487915</code></pre>
+</div>
+</div>
+<p>best parameters</p>
+<div id="6715e8c0" class="cell" data-execution_count="19">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>G1.best_params_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>{'criterion': 'gini',
+ 'max_depth': 9,
+ 'max_leaf_nodes': 25,
+ 'min_samples_split': 4}</code></pre>
+</div>
+</div>
+<p>best model</p>
+<div id="822c112f" class="cell" data-execution_count="20">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>model_dt <span class="op">=</span> G1.best_estimator_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>variable importance</p>
-<div id="1f4415ee" class="cell" data-execution_count="16">
+<div id="29b57d28" class="cell" data-execution_count="21">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> model_dt.feature_importances_</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>pd.DataFrame({<span class="st">"variable"</span>:X_train.columns,<span class="st">"importances"</span>:importances})</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>vi.sort_values(<span class="st">'importances'</span>,ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>vi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> model_dt.feature_importances_</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>pd.DataFrame({<span class="st">"variable"</span>:X_train.columns,<span class="st">"importances"</span>:importances})</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>vi.sort_values(<span class="st">'importances'</span>,ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>vi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 <div>
 
@@ -1752,27 +1423,27 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>Sex_male</td>
-<td>0.659607</td>
+<td>0.462978</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>Pclass</td>
-<td>0.200035</td>
+<td>0.194167</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Fare</td>
-<td>0.075849</td>
-</tr>
-<tr class="even">
 <td data-quarto-table-cell-role="th">2</td>
 <td>Age</td>
-<td>0.064509</td>
+<td>0.144467</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Fare</td>
+<td>0.133971</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>SibSp</td>
-<td>0.000000</td>
+<td>0.064417</td>
 </tr>
 </tbody>
 </table>
@@ -1782,107 +1453,107 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 </section>
-<section id="preformance" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="preformance"><span class="header-section-number">3.3</span> Preformance</h2>
-<div id="8ef32c1d" class="cell" data-execution_count="17">
+<section id="preformance" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="preformance"><span class="header-section-number">3.5</span> Preformance</h2>
+<div id="44259490" class="cell" data-execution_count="22">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Using predict method to test the model</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Y_pred_dt <span class="op">=</span> model_dt.predict(X_test) <span class="co">#always gets x and retuns y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Using predict method to test the model</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>Y_pred_dt <span class="op">=</span> model_dt.predict(X_test) <span class="co">#always gets x and retuns y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <ol type="a">
 <li>Accuracy</li>
 </ol>
-<div id="4cfdd2a0" class="cell" data-execution_count="18">
+<div id="a0f39616" class="cell" data-execution_count="23">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Here is another way to find the accuracy score</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> metrics.accuracy_score(Y_test,Y_pred_dt)  </span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Here is another way to find the accuracy score</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> metrics.accuracy_score(Y_test,Y_pred_dt)  </span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>0.776536312849162</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>0.8379888268156425</code></pre>
 </div>
 </div>
 <ol start="2" type="a">
 <li>Precision</li>
 </ol>
-<div id="4c7c9fea" class="cell" data-execution_count="19">
+<div id="ce19f9b2" class="cell" data-execution_count="24">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Precision = true positive / true positive + false positive</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>precision_dt <span class="op">=</span> metrics.precision_score(Y_test,Y_pred_dt)  </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>precision_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Precision = true positive / true positive + false positive</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>precision_dt <span class="op">=</span> metrics.precision_score(Y_test,Y_pred_dt)  </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>precision_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>0.8148148148148148</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>0.8333333333333334</code></pre>
 </div>
 </div>
 <ol start="3" type="a">
 <li>Recall</li>
 </ol>
-<div id="e1448c62" class="cell" data-execution_count="20">
+<div id="9441ba28" class="cell" data-execution_count="25">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recall = true positive / true positive + false negative</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>recall_dt <span class="op">=</span> metrics.recall_score(Y_test,Y_pred_dt)  </span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>recall_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recall = true positive / true positive + false negative</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>recall_dt <span class="op">=</span> metrics.recall_score(Y_test,Y_pred_dt)  </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>recall_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="20">
-<pre><code>0.5945945945945946</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>0.7792207792207793</code></pre>
 </div>
 </div>
 <ol start="4" type="a">
 <li>Confusion matrix</li>
 </ol>
-<div id="f5fdafa8" class="cell" data-execution_count="21">
+<div id="64e7a590" class="cell" data-execution_count="26">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>confusion_matrix_dt <span class="op">=</span> metrics.confusion_matrix(Y_test,Y_pred_dt)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>confusion_matrix_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>confusion_matrix_dt <span class="op">=</span> metrics.confusion_matrix(Y_test,Y_pred_dt)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>confusion_matrix_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>array([[95, 10],
-       [30, 44]])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>array([[90, 12],
+       [17, 60]])</code></pre>
 </div>
 </div>
 <ol start="5" type="a">
 <li>AUC - ROC Curve</li>
 </ol>
-<div id="f3c43f89" class="cell" data-execution_count="22">
+<div id="95414427" class="cell" data-execution_count="27">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>auc_dt <span class="op">=</span> metrics.roc_auc_score(Y_test, Y_pred_dt) <span class="co"># as the documentation explain, the main parameters are: y_true and y_score</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>auc_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>auc_dt <span class="op">=</span> metrics.roc_auc_score(Y_test, Y_pred_dt) <span class="co"># as the documentation explain, the main parameters are: y_true and y_score</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>auc_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="22">
-<pre><code>0.7496782496782497</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>0.8307868601986249</code></pre>
 </div>
 </div>
 </section>
-<section id="k-fold-cross-validation" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="k-fold-cross-validation"><span class="header-section-number">3.4</span> k-Fold Cross-Validation</h2>
-<div id="e2b5b642" class="cell" data-execution_count="23">
+<section id="k-fold-cross-validation" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="k-fold-cross-validation"><span class="header-section-number">3.6</span> k-Fold Cross-Validation</h2>
+<div id="f23cea09" class="cell" data-execution_count="28">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="2d90e22b" class="cell" data-execution_count="24">
+<div id="efd0c1a6" class="cell" data-execution_count="29">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>kf_dt <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>,shuffle<span class="op">=</span><span class="va">True</span>)  </span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(model_dt, X_train, Y_train, cv<span class="op">=</span>kf_dt)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>np.mean(cv_dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>kf_dt <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>,shuffle<span class="op">=</span><span class="va">True</span>)  </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(model_dt, X_train, Y_train, cv<span class="op">=</span>kf_dt)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>np.mean(cv_dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="24">
-<pre><code>0.8229291834925638</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>0.8329163793952526</code></pre>
 </div>
 </div>
 </section>
@@ -2336,236 +2007,283 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb35" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Decision tree"</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "with titanic data"</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-bg: true</span></span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-border-left: "#31BAE9"</span></span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># load package</span></span>
-<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a><span class="co">#os.system('pip install xgboost')</span></span>
-<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
-<span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> tree</span>
-<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-42"><a href="#cb35-42" aria-hidden="true" tabindex="-1"></a><span class="fu"># data</span></span>
-<span id="cb35-43"><a href="#cb35-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-44"><a href="#cb35-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## input data</span></span>
-<span id="cb35-47"><a href="#cb35-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-48"><a href="#cb35-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the data</span></span>
-<span id="cb35-49"><a href="#cb35-49" aria-hidden="true" tabindex="-1"></a>df_train <span class="op">=</span> pd.read_csv(<span class="st">'./data/train.csv'</span>)</span>
-<span id="cb35-50"><a href="#cb35-50" aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> pd.read_csv(<span class="st">'./data/test.csv'</span>)</span>
-<span id="cb35-51"><a href="#cb35-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-52"><a href="#cb35-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Store our test passenger IDs for easy access</span></span>
-<span id="cb35-53"><a href="#cb35-53" aria-hidden="true" tabindex="-1"></a>PassengerId <span class="op">=</span> df_train[<span class="st">'PassengerId'</span>]</span>
-<span id="cb35-54"><a href="#cb35-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-55"><a href="#cb35-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-56"><a href="#cb35-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Showing overview of the train dataset</span></span>
-<span id="cb35-57"><a href="#cb35-57" aria-hidden="true" tabindex="-1"></a>df_train.head()</span>
-<span id="cb35-58"><a href="#cb35-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-59"><a href="#cb35-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-60"><a href="#cb35-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## data EDA</span></span>
-<span id="cb35-61"><a href="#cb35-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-64"><a href="#cb35-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-65"><a href="#cb35-65" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'Survived'</span>, data<span class="op">=</span>df_train)<span class="op">;</span></span>
-<span id="cb35-66"><a href="#cb35-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-67"><a href="#cb35-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-68"><a href="#cb35-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-71"><a href="#cb35-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-72"><a href="#cb35-72" aria-hidden="true" tabindex="-1"></a>sns.catplot(x<span class="op">=</span><span class="st">'Survived'</span>, col<span class="op">=</span><span class="st">'Sex'</span>, kind<span class="op">=</span><span class="st">'count'</span>, data<span class="op">=</span>df_train)<span class="op">;</span></span>
-<span id="cb35-73"><a href="#cb35-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-74"><a href="#cb35-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-75"><a href="#cb35-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-78"><a href="#cb35-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-79"><a href="#cb35-79" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_train[df_train.Sex <span class="op">==</span> <span class="st">'female'</span>].Survived.<span class="bu">sum</span>()<span class="op">/</span>df_train[df_train.Sex <span class="op">==</span> <span class="st">'female'</span>].Survived.count())</span>
-<span id="cb35-80"><a href="#cb35-80" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_train[df_train.Sex <span class="op">==</span> <span class="st">'male'</span>].Survived.<span class="bu">sum</span>()<span class="op">/</span>df_train[df_train.Sex <span class="op">==</span> <span class="st">'male'</span>].Survived.count())</span>
-<span id="cb35-81"><a href="#cb35-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-82"><a href="#cb35-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-83"><a href="#cb35-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-84"><a href="#cb35-84" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Wrangling</span></span>
-<span id="cb35-85"><a href="#cb35-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-88"><a href="#cb35-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-89"><a href="#cb35-89" aria-hidden="true" tabindex="-1"></a><span class="co"># Store target variable of training data in a safe place</span></span>
-<span id="cb35-90"><a href="#cb35-90" aria-hidden="true" tabindex="-1"></a>survived_train <span class="op">=</span> df_train.Survived</span>
-<span id="cb35-91"><a href="#cb35-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-92"><a href="#cb35-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-93"><a href="#cb35-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-94"><a href="#cb35-94" aria-hidden="true" tabindex="-1"></a>df_train[<span class="st">'role'</span>] <span class="op">=</span> <span class="st">'train'</span></span>
-<span id="cb35-95"><a href="#cb35-95" aria-hidden="true" tabindex="-1"></a>df_test[<span class="st">'role'</span>] <span class="op">=</span> <span class="st">'test'</span></span>
-<span id="cb35-96"><a href="#cb35-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-97"><a href="#cb35-97" aria-hidden="true" tabindex="-1"></a><span class="co"># Concatenate training and test sets</span></span>
-<span id="cb35-98"><a href="#cb35-98" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.concat([df_train.drop([<span class="st">'Survived'</span>], axis<span class="op">=</span><span class="dv">1</span>), df_test])</span>
-<span id="cb35-99"><a href="#cb35-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-100"><a href="#cb35-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-101"><a href="#cb35-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-104"><a href="#cb35-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-105"><a href="#cb35-105" aria-hidden="true" tabindex="-1"></a>data.info()</span>
-<span id="cb35-106"><a href="#cb35-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-107"><a href="#cb35-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-108"><a href="#cb35-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-109"><a href="#cb35-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-112"><a href="#cb35-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-113"><a href="#cb35-113" aria-hidden="true" tabindex="-1"></a><span class="co"># Dealing with missing numerical variables</span></span>
-<span id="cb35-114"><a href="#cb35-114" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Age'</span>] <span class="op">=</span> data.Age.fillna(data.Age.median())</span>
-<span id="cb35-115"><a href="#cb35-115" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Fare'</span>] <span class="op">=</span> data.Fare.fillna(data.Fare.median())</span>
-<span id="cb35-116"><a href="#cb35-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-117"><a href="#cb35-117" aria-hidden="true" tabindex="-1"></a><span class="co"># Check out info of data</span></span>
-<span id="cb35-118"><a href="#cb35-118" aria-hidden="true" tabindex="-1"></a>data.info()</span>
-<span id="cb35-119"><a href="#cb35-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-120"><a href="#cb35-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-121"><a href="#cb35-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-124"><a href="#cb35-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-125"><a href="#cb35-125" aria-hidden="true" tabindex="-1"></a><span class="co"># Tranform Sex feature to numeric value</span></span>
-<span id="cb35-126"><a href="#cb35-126" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new column for each of the options in 'Sex'</span></span>
-<span id="cb35-127"><a href="#cb35-127" aria-hidden="true" tabindex="-1"></a><span class="co"># creates a new column for female, called 'Sex_female', </span></span>
-<span id="cb35-128"><a href="#cb35-128" aria-hidden="true" tabindex="-1"></a><span class="co"># creates a new column for 'Sex_male'</span></span>
-<span id="cb35-129"><a href="#cb35-129" aria-hidden="true" tabindex="-1"></a><span class="co"># more then two categorical values it is better to use one-hot-encode</span></span>
-<span id="cb35-130"><a href="#cb35-130" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.get_dummies(data, columns<span class="op">=</span>[<span class="st">'Sex'</span>], drop_first<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb35-131"><a href="#cb35-131" aria-hidden="true" tabindex="-1"></a>data.head()</span>
-<span id="cb35-132"><a href="#cb35-132" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-133"><a href="#cb35-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-134"><a href="#cb35-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-137"><a href="#cb35-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-138"><a href="#cb35-138" aria-hidden="true" tabindex="-1"></a><span class="co"># Select features columns</span></span>
-<span id="cb35-139"><a href="#cb35-139" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data[[<span class="st">'Sex_male'</span>, <span class="st">'Fare'</span>, <span class="st">'Age'</span>,<span class="st">'Pclass'</span>, <span class="st">'SibSp'</span>,<span class="st">'role'</span>]]</span>
-<span id="cb35-140"><a href="#cb35-140" aria-hidden="true" tabindex="-1"></a>data.head()</span>
-<span id="cb35-141"><a href="#cb35-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-142"><a href="#cb35-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-143"><a href="#cb35-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-144"><a href="#cb35-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-145"><a href="#cb35-145" aria-hidden="true" tabindex="-1"></a><span class="fu">## split data</span></span>
-<span id="cb35-146"><a href="#cb35-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-149"><a href="#cb35-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-150"><a href="#cb35-150" aria-hidden="true" tabindex="-1"></a>Y<span class="op">=</span>df_train[<span class="st">'Survived'</span>]</span>
-<span id="cb35-151"><a href="#cb35-151" aria-hidden="true" tabindex="-1"></a>X<span class="op">=</span>data[data.role <span class="op">==</span><span class="st">'train'</span>]</span>
-<span id="cb35-152"><a href="#cb35-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-153"><a href="#cb35-153" aria-hidden="true" tabindex="-1"></a>X_train,X_test,Y_train,Y_test<span class="op">=</span>train_test_split(X,Y,train_size <span class="op">=</span> <span class="fl">0.8</span>)</span>
-<span id="cb35-154"><a href="#cb35-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-155"><a href="#cb35-155" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> X_train.drop(<span class="st">'role'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb35-156"><a href="#cb35-156" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> X_test.drop(<span class="st">'role'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb35-157"><a href="#cb35-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-158"><a href="#cb35-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-159"><a href="#cb35-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-160"><a href="#cb35-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-161"><a href="#cb35-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-164"><a href="#cb35-164" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-165"><a href="#cb35-165" aria-hidden="true" tabindex="-1"></a>X_train.info()</span>
-<span id="cb35-166"><a href="#cb35-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-167"><a href="#cb35-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-168"><a href="#cb35-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-169"><a href="#cb35-169" aria-hidden="true" tabindex="-1"></a><span class="fu"># model</span></span>
-<span id="cb35-170"><a href="#cb35-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-171"><a href="#cb35-171" aria-hidden="true" tabindex="-1"></a><span class="fu">## define model</span></span>
-<span id="cb35-174"><a href="#cb35-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-175"><a href="#cb35-175" aria-hidden="true" tabindex="-1"></a>model_dt <span class="op">=</span> tree.DecisionTreeClassifier(max_depth<span class="op">=</span><span class="dv">3</span>)   <span class="co">#model with deph 3</span></span>
-<span id="cb35-176"><a href="#cb35-176" aria-hidden="true" tabindex="-1"></a>model_dt</span>
-<span id="cb35-177"><a href="#cb35-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-178"><a href="#cb35-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-179"><a href="#cb35-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-180"><a href="#cb35-180" aria-hidden="true" tabindex="-1"></a><span class="fu">## train model</span></span>
-<span id="cb35-183"><a href="#cb35-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-184"><a href="#cb35-184" aria-hidden="true" tabindex="-1"></a>model_dt.fit(X_train,Y_train)</span>
-<span id="cb35-185"><a href="#cb35-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-186"><a href="#cb35-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-187"><a href="#cb35-187" aria-hidden="true" tabindex="-1"></a>variable importance </span>
-<span id="cb35-190"><a href="#cb35-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-191"><a href="#cb35-191" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> model_dt.feature_importances_</span>
-<span id="cb35-192"><a href="#cb35-192" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>pd.DataFrame({<span class="st">"variable"</span>:X_train.columns,<span class="st">"importances"</span>:importances})</span>
-<span id="cb35-193"><a href="#cb35-193" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>vi.sort_values(<span class="st">'importances'</span>,ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb35-194"><a href="#cb35-194" aria-hidden="true" tabindex="-1"></a>vi</span>
-<span id="cb35-195"><a href="#cb35-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-196"><a href="#cb35-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-197"><a href="#cb35-197" aria-hidden="true" tabindex="-1"></a><span class="fu">## Preformance</span></span>
-<span id="cb35-198"><a href="#cb35-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-201"><a href="#cb35-201" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-202"><a href="#cb35-202" aria-hidden="true" tabindex="-1"></a><span class="co">#Using predict method to test the model</span></span>
-<span id="cb35-203"><a href="#cb35-203" aria-hidden="true" tabindex="-1"></a>Y_pred_dt <span class="op">=</span> model_dt.predict(X_test) <span class="co">#always gets x and retuns y</span></span>
-<span id="cb35-204"><a href="#cb35-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-205"><a href="#cb35-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-206"><a href="#cb35-206" aria-hidden="true" tabindex="-1"></a>a) Accuracy</span>
-<span id="cb35-209"><a href="#cb35-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-210"><a href="#cb35-210" aria-hidden="true" tabindex="-1"></a><span class="co"># Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives</span></span>
-<span id="cb35-211"><a href="#cb35-211" aria-hidden="true" tabindex="-1"></a><span class="co"># Here is another way to find the accuracy score</span></span>
-<span id="cb35-212"><a href="#cb35-212" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics</span>
-<span id="cb35-213"><a href="#cb35-213" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> metrics.accuracy_score(Y_test,Y_pred_dt)  </span>
-<span id="cb35-214"><a href="#cb35-214" aria-hidden="true" tabindex="-1"></a>accuracy</span>
-<span id="cb35-215"><a href="#cb35-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-216"><a href="#cb35-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-217"><a href="#cb35-217" aria-hidden="true" tabindex="-1"></a>b) Precision</span>
-<span id="cb35-220"><a href="#cb35-220" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-221"><a href="#cb35-221" aria-hidden="true" tabindex="-1"></a><span class="co"># Precision = true positive / true positive + false positive</span></span>
-<span id="cb35-222"><a href="#cb35-222" aria-hidden="true" tabindex="-1"></a>precision_dt <span class="op">=</span> metrics.precision_score(Y_test,Y_pred_dt)  </span>
-<span id="cb35-223"><a href="#cb35-223" aria-hidden="true" tabindex="-1"></a>precision_dt</span>
-<span id="cb35-224"><a href="#cb35-224" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-225"><a href="#cb35-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-226"><a href="#cb35-226" aria-hidden="true" tabindex="-1"></a>c) Recall</span>
-<span id="cb35-229"><a href="#cb35-229" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-230"><a href="#cb35-230" aria-hidden="true" tabindex="-1"></a><span class="co"># Recall = true positive / true positive + false negative</span></span>
-<span id="cb35-231"><a href="#cb35-231" aria-hidden="true" tabindex="-1"></a>recall_dt <span class="op">=</span> metrics.recall_score(Y_test,Y_pred_dt)  </span>
-<span id="cb35-232"><a href="#cb35-232" aria-hidden="true" tabindex="-1"></a>recall_dt</span>
-<span id="cb35-233"><a href="#cb35-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-234"><a href="#cb35-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-235"><a href="#cb35-235" aria-hidden="true" tabindex="-1"></a>d) Confusion matrix</span>
-<span id="cb35-236"><a href="#cb35-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-239"><a href="#cb35-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-240"><a href="#cb35-240" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb35-241"><a href="#cb35-241" aria-hidden="true" tabindex="-1"></a>confusion_matrix_dt <span class="op">=</span> metrics.confusion_matrix(Y_test,Y_pred_dt)</span>
-<span id="cb35-242"><a href="#cb35-242" aria-hidden="true" tabindex="-1"></a>confusion_matrix_dt</span>
-<span id="cb35-243"><a href="#cb35-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-244"><a href="#cb35-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-245"><a href="#cb35-245" aria-hidden="true" tabindex="-1"></a>e) AUC - ROC Curve</span>
-<span id="cb35-246"><a href="#cb35-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-249"><a href="#cb35-249" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-250"><a href="#cb35-250" aria-hidden="true" tabindex="-1"></a>auc_dt <span class="op">=</span> metrics.roc_auc_score(Y_test, Y_pred_dt) <span class="co"># as the documentation explain, the main parameters are: y_true and y_score</span></span>
-<span id="cb35-251"><a href="#cb35-251" aria-hidden="true" tabindex="-1"></a>auc_dt</span>
-<span id="cb35-252"><a href="#cb35-252" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-253"><a href="#cb35-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-254"><a href="#cb35-254" aria-hidden="true" tabindex="-1"></a><span class="fu">## k-Fold Cross-Validation</span></span>
-<span id="cb35-255"><a href="#cb35-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-256"><a href="#cb35-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-259"><a href="#cb35-259" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-260"><a href="#cb35-260" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb35-261"><a href="#cb35-261" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
-<span id="cb35-262"><a href="#cb35-262" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
-<span id="cb35-263"><a href="#cb35-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-264"><a href="#cb35-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-265"><a href="#cb35-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-268"><a href="#cb35-268" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb35-269"><a href="#cb35-269" aria-hidden="true" tabindex="-1"></a>kf_dt <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>,shuffle<span class="op">=</span><span class="va">True</span>)  </span>
-<span id="cb35-270"><a href="#cb35-270" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(model_dt, X_train, Y_train, cv<span class="op">=</span>kf_dt)</span>
-<span id="cb35-271"><a href="#cb35-271" aria-hidden="true" tabindex="-1"></a>np.mean(cv_dt)</span>
-<span id="cb35-272"><a href="#cb35-272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-273"><a href="#cb35-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-274"><a href="#cb35-274" aria-hidden="true" tabindex="-1"></a><span class="fu"># reference:</span></span>
-<span id="cb35-275"><a href="#cb35-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-276"><a href="#cb35-276" aria-hidden="true" tabindex="-1"></a>https://github.com/alicevillar/titanic-kaggle/blob/main/Titanic_DecisionTree.ipynb</span>
-<span id="cb35-277"><a href="#cb35-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-278"><a href="#cb35-278" aria-hidden="true" tabindex="-1"></a>https://scikit-learn.org/stable/modules/tree.html</span>
+<div class="sourceCode" id="cb43" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Decision tree and hyperparameter tuning"</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "with titanic data"</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-bg: true</span></span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-border-left: "#31BAE9"</span></span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># load package</span></span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a><span class="co">#os.system('pip install xgboost')</span></span>
+<span id="cb43-25"><a href="#cb43-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-26"><a href="#cb43-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-27"><a href="#cb43-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-30"><a href="#cb43-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-31"><a href="#cb43-31" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb43-32"><a href="#cb43-32" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb43-33"><a href="#cb43-33" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb43-34"><a href="#cb43-34" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb43-35"><a href="#cb43-35" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb43-36"><a href="#cb43-36" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb43-37"><a href="#cb43-37" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier</span>
+<span id="cb43-38"><a href="#cb43-38" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb43-39"><a href="#cb43-39" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb43-40"><a href="#cb43-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-41"><a href="#cb43-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-42"><a href="#cb43-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-43"><a href="#cb43-43" aria-hidden="true" tabindex="-1"></a><span class="fu"># data</span></span>
+<span id="cb43-44"><a href="#cb43-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-45"><a href="#cb43-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## input data</span></span>
+<span id="cb43-48"><a href="#cb43-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-49"><a href="#cb43-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the data</span></span>
+<span id="cb43-50"><a href="#cb43-50" aria-hidden="true" tabindex="-1"></a>df_train <span class="op">=</span> pd.read_csv(<span class="st">'./data/train.csv'</span>)</span>
+<span id="cb43-51"><a href="#cb43-51" aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> pd.read_csv(<span class="st">'./data/test.csv'</span>)</span>
+<span id="cb43-52"><a href="#cb43-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-53"><a href="#cb43-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Store our test passenger IDs for easy access</span></span>
+<span id="cb43-54"><a href="#cb43-54" aria-hidden="true" tabindex="-1"></a>PassengerId <span class="op">=</span> df_train[<span class="st">'PassengerId'</span>]</span>
+<span id="cb43-55"><a href="#cb43-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-56"><a href="#cb43-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-57"><a href="#cb43-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Showing overview of the train dataset</span></span>
+<span id="cb43-58"><a href="#cb43-58" aria-hidden="true" tabindex="-1"></a>df_train.head()</span>
+<span id="cb43-59"><a href="#cb43-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-60"><a href="#cb43-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-61"><a href="#cb43-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## data EDA</span></span>
+<span id="cb43-62"><a href="#cb43-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-65"><a href="#cb43-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-66"><a href="#cb43-66" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'Survived'</span>, data<span class="op">=</span>df_train)<span class="op">;</span></span>
+<span id="cb43-67"><a href="#cb43-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-68"><a href="#cb43-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-69"><a href="#cb43-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-72"><a href="#cb43-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-73"><a href="#cb43-73" aria-hidden="true" tabindex="-1"></a>sns.catplot(x<span class="op">=</span><span class="st">'Survived'</span>, col<span class="op">=</span><span class="st">'Sex'</span>, kind<span class="op">=</span><span class="st">'count'</span>, data<span class="op">=</span>df_train)<span class="op">;</span></span>
+<span id="cb43-74"><a href="#cb43-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-75"><a href="#cb43-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-76"><a href="#cb43-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-79"><a href="#cb43-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-80"><a href="#cb43-80" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_train[df_train.Sex <span class="op">==</span> <span class="st">'female'</span>].Survived.<span class="bu">sum</span>()<span class="op">/</span>df_train[df_train.Sex <span class="op">==</span> <span class="st">'female'</span>].Survived.count())</span>
+<span id="cb43-81"><a href="#cb43-81" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_train[df_train.Sex <span class="op">==</span> <span class="st">'male'</span>].Survived.<span class="bu">sum</span>()<span class="op">/</span>df_train[df_train.Sex <span class="op">==</span> <span class="st">'male'</span>].Survived.count())</span>
+<span id="cb43-82"><a href="#cb43-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-83"><a href="#cb43-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-84"><a href="#cb43-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-85"><a href="#cb43-85" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Wrangling</span></span>
+<span id="cb43-86"><a href="#cb43-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-89"><a href="#cb43-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-90"><a href="#cb43-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Store target variable of training data in a safe place</span></span>
+<span id="cb43-91"><a href="#cb43-91" aria-hidden="true" tabindex="-1"></a>survived_train <span class="op">=</span> df_train.Survived</span>
+<span id="cb43-92"><a href="#cb43-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-93"><a href="#cb43-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-94"><a href="#cb43-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-95"><a href="#cb43-95" aria-hidden="true" tabindex="-1"></a>df_train[<span class="st">'role'</span>] <span class="op">=</span> <span class="st">'train'</span></span>
+<span id="cb43-96"><a href="#cb43-96" aria-hidden="true" tabindex="-1"></a>df_test[<span class="st">'role'</span>] <span class="op">=</span> <span class="st">'test'</span></span>
+<span id="cb43-97"><a href="#cb43-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-98"><a href="#cb43-98" aria-hidden="true" tabindex="-1"></a><span class="co"># Concatenate training and test sets</span></span>
+<span id="cb43-99"><a href="#cb43-99" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.concat([df_train.drop([<span class="st">'Survived'</span>], axis<span class="op">=</span><span class="dv">1</span>), df_test])</span>
+<span id="cb43-100"><a href="#cb43-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-101"><a href="#cb43-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-102"><a href="#cb43-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-105"><a href="#cb43-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-106"><a href="#cb43-106" aria-hidden="true" tabindex="-1"></a>data.info()</span>
+<span id="cb43-107"><a href="#cb43-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-108"><a href="#cb43-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-109"><a href="#cb43-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-110"><a href="#cb43-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-113"><a href="#cb43-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-114"><a href="#cb43-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Dealing with missing numerical variables</span></span>
+<span id="cb43-115"><a href="#cb43-115" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Age'</span>] <span class="op">=</span> data.Age.fillna(data.Age.median())</span>
+<span id="cb43-116"><a href="#cb43-116" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Fare'</span>] <span class="op">=</span> data.Fare.fillna(data.Fare.median())</span>
+<span id="cb43-117"><a href="#cb43-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-118"><a href="#cb43-118" aria-hidden="true" tabindex="-1"></a><span class="co"># Check out info of data</span></span>
+<span id="cb43-119"><a href="#cb43-119" aria-hidden="true" tabindex="-1"></a>data.info()</span>
+<span id="cb43-120"><a href="#cb43-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-121"><a href="#cb43-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-122"><a href="#cb43-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-125"><a href="#cb43-125" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-126"><a href="#cb43-126" aria-hidden="true" tabindex="-1"></a><span class="co"># Tranform Sex feature to numeric value</span></span>
+<span id="cb43-127"><a href="#cb43-127" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new column for each of the options in 'Sex'</span></span>
+<span id="cb43-128"><a href="#cb43-128" aria-hidden="true" tabindex="-1"></a><span class="co"># creates a new column for female, called 'Sex_female', </span></span>
+<span id="cb43-129"><a href="#cb43-129" aria-hidden="true" tabindex="-1"></a><span class="co"># creates a new column for 'Sex_male'</span></span>
+<span id="cb43-130"><a href="#cb43-130" aria-hidden="true" tabindex="-1"></a><span class="co"># more then two categorical values it is better to use one-hot-encode</span></span>
+<span id="cb43-131"><a href="#cb43-131" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.get_dummies(data, columns<span class="op">=</span>[<span class="st">'Sex'</span>], drop_first<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb43-132"><a href="#cb43-132" aria-hidden="true" tabindex="-1"></a>data.head()</span>
+<span id="cb43-133"><a href="#cb43-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-134"><a href="#cb43-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-135"><a href="#cb43-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-138"><a href="#cb43-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-139"><a href="#cb43-139" aria-hidden="true" tabindex="-1"></a><span class="co"># Select features columns</span></span>
+<span id="cb43-140"><a href="#cb43-140" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data[[<span class="st">'Sex_male'</span>, <span class="st">'Fare'</span>, <span class="st">'Age'</span>,<span class="st">'Pclass'</span>, <span class="st">'SibSp'</span>,<span class="st">'role'</span>]]</span>
+<span id="cb43-141"><a href="#cb43-141" aria-hidden="true" tabindex="-1"></a>data.head()</span>
+<span id="cb43-142"><a href="#cb43-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-143"><a href="#cb43-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-144"><a href="#cb43-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-145"><a href="#cb43-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-146"><a href="#cb43-146" aria-hidden="true" tabindex="-1"></a><span class="fu">## split data</span></span>
+<span id="cb43-147"><a href="#cb43-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-150"><a href="#cb43-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-151"><a href="#cb43-151" aria-hidden="true" tabindex="-1"></a>Y<span class="op">=</span>df_train[<span class="st">'Survived'</span>]</span>
+<span id="cb43-152"><a href="#cb43-152" aria-hidden="true" tabindex="-1"></a>X<span class="op">=</span>data[data.role <span class="op">==</span><span class="st">'train'</span>]</span>
+<span id="cb43-153"><a href="#cb43-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-154"><a href="#cb43-154" aria-hidden="true" tabindex="-1"></a>X_train,X_test,Y_train,Y_test<span class="op">=</span>train_test_split(X,Y,train_size <span class="op">=</span> <span class="fl">0.8</span>)</span>
+<span id="cb43-155"><a href="#cb43-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-156"><a href="#cb43-156" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> X_train.drop(<span class="st">'role'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb43-157"><a href="#cb43-157" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> X_test.drop(<span class="st">'role'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb43-158"><a href="#cb43-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-159"><a href="#cb43-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-160"><a href="#cb43-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-161"><a href="#cb43-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-162"><a href="#cb43-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-165"><a href="#cb43-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-166"><a href="#cb43-166" aria-hidden="true" tabindex="-1"></a>X_train.info()</span>
+<span id="cb43-167"><a href="#cb43-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-168"><a href="#cb43-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-169"><a href="#cb43-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-170"><a href="#cb43-170" aria-hidden="true" tabindex="-1"></a><span class="fu"># model</span></span>
+<span id="cb43-171"><a href="#cb43-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-172"><a href="#cb43-172" aria-hidden="true" tabindex="-1"></a><span class="fu">## define model</span></span>
+<span id="cb43-175"><a href="#cb43-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-176"><a href="#cb43-176" aria-hidden="true" tabindex="-1"></a>model_dt <span class="op">=</span> DecisionTreeClassifier()   <span class="co">#model with deph 3</span></span>
+<span id="cb43-177"><a href="#cb43-177" aria-hidden="true" tabindex="-1"></a>model_dt</span>
+<span id="cb43-178"><a href="#cb43-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-179"><a href="#cb43-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-180"><a href="#cb43-180" aria-hidden="true" tabindex="-1"></a>defalt hyper-parameters:</span>
+<span id="cb43-183"><a href="#cb43-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-184"><a href="#cb43-184" aria-hidden="true" tabindex="-1"></a>model_dt.get_params()</span>
+<span id="cb43-185"><a href="#cb43-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-186"><a href="#cb43-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-187"><a href="#cb43-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-188"><a href="#cb43-188" aria-hidden="true" tabindex="-1"></a><span class="fu">## define parameters</span></span>
+<span id="cb43-191"><a href="#cb43-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-192"><a href="#cb43-192" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">=</span> {<span class="st">'criterion'</span>:[<span class="st">'gini'</span>,<span class="st">'entropy'</span>],</span>
+<span id="cb43-193"><a href="#cb43-193" aria-hidden="true" tabindex="-1"></a>              <span class="st">'max_depth'</span>:np.arange(<span class="dv">1</span>,<span class="dv">21</span>).tolist()[<span class="dv">0</span>::<span class="dv">2</span>],</span>
+<span id="cb43-194"><a href="#cb43-194" aria-hidden="true" tabindex="-1"></a>              <span class="st">'min_samples_split'</span>:np.arange(<span class="dv">2</span>,<span class="dv">11</span>).tolist()[<span class="dv">0</span>::<span class="dv">2</span>],</span>
+<span id="cb43-195"><a href="#cb43-195" aria-hidden="true" tabindex="-1"></a>              <span class="st">'max_leaf_nodes'</span>:np.arange(<span class="dv">3</span>,<span class="dv">26</span>).tolist()[<span class="dv">0</span>::<span class="dv">2</span>]}</span>
+<span id="cb43-196"><a href="#cb43-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-197"><a href="#cb43-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-198"><a href="#cb43-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-199"><a href="#cb43-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## define GridS</span></span>
+<span id="cb43-200"><a href="#cb43-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-201"><a href="#cb43-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-202"><a href="#cb43-202" aria-hidden="true" tabindex="-1"></a>default cv is 5</span>
+<span id="cb43-205"><a href="#cb43-205" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-206"><a href="#cb43-206" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
+<span id="cb43-207"><a href="#cb43-207" aria-hidden="true" tabindex="-1"></a>G1<span class="op">=</span>GridSearchCV(DecisionTreeClassifier(), parameters, cv<span class="op">=</span><span class="dv">10</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb43-208"><a href="#cb43-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-209"><a href="#cb43-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-210"><a href="#cb43-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-211"><a href="#cb43-211" aria-hidden="true" tabindex="-1"></a><span class="fu">## train model</span></span>
+<span id="cb43-212"><a href="#cb43-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-215"><a href="#cb43-215" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-216"><a href="#cb43-216" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb43-217"><a href="#cb43-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-218"><a href="#cb43-218" aria-hidden="true" tabindex="-1"></a>G1.fit(X_train,Y_train)</span>
+<span id="cb43-219"><a href="#cb43-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-220"><a href="#cb43-220" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb43-221"><a href="#cb43-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-222"><a href="#cb43-222" aria-hidden="true" tabindex="-1"></a>duration <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
+<span id="cb43-223"><a href="#cb43-223" aria-hidden="true" tabindex="-1"></a>duration</span>
+<span id="cb43-224"><a href="#cb43-224" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-225"><a href="#cb43-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-226"><a href="#cb43-226" aria-hidden="true" tabindex="-1"></a>best parameters</span>
+<span id="cb43-229"><a href="#cb43-229" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-230"><a href="#cb43-230" aria-hidden="true" tabindex="-1"></a>G1.best_params_</span>
+<span id="cb43-231"><a href="#cb43-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-232"><a href="#cb43-232" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-233"><a href="#cb43-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-234"><a href="#cb43-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-235"><a href="#cb43-235" aria-hidden="true" tabindex="-1"></a>best model</span>
+<span id="cb43-236"><a href="#cb43-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-239"><a href="#cb43-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-240"><a href="#cb43-240" aria-hidden="true" tabindex="-1"></a>model_dt <span class="op">=</span> G1.best_estimator_</span>
+<span id="cb43-241"><a href="#cb43-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-242"><a href="#cb43-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-243"><a href="#cb43-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-244"><a href="#cb43-244" aria-hidden="true" tabindex="-1"></a>variable importance </span>
+<span id="cb43-247"><a href="#cb43-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-248"><a href="#cb43-248" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> model_dt.feature_importances_</span>
+<span id="cb43-249"><a href="#cb43-249" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>pd.DataFrame({<span class="st">"variable"</span>:X_train.columns,<span class="st">"importances"</span>:importances})</span>
+<span id="cb43-250"><a href="#cb43-250" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>vi.sort_values(<span class="st">'importances'</span>,ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb43-251"><a href="#cb43-251" aria-hidden="true" tabindex="-1"></a>vi</span>
+<span id="cb43-252"><a href="#cb43-252" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-253"><a href="#cb43-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-254"><a href="#cb43-254" aria-hidden="true" tabindex="-1"></a><span class="fu">## Preformance</span></span>
+<span id="cb43-255"><a href="#cb43-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-258"><a href="#cb43-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-259"><a href="#cb43-259" aria-hidden="true" tabindex="-1"></a><span class="co">#Using predict method to test the model</span></span>
+<span id="cb43-260"><a href="#cb43-260" aria-hidden="true" tabindex="-1"></a>Y_pred_dt <span class="op">=</span> model_dt.predict(X_test) <span class="co">#always gets x and retuns y</span></span>
+<span id="cb43-261"><a href="#cb43-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-262"><a href="#cb43-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-263"><a href="#cb43-263" aria-hidden="true" tabindex="-1"></a>a) Accuracy</span>
+<span id="cb43-266"><a href="#cb43-266" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-267"><a href="#cb43-267" aria-hidden="true" tabindex="-1"></a><span class="co"># Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives</span></span>
+<span id="cb43-268"><a href="#cb43-268" aria-hidden="true" tabindex="-1"></a><span class="co"># Here is another way to find the accuracy score</span></span>
+<span id="cb43-269"><a href="#cb43-269" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics</span>
+<span id="cb43-270"><a href="#cb43-270" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> metrics.accuracy_score(Y_test,Y_pred_dt)  </span>
+<span id="cb43-271"><a href="#cb43-271" aria-hidden="true" tabindex="-1"></a>accuracy</span>
+<span id="cb43-272"><a href="#cb43-272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-273"><a href="#cb43-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-274"><a href="#cb43-274" aria-hidden="true" tabindex="-1"></a>b) Precision</span>
+<span id="cb43-277"><a href="#cb43-277" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-278"><a href="#cb43-278" aria-hidden="true" tabindex="-1"></a><span class="co"># Precision = true positive / true positive + false positive</span></span>
+<span id="cb43-279"><a href="#cb43-279" aria-hidden="true" tabindex="-1"></a>precision_dt <span class="op">=</span> metrics.precision_score(Y_test,Y_pred_dt)  </span>
+<span id="cb43-280"><a href="#cb43-280" aria-hidden="true" tabindex="-1"></a>precision_dt</span>
+<span id="cb43-281"><a href="#cb43-281" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-282"><a href="#cb43-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-283"><a href="#cb43-283" aria-hidden="true" tabindex="-1"></a>c) Recall</span>
+<span id="cb43-286"><a href="#cb43-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-287"><a href="#cb43-287" aria-hidden="true" tabindex="-1"></a><span class="co"># Recall = true positive / true positive + false negative</span></span>
+<span id="cb43-288"><a href="#cb43-288" aria-hidden="true" tabindex="-1"></a>recall_dt <span class="op">=</span> metrics.recall_score(Y_test,Y_pred_dt)  </span>
+<span id="cb43-289"><a href="#cb43-289" aria-hidden="true" tabindex="-1"></a>recall_dt</span>
+<span id="cb43-290"><a href="#cb43-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-291"><a href="#cb43-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-292"><a href="#cb43-292" aria-hidden="true" tabindex="-1"></a>d) Confusion matrix</span>
+<span id="cb43-293"><a href="#cb43-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-296"><a href="#cb43-296" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-297"><a href="#cb43-297" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb43-298"><a href="#cb43-298" aria-hidden="true" tabindex="-1"></a>confusion_matrix_dt <span class="op">=</span> metrics.confusion_matrix(Y_test,Y_pred_dt)</span>
+<span id="cb43-299"><a href="#cb43-299" aria-hidden="true" tabindex="-1"></a>confusion_matrix_dt</span>
+<span id="cb43-300"><a href="#cb43-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-301"><a href="#cb43-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-302"><a href="#cb43-302" aria-hidden="true" tabindex="-1"></a>e) AUC - ROC Curve</span>
+<span id="cb43-303"><a href="#cb43-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-306"><a href="#cb43-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-307"><a href="#cb43-307" aria-hidden="true" tabindex="-1"></a>auc_dt <span class="op">=</span> metrics.roc_auc_score(Y_test, Y_pred_dt) <span class="co"># as the documentation explain, the main parameters are: y_true and y_score</span></span>
+<span id="cb43-308"><a href="#cb43-308" aria-hidden="true" tabindex="-1"></a>auc_dt</span>
+<span id="cb43-309"><a href="#cb43-309" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-310"><a href="#cb43-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-311"><a href="#cb43-311" aria-hidden="true" tabindex="-1"></a><span class="fu">## k-Fold Cross-Validation</span></span>
+<span id="cb43-312"><a href="#cb43-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-313"><a href="#cb43-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-316"><a href="#cb43-316" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-317"><a href="#cb43-317" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb43-318"><a href="#cb43-318" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
+<span id="cb43-319"><a href="#cb43-319" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
+<span id="cb43-320"><a href="#cb43-320" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-321"><a href="#cb43-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-322"><a href="#cb43-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-325"><a href="#cb43-325" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb43-326"><a href="#cb43-326" aria-hidden="true" tabindex="-1"></a>kf_dt <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>,shuffle<span class="op">=</span><span class="va">True</span>)  </span>
+<span id="cb43-327"><a href="#cb43-327" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(model_dt, X_train, Y_train, cv<span class="op">=</span>kf_dt)</span>
+<span id="cb43-328"><a href="#cb43-328" aria-hidden="true" tabindex="-1"></a>np.mean(cv_dt)</span>
+<span id="cb43-329"><a href="#cb43-329" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-330"><a href="#cb43-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-331"><a href="#cb43-331" aria-hidden="true" tabindex="-1"></a><span class="fu"># reference:</span></span>
+<span id="cb43-332"><a href="#cb43-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-333"><a href="#cb43-333" aria-hidden="true" tabindex="-1"></a>https://github.com/alicevillar/titanic-kaggle/blob/main/Titanic_DecisionTree.ipynb</span>
+<span id="cb43-334"><a href="#cb43-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-335"><a href="#cb43-335" aria-hidden="true" tabindex="-1"></a>https://scikit-learn.org/stable/modules/tree.html</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
