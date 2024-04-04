@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scikit learn with Python - Classification with Logistic Regression</title>
+<title>Scikit learn with Python - Logistic Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -225,19 +225,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../classification/3 Logistic Regression on titanic data.html">
- <span class="dropdown-text">Classification with Logistic Regression</span></a>
+ <span class="dropdown-text">Logistic Regression</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../classification/4 Support Vector Machines on titanic data.html">
- <span class="dropdown-text">Classification with Support Vector Machines</span></a>
+ <span class="dropdown-text">Support Vector Machines</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../classification/5 KNN on titanic data.html">
- <span class="dropdown-text">Classification with K-Nearest Neighbors</span></a>
+ <span class="dropdown-text">K-Nearest Neighbors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/6 Random Forest on titanic dat.html">
- <span class="dropdown-text">Classification with Random Forest</span></a>
+    <a class="dropdown-item" href="../classification/6.1 Random Forest.html">
+ <span class="dropdown-text">Random Forest</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/6.2 Random Forest.html">
+ <span class="dropdown-text">Random Forest with pipeline and hyperparameter tuning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/7.1 XGboost with pipeline.html">
+ <span class="dropdown-text">XGboost with pipeline</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/7.2 XGboost with pipeline and hyperparameter tuning.html">
+ <span class="dropdown-text">XGboost with pipeline and hyperparameter tuning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/7.3 XGboost with pipeline and fast tuning.html">
+ <span class="dropdown-text">XGboost with pipeline and fast tuning</span></a>
   </li>  
     </ul>
   </li>
@@ -280,7 +296,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../classification/0 titanic data.html">Classification</a></li><li class="breadcrumb-item"><a href="../classification/3 Logistic Regression on titanic data.html">Classification with Logistic Regression</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../classification/0 titanic data.html">Classification</a></li><li class="breadcrumb-item"><a href="../classification/3 Logistic Regression on titanic data.html">Logistic Regression</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -322,25 +338,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../classification/3 Logistic Regression on titanic data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Classification with Logistic Regression</span></a>
+ <span class="menu-text">Logistic Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../classification/4 Support Vector Machines on titanic data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Classification with Support Vector Machines</span></a>
+ <span class="menu-text">Support Vector Machines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../classification/5 KNN on titanic data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Classification with K-Nearest Neighbors</span></a>
+ <span class="menu-text">K-Nearest Neighbors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../classification/6 Random Forest on titanic dat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Classification with Random Forest</span></a>
+  <a href="../classification/6.1 Random Forest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Random Forest</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../classification/6.2 Random Forest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Random Forest with pipeline and hyperparameter tuning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../classification/7.1 XGboost with pipeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">XGboost with pipeline</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../classification/7.2 XGboost with pipeline and hyperparameter tuning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">XGboost with pipeline and hyperparameter tuning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../classification/7.3 XGboost with pipeline and fast tuning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">XGboost with pipeline and fast tuning</span></a>
   </div>
 </li>
       </ul>
@@ -377,9 +417,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../classification/0 titanic data.html">Classification</a></li><li class="breadcrumb-item"><a href="../classification/3 Logistic Regression on titanic data.html">Classification with Logistic Regression</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../classification/0 titanic data.html">Classification</a></li><li class="breadcrumb-item"><a href="../classification/3 Logistic Regression on titanic data.html">Logistic Regression</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Classification with Logistic Regression</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Logistic Regression</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 <p class="subtitle lead">with titanic data</p>
 </div>
 
@@ -399,14 +439,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="load-package" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> load package</h1>
-<div id="704b479a" class="cell" data-execution_count="1">
+<div id="372f5d48" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#os.system('pip install xgboost')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="9b34dd8a" class="cell" data-execution_count="2">
+<div id="cc0bf7ef" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -424,7 +464,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="2"><span class="header-section-number">2</span> data</h1>
 <section id="input-data" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="input-data"><span class="header-section-number">2.1</span> input data</h2>
-<div id="2f80a036" class="cell" data-execution_count="3">
+<div id="b8e3cb17" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the data</span></span>
@@ -547,7 +587,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-eda" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="data-eda"><span class="header-section-number">2.2</span> data EDA</h2>
-<div id="3298a60c" class="cell" data-execution_count="4">
+<div id="aa3dcdcd" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'Survived'</span>, data<span class="op">=</span>df_train)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -560,7 +600,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="2a0663c3" class="cell" data-execution_count="5">
+<div id="fde4e36b" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(x<span class="op">=</span><span class="st">'Survived'</span>, col<span class="op">=</span><span class="st">'Sex'</span>, kind<span class="op">=</span><span class="st">'count'</span>, data<span class="op">=</span>df_train)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -573,7 +613,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="1259d840" class="cell" data-execution_count="6">
+<div id="3591a6db" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_train[df_train.Sex <span class="op">==</span> <span class="st">'female'</span>].Survived.<span class="bu">sum</span>()<span class="op">/</span>df_train[df_train.Sex <span class="op">==</span> <span class="st">'female'</span>].Survived.count())</span>
@@ -587,7 +627,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-wrangling" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="data-wrangling"><span class="header-section-number">2.3</span> Data Wrangling</h2>
-<div id="1da81405" class="cell" data-execution_count="7">
+<div id="2119b2d7" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store target variable of training data in a safe place</span></span>
@@ -602,7 +642,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.concat([df_train.drop([<span class="st">'Survived'</span>], axis<span class="op">=</span><span class="dv">1</span>), df_test])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="20459926" class="cell" data-execution_count="8">
+<div id="4efbb68c" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -629,7 +669,7 @@ dtypes: float64(2), int64(4), object(6)
 memory usage: 132.9+ KB</code></pre>
 </div>
 </div>
-<div id="63300a79" class="cell" data-execution_count="9">
+<div id="a5806ea6" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dealing with missing numerical variables</span></span>
@@ -661,7 +701,7 @@ dtypes: float64(2), int64(4), object(6)
 memory usage: 132.9+ KB</code></pre>
 </div>
 </div>
-<div id="de459bc8" class="cell" data-execution_count="10">
+<div id="b5edabad" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tranform Sex feature to numeric value</span></span>
@@ -778,7 +818,7 @@ memory usage: 132.9+ KB</code></pre>
 </div>
 </div>
 </div>
-<div id="a772279f" class="cell" data-execution_count="11">
+<div id="19e3a68d" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select features columns</span></span>
@@ -858,7 +898,7 @@ memory usage: 132.9+ KB</code></pre>
 </section>
 <section id="split-data" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="split-data"><span class="header-section-number">2.4</span> split data</h2>
-<div id="d3ff1241" class="cell" data-execution_count="12">
+<div id="5c136bc6" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Y<span class="op">=</span>df_train[<span class="st">'Survived'</span>]</span>
@@ -870,14 +910,14 @@ memory usage: 132.9+ KB</code></pre>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> X_test.drop(<span class="st">'role'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="00a67660" class="cell" data-execution_count="13">
+<div id="98acc691" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>X_train.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-Index: 712 entries, 417 to 169
+Index: 712 entries, 791 to 454
 Data columns (total 5 columns):
  #   Column    Non-Null Count  Dtype  
 ---  ------    --------------  -----  
@@ -897,7 +937,7 @@ memory usage: 28.5 KB</code></pre>
 <section id="define-model" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="define-model"><span class="header-section-number">3.1</span> define model</h2>
 <p>The solvers implemented in the class Logistic Regression are “liblinear”, “newton-cg”, “lbfgs”, “sag” and “saga”. According to Scikit Documentation: The “liblinear” solver was the one used by default for historical reasons before version 0.22. Since then, default use is lbfgs Algorithm.</p>
-<div id="13ad4b30" class="cell" data-execution_count="14">
+<div id="bc53d70e" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
@@ -1315,7 +1355,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="train-model" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="train-model"><span class="header-section-number">3.2</span> train model</h2>
-<div id="e39cb87d" class="cell" data-execution_count="15">
+<div id="1f897f16" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ml_model.fit(X_train,Y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1729,7 +1769,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <p>variable importance</p>
-<div id="71882495" class="cell" data-execution_count="16">
+<div id="5502335f" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>coefficients <span class="op">=</span> ml_model.coef_[<span class="dv">0</span>]</span>
@@ -1755,27 +1795,27 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>Sex_male</td>
-<td>2.407213</td>
+<td>2.343351</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>Pclass</td>
-<td>0.849647</td>
+<td>0.793533</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>SibSp</td>
-<td>0.229579</td>
+<td>0.277801</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2</td>
 <td>Age</td>
-<td>0.025538</td>
+<td>0.027368</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">1</td>
 <td>Fare</td>
-<td>0.003995</td>
+<td>0.004206</td>
 </tr>
 </tbody>
 </table>
@@ -1787,7 +1827,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="preformance" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="preformance"><span class="header-section-number">3.3</span> Preformance</h2>
-<div id="977fd72e" class="cell" data-execution_count="17">
+<div id="a4154c68" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Using predict method to test the model</span></span>
@@ -1797,7 +1837,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <ol type="a">
 <li>Accuracy</li>
 </ol>
-<div id="92fd8400" class="cell" data-execution_count="18">
+<div id="00d2a854" class="cell" data-execution_count="18">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives</span></span>
@@ -1807,13 +1847,13 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>0.8268156424581006</code></pre>
+<pre><code>0.8491620111731844</code></pre>
 </div>
 </div>
 <ol start="2" type="a">
 <li>Precision</li>
 </ol>
-<div id="de47a61c" class="cell" data-execution_count="19">
+<div id="5b979d28" class="cell" data-execution_count="19">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Precision = true positive / true positive + false positive</span></span>
@@ -1821,13 +1861,13 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>precision_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>0.7894736842105263</code></pre>
+<pre><code>0.84</code></pre>
 </div>
 </div>
 <ol start="3" type="a">
 <li>Recall</li>
 </ol>
-<div id="ac24e3ce" class="cell" data-execution_count="20">
+<div id="4da0537a" class="cell" data-execution_count="20">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recall = true positive / true positive + false negative</span></span>
@@ -1835,13 +1875,13 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>recall_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="20">
-<pre><code>0.703125</code></pre>
+<pre><code>0.6885245901639344</code></pre>
 </div>
 </div>
 <ol start="4" type="a">
 <li>Confusion matrix</li>
 </ol>
-<div id="ebf40eb6" class="cell" data-execution_count="21">
+<div id="d9277f7d" class="cell" data-execution_count="21">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -1849,27 +1889,27 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>confusion_matrix_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>array([[103,  12],
-       [ 19,  45]])</code></pre>
+<pre><code>array([[110,   8],
+       [ 19,  42]])</code></pre>
 </div>
 </div>
 <ol start="5" type="a">
 <li>AUC - ROC Curve</li>
 </ol>
-<div id="a8ab3952" class="cell" data-execution_count="22">
+<div id="bfb7223e" class="cell" data-execution_count="22">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>auc_dt <span class="op">=</span> metrics.roc_auc_score(Y_test, Y_pred_dt) <span class="co"># as the documentation explain, the main parameters are: y_true and y_score</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>auc_dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="22">
-<pre><code>0.7993885869565218</code></pre>
+<pre><code>0.8103639899972214</code></pre>
 </div>
 </div>
 </section>
 <section id="k-fold-cross-validation" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="k-fold-cross-validation"><span class="header-section-number">3.4</span> k-Fold Cross-Validation</h2>
-<div id="26385b6a" class="cell" data-execution_count="23">
+<div id="2a71c1cf" class="cell" data-execution_count="23">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1877,7 +1917,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="aebbfcff" class="cell" data-execution_count="24">
+<div id="8973b3c1" class="cell" data-execution_count="24">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>kf_dt <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>,shuffle<span class="op">=</span><span class="va">True</span>)  </span>
@@ -1885,7 +1925,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>np.mean(cv_dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="24">
-<pre><code>0.7780261991529597</code></pre>
+<pre><code>0.7795035949965528</code></pre>
 </div>
 </div>
 </section>
@@ -2340,7 +2380,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb35" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Classification with Logistic Regression"</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Logistic Regression"</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "with titanic data"</span></span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
 <span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>

@@ -65,7 +65,8 @@ small_penguins=penguins>> head(5)
 small_mtcars >> select(_.cyl, _.mpg)
 ```
 
-exclude
+
+## drop column
 
 ```{python}
 small_mtcars >> select(~_.cyl)

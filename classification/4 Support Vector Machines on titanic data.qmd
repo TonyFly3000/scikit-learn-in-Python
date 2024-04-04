@@ -1,5 +1,5 @@
 ---
-title: "Classification with Support Vector Machines"
+title: "Support Vector Machines"
 subtitle: "with titanic data"
 execute:
   warning: false

@@ -1,5 +1,5 @@
 ---
-title: "Random Forest with pipeline and fast tuning"
+title: "Random Forest with pipeline and hyperparameter tuning"
 subtitle: "with titanic data"
 execute:
   warning: false
@@ -22,7 +22,6 @@ import os
 #os.system('pip install xgboost')
 ```
 
-
 ```{python}
 import os
 import pandas as pd
@@ -32,12 +31,13 @@ import re
 import numpy as np
 from sklearn import tree
 from sklearn.model_selection import train_test_split
-
+import time
 ```
 
 # data
 
 ## input data
+
 ```{python}
 # Loading the data
 df_train = pd.read_csv('./data/train.csv')
@@ -51,23 +51,21 @@ PassengerId = df_train['PassengerId']
 df_train.head()
 
 ```
+
 ## data EDA
 
 ```{python}
 sns.countplot(x='Survived', data=df_train);
 ```
 
-
 ```{python}
 sns.catplot(x='Survived', col='Sex', kind='count', data=df_train);
 ```
-
 
 ```{python}
 print(df_train[df_train.Sex == 'female'].Survived.sum()/df_train[df_train.Sex == 'female'].Survived.count())
 print(df_train[df_train.Sex == 'male'].Survived.sum()/df_train[df_train.Sex == 'male'].Survived.count())
 ```
-
 
 ## Data Wrangling
 
@@ -84,12 +82,10 @@ df_test['role'] = 'test'
 data = pd.concat([df_train.drop(['Survived'], axis=1), df_test])
 ```
 
-
 ```{python}
 data.info()
 
 ```
-
 
 ```{python}
 # Dealing with missing numerical variables
@@ -99,7 +95,6 @@ data['Fare'] = data.Fare.fillna(data.Fare.median())
 # Check out info of data
 data.info()
 ```
-
 
 ```{python}
 # Tranform Sex feature to numeric value
@@ -111,13 +106,11 @@ data = pd.get_dummies(data, columns=['Sex'], drop_first=True)
 data.head()
 ```
 
-
 ```{python}
 # Select features columns
 data = data[['Sex_male', 'Fare', 'Age','Pclass', 'SibSp','role']]
 data.head()
 ```
-
 
 
 ## split data
@@ -139,17 +132,79 @@ X_test = X_test.drop('role', axis=1)
 X_train.info()
 ```
 
+## categorical_cols and numerical_cols
+
+
+```{python}
+categorical_cols = [cname for cname in X_train.columns 
+                    if X_train[cname].nunique() < 10 and X_train[cname].dtype == "object"]
+                    
+                    
+numerical_cols = numerical_cols = [cname for cname in X_train.columns 
+                    if X_train[cname].dtype in ['int64', 'float64']]
+```
+
+```{python}
+print("The total number of categorical columns:", len(categorical_cols))
+print("The total number of numerical columns:", len(numerical_cols))
+```
+
+
+```{python}
+my_cols = categorical_cols + numerical_cols
+X_train = X_train[my_cols].copy()
+#X_val = X_val[my_cols].copy()
+X_test= X_test[my_cols].copy()
+
+
+#X_final = df_test[my_cols].copy()
+```
+
+
+## Pipelines for Data Preprocessing
+
+```{python}
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler
+```
+
+
+```{python}
+numerical_transformer = Pipeline(steps=[
+    ('imputer_num', SimpleImputer(strategy='median')), 
+    ('scaler', StandardScaler())
+])
+```
+
+
+
+
+```{python}
+from sklearn.preprocessing import OneHotEncoder
+
+categorical_transformer = Pipeline(steps=[
+    ('imputer_cat', SimpleImputer(strategy='most_frequent')),
+    ('onehot', OneHotEncoder(handle_unknown='ignore'))
+])
+```
+
+
+```{python}
+from sklearn.compose import ColumnTransformer
+
+preprocessor = ColumnTransformer(transformers=[
+    ('num', numerical_transformer, numerical_cols),
+    ('cat', categorical_transformer, categorical_cols)])
+```
+
 
 # model
 
 
-tune_sklearn
-
-
-
 ## define model
 
-The solvers implemented in the class Logistic Regression are “liblinear”, “newton-cg”, “lbfgs”, “sag” and “saga”. According to Scikit Documentation: The “liblinear” solver was the one used by default for historical reasons before version 0.22. Since then, default use is lbfgs Algorithm.
+The solvers implemented in the class Logistic Regression are "liblinear", "newton-cg", "lbfgs", "sag" and "saga". According to Scikit Documentation: The "liblinear" solver was the one used by default for historical reasons before version 0.22. Since then, default use is lbfgs Algorithm.
 
 ```{python}
 from sklearn.ensemble import RandomForestClassifier
@@ -158,10 +213,79 @@ ml_model
 ```
 
 
-## train model
+## define pipline
+
 ```{python}
-ml_model.fit(X_train,Y_train)
+pipeline = Pipeline(
+  steps=[
+         ('preprocessor', preprocessor), 
+         ('model', ml_model)
+         ]
+)
 ```
+
+## hyperparameter tuning set
+```{python}
+from sklearn.model_selection import GridSearchCV
+parameters = {'model__max_depth':[20,30,40],
+                 'model__n_estimators':[200,250,300],
+                 'model__min_samples_leaf':[1,2,3]
+                
+                 }
+                 
+              
+GridCV = GridSearchCV(pipeline, parameters
+                    ,scoring='accuracy'
+                    ,cv=10
+                    ,n_jobs= -1, verbose=1)
+```
+
+## train model
+
+```{python}
+start_time = time.time()
+
+GridCV.fit(X_train, Y_train)
+
+end_time = time.time()
+duration = end_time - start_time
+duration
+```
+
+
+```{python}
+# get the parameter names
+column_results = [f"param_{name}" for name in parameters.keys()]
+column_results += ["mean_test_score", "std_test_score", "rank_test_score"]
+
+cv_results = pd.DataFrame(GridCV.cv_results_)
+cv_results = cv_results[column_results].sort_values(
+    "mean_test_score", ascending=False
+)
+
+
+def shorten_param(param_name):
+    if "__" in param_name:
+        return param_name.rsplit("__", 1)[1]
+    return param_name
+
+
+cv_results = cv_results.rename(shorten_param, axis=1)
+cv_results.head()
+```
+
+
+#### tunning best parameters
+```{python}
+GridCV.best_params_
+```
+
+#### tunning best model
+
+```{python}
+ml_model = GridCV.best_estimator_
+```
+
 
 ## Preformance
 
@@ -171,8 +295,8 @@ Y_pred_dt = ml_model.predict(X_test) #always gets x and retuns y
 Y_pred_dt
 ```
 
+a)  Accuracy
 
-a) Accuracy
 ```{python}
 # Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives
 # Here is another way to find the accuracy score
@@ -181,21 +305,23 @@ accuracy = metrics.accuracy_score(Y_test,Y_pred_dt)
 accuracy
 ```
 
-b) Precision
+b)  Precision
+
 ```{python}
 # Precision = true positive / true positive + false positive
 precision_dt = metrics.precision_score(Y_test,Y_pred_dt)  
 precision_dt
 ```
 
-c) Recall
+c)  Recall
+
 ```{python}
 # Recall = true positive / true positive + false negative
 recall_dt = metrics.recall_score(Y_test,Y_pred_dt)  
 recall_dt
 ```
 
-d) Confusion matrix
+d)  Confusion matrix
 
 ```{python}
 import seaborn as sns
@@ -203,7 +329,7 @@ confusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)
 confusion_matrix_dt
 ```
 
-e) AUC - ROC Curve
+e)  AUC - ROC Curve
 
 ```{python}
 auc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score
@@ -212,13 +338,11 @@ auc_dt
 
 ## k-Fold Cross-Validation
 
-
 ```{python}
 import numpy as np
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
 ```
-
 
 ```{python}
 kf_dt = KFold(n_splits=5,shuffle=True)  
@@ -226,9 +350,41 @@ cv_dt = cross_val_score(ml_model, X_train, Y_train, cv=kf_dt)
 np.mean(cv_dt)
 ```
 
+## save model
+ 
+```{python}
+from joblib import dump, load
+dump(ml_model, 'trained_model_6_2.joblib') 
+```
+ 
+save trained pipeline
+```{python}
+from joblib import dump, load
+dump(GridCV, 'trained_pipeline_6_2.pkl', compress=True)  
+``` 
+
+## load model
+
+```{python}
+model_dt_reload = load('trained_model_6_2.joblib') 
+```
+
+```{python}
+Y_pred_dt = model_dt_reload.predict(X_test) #always gets x and retuns y
+
+Y_pred_dt[0:5]
+```
+
+
+
+
+## final prediction
+
+
+
+
 # reference:
 
 https://github.com/alicevillar/titanic-kaggle/blob/main/Titanic_DecisionTree.ipynb
 
 https://scikit-learn.org/stable/modules/tree.html
-

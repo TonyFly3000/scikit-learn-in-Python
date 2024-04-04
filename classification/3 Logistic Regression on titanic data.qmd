@@ -1,5 +1,5 @@
 ---
-title: "Classification with Logistic Regression"
+title: "Logistic Regression"
 subtitle: "with titanic data"
 execute:
   warning: false

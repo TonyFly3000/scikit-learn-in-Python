@@ -109,6 +109,10 @@ print(Y_train.shape)
 print(Y_test.shape)
 ```
 
+
+## categorical_cols and numerical_cols
+
+
 ```{python}
 categorical_cols = [cname for cname in X_train.columns 
                     if X_train[cname].nunique() < 10 and X_train[cname].dtype == "object"]
@@ -130,7 +134,7 @@ X_train = X_train[my_cols].copy()
 X_test= X_test[my_cols].copy()
 
 
-X_final = df_test[my_cols].copy()
+#X_final = df_test[my_cols].copy()
 ```
 
 
@@ -203,6 +207,7 @@ pipeline = Pipeline(
 
 
 ## train model
+
 ```{python}
 pipeline.fit(X_train, Y_train)
 ```

@@ -1,5 +1,5 @@
 ---
-title: "Classification with K-Nearest Neighbors"
+title: "K-Nearest Neighbors"
 subtitle: "with titanic data"
 execute:
   warning: false

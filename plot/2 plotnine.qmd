@@ -34,6 +34,7 @@ print(plotnine.__version__)
 
 from plotnine import *
 import seaborn as sns
+import pandas as pd
 
 
 # Apply the default theme
@@ -79,19 +80,50 @@ p
 
 # line Plot
 
+
+
+```{python}
+
+dowjones= sns.load_dataset("dowjones")
+dowjones.head()
+
+```
+
 ```{python}
 p=(
-    ggplot(data=tips)+aes(x="tip",y="total_bill")+ geom_line()
+    ggplot(data=dowjones)+aes(x="Date",y="Price")+ geom_line()
 )
 
 p
 ```
 
+
+```{python}
+#| code-fold: true
+import random
+from siuba import _, mutate, filter, group_by, summarize,show_query
+from siuba import *
+
+dowjones2=dowjones>>mutate(type='old')
+
+dowjones3=dowjones>>mutate(Price=_.Price+random.random()*200,type='new')
+
+dowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)>> arrange(_.Date)
+
+```
+
+```{python}
+dowjones4.head()
+```
+
+
+
+
 ## color by group
 
 ```{python}
 p=(
-    ggplot(data=tips)+aes(x="tip",y="total_bill")+ geom_line(aes(color="sex"))
+    ggplot(data=dowjones4)+aes(x="Date",y="Price")+ geom_line(aes(color="type"))
 )
 
 p

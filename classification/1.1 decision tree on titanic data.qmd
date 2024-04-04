@@ -37,6 +37,8 @@ from sklearn.model_selection import train_test_split
 
 # data
 
+data download from https://www.kaggle.com/c/titanic/data
+
 ## input data
 ```{python}
 # Loading the data
@@ -51,6 +53,7 @@ PassengerId = df_train['PassengerId']
 df_train.head()
 
 ```
+
 ## data EDA
 
 ```{python}
@@ -222,6 +225,29 @@ kf_dt = KFold(n_splits=5,shuffle=True)
 cv_dt = cross_val_score(model_dt, X_train, Y_train, cv=kf_dt)
 np.mean(cv_dt)
 ```
+
+
+## save model
+ 
+```{python}
+from joblib import dump, load
+dump(model_dt, 'trained_model.joblib') 
+```
+ 
+
+## load model
+
+```{python}
+model_dt_reload = load('trained_model.joblib') 
+```
+
+```{python}
+Y_pred_dt = model_dt_reload.predict(X_test) #always gets x and retuns y
+
+Y_pred_dt[0:5]
+```
+
+
 
 # reference:
 

@@ -217,7 +217,6 @@ start_time = time.time()
 G1.fit(X_train,Y_train)
 
 end_time = time.time()
-
 duration = end_time - start_time
 duration
 ```
@@ -230,7 +229,6 @@ start_time = time.time()
 G2.fit(X_train,Y_train)
 
 end_time = time.time()
-
 duration = end_time - start_time
 duration
 ```
@@ -379,6 +377,32 @@ kf_dt = KFold(n_splits=5,shuffle=True)
 cv_dt = cross_val_score(model_dt, X_train, Y_train, cv=kf_dt)
 np.mean(cv_dt)
 ```
+
+
+
+
+## save model
+ 
+```{python}
+from joblib import dump, load
+dump(model_dt, 'trained_model.joblib') 
+```
+ 
+
+## load model
+
+```{python}
+model_dt_reload = load('trained_model.joblib') 
+```
+
+```{python}
+Y_pred_dt = model_dt_reload.predict(X_test) #always gets x and retuns y
+
+Y_pred_dt[0:5]
+```
+
+
+
 
 # reference:
 

@@ -143,10 +143,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../intro/3 install package.html">
  <span class="dropdown-text">install pacakge</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../intro/4 data structure in Python .html">
- <span class="dropdown-text">data structure in Python</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -154,13 +150,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
-        <li class="dropdown-header">Data</li>
+        <li class="dropdown-header">data manipulation</li>
         <li>
-    <a class="dropdown-item" href="../data/1 Pandas.html">
+    <a class="dropdown-item" href="../data manipulation/0 data structure in Python .html">
+ <span class="dropdown-text">Data structure in Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../data manipulation/1 Pandas.html">
  <span class="dropdown-text">Data manipulation with Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../data/2 siuba.html">
+    <a class="dropdown-item" href="../data manipulation/2 siuba.html">
  <span class="dropdown-text">Data manipulation with siuba</span></a>
   </li>  
     </ul>
@@ -178,6 +178,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../plot/2 plotnine.html">
  <span class="dropdown-text">plotnine chart</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../plot/3 plotly.html">
+ <span class="dropdown-text">Plotly chart</span></a>
   </li>  
     </ul>
   </li>
@@ -212,24 +216,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Titanic Dataset</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/1 decision tree on titanic data.html">
- <span class="dropdown-text">Classification with decision tree</span></a>
+    <a class="dropdown-item" href="../classification/1.1 decision tree on titanic data.html">
+ <span class="dropdown-text">Decision tree</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/2 Logistic Regression on titanic data.html">
+    <a class="dropdown-item" href="../classification/1.2 decision tree and hyperparameter tuning.html">
+ <span class="dropdown-text">Decision tree and hyperparameter tuning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/3 Logistic Regression on titanic data.html">
  <span class="dropdown-text">Classification with Logistic Regression</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/3 Support Vector Machines on titanic data.html">
+    <a class="dropdown-item" href="../classification/4 Support Vector Machines on titanic data.html">
  <span class="dropdown-text">Classification with Support Vector Machines</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/4 KNN on titanic data.html">
+    <a class="dropdown-item" href="../classification/5 KNN on titanic data.html">
  <span class="dropdown-text">Classification with K-Nearest Neighbors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/5 Random Forest on titanic dat.html">
- <span class="dropdown-text">Classification with Random Forest</span></a>
+    <a class="dropdown-item" href="../classification/6.1 Random Forest.html">
+ <span class="dropdown-text">Random Forest</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/6.2 Random Forest.html">
+ <span class="dropdown-text">Random Forest with pipeline and fast tuning</span></a>
   </li>  
     </ul>
   </li>
@@ -244,7 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Housing Prices Dataset</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../regression/2 Decision Tree on house price data copy.html">
+    <a class="dropdown-item" href="../regression/2 Decision Tree on house price data.html">
  <span class="dropdown-text">Decision tree</span></a>
   </li>  
         <li>
@@ -301,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../regression/2 Decision Tree on house price data copy.html" class="sidebar-item-text sidebar-link">
+  <a href="../regression/2 Decision Tree on house price data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Decision tree</span></a>
   </div>
 </li>
@@ -342,7 +354,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#data-eda" id="toc-data-eda" class="nav-link" data-scroll-target="#data-eda"><span class="header-section-number">2.2</span> data EDA</a></li>
   <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling"><span class="header-section-number">2.3</span> Data Wrangling</a></li>
   <li><a href="#split-data" id="toc-split-data" class="nav-link" data-scroll-target="#split-data"><span class="header-section-number">2.4</span> split data</a></li>
-  <li><a href="#pipelines-for-data-preprocessing" id="toc-pipelines-for-data-preprocessing" class="nav-link" data-scroll-target="#pipelines-for-data-preprocessing"><span class="header-section-number">2.5</span> Pipelines for Data Preprocessing</a></li>
+  <li><a href="#categorical_cols-and-numerical_cols" id="toc-categorical_cols-and-numerical_cols" class="nav-link" data-scroll-target="#categorical_cols-and-numerical_cols"><span class="header-section-number">2.5</span> categorical_cols and numerical_cols</a></li>
+  <li><a href="#pipelines-for-data-preprocessing" id="toc-pipelines-for-data-preprocessing" class="nav-link" data-scroll-target="#pipelines-for-data-preprocessing"><span class="header-section-number">2.6</span> Pipelines for Data Preprocessing</a></li>
   </ul></li>
   <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model"><span class="header-section-number">3</span> model</a>
   <ul class="collapse">
@@ -382,14 +395,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>with pipeline</p>
 <section id="load-package" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> load package</h1>
-<div id="1a56df91" class="cell" data-execution_count="1">
+<div id="c09ea246" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#os.system('pip install xgboost')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="69cc4359" class="cell" data-execution_count="2">
+<div id="2e74cafa" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -410,7 +423,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="2"><span class="header-section-number">2</span> data</h1>
 <section id="input-data" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="input-data"><span class="header-section-number">2.1</span> input data</h2>
-<div id="1ee21aa7" class="cell" data-execution_count="3">
+<div id="bd83fffd" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the data</span></span>
@@ -585,13 +598,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="2de5e855" class="cell" data-execution_count="4">
+<div id="570e370d" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#df_train.info()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="7dced568" class="cell" data-execution_count="5">
+<div id="b5dd7328" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_train[<span class="st">'role'</span>] <span class="op">=</span> <span class="st">'train'</span></span>
@@ -611,7 +624,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="split-data" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="split-data"><span class="header-section-number">2.4</span> split data</h2>
-<div id="95aaf688" class="cell" data-execution_count="6">
+<div id="98123e8f" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> df_train.SalePrice</span>
@@ -625,7 +638,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> X_test.drop(<span class="st">'role'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="fb25eb62" class="cell" data-execution_count="7">
+<div id="6f6debaa" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_train.shape)</span>
@@ -636,7 +649,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 (292, 80)</code></pre>
 </div>
 </div>
-<div id="c1c8d8de" class="cell" data-execution_count="8">
+<div id="8e0ba8a4" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Y_train.shape)</span>
@@ -647,7 +660,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 (292,)</code></pre>
 </div>
 </div>
-<div id="40a9af8f" class="cell" data-execution_count="9">
+</section>
+<section id="categorical_cols-and-numerical_cols" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="categorical_cols-and-numerical_cols"><span class="header-section-number">2.5</span> categorical_cols and numerical_cols</h2>
+<div id="a44efc4f" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>categorical_cols <span class="op">=</span> [cname <span class="cf">for</span> cname <span class="kw">in</span> X_train.columns </span>
@@ -658,7 +674,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> X_train[cname].dtype <span class="kw">in</span> [<span class="st">'int64'</span>, <span class="st">'float64'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="858ba450" class="cell" data-execution_count="10">
+<div id="ce75d37a" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The total number of categorical columns:"</span>, <span class="bu">len</span>(categorical_cols))</span>
@@ -669,7 +685,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 The total number of numerical columns: 37</code></pre>
 </div>
 </div>
-<div id="55180090" class="cell" data-execution_count="11">
+<div id="690d8b4a" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>my_cols <span class="op">=</span> categorical_cols <span class="op">+</span> numerical_cols</span>
@@ -677,13 +693,13 @@ The total number of numerical columns: 37</code></pre>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>X_test<span class="op">=</span> X_test[my_cols].copy()</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>X_final <span class="op">=</span> df_test[my_cols].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#X_final = df_test[my_cols].copy()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="pipelines-for-data-preprocessing" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="pipelines-for-data-preprocessing"><span class="header-section-number">2.5</span> Pipelines for Data Preprocessing</h2>
-<div id="9aa0dedc" class="cell" data-execution_count="12">
+<section id="pipelines-for-data-preprocessing" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="pipelines-for-data-preprocessing"><span class="header-section-number">2.6</span> Pipelines for Data Preprocessing</h2>
+<div id="56327b58" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
@@ -691,7 +707,7 @@ The total number of numerical columns: 37</code></pre>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="5d16c708" class="cell" data-execution_count="13">
+<div id="0f55678a" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>numerical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
@@ -700,7 +716,7 @@ The total number of numerical columns: 37</code></pre>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="d44c0539" class="cell" data-execution_count="14">
+<div id="316a1ff6" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
@@ -711,7 +727,7 @@ The total number of numerical columns: 37</code></pre>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="a63bbe56" class="cell" data-execution_count="15">
+<div id="4f9e2c67" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
@@ -728,7 +744,7 @@ The total number of numerical columns: 37</code></pre>
 <section id="define-model" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="define-model"><span class="header-section-number">3.1</span> define model</h2>
 <p>random forest with hyper parameter tuning</p>
-<div id="070c08ad" class="cell" data-execution_count="16">
+<div id="efdcda48" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
@@ -1148,7 +1164,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="define-pipline" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="define-pipline"><span class="header-section-number">3.2</span> define pipline</h2>
-<div id="3d3a7955" class="cell" data-execution_count="17">
+<div id="0a61e4f8" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> Pipeline(</span>
@@ -1162,7 +1178,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="train-model" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="train-model"><span class="header-section-number">3.3</span> train model</h2>
-<div id="3f170261" class="cell" data-execution_count="18">
+<div id="efb0989e" class="cell" data-execution_count="18">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pipeline.fit(X_train, Y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1648,7 +1664,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                   'Functional', 'FireplaceQu', ...])])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">num</label><div class="sk-toggleable__content fitted"><pre>['Id', 'MSSubClass', 'LotFrontage', 'LotArea', 'OverallQual', 'OverallCond', 'YearBuilt', 'YearRemodAdd', 'MasVnrArea', 'BsmtFinSF1', 'BsmtFinSF2', 'BsmtUnfSF', 'TotalBsmtSF', '1stFlrSF', '2ndFlrSF', 'LowQualFinSF', 'GrLivArea', 'BsmtFullBath', 'BsmtHalfBath', 'FullBath', 'HalfBath', 'BedroomAbvGr', 'KitchenAbvGr', 'TotRmsAbvGrd', 'Fireplaces', 'GarageYrBlt', 'GarageCars', 'GarageArea', 'WoodDeckSF', 'OpenPorchSF', 'EnclosedPorch', '3SsnPorch', 'ScreenPorch', 'PoolArea', 'MiscVal', 'MoSold', 'YrSold']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;SimpleImputer<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></label><div class="sk-toggleable__content fitted"><pre>SimpleImputer(strategy='median')</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;StandardScaler<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox"><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">cat</label><div class="sk-toggleable__content fitted"><pre>['MSZoning', 'Street', 'Alley', 'LotShape', 'LandContour', 'Utilities', 'LotConfig', 'LandSlope', 'Condition1', 'Condition2', 'BldgType', 'HouseStyle', 'RoofStyle', 'RoofMatl', 'MasVnrType', 'ExterQual', 'ExterCond', 'Foundation', 'BsmtQual', 'BsmtCond', 'BsmtExposure', 'BsmtFinType1', 'BsmtFinType2', 'Heating', 'HeatingQC', 'CentralAir', 'Electrical', 'KitchenQual', 'Functional', 'FireplaceQu', 'GarageType', 'GarageFinish', 'GarageQual', 'GarageCond', 'PavedDrive', 'PoolQC', 'Fence', 'MiscFeature', 'SaleType', 'SaleCondition']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox"><label for="sk-estimator-id-8" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;SimpleImputer<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></label><div class="sk-toggleable__content fitted"><pre>SimpleImputer(strategy='most_frequent')</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox"><label for="sk-estimator-id-9" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;OneHotEncoder<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.preprocessing.OneHotEncoder.html">?<span>Documentation for OneHotEncoder</span></a></label><div class="sk-toggleable__content fitted"><pre>OneHotEncoder(handle_unknown='ignore')</pre></div> </div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox"><label for="sk-estimator-id-10" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;RandomForestRegressor<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.ensemble.RandomForestRegressor.html">?<span>Documentation for RandomForestRegressor</span></a></label><div class="sk-toggleable__content fitted"><pre>RandomForestRegressor(random_state=0)</pre></div> </div></div></div></div></div></div>
 </div>
 </div>
-<div id="009c9c38" class="cell" data-execution_count="19">
+<div id="6a404417" class="cell" data-execution_count="19">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>var<span class="op">=</span>pipeline[:<span class="op">-</span><span class="dv">1</span>].get_feature_names_out()</span>
@@ -1674,18 +1690,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
        'cat__LotShape_Reg', 'cat__LandContour_Bnk',
        'cat__LandContour_HLS', 'cat__LandContour_Low',
        'cat__LandContour_Lvl', 'cat__Utilities_AllPub',
-       'cat__LotConfig_Corner', 'cat__LotConfig_CulDSac',
-       'cat__LotConfig_FR2', 'cat__LotConfig_FR3',
-       'cat__LotConfig_Inside', 'cat__LandSlope_Gtl',
-       'cat__LandSlope_Mod', 'cat__LandSlope_Sev',
+       'cat__Utilities_NoSeWa', 'cat__LotConfig_Corner',
+       'cat__LotConfig_CulDSac', 'cat__LotConfig_FR2',
+       'cat__LotConfig_FR3', 'cat__LotConfig_Inside',
+       'cat__LandSlope_Gtl', 'cat__LandSlope_Mod', 'cat__LandSlope_Sev',
        'cat__Condition1_Artery', 'cat__Condition1_Feedr',
        'cat__Condition1_Norm', 'cat__Condition1_PosA',
        'cat__Condition1_PosN', 'cat__Condition1_RRAe',
        'cat__Condition1_RRAn', 'cat__Condition1_RRNe',
        'cat__Condition1_RRNn', 'cat__Condition2_Artery',
        'cat__Condition2_Feedr', 'cat__Condition2_Norm',
-       'cat__Condition2_PosA', 'cat__Condition2_PosN',
-       'cat__Condition2_RRAe', 'cat__Condition2_RRNn',
+       'cat__Condition2_PosN', 'cat__Condition2_RRAe',
+       'cat__Condition2_RRAn', 'cat__Condition2_RRNn',
        'cat__BldgType_1Fam', 'cat__BldgType_2fmCon',
        'cat__BldgType_Duplex', 'cat__BldgType_Twnhs',
        'cat__BldgType_TwnhsE', 'cat__HouseStyle_1.5Fin',
@@ -1697,13 +1713,13 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
        'cat__RoofStyle_Hip', 'cat__RoofStyle_Mansard',
        'cat__RoofStyle_Shed', 'cat__RoofMatl_ClyTile',
        'cat__RoofMatl_CompShg', 'cat__RoofMatl_Membran',
-       'cat__RoofMatl_Metal', 'cat__RoofMatl_Roll',
-       'cat__RoofMatl_Tar&amp;Grv', 'cat__RoofMatl_WdShake',
-       'cat__RoofMatl_WdShngl', 'cat__MasVnrType_BrkCmn',
-       'cat__MasVnrType_BrkFace', 'cat__MasVnrType_Stone',
-       'cat__ExterQual_Ex', 'cat__ExterQual_Fa', 'cat__ExterQual_Gd',
-       'cat__ExterQual_TA', 'cat__ExterCond_Ex', 'cat__ExterCond_Fa',
-       'cat__ExterCond_Gd', 'cat__ExterCond_TA', 'cat__Foundation_BrkTil',
+       'cat__RoofMatl_Metal', 'cat__RoofMatl_Tar&amp;Grv',
+       'cat__RoofMatl_WdShake', 'cat__RoofMatl_WdShngl',
+       'cat__MasVnrType_BrkCmn', 'cat__MasVnrType_BrkFace',
+       'cat__MasVnrType_Stone', 'cat__ExterQual_Ex', 'cat__ExterQual_Fa',
+       'cat__ExterQual_Gd', 'cat__ExterQual_TA', 'cat__ExterCond_Ex',
+       'cat__ExterCond_Fa', 'cat__ExterCond_Gd', 'cat__ExterCond_Po',
+       'cat__ExterCond_TA', 'cat__Foundation_BrkTil',
        'cat__Foundation_CBlock', 'cat__Foundation_PConc',
        'cat__Foundation_Slab', 'cat__Foundation_Stone',
        'cat__Foundation_Wood', 'cat__BsmtQual_Ex', 'cat__BsmtQual_Fa',
@@ -1720,33 +1736,32 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
        'cat__Heating_Floor', 'cat__Heating_GasA', 'cat__Heating_GasW',
        'cat__Heating_Grav', 'cat__Heating_OthW', 'cat__Heating_Wall',
        'cat__HeatingQC_Ex', 'cat__HeatingQC_Fa', 'cat__HeatingQC_Gd',
-       'cat__HeatingQC_Po', 'cat__HeatingQC_TA', 'cat__CentralAir_N',
-       'cat__CentralAir_Y', 'cat__Electrical_FuseA',
-       'cat__Electrical_FuseF', 'cat__Electrical_FuseP',
-       'cat__Electrical_Mix', 'cat__Electrical_SBrkr',
-       'cat__KitchenQual_Ex', 'cat__KitchenQual_Fa',
-       'cat__KitchenQual_Gd', 'cat__KitchenQual_TA',
-       'cat__Functional_Maj1', 'cat__Functional_Maj2',
-       'cat__Functional_Min1', 'cat__Functional_Min2',
-       'cat__Functional_Mod', 'cat__Functional_Sev',
-       'cat__Functional_Typ', 'cat__FireplaceQu_Ex',
-       'cat__FireplaceQu_Fa', 'cat__FireplaceQu_Gd',
-       'cat__FireplaceQu_Po', 'cat__FireplaceQu_TA',
-       'cat__GarageType_2Types', 'cat__GarageType_Attchd',
-       'cat__GarageType_Basment', 'cat__GarageType_BuiltIn',
-       'cat__GarageType_CarPort', 'cat__GarageType_Detchd',
-       'cat__GarageFinish_Fin', 'cat__GarageFinish_RFn',
-       'cat__GarageFinish_Unf', 'cat__GarageQual_Ex',
-       'cat__GarageQual_Fa', 'cat__GarageQual_Gd', 'cat__GarageQual_Po',
-       'cat__GarageQual_TA', 'cat__GarageCond_Ex', 'cat__GarageCond_Fa',
-       'cat__GarageCond_Gd', 'cat__GarageCond_Po', 'cat__GarageCond_TA',
-       'cat__PavedDrive_N', 'cat__PavedDrive_P', 'cat__PavedDrive_Y',
-       'cat__PoolQC_Ex', 'cat__PoolQC_Fa', 'cat__PoolQC_Gd',
-       'cat__Fence_GdPrv', 'cat__Fence_GdWo', 'cat__Fence_MnPrv',
-       'cat__Fence_MnWw', 'cat__MiscFeature_Gar2',
+       'cat__HeatingQC_TA', 'cat__CentralAir_N', 'cat__CentralAir_Y',
+       'cat__Electrical_FuseA', 'cat__Electrical_FuseF',
+       'cat__Electrical_FuseP', 'cat__Electrical_Mix',
+       'cat__Electrical_SBrkr', 'cat__KitchenQual_Ex',
+       'cat__KitchenQual_Fa', 'cat__KitchenQual_Gd',
+       'cat__KitchenQual_TA', 'cat__Functional_Maj1',
+       'cat__Functional_Maj2', 'cat__Functional_Min1',
+       'cat__Functional_Min2', 'cat__Functional_Mod',
+       'cat__Functional_Sev', 'cat__Functional_Typ',
+       'cat__FireplaceQu_Ex', 'cat__FireplaceQu_Fa',
+       'cat__FireplaceQu_Gd', 'cat__FireplaceQu_Po',
+       'cat__FireplaceQu_TA', 'cat__GarageType_2Types',
+       'cat__GarageType_Attchd', 'cat__GarageType_Basment',
+       'cat__GarageType_BuiltIn', 'cat__GarageType_CarPort',
+       'cat__GarageType_Detchd', 'cat__GarageFinish_Fin',
+       'cat__GarageFinish_RFn', 'cat__GarageFinish_Unf',
+       'cat__GarageQual_Ex', 'cat__GarageQual_Fa', 'cat__GarageQual_Gd',
+       'cat__GarageQual_Po', 'cat__GarageQual_TA', 'cat__GarageCond_Ex',
+       'cat__GarageCond_Fa', 'cat__GarageCond_Gd', 'cat__GarageCond_Po',
+       'cat__GarageCond_TA', 'cat__PavedDrive_N', 'cat__PavedDrive_P',
+       'cat__PavedDrive_Y', 'cat__PoolQC_Ex', 'cat__PoolQC_Fa',
+       'cat__PoolQC_Gd', 'cat__Fence_GdPrv', 'cat__Fence_GdWo',
+       'cat__Fence_MnPrv', 'cat__Fence_MnWw', 'cat__MiscFeature_Gar2',
        'cat__MiscFeature_Othr', 'cat__MiscFeature_Shed',
-       'cat__SaleType_COD', 'cat__SaleType_CWD', 'cat__SaleType_Con',
-       'cat__SaleType_ConLD', 'cat__SaleType_ConLI',
+       'cat__MiscFeature_TenC', 'cat__SaleType_COD', 'cat__SaleType_CWD',
+       'cat__SaleType_Con', 'cat__SaleType_ConLD', 'cat__SaleType_ConLI',
        'cat__SaleType_ConLw', 'cat__SaleType_New', 'cat__SaleType_Oth',
        'cat__SaleType_WD', 'cat__SaleCondition_Abnorml',
        'cat__SaleCondition_AdjLand', 'cat__SaleCondition_Alloca',
@@ -1754,14 +1769,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
        'cat__SaleCondition_Partial'], dtype=object)</code></pre>
 </div>
 </div>
-<div id="b02d37d3" class="cell" data-execution_count="20">
+<div id="cfdbc0fe" class="cell" data-execution_count="20">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fitted_model<span class="op">=</span>pipeline.steps[<span class="dv">1</span>][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>variable importance</p>
-<div id="1a27eb70" class="cell" data-execution_count="21">
+<div id="b1892511" class="cell" data-execution_count="21">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> fitted_model.feature_importances_</span>
@@ -1786,27 +1801,27 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>num__OverallQual</td>
-<td>0.555139</td>
+<td>5.665596e-01</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">16</td>
 <td>num__GrLivArea</td>
-<td>0.112957</td>
+<td>1.152691e-01</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>num__TotalBsmtSF</td>
-<td>0.039629</td>
+<td data-quarto-table-cell-role="th">14</td>
+<td>num__2ndFlrSF</td>
+<td>4.922609e-02</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">26</td>
-<td>num__GarageCars</td>
-<td>0.026531</td>
+<td data-quarto-table-cell-role="th">12</td>
+<td>num__TotalBsmtSF</td>
+<td>4.073534e-02</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">13</td>
-<td>num__1stFlrSF</td>
-<td>0.025871</td>
+<td data-quarto-table-cell-role="th">9</td>
+<td>num__BsmtFinSF1</td>
+<td>2.143949e-02</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">...</td>
@@ -1814,34 +1829,34 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <td>...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">147</td>
-<td>cat__Heating_Floor</td>
-<td>0.000000</td>
+<td data-quarto-table-cell-role="th">78</td>
+<td>cat__Condition2_RRAn</td>
+<td>1.692313e-08</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">129</td>
-<td>cat__BsmtCond_Po</td>
-<td>0.000000</td>
-</tr>
-<tr class="odd">
 <td data-quarto-table-cell-role="th">77</td>
 <td>cat__Condition2_RRAe</td>
-<td>0.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">174</td>
-<td>cat__Functional_Sev</td>
-<td>0.000000</td>
+<td>8.657450e-09</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">54</td>
-<td>cat__Utilities_AllPub</td>
-<td>0.000000</td>
+<td data-quarto-table-cell-role="th">216</td>
+<td>cat__SaleType_Con</td>
+<td>6.480665e-09</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">55</td>
+<td>cat__Utilities_NoSeWa</td>
+<td>1.457866e-09</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">123</td>
+<td>cat__Foundation_Wood</td>
+<td>2.625608e-10</td>
 </tr>
 </tbody>
 </table>
 
-<p>228 rows × 2 columns</p>
+<p>229 rows × 2 columns</p>
 </div>
 </div>
 </div>
@@ -1849,36 +1864,36 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="preformance" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="preformance"><span class="header-section-number">3.4</span> Preformance</h2>
-<div id="ff3afb56" class="cell" data-execution_count="22">
+<div id="a290aa86" class="cell" data-execution_count="22">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Y_pred_dt <span class="op">=</span>pipeline.predict(X_test) <span class="co">#always gets x and retuns y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>R 2</p>
-<div id="42f880c5" class="cell" data-execution_count="23">
+<div id="098fec22" class="cell" data-execution_count="23">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> r2_score</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>r2_score(Y_test, Y_pred_dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="23">
-<pre><code>0.8769362016723407</code></pre>
+<pre><code>0.8610158499188818</code></pre>
 </div>
 </div>
 <p>MAE</p>
-<div id="d5a494fa" class="cell" data-execution_count="24">
+<div id="ccdfbef8" class="cell" data-execution_count="24">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(Y_test, Y_pred_dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="24">
-<pre><code>18018.556061643834</code></pre>
+<pre><code>19151.616438356163</code></pre>
 </div>
 </div>
 <p>RMSE</p>
-<div id="70a08cb0" class="cell" data-execution_count="25">
+<div id="1334570b" class="cell" data-execution_count="25">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span>  math <span class="im">import</span> sqrt</span>
@@ -1888,13 +1903,13 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>rmse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="25">
-<pre><code>29600.7303437137</code></pre>
+<pre><code>31742.614883778195</code></pre>
 </div>
 </div>
 </section>
 <section id="k-fold-cross-validation" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="k-fold-cross-validation"><span class="header-section-number">3.5</span> k-Fold Cross-Validation</h2>
-<div id="dea5d5a7" class="cell" data-execution_count="26">
+<div id="eb15b491" class="cell" data-execution_count="26">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1902,30 +1917,30 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="b1c2e0c5" class="cell" data-execution_count="27">
+<div id="8fc8ee89" class="cell" data-execution_count="27">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>kf_dt <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>,shuffle<span class="op">=</span><span class="va">True</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="983a27a2" class="cell" data-execution_count="28">
+<div id="1364ff0a" class="cell" data-execution_count="28">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(pipeline, X_train, Y_train, cv<span class="op">=</span>kf_dt)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>np.mean(cv_dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="28">
-<pre><code>0.8398654485710771</code></pre>
+<pre><code>0.8354087162938729</code></pre>
 </div>
 </div>
-<div id="3c3958d6" class="cell" data-execution_count="29">
+<div id="473cee11" class="cell" data-execution_count="29">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(pipeline, X_train, Y_train, cv<span class="op">=</span>kf_dt,scoring <span class="op">=</span> <span class="st">'neg_mean_squared_error'</span>)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>np.mean(np.sqrt(np.<span class="bu">abs</span>(cv_dt)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="29">
-<pre><code>30030.318678382853</code></pre>
+<pre><code>29854.074894412704</code></pre>
 </div>
 </div>
 </section>
@@ -2490,187 +2505,192 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb39-124"><a href="#cb39-124" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Y_test.shape)</span>
 <span id="cb39-125"><a href="#cb39-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb39-126"><a href="#cb39-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-129"><a href="#cb39-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-130"><a href="#cb39-130" aria-hidden="true" tabindex="-1"></a>categorical_cols <span class="op">=</span> [cname <span class="cf">for</span> cname <span class="kw">in</span> X_train.columns </span>
-<span id="cb39-131"><a href="#cb39-131" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> X_train[cname].nunique() <span class="op">&lt;</span> <span class="dv">10</span> <span class="kw">and</span> X_train[cname].dtype <span class="op">==</span> <span class="st">"object"</span>]</span>
-<span id="cb39-132"><a href="#cb39-132" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb39-133"><a href="#cb39-133" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb39-134"><a href="#cb39-134" aria-hidden="true" tabindex="-1"></a>numerical_cols <span class="op">=</span> numerical_cols <span class="op">=</span> [cname <span class="cf">for</span> cname <span class="kw">in</span> X_train.columns </span>
-<span id="cb39-135"><a href="#cb39-135" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> X_train[cname].dtype <span class="kw">in</span> [<span class="st">'int64'</span>, <span class="st">'float64'</span>]]</span>
-<span id="cb39-136"><a href="#cb39-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-137"><a href="#cb39-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-140"><a href="#cb39-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-141"><a href="#cb39-141" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The total number of categorical columns:"</span>, <span class="bu">len</span>(categorical_cols))</span>
-<span id="cb39-142"><a href="#cb39-142" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The total number of numerical columns:"</span>, <span class="bu">len</span>(numerical_cols))</span>
-<span id="cb39-143"><a href="#cb39-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-144"><a href="#cb39-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-145"><a href="#cb39-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-148"><a href="#cb39-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-149"><a href="#cb39-149" aria-hidden="true" tabindex="-1"></a>my_cols <span class="op">=</span> categorical_cols <span class="op">+</span> numerical_cols</span>
-<span id="cb39-150"><a href="#cb39-150" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> X_train[my_cols].copy()</span>
-<span id="cb39-151"><a href="#cb39-151" aria-hidden="true" tabindex="-1"></a>X_test<span class="op">=</span> X_test[my_cols].copy()</span>
-<span id="cb39-152"><a href="#cb39-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-153"><a href="#cb39-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-154"><a href="#cb39-154" aria-hidden="true" tabindex="-1"></a>X_final <span class="op">=</span> df_test[my_cols].copy()</span>
-<span id="cb39-155"><a href="#cb39-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-127"><a href="#cb39-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-128"><a href="#cb39-128" aria-hidden="true" tabindex="-1"></a><span class="fu">## categorical_cols and numerical_cols</span></span>
+<span id="cb39-129"><a href="#cb39-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-130"><a href="#cb39-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-133"><a href="#cb39-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-134"><a href="#cb39-134" aria-hidden="true" tabindex="-1"></a>categorical_cols <span class="op">=</span> [cname <span class="cf">for</span> cname <span class="kw">in</span> X_train.columns </span>
+<span id="cb39-135"><a href="#cb39-135" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> X_train[cname].nunique() <span class="op">&lt;</span> <span class="dv">10</span> <span class="kw">and</span> X_train[cname].dtype <span class="op">==</span> <span class="st">"object"</span>]</span>
+<span id="cb39-136"><a href="#cb39-136" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb39-137"><a href="#cb39-137" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb39-138"><a href="#cb39-138" aria-hidden="true" tabindex="-1"></a>numerical_cols <span class="op">=</span> numerical_cols <span class="op">=</span> [cname <span class="cf">for</span> cname <span class="kw">in</span> X_train.columns </span>
+<span id="cb39-139"><a href="#cb39-139" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> X_train[cname].dtype <span class="kw">in</span> [<span class="st">'int64'</span>, <span class="st">'float64'</span>]]</span>
+<span id="cb39-140"><a href="#cb39-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-141"><a href="#cb39-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-144"><a href="#cb39-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-145"><a href="#cb39-145" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The total number of categorical columns:"</span>, <span class="bu">len</span>(categorical_cols))</span>
+<span id="cb39-146"><a href="#cb39-146" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The total number of numerical columns:"</span>, <span class="bu">len</span>(numerical_cols))</span>
+<span id="cb39-147"><a href="#cb39-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-148"><a href="#cb39-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-149"><a href="#cb39-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-152"><a href="#cb39-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-153"><a href="#cb39-153" aria-hidden="true" tabindex="-1"></a>my_cols <span class="op">=</span> categorical_cols <span class="op">+</span> numerical_cols</span>
+<span id="cb39-154"><a href="#cb39-154" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> X_train[my_cols].copy()</span>
+<span id="cb39-155"><a href="#cb39-155" aria-hidden="true" tabindex="-1"></a>X_test<span class="op">=</span> X_test[my_cols].copy()</span>
 <span id="cb39-156"><a href="#cb39-156" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-157"><a href="#cb39-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-158"><a href="#cb39-158" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pipelines for Data Preprocessing</span></span>
-<span id="cb39-159"><a href="#cb39-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-162"><a href="#cb39-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-163"><a href="#cb39-163" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
-<span id="cb39-164"><a href="#cb39-164" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.impute <span class="im">import</span> SimpleImputer</span>
-<span id="cb39-165"><a href="#cb39-165" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
-<span id="cb39-166"><a href="#cb39-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-167"><a href="#cb39-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-168"><a href="#cb39-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-171"><a href="#cb39-171" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-172"><a href="#cb39-172" aria-hidden="true" tabindex="-1"></a>numerical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
-<span id="cb39-173"><a href="#cb39-173" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'imputer_num'</span>, SimpleImputer(strategy<span class="op">=</span><span class="st">'median'</span>)), </span>
-<span id="cb39-174"><a href="#cb39-174" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'scaler'</span>, StandardScaler())</span>
-<span id="cb39-175"><a href="#cb39-175" aria-hidden="true" tabindex="-1"></a>])</span>
-<span id="cb39-176"><a href="#cb39-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-177"><a href="#cb39-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-178"><a href="#cb39-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-179"><a href="#cb39-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-180"><a href="#cb39-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-183"><a href="#cb39-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-184"><a href="#cb39-184" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
-<span id="cb39-185"><a href="#cb39-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-186"><a href="#cb39-186" aria-hidden="true" tabindex="-1"></a>categorical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
-<span id="cb39-187"><a href="#cb39-187" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'imputer_cat'</span>, SimpleImputer(strategy<span class="op">=</span><span class="st">'most_frequent'</span>)),</span>
-<span id="cb39-188"><a href="#cb39-188" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'onehot'</span>, OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">'ignore'</span>))</span>
-<span id="cb39-189"><a href="#cb39-189" aria-hidden="true" tabindex="-1"></a>])</span>
-<span id="cb39-190"><a href="#cb39-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-191"><a href="#cb39-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-192"><a href="#cb39-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-195"><a href="#cb39-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-196"><a href="#cb39-196" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
-<span id="cb39-197"><a href="#cb39-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-198"><a href="#cb39-198" aria-hidden="true" tabindex="-1"></a>preprocessor <span class="op">=</span> ColumnTransformer(transformers<span class="op">=</span>[</span>
-<span id="cb39-199"><a href="#cb39-199" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'num'</span>, numerical_transformer, numerical_cols),</span>
-<span id="cb39-200"><a href="#cb39-200" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'cat'</span>, categorical_transformer, categorical_cols)])</span>
-<span id="cb39-201"><a href="#cb39-201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-202"><a href="#cb39-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-203"><a href="#cb39-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-204"><a href="#cb39-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-205"><a href="#cb39-205" aria-hidden="true" tabindex="-1"></a><span class="fu"># model</span></span>
+<span id="cb39-158"><a href="#cb39-158" aria-hidden="true" tabindex="-1"></a><span class="co">#X_final = df_test[my_cols].copy()</span></span>
+<span id="cb39-159"><a href="#cb39-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-160"><a href="#cb39-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-161"><a href="#cb39-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-162"><a href="#cb39-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pipelines for Data Preprocessing</span></span>
+<span id="cb39-163"><a href="#cb39-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-166"><a href="#cb39-166" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-167"><a href="#cb39-167" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
+<span id="cb39-168"><a href="#cb39-168" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.impute <span class="im">import</span> SimpleImputer</span>
+<span id="cb39-169"><a href="#cb39-169" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb39-170"><a href="#cb39-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-171"><a href="#cb39-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-172"><a href="#cb39-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-175"><a href="#cb39-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-176"><a href="#cb39-176" aria-hidden="true" tabindex="-1"></a>numerical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
+<span id="cb39-177"><a href="#cb39-177" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'imputer_num'</span>, SimpleImputer(strategy<span class="op">=</span><span class="st">'median'</span>)), </span>
+<span id="cb39-178"><a href="#cb39-178" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'scaler'</span>, StandardScaler())</span>
+<span id="cb39-179"><a href="#cb39-179" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb39-180"><a href="#cb39-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-181"><a href="#cb39-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-182"><a href="#cb39-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-183"><a href="#cb39-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-184"><a href="#cb39-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-187"><a href="#cb39-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-188"><a href="#cb39-188" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
+<span id="cb39-189"><a href="#cb39-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-190"><a href="#cb39-190" aria-hidden="true" tabindex="-1"></a>categorical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
+<span id="cb39-191"><a href="#cb39-191" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'imputer_cat'</span>, SimpleImputer(strategy<span class="op">=</span><span class="st">'most_frequent'</span>)),</span>
+<span id="cb39-192"><a href="#cb39-192" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'onehot'</span>, OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">'ignore'</span>))</span>
+<span id="cb39-193"><a href="#cb39-193" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb39-194"><a href="#cb39-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-195"><a href="#cb39-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-196"><a href="#cb39-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-199"><a href="#cb39-199" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-200"><a href="#cb39-200" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
+<span id="cb39-201"><a href="#cb39-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-202"><a href="#cb39-202" aria-hidden="true" tabindex="-1"></a>preprocessor <span class="op">=</span> ColumnTransformer(transformers<span class="op">=</span>[</span>
+<span id="cb39-203"><a href="#cb39-203" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'num'</span>, numerical_transformer, numerical_cols),</span>
+<span id="cb39-204"><a href="#cb39-204" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'cat'</span>, categorical_transformer, categorical_cols)])</span>
+<span id="cb39-205"><a href="#cb39-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb39-206"><a href="#cb39-206" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-207"><a href="#cb39-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-208"><a href="#cb39-208" aria-hidden="true" tabindex="-1"></a><span class="fu">## define model</span></span>
-<span id="cb39-209"><a href="#cb39-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-210"><a href="#cb39-210" aria-hidden="true" tabindex="-1"></a>random forest with  hyper parameter tuning</span>
-<span id="cb39-213"><a href="#cb39-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-214"><a href="#cb39-214" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
-<span id="cb39-215"><a href="#cb39-215" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb39-216"><a href="#cb39-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-217"><a href="#cb39-217" aria-hidden="true" tabindex="-1"></a>ml_model <span class="op">=</span> RandomForestRegressor(random_state<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb39-218"><a href="#cb39-218" aria-hidden="true" tabindex="-1"></a>ml_model</span>
-<span id="cb39-219"><a href="#cb39-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-208"><a href="#cb39-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-209"><a href="#cb39-209" aria-hidden="true" tabindex="-1"></a><span class="fu"># model</span></span>
+<span id="cb39-210"><a href="#cb39-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-211"><a href="#cb39-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-212"><a href="#cb39-212" aria-hidden="true" tabindex="-1"></a><span class="fu">## define model</span></span>
+<span id="cb39-213"><a href="#cb39-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-214"><a href="#cb39-214" aria-hidden="true" tabindex="-1"></a>random forest with  hyper parameter tuning</span>
+<span id="cb39-217"><a href="#cb39-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-218"><a href="#cb39-218" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
+<span id="cb39-219"><a href="#cb39-219" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb39-220"><a href="#cb39-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-221"><a href="#cb39-221" aria-hidden="true" tabindex="-1"></a><span class="fu">## define pipline</span></span>
-<span id="cb39-222"><a href="#cb39-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-225"><a href="#cb39-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-226"><a href="#cb39-226" aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> Pipeline(</span>
-<span id="cb39-227"><a href="#cb39-227" aria-hidden="true" tabindex="-1"></a>  steps<span class="op">=</span>[</span>
-<span id="cb39-228"><a href="#cb39-228" aria-hidden="true" tabindex="-1"></a>         (<span class="st">'preprocessor'</span>, preprocessor), </span>
-<span id="cb39-229"><a href="#cb39-229" aria-hidden="true" tabindex="-1"></a>         (<span class="st">'model'</span>, ml_model)</span>
-<span id="cb39-230"><a href="#cb39-230" aria-hidden="true" tabindex="-1"></a>         ]</span>
-<span id="cb39-231"><a href="#cb39-231" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb39-232"><a href="#cb39-232" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-233"><a href="#cb39-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-234"><a href="#cb39-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-235"><a href="#cb39-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-236"><a href="#cb39-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-237"><a href="#cb39-237" aria-hidden="true" tabindex="-1"></a><span class="fu">## train model</span></span>
-<span id="cb39-240"><a href="#cb39-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-241"><a href="#cb39-241" aria-hidden="true" tabindex="-1"></a>pipeline.fit(X_train, Y_train)</span>
-<span id="cb39-242"><a href="#cb39-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-243"><a href="#cb39-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-244"><a href="#cb39-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-245"><a href="#cb39-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-246"><a href="#cb39-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-249"><a href="#cb39-249" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-250"><a href="#cb39-250" aria-hidden="true" tabindex="-1"></a>var<span class="op">=</span>pipeline[:<span class="op">-</span><span class="dv">1</span>].get_feature_names_out()</span>
-<span id="cb39-251"><a href="#cb39-251" aria-hidden="true" tabindex="-1"></a>var</span>
-<span id="cb39-252"><a href="#cb39-252" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-253"><a href="#cb39-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-254"><a href="#cb39-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-257"><a href="#cb39-257" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-258"><a href="#cb39-258" aria-hidden="true" tabindex="-1"></a>fitted_model<span class="op">=</span>pipeline.steps[<span class="dv">1</span>][<span class="dv">1</span>]</span>
-<span id="cb39-259"><a href="#cb39-259" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-260"><a href="#cb39-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-261"><a href="#cb39-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-262"><a href="#cb39-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-263"><a href="#cb39-263" aria-hidden="true" tabindex="-1"></a>variable importance </span>
-<span id="cb39-266"><a href="#cb39-266" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-267"><a href="#cb39-267" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> fitted_model.feature_importances_</span>
-<span id="cb39-268"><a href="#cb39-268" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>pd.DataFrame({<span class="st">"variable"</span>:var,<span class="st">"importances"</span>:importances})</span>
-<span id="cb39-269"><a href="#cb39-269" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>vi.sort_values(<span class="st">'importances'</span>,ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb39-270"><a href="#cb39-270" aria-hidden="true" tabindex="-1"></a>vi</span>
-<span id="cb39-271"><a href="#cb39-271" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-272"><a href="#cb39-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-273"><a href="#cb39-273" aria-hidden="true" tabindex="-1"></a><span class="fu">## Preformance</span></span>
-<span id="cb39-274"><a href="#cb39-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-275"><a href="#cb39-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-278"><a href="#cb39-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-279"><a href="#cb39-279" aria-hidden="true" tabindex="-1"></a>Y_pred_dt <span class="op">=</span>pipeline.predict(X_test) <span class="co">#always gets x and retuns y</span></span>
-<span id="cb39-280"><a href="#cb39-280" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-281"><a href="#cb39-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-282"><a href="#cb39-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-283"><a href="#cb39-283" aria-hidden="true" tabindex="-1"></a>R 2</span>
-<span id="cb39-286"><a href="#cb39-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-287"><a href="#cb39-287" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> r2_score</span>
-<span id="cb39-288"><a href="#cb39-288" aria-hidden="true" tabindex="-1"></a>r2_score(Y_test, Y_pred_dt)</span>
-<span id="cb39-289"><a href="#cb39-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-290"><a href="#cb39-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-291"><a href="#cb39-291" aria-hidden="true" tabindex="-1"></a>MAE</span>
-<span id="cb39-294"><a href="#cb39-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-295"><a href="#cb39-295" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
-<span id="cb39-296"><a href="#cb39-296" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(Y_test, Y_pred_dt)</span>
-<span id="cb39-297"><a href="#cb39-297" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-298"><a href="#cb39-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-299"><a href="#cb39-299" aria-hidden="true" tabindex="-1"></a>RMSE</span>
-<span id="cb39-302"><a href="#cb39-302" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-303"><a href="#cb39-303" aria-hidden="true" tabindex="-1"></a><span class="im">from</span>  math <span class="im">import</span> sqrt</span>
-<span id="cb39-304"><a href="#cb39-304" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
-<span id="cb39-305"><a href="#cb39-305" aria-hidden="true" tabindex="-1"></a>mse<span class="op">=</span>mean_squared_error(Y_test, Y_pred_dt)</span>
-<span id="cb39-306"><a href="#cb39-306" aria-hidden="true" tabindex="-1"></a>rmse<span class="op">=</span>sqrt(mse)</span>
-<span id="cb39-307"><a href="#cb39-307" aria-hidden="true" tabindex="-1"></a>rmse</span>
-<span id="cb39-308"><a href="#cb39-308" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-309"><a href="#cb39-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-310"><a href="#cb39-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-311"><a href="#cb39-311" aria-hidden="true" tabindex="-1"></a><span class="fu">## k-Fold Cross-Validation</span></span>
-<span id="cb39-312"><a href="#cb39-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-315"><a href="#cb39-315" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-316"><a href="#cb39-316" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb39-317"><a href="#cb39-317" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
-<span id="cb39-318"><a href="#cb39-318" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
-<span id="cb39-319"><a href="#cb39-319" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-320"><a href="#cb39-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-321"><a href="#cb39-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-324"><a href="#cb39-324" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-325"><a href="#cb39-325" aria-hidden="true" tabindex="-1"></a>kf_dt <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>,shuffle<span class="op">=</span><span class="va">True</span>)  </span>
-<span id="cb39-326"><a href="#cb39-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-327"><a href="#cb39-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-330"><a href="#cb39-330" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-331"><a href="#cb39-331" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(pipeline, X_train, Y_train, cv<span class="op">=</span>kf_dt)</span>
-<span id="cb39-332"><a href="#cb39-332" aria-hidden="true" tabindex="-1"></a>np.mean(cv_dt)</span>
-<span id="cb39-333"><a href="#cb39-333" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-334"><a href="#cb39-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-337"><a href="#cb39-337" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-338"><a href="#cb39-338" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(pipeline, X_train, Y_train, cv<span class="op">=</span>kf_dt,scoring <span class="op">=</span> <span class="st">'neg_mean_squared_error'</span>)</span>
-<span id="cb39-339"><a href="#cb39-339" aria-hidden="true" tabindex="-1"></a>np.mean(np.sqrt(np.<span class="bu">abs</span>(cv_dt)))</span>
-<span id="cb39-340"><a href="#cb39-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-341"><a href="#cb39-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-342"><a href="#cb39-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-343"><a href="#cb39-343" aria-hidden="true" tabindex="-1"></a><span class="fu"># reference:</span></span>
-<span id="cb39-344"><a href="#cb39-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-345"><a href="#cb39-345" aria-hidden="true" tabindex="-1"></a>https://github.com/alicevillar/titanic-kaggle/blob/main/Titanic_DecisionTree.ipynb</span>
+<span id="cb39-221"><a href="#cb39-221" aria-hidden="true" tabindex="-1"></a>ml_model <span class="op">=</span> RandomForestRegressor(random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb39-222"><a href="#cb39-222" aria-hidden="true" tabindex="-1"></a>ml_model</span>
+<span id="cb39-223"><a href="#cb39-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-224"><a href="#cb39-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-225"><a href="#cb39-225" aria-hidden="true" tabindex="-1"></a><span class="fu">## define pipline</span></span>
+<span id="cb39-226"><a href="#cb39-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-229"><a href="#cb39-229" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-230"><a href="#cb39-230" aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> Pipeline(</span>
+<span id="cb39-231"><a href="#cb39-231" aria-hidden="true" tabindex="-1"></a>  steps<span class="op">=</span>[</span>
+<span id="cb39-232"><a href="#cb39-232" aria-hidden="true" tabindex="-1"></a>         (<span class="st">'preprocessor'</span>, preprocessor), </span>
+<span id="cb39-233"><a href="#cb39-233" aria-hidden="true" tabindex="-1"></a>         (<span class="st">'model'</span>, ml_model)</span>
+<span id="cb39-234"><a href="#cb39-234" aria-hidden="true" tabindex="-1"></a>         ]</span>
+<span id="cb39-235"><a href="#cb39-235" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-236"><a href="#cb39-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-237"><a href="#cb39-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-238"><a href="#cb39-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-239"><a href="#cb39-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-240"><a href="#cb39-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-241"><a href="#cb39-241" aria-hidden="true" tabindex="-1"></a><span class="fu">## train model</span></span>
+<span id="cb39-242"><a href="#cb39-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-245"><a href="#cb39-245" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-246"><a href="#cb39-246" aria-hidden="true" tabindex="-1"></a>pipeline.fit(X_train, Y_train)</span>
+<span id="cb39-247"><a href="#cb39-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-248"><a href="#cb39-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-249"><a href="#cb39-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-250"><a href="#cb39-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-251"><a href="#cb39-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-254"><a href="#cb39-254" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-255"><a href="#cb39-255" aria-hidden="true" tabindex="-1"></a>var<span class="op">=</span>pipeline[:<span class="op">-</span><span class="dv">1</span>].get_feature_names_out()</span>
+<span id="cb39-256"><a href="#cb39-256" aria-hidden="true" tabindex="-1"></a>var</span>
+<span id="cb39-257"><a href="#cb39-257" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-258"><a href="#cb39-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-259"><a href="#cb39-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-262"><a href="#cb39-262" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-263"><a href="#cb39-263" aria-hidden="true" tabindex="-1"></a>fitted_model<span class="op">=</span>pipeline.steps[<span class="dv">1</span>][<span class="dv">1</span>]</span>
+<span id="cb39-264"><a href="#cb39-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-265"><a href="#cb39-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-266"><a href="#cb39-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-267"><a href="#cb39-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-268"><a href="#cb39-268" aria-hidden="true" tabindex="-1"></a>variable importance </span>
+<span id="cb39-271"><a href="#cb39-271" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-272"><a href="#cb39-272" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> fitted_model.feature_importances_</span>
+<span id="cb39-273"><a href="#cb39-273" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>pd.DataFrame({<span class="st">"variable"</span>:var,<span class="st">"importances"</span>:importances})</span>
+<span id="cb39-274"><a href="#cb39-274" aria-hidden="true" tabindex="-1"></a>vi<span class="op">=</span>vi.sort_values(<span class="st">'importances'</span>,ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb39-275"><a href="#cb39-275" aria-hidden="true" tabindex="-1"></a>vi</span>
+<span id="cb39-276"><a href="#cb39-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-277"><a href="#cb39-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-278"><a href="#cb39-278" aria-hidden="true" tabindex="-1"></a><span class="fu">## Preformance</span></span>
+<span id="cb39-279"><a href="#cb39-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-280"><a href="#cb39-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-283"><a href="#cb39-283" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-284"><a href="#cb39-284" aria-hidden="true" tabindex="-1"></a>Y_pred_dt <span class="op">=</span>pipeline.predict(X_test) <span class="co">#always gets x and retuns y</span></span>
+<span id="cb39-285"><a href="#cb39-285" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-286"><a href="#cb39-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-287"><a href="#cb39-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-288"><a href="#cb39-288" aria-hidden="true" tabindex="-1"></a>R 2</span>
+<span id="cb39-291"><a href="#cb39-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-292"><a href="#cb39-292" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> r2_score</span>
+<span id="cb39-293"><a href="#cb39-293" aria-hidden="true" tabindex="-1"></a>r2_score(Y_test, Y_pred_dt)</span>
+<span id="cb39-294"><a href="#cb39-294" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-295"><a href="#cb39-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-296"><a href="#cb39-296" aria-hidden="true" tabindex="-1"></a>MAE</span>
+<span id="cb39-299"><a href="#cb39-299" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-300"><a href="#cb39-300" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
+<span id="cb39-301"><a href="#cb39-301" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(Y_test, Y_pred_dt)</span>
+<span id="cb39-302"><a href="#cb39-302" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-303"><a href="#cb39-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-304"><a href="#cb39-304" aria-hidden="true" tabindex="-1"></a>RMSE</span>
+<span id="cb39-307"><a href="#cb39-307" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-308"><a href="#cb39-308" aria-hidden="true" tabindex="-1"></a><span class="im">from</span>  math <span class="im">import</span> sqrt</span>
+<span id="cb39-309"><a href="#cb39-309" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
+<span id="cb39-310"><a href="#cb39-310" aria-hidden="true" tabindex="-1"></a>mse<span class="op">=</span>mean_squared_error(Y_test, Y_pred_dt)</span>
+<span id="cb39-311"><a href="#cb39-311" aria-hidden="true" tabindex="-1"></a>rmse<span class="op">=</span>sqrt(mse)</span>
+<span id="cb39-312"><a href="#cb39-312" aria-hidden="true" tabindex="-1"></a>rmse</span>
+<span id="cb39-313"><a href="#cb39-313" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-314"><a href="#cb39-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-315"><a href="#cb39-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-316"><a href="#cb39-316" aria-hidden="true" tabindex="-1"></a><span class="fu">## k-Fold Cross-Validation</span></span>
+<span id="cb39-317"><a href="#cb39-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-320"><a href="#cb39-320" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-321"><a href="#cb39-321" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb39-322"><a href="#cb39-322" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
+<span id="cb39-323"><a href="#cb39-323" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
+<span id="cb39-324"><a href="#cb39-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-325"><a href="#cb39-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-326"><a href="#cb39-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-329"><a href="#cb39-329" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-330"><a href="#cb39-330" aria-hidden="true" tabindex="-1"></a>kf_dt <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>,shuffle<span class="op">=</span><span class="va">True</span>)  </span>
+<span id="cb39-331"><a href="#cb39-331" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-332"><a href="#cb39-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-335"><a href="#cb39-335" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-336"><a href="#cb39-336" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(pipeline, X_train, Y_train, cv<span class="op">=</span>kf_dt)</span>
+<span id="cb39-337"><a href="#cb39-337" aria-hidden="true" tabindex="-1"></a>np.mean(cv_dt)</span>
+<span id="cb39-338"><a href="#cb39-338" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-339"><a href="#cb39-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-342"><a href="#cb39-342" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-343"><a href="#cb39-343" aria-hidden="true" tabindex="-1"></a>cv_dt <span class="op">=</span> cross_val_score(pipeline, X_train, Y_train, cv<span class="op">=</span>kf_dt,scoring <span class="op">=</span> <span class="st">'neg_mean_squared_error'</span>)</span>
+<span id="cb39-344"><a href="#cb39-344" aria-hidden="true" tabindex="-1"></a>np.mean(np.sqrt(np.<span class="bu">abs</span>(cv_dt)))</span>
+<span id="cb39-345"><a href="#cb39-345" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb39-346"><a href="#cb39-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-347"><a href="#cb39-347" aria-hidden="true" tabindex="-1"></a>https://scikit-learn.org/stable/modules/tree.html</span>
-<span id="cb39-348"><a href="#cb39-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-349"><a href="#cb39-349" aria-hidden="true" tabindex="-1"></a>https://github.com/codebasics/py/blob/master/ML/15_gridsearch/15_grid_search.ipynb</span>
+<span id="cb39-347"><a href="#cb39-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-348"><a href="#cb39-348" aria-hidden="true" tabindex="-1"></a><span class="fu"># reference:</span></span>
+<span id="cb39-349"><a href="#cb39-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-350"><a href="#cb39-350" aria-hidden="true" tabindex="-1"></a>https://github.com/alicevillar/titanic-kaggle/blob/main/Titanic_DecisionTree.ipynb</span>
+<span id="cb39-351"><a href="#cb39-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-352"><a href="#cb39-352" aria-hidden="true" tabindex="-1"></a>https://scikit-learn.org/stable/modules/tree.html</span>
+<span id="cb39-353"><a href="#cb39-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-354"><a href="#cb39-354" aria-hidden="true" tabindex="-1"></a>https://github.com/codebasics/py/blob/master/ML/15_gridsearch/15_grid_search.ipynb</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
