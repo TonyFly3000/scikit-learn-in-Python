@@ -15,7 +15,7 @@ format:
 ---
 
 ![](images/siuba_small.svg){width="434"}
-
+siuba (小巴) is a port of dplyr and other R libraries with seamless support for pandas and SQL
 
 ## Comparison with different python dataframe package
 

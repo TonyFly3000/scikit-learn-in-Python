@@ -1848,7 +1848,7 @@
     "href": "data manipulation/1 Pandas.html",
     "title": "Data manipulation with Pandas",
     "section": "",
-    "text": "Code\nimport sys\nprint(sys.version)\n\n\n3.11.4 (v3.11.4:d2340ef257, Jun  6 2023, 19:15:51) [Clang 13.0.0 (clang-1300.0.29.30)]\nCode\nimport pandas as pd\nprint('pandas version', pd.__version__)\n\n\npandas version 2.2.1",
+    "text": "pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.\nCode\nimport sys\nprint(sys.version)\n\n\n3.11.4 (v3.11.4:d2340ef257, Jun  6 2023, 19:15:51) [Clang 13.0.0 (clang-1300.0.29.30)]\nCode\nimport pandas as pd\nprint('pandas version', pd.__version__)\n\n\npandas version 2.2.1",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -1859,7 +1859,7 @@
     "href": "data manipulation/1 Pandas.html#reading-from-parquet",
     "title": "Data manipulation with Pandas",
     "section": "0.1 Reading from parquet",
-    "text": "0.1 Reading from parquet\n\n\nCode\ndf = pd.read_parquet(\"data/Combined_Flights_2022.parquet\")",
+    "text": "0.1 Reading from parquet\n\n\nCode\nbig_df = pd.read_parquet(\"data/Combined_Flights_2022.parquet\")\n\ndf=big_df.head(10)",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -1914,7 +1914,7 @@
     "href": "data manipulation/1 Pandas.html#get-row-index",
     "title": "Data manipulation with Pandas",
     "section": "0.6 get row index",
-    "text": "0.6 get row index\n\n\nCode\ndf.index\n\n\nIndex([     0,      1,      2,      3,      4,      5,      6,      7,      8,\n            9,\n       ...\n       590532, 590533, 590534, 590535, 590536, 590537, 590538, 590539, 590540,\n       590541],\n      dtype='int64', length=4078318)",
+    "text": "0.6 get row index\n\n\nCode\ndf.index\n\n\nIndex([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype='int64')",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -1925,7 +1925,7 @@
     "href": "data manipulation/1 Pandas.html#get-long-info",
     "title": "Data manipulation with Pandas",
     "section": "0.7 get long info",
-    "text": "0.7 get long info\n\n\nCode\ndf.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 4078318 entries, 0 to 590541\nData columns (total 61 columns):\n #   Column                                   Dtype         \n---  ------                                   -----         \n 0   FlightDate                               datetime64[us]\n 1   Airline                                  object        \n 2   Origin                                   object        \n 3   Dest                                     object        \n 4   Cancelled                                bool          \n 5   Diverted                                 bool          \n 6   CRSDepTime                               int64         \n 7   DepTime                                  float64       \n 8   DepDelayMinutes                          float64       \n 9   DepDelay                                 float64       \n 10  ArrTime                                  float64       \n 11  ArrDelayMinutes                          float64       \n 12  AirTime                                  float64       \n 13  CRSElapsedTime                           float64       \n 14  ActualElapsedTime                        float64       \n 15  Distance                                 float64       \n 16  Year                                     int64         \n 17  Quarter                                  int64         \n 18  Month                                    int64         \n 19  DayofMonth                               int64         \n 20  DayOfWeek                                int64         \n 21  Marketing_Airline_Network                object        \n 22  Operated_or_Branded_Code_Share_Partners  object        \n 23  DOT_ID_Marketing_Airline                 int64         \n 24  IATA_Code_Marketing_Airline              object        \n 25  Flight_Number_Marketing_Airline          int64         \n 26  Operating_Airline                        object        \n 27  DOT_ID_Operating_Airline                 int64         \n 28  IATA_Code_Operating_Airline              object        \n 29  Tail_Number                              object        \n 30  Flight_Number_Operating_Airline          int64         \n 31  OriginAirportID                          int64         \n 32  OriginAirportSeqID                       int64         \n 33  OriginCityMarketID                       int64         \n 34  OriginCityName                           object        \n 35  OriginState                              object        \n 36  OriginStateFips                          int64         \n 37  OriginStateName                          object        \n 38  OriginWac                                int64         \n 39  DestAirportID                            int64         \n 40  DestAirportSeqID                         int64         \n 41  DestCityMarketID                         int64         \n 42  DestCityName                             object        \n 43  DestState                                object        \n 44  DestStateFips                            int64         \n 45  DestStateName                            object        \n 46  DestWac                                  int64         \n 47  DepDel15                                 float64       \n 48  DepartureDelayGroups                     float64       \n 49  DepTimeBlk                               object        \n 50  TaxiOut                                  float64       \n 51  WheelsOff                                float64       \n 52  WheelsOn                                 float64       \n 53  TaxiIn                                   float64       \n 54  CRSArrTime                               int64         \n 55  ArrDelay                                 float64       \n 56  ArrDel15                                 float64       \n 57  ArrivalDelayGroups                       float64       \n 58  ArrTimeBlk                               object        \n 59  DistanceGroup                            int64         \n 60  DivAirportLandings                       int64         \ndtypes: bool(2), datetime64[us](1), float64(18), int64(23), object(17)\nmemory usage: 1.8+ GB",
+    "text": "0.7 get long info\n\n\nCode\ndf.shape\n\n\n(10, 61)\n\n\n\n\nCode\ndf.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 10 entries, 0 to 9\nData columns (total 61 columns):\n #   Column                                   Non-Null Count  Dtype         \n---  ------                                   --------------  -----         \n 0   FlightDate                               10 non-null     datetime64[us]\n 1   Airline                                  10 non-null     object        \n 2   Origin                                   10 non-null     object        \n 3   Dest                                     10 non-null     object        \n 4   Cancelled                                10 non-null     bool          \n 5   Diverted                                 10 non-null     bool          \n 6   CRSDepTime                               10 non-null     int64         \n 7   DepTime                                  10 non-null     float64       \n 8   DepDelayMinutes                          10 non-null     float64       \n 9   DepDelay                                 10 non-null     float64       \n 10  ArrTime                                  10 non-null     float64       \n 11  ArrDelayMinutes                          10 non-null     float64       \n 12  AirTime                                  10 non-null     float64       \n 13  CRSElapsedTime                           10 non-null     float64       \n 14  ActualElapsedTime                        10 non-null     float64       \n 15  Distance                                 10 non-null     float64       \n 16  Year                                     10 non-null     int64         \n 17  Quarter                                  10 non-null     int64         \n 18  Month                                    10 non-null     int64         \n 19  DayofMonth                               10 non-null     int64         \n 20  DayOfWeek                                10 non-null     int64         \n 21  Marketing_Airline_Network                10 non-null     object        \n 22  Operated_or_Branded_Code_Share_Partners  10 non-null     object        \n 23  DOT_ID_Marketing_Airline                 10 non-null     int64         \n 24  IATA_Code_Marketing_Airline              10 non-null     object        \n 25  Flight_Number_Marketing_Airline          10 non-null     int64         \n 26  Operating_Airline                        10 non-null     object        \n 27  DOT_ID_Operating_Airline                 10 non-null     int64         \n 28  IATA_Code_Operating_Airline              10 non-null     object        \n 29  Tail_Number                              10 non-null     object        \n 30  Flight_Number_Operating_Airline          10 non-null     int64         \n 31  OriginAirportID                          10 non-null     int64         \n 32  OriginAirportSeqID                       10 non-null     int64         \n 33  OriginCityMarketID                       10 non-null     int64         \n 34  OriginCityName                           10 non-null     object        \n 35  OriginState                              10 non-null     object        \n 36  OriginStateFips                          10 non-null     int64         \n 37  OriginStateName                          10 non-null     object        \n 38  OriginWac                                10 non-null     int64         \n 39  DestAirportID                            10 non-null     int64         \n 40  DestAirportSeqID                         10 non-null     int64         \n 41  DestCityMarketID                         10 non-null     int64         \n 42  DestCityName                             10 non-null     object        \n 43  DestState                                10 non-null     object        \n 44  DestStateFips                            10 non-null     int64         \n 45  DestStateName                            10 non-null     object        \n 46  DestWac                                  10 non-null     int64         \n 47  DepDel15                                 10 non-null     float64       \n 48  DepartureDelayGroups                     10 non-null     float64       \n 49  DepTimeBlk                               10 non-null     object        \n 50  TaxiOut                                  10 non-null     float64       \n 51  WheelsOff                                10 non-null     float64       \n 52  WheelsOn                                 10 non-null     float64       \n 53  TaxiIn                                   10 non-null     float64       \n 54  CRSArrTime                               10 non-null     int64         \n 55  ArrDelay                                 10 non-null     float64       \n 56  ArrDel15                                 10 non-null     float64       \n 57  ArrivalDelayGroups                       10 non-null     float64       \n 58  ArrTimeBlk                               10 non-null     object        \n 59  DistanceGroup                            10 non-null     int64         \n 60  DivAirportLandings                       10 non-null     int64         \ndtypes: bool(2), datetime64[us](1), float64(18), int64(23), object(17)\nmemory usage: 4.7+ KB",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -1936,7 +1936,7 @@
     "href": "data manipulation/1 Pandas.html#get-short-info",
     "title": "Data manipulation with Pandas",
     "section": "0.8 get short info",
-    "text": "0.8 get short info\n\n\nCode\ndf.info(verbose=False)\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 4078318 entries, 0 to 590541\nColumns: 61 entries, FlightDate to DivAirportLandings\ndtypes: bool(2), datetime64[us](1), float64(18), int64(23), object(17)\nmemory usage: 1.8+ GB",
+    "text": "0.8 get short info\n\n\nCode\ndf.info(verbose=False)\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 10 entries, 0 to 9\nColumns: 61 entries, FlightDate to DivAirportLandings\ndtypes: bool(2), datetime64[us](1), float64(18), int64(23), object(17)\nmemory usage: 4.7+ KB",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -1947,7 +1947,7 @@
     "href": "data manipulation/1 Pandas.html#summary-of-numeric-column",
     "title": "Data manipulation with Pandas",
     "section": "0.9 summary of numeric column",
-    "text": "0.9 summary of numeric column\n\n\nCode\ndf.describe()\n\n\n\n\n\n\n\n\n\n\nFlightDate\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\nArrTime\nArrDelayMinutes\nAirTime\nCRSElapsedTime\nActualElapsedTime\n...\nTaxiOut\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nDistanceGroup\nDivAirportLandings\n\n\n\n\ncount\n4078318\n4.078318e+06\n3.957885e+06\n3.957823e+06\n3.957823e+06\n3.954079e+06\n3.944916e+06\n3.944916e+06\n4.078318e+06\n3.944916e+06\n...\n3.955652e+06\n3.955652e+06\n3.954076e+06\n3.954076e+06\n4.078318e+06\n3.944916e+06\n3.944916e+06\n3.944916e+06\n4.078318e+06\n4.078318e+06\n\n\nmean\n2022-04-18 12:10:43.903101\n1.329587e+03\n1.334374e+03\n1.601494e+01\n1.309049e+01\n1.457886e+03\n1.578307e+01\n1.110075e+02\n1.413211e+02\n1.358624e+02\n...\n1.697375e+01\n1.356576e+03\n1.455073e+03\n7.894387e+00\n1.486058e+03\n7.528486e+00\n2.164715e-01\n-6.256103e-02\n3.663516e+00\n3.685098e-03\n\n\nmin\n2022-01-01 00:00:00\n1.000000e+00\n1.000000e+00\n0.000000e+00\n-7.800000e+01\n1.000000e+00\n0.000000e+00\n8.000000e+00\n-4.800000e+01\n1.400000e+01\n...\n1.000000e+00\n1.000000e+00\n1.000000e+00\n1.000000e+00\n1.000000e+00\n-1.000000e+02\n0.000000e+00\n-2.000000e+00\n1.000000e+00\n0.000000e+00\n\n\n25%\n2022-02-25 00:00:00\n9.140000e+02\n9.170000e+02\n0.000000e+00\n-5.000000e+00\n1.046000e+03\n0.000000e+00\n6.000000e+01\n8.900000e+01\n8.300000e+01\n...\n1.100000e+01\n9.320000e+02\n1.044000e+03\n4.000000e+00\n1.103000e+03\n-1.400000e+01\n0.000000e+00\n-1.000000e+00\n2.000000e+00\n0.000000e+00\n\n\n50%\n2022-04-19 00:00:00\n1.320000e+03\n1.325000e+03\n0.000000e+00\n-2.000000e+00\n1.500000e+03\n0.000000e+00\n9.400000e+01\n1.240000e+02\n1.190000e+02\n...\n1.500000e+01\n1.338000e+03\n1.456000e+03\n6.000000e+00\n1.513000e+03\n-5.000000e+00\n0.000000e+00\n-1.000000e+00\n3.000000e+00\n0.000000e+00\n\n\n75%\n2022-06-11 00:00:00\n1.735000e+03\n1.744000e+03\n1.100000e+01\n1.100000e+01\n1.914000e+03\n1.000000e+01\n1.410000e+02\n1.710000e+02\n1.670000e+02\n...\n1.900000e+01\n1.758000e+03\n1.909000e+03\n9.000000e+00\n1.920000e+03\n1.000000e+01\n0.000000e+00\n0.000000e+00\n5.000000e+00\n0.000000e+00\n\n\nmax\n2022-07-31 00:00:00\n2.359000e+03\n2.400000e+03\n7.223000e+03\n7.223000e+03\n2.400000e+03\n7.232000e+03\n7.270000e+02\n6.900000e+02\n7.640000e+02\n...\n2.210000e+02\n2.400000e+03\n2.400000e+03\n2.900000e+02\n2.359000e+03\n7.232000e+03\n1.000000e+00\n1.200000e+01\n1.100000e+01\n9.000000e+00\n\n\nstd\nNaN\n4.904801e+02\n5.056219e+02\n5.231498e+01\n5.332016e+01\n5.431841e+02\n5.198424e+01\n6.996246e+01\n7.179635e+01\n7.185501e+01\n...\n9.495407e+00\n5.075580e+02\n5.378428e+02\n6.663118e+00\n5.185078e+02\n5.524625e+01\n4.118393e-01\n2.487442e+00\n2.320848e+00\n1.141331e-01\n\n\n\n\n8 rows × 42 columns",
+    "text": "0.9 summary of numeric column\n\n\nCode\ndf.describe()\n\n\n\n\n\n\n\n\n\n\nFlightDate\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\nArrTime\nArrDelayMinutes\nAirTime\nCRSElapsedTime\nActualElapsedTime\n...\nTaxiOut\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nDistanceGroup\nDivAirportLandings\n\n\n\n\ncount\n10\n10.000000\n10.000000\n10.0\n10.00000\n10.000000\n10.000000\n10.000000\n10.00000\n10.000000\n...\n10.00000\n10.000000\n10.000000\n10.000000\n10.000000\n10.000000\n10.0\n10.000000\n10.000000\n10.0\n\n\nmean\n2022-04-04 00:00:00\n1256.500000\n1249.600000\n0.0\n-6.90000\n1390.000000\n1.100000\n58.400000\n84.00000\n84.400000\n...\n18.00000\n1275.600000\n1378.000000\n8.000000\n1400.500000\n-6.500000\n0.0\n-1.000000\n2.000000\n0.0\n\n\nmin\n2022-04-04 00:00:00\n732.000000\n728.000000\n0.0\n-15.00000\n848.000000\n0.000000\n26.000000\n52.00000\n42.000000\n...\n11.00000\n744.000000\n839.000000\n4.000000\n849.000000\n-18.000000\n0.0\n-2.000000\n1.000000\n0.0\n\n\n25%\n2022-04-04 00:00:00\n998.500000\n993.250000\n0.0\n-10.00000\n1230.500000\n0.000000\n41.750000\n70.00000\n67.750000\n...\n16.00000\n1047.500000\n1223.500000\n5.250000\n1241.250000\n-12.500000\n0.0\n-1.000000\n1.250000\n0.0\n\n\n50%\n2022-04-04 00:00:00\n1134.000000\n1129.000000\n0.0\n-6.00000\n1281.000000\n0.000000\n52.000000\n74.50000\n78.500000\n...\n17.00000\n1147.000000\n1249.000000\n7.000000\n1275.500000\n-7.000000\n0.0\n-1.000000\n2.000000\n0.0\n\n\n75%\n2022-04-04 00:00:00\n1432.250000\n1426.000000\n0.0\n-3.25000\n1538.500000\n0.000000\n59.250000\n89.25000\n82.750000\n...\n20.50000\n1442.000000\n1534.000000\n8.750000\n1584.750000\n-1.250000\n0.0\n-1.000000\n2.000000\n0.0\n\n\nmax\n2022-04-04 00:00:00\n2139.000000\n2136.000000\n0.0\n0.00000\n2218.000000\n6.000000\n136.000000\n157.00000\n174.000000\n...\n25.00000\n2147.000000\n2213.000000\n16.000000\n2231.000000\n6.000000\n0.0\n0.000000\n4.000000\n0.0\n\n\nstd\nNaN\n396.759163\n396.390156\n0.0\n4.72464\n370.127906\n2.330951\n30.638393\n29.81424\n35.693759\n...\n3.91578\n387.953949\n371.973416\n4.082483\n375.500925\n8.669871\n0.0\n0.666667\n0.942809\n0.0\n\n\n\n\n8 rows × 42 columns",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -1958,7 +1958,7 @@
     "href": "data manipulation/1 Pandas.html#summary-of-categorical-column",
     "title": "Data manipulation with Pandas",
     "section": "0.10 summary of categorical column",
-    "text": "0.10 summary of categorical column\n\n\nCode\ndf[[\"Airline\"]].describe()\n\n\n\n\n\n\n\n\n\n\nAirline\n\n\n\n\ncount\n4078318\n\n\nunique\n21\n\n\ntop\nSouthwest Airlines Co.\n\n\nfreq\n731925",
+    "text": "0.10 summary of categorical column\n\n\nCode\ndf[[\"Airline\"]].describe()\n\n\n\n\n\n\n\n\n\n\nAirline\n\n\n\n\ncount\n10\n\n\nunique\n1\n\n\ntop\nCommutair Aka Champlain Enterprises, Inc.\n\n\nfreq\n10",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -2101,7 +2101,7 @@
     "href": "data manipulation/0 data structure in Python .html#list",
     "title": "Data structure in Python",
     "section": "1.2 list",
-    "text": "1.2 list\n\n\nCode\na=[1,2,3]\n\na\n\n\n[1, 2, 3]\n\n\n\n\nCode\ntype(a) \n\n\nlist\n\n\n\n\nCode\nfruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana','apple']\n\n\n\n1.2.1 find length of the list with len()\n\n\nCode\nlen(fruits)\n\n\n8\n\n\n\n\n1.2.2 find how many time in the list with count()\n\n\nCode\nfruits.count('apple')\n\n\n3\n\n\n\n\n1.2.3 find locaiton of on the list with index()\nshow the first ‘apple’ index. python list start at 0\n\n\nCode\nfruits.index('apple')\n\n\n1\n\n\nall ‘apple’ in the list\n\n\nCode\n[index for index, value in enumerate(fruits) if value == 'apple']\n\n\n[1, 5, 7]",
+    "text": "1.2 list\n\n\nCode\na=[1,2,3]\n\na\n\n\n[1, 2, 3]\n\n\n\n\nCode\ntype(a) \n\n\nlist\n\n\n\n\nCode\nfruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana','apple']\n\n\n\n1.2.1 find length of the list with len()\n\n\nCode\nlen(fruits)\n\n\n8\n\n\n\n\n1.2.2 find how many time in the list with count()\n\n\nCode\nfruits.count('apple')\n\n\n3\n\n\n\n\n1.2.3 find locaiton of on the list with index()\nshow the first ‘apple’ index. python list start at 0\n\n\nCode\nfruits.index('apple')\n\n\n1\n\n\nall ‘apple’ in the list\n\n\nCode\n[index for index, value in enumerate(fruits) if value == 'apple']\n\n\n[1, 5, 7]\n\n\n\n\n1.2.4 reverse the list\n\n\nCode\nfruits.reverse()\nfruits\n\n\n['apple', 'banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange']\n\n\n\n\n1.2.5 sort the list\n\n\nCode\nfruits.sort()\nfruits\n\n\n['apple', 'apple', 'apple', 'banana', 'banana', 'kiwi', 'orange', 'pear']\n\n\n\n\n1.2.6 add element on the list\n\n\nCode\nfruits.append('grape')\nfruits\n\n\n['apple',\n 'apple',\n 'apple',\n 'banana',\n 'banana',\n 'kiwi',\n 'orange',\n 'pear',\n 'grape']\n\n\n\n\n1.2.7 drop last element\n\n\nCode\nfruits.pop()\n\nfruits\n\n\n['apple', 'apple', 'apple', 'banana', 'banana', 'kiwi', 'orange', 'pear']\n\n\n\n\n1.2.8 List Comprehensions\nusing loop:\n\n\nCode\nsquares = []\nfor x in range(10):\n  squares.append(x**2)\n  \nsquares\n\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\n\nusing List Comprehensions\n\n\nCode\nsquares = [x**2 for x in range(10)]\nsquares\n\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]",
     "crumbs": [
       "data manipulation",
       "Data structure in Python"
@@ -2133,8 +2133,8 @@
     "objectID": "data manipulation/0 data structure in Python .html#tuples",
     "href": "data manipulation/0 data structure in Python .html#tuples",
     "title": "Data structure in Python",
-    "section": "1.5 Tuples",
-    "text": "1.5 Tuples\n\n\nCode\nfruits = ('orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana','apple')\n\nfruits\n\n\n('orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana', 'apple')\n\n\n\n\nCode\ntype(fruits)\n\n\ntuple\n\n\ntuple can not be modified.",
+    "section": "1.3 Tuples",
+    "text": "1.3 Tuples\n\n\nCode\nfruits = ('orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana','apple')\n\nfruits\n\n\n('orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana', 'apple')\n\n\n\n\nCode\ntype(fruits)\n\n\ntuple\n\n\ntuple can not be modified.",
     "crumbs": [
       "data manipulation",
       "Data structure in Python"
@@ -2144,8 +2144,8 @@
     "objectID": "data manipulation/0 data structure in Python .html#sets",
     "href": "data manipulation/0 data structure in Python .html#sets",
     "title": "Data structure in Python",
-    "section": "1.6 Sets",
-    "text": "1.6 Sets\nA set is an unordered collection with no duplicate elements.\n\n\nCode\nbasket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}\n\nbasket\n\n\n{'apple', 'banana', 'orange', 'pear'}\n\n\n\n\nCode\ntype(basket)\n\n\nset",
+    "section": "1.4 Sets",
+    "text": "1.4 Sets\nA set is an unordered collection with no duplicate elements.\n\n\nCode\nbasket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}\n\nbasket\n\n\n{'apple', 'banana', 'orange', 'pear'}\n\n\n\n\nCode\ntype(basket)\n\n\nset",
     "crumbs": [
       "data manipulation",
       "Data structure in Python"
@@ -2155,8 +2155,8 @@
     "objectID": "data manipulation/0 data structure in Python .html#dictionaries",
     "href": "data manipulation/0 data structure in Python .html#dictionaries",
     "title": "Data structure in Python",
-    "section": "1.7 Dictionaries",
-    "text": "1.7 Dictionaries\n\n\nCode\ntel = {'jack': 4098, 'sape': 4139}\n\ntel\n\n\n{'jack': 4098, 'sape': 4139}\n\n\n\n\nCode\ntype(tel)\n\n\ndict\n\n\n\n\nCode\ntel['jack']\n\n\n4098",
+    "section": "1.5 Dictionaries",
+    "text": "1.5 Dictionaries\n\n\nCode\ntel = {'jack': 4098, 'sape': 4139}\n\ntel\n\n\n{'jack': 4098, 'sape': 4139}\n\n\n\n\nCode\ntype(tel)\n\n\ndict\n\n\n\n\nCode\ntel['jack']\n\n\n4098",
     "crumbs": [
       "data manipulation",
       "Data structure in Python"
@@ -3036,7 +3036,7 @@
     "href": "data manipulation/1 Pandas.html#get-last-3-rows",
     "title": "Data manipulation with Pandas",
     "section": "0.3 get last 3 rows",
-    "text": "0.3 get last 3 rows\n\n\nCode\ndf.tail(3)\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n590539\n2022-03-08\nRepublic Airlines\nALB\nORD\nFalse\nFalse\n1700\n2318.0\n378.0\n378.0\n...\n2337.0\n52.0\n7.0\n1838\n381.0\n1.0\n12.0\n1800-1859\n3\n0\n\n\n590540\n2022-03-25\nRepublic Airlines\nEWR\nPIT\nFalse\nTrue\n2129\n2322.0\n113.0\n113.0\n...\n2347.0\n933.0\n6.0\n2255\nNaN\nNaN\nNaN\n2200-2259\n2\n1\n\n\n590541\n2022-03-07\nRepublic Airlines\nEWR\nRDU\nFalse\nTrue\n1154\n1148.0\n0.0\n-6.0\n...\n1201.0\n1552.0\n4.0\n1333\nNaN\nNaN\nNaN\n1300-1359\n2\n1\n\n\n\n\n3 rows × 61 columns",
+    "text": "0.3 get last 3 rows\n\n\nCode\ndf.tail(3)\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n7\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nTYS\nIAH\nFalse\nFalse\n1129\n1117.0\n0.0\n-12.0\n...\n1139.0\n1255.0\n16.0\n1306\n5.0\n0.0\n0.0\n1300-1359\n4\n0\n\n\n8\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nIAH\nAEX\nFalse\nFalse\n1424\n1414.0\n0.0\n-10.0\n...\n1430.0\n1507.0\n6.0\n1524\n-11.0\n0.0\n-1.0\n1500-1559\n1\n0\n\n\n9\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nIAH\nMOB\nFalse\nFalse\n954\n947.0\n0.0\n-7.0\n...\n1004.0\n1104.0\n6.0\n1121\n-11.0\n0.0\n-1.0\n1100-1159\n2\n0\n\n\n\n\n3 rows × 61 columns",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -3047,7 +3047,7 @@
     "href": "data manipulation/1 Pandas.html#get-ramdon-5-rows",
     "title": "Data manipulation with Pandas",
     "section": "0.4 get ramdon 5 rows",
-    "text": "0.4 get ramdon 5 rows\n\n\nCode\ndf.sample(5, random_state=42)\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n324021\n2022-03-19\nSkyWest Airlines Inc.\nASE\nDEN\nFalse\nFalse\n1831\n1826.0\n0.0\n-5.0\n...\n1845.0\n1916.0\n7.0\n1933\n-10.0\n0.0\n-1.0\n1900-1959\n1\n0\n\n\n34739\n2022-02-16\nSkyWest Airlines Inc.\nTYS\nDEN\nFalse\nFalse\n1605\n1605.0\n0.0\n0.0\n...\n1614.0\n1728.0\n44.0\n1737\n35.0\n1.0\n2.0\n1700-1759\n5\n0\n\n\n304494\n2022-01-18\nAmerican Airlines Inc.\nLAX\nOGG\nFalse\nFalse\n1719\n1714.0\n0.0\n-5.0\n...\n1728.0\n2042.0\n10.0\n2049\n3.0\n0.0\n0.0\n2000-2059\n10\n0\n\n\n205451\n2022-01-23\nSouthwest Airlines Co.\nLAS\nBWI\nFalse\nFalse\n1515\n1533.0\n18.0\n18.0\n...\n1548.0\n2259.0\n3.0\n2235\n27.0\n1.0\n1.0\n2200-2259\n9\n0\n\n\n173176\n2022-07-01\nDelta Air Lines Inc.\nDTW\nRDU\nFalse\nFalse\n715\n709.0\n0.0\n-6.0\n...\n721.0\n834.0\n3.0\n853\n-16.0\n0.0\n-2.0\n0800-0859\n3\n0\n\n\n\n\n5 rows × 61 columns",
+    "text": "0.4 get ramdon 5 rows\n\n\nCode\ndf.sample(5, random_state=42)\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n8\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nIAH\nAEX\nFalse\nFalse\n1424\n1414.0\n0.0\n-10.0\n...\n1430.0\n1507.0\n6.0\n1524\n-11.0\n0.0\n-1.0\n1500-1559\n1\n0\n\n\n1\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nHRL\nIAH\nFalse\nFalse\n732\n728.0\n0.0\n-4.0\n...\n744.0\n839.0\n9.0\n849\n-1.0\n0.0\n-1.0\n0800-0859\n2\n0\n\n\n5\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDEN\nTUL\nFalse\nFalse\n955\n952.0\n0.0\n-3.0\n...\n1017.0\n1234.0\n4.0\n1240\n-2.0\n0.0\n-1.0\n1200-1259\n3\n0\n\n\n0\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nGJT\nDEN\nFalse\nFalse\n1133\n1123.0\n0.0\n-10.0\n...\n1140.0\n1220.0\n8.0\n1245\n-17.0\n0.0\n-2.0\n1200-1259\n1\n0\n\n\n7\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nTYS\nIAH\nFalse\nFalse\n1129\n1117.0\n0.0\n-12.0\n...\n1139.0\n1255.0\n16.0\n1306\n5.0\n0.0\n0.0\n1300-1359\n4\n0\n\n\n\n\n5 rows × 61 columns",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -3172,6 +3172,303 @@
     "crumbs": [
       "Classification",
       "Decision tree and fast tuning"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#select-column-by-column-names",
+    "href": "data manipulation/1 Pandas.html#select-column-by-column-names",
+    "title": "Data manipulation with Pandas",
+    "section": "1.1 select column by column names",
+    "text": "1.1 select column by column names\n\n\nCode\ndf[['FlightDate','Airline']]\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\n\n\n\n\n0\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\n\n\n1\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\n\n\n2\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\n\n\n3\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\n\n\n4\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\n\n\n5\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\n\n\n6\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\n\n\n7\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\n\n\n8\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\n\n\n9\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#first-3-columns",
+    "href": "data manipulation/1 Pandas.html#first-3-columns",
+    "title": "Data manipulation with Pandas",
+    "section": "1.2 first 3 columns",
+    "text": "1.2 first 3 columns\n\n\nCode\ndf[df.columns[:3]]\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\n\n\n\n\n0\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nGJT\n\n\n1\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nHRL\n\n\n2\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\n\n\n3\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nIAH\n\n\n4\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\n\n\n5\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDEN\n\n\n6\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nIAH\n\n\n7\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nTYS\n\n\n8\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nIAH\n\n\n9\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nIAH",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#last-3-columns",
+    "href": "data manipulation/1 Pandas.html#last-3-columns",
+    "title": "Data manipulation with Pandas",
+    "section": "1.3 last 3 columns",
+    "text": "1.3 last 3 columns\n\n\nCode\ndf[df.columns[-3:]]\n\n\n\n\n\n\n\n\n\n\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n0\n1200-1259\n1\n0\n\n\n1\n0800-0859\n2\n0\n\n\n2\n1600-1659\n2\n0\n\n\n3\n1600-1659\n2\n0\n\n\n4\n1200-1259\n2\n0\n\n\n5\n1200-1259\n3\n0\n\n\n6\n2200-2259\n1\n0\n\n\n7\n1300-1359\n4\n0\n\n\n8\n1500-1559\n1\n0\n\n\n9\n1100-1159\n2\n0",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#select-3rd-columns",
+    "href": "data manipulation/1 Pandas.html#select-3rd-columns",
+    "title": "Data manipulation with Pandas",
+    "section": "1.4 select 3rd columns",
+    "text": "1.4 select 3rd columns\n\n\nCode\ndf.iloc[:,2]\n\n\n0    GJT\n1    HRL\n2    DRO\n3    IAH\n4    DRO\n5    DEN\n6    IAH\n7    TYS\n8    IAH\n9    IAH\nName: Origin, dtype: object",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#select-int-data-type-column",
+    "href": "data manipulation/1 Pandas.html#select-int-data-type-column",
+    "title": "Data manipulation with Pandas",
+    "section": "1.5 select int data type column",
+    "text": "1.5 select int data type column\n\n\nCode\ndf.select_dtypes('int')\n\n\n\n\n\n\n\n\n\n\nCRSDepTime\nYear\nQuarter\nMonth\nDayofMonth\nDayOfWeek\nDOT_ID_Marketing_Airline\nFlight_Number_Marketing_Airline\nDOT_ID_Operating_Airline\nFlight_Number_Operating_Airline\n...\nOriginStateFips\nOriginWac\nDestAirportID\nDestAirportSeqID\nDestCityMarketID\nDestStateFips\nDestWac\nCRSArrTime\nDistanceGroup\nDivAirportLandings\n\n\n\n\n0\n1133\n2022\n2\n4\n4\n1\n19977\n4301\n20445\n4301\n...\n8\n82\n11292\n1129202\n30325\n8\n82\n1245\n1\n0\n\n\n1\n732\n2022\n2\n4\n4\n1\n19977\n4299\n20445\n4299\n...\n48\n74\n12266\n1226603\n31453\n48\n74\n849\n2\n0\n\n\n2\n1529\n2022\n2\n4\n4\n1\n19977\n4298\n20445\n4298\n...\n8\n82\n11292\n1129202\n30325\n8\n82\n1639\n2\n0\n\n\n3\n1435\n2022\n2\n4\n4\n1\n19977\n4296\n20445\n4296\n...\n48\n74\n11973\n1197302\n31973\n28\n53\n1605\n2\n0\n\n\n4\n1135\n2022\n2\n4\n4\n1\n19977\n4295\n20445\n4295\n...\n8\n82\n11292\n1129202\n30325\n8\n82\n1245\n2\n0\n\n\n5\n955\n2022\n2\n4\n4\n1\n19977\n4294\n20445\n4294\n...\n8\n82\n15370\n1537002\n34653\n40\n73\n1240\n3\n0\n\n\n6\n2139\n2022\n2\n4\n4\n1\n19977\n4293\n20445\n4293\n...\n48\n74\n12915\n1291503\n31205\n22\n72\n2231\n1\n0\n\n\n7\n1129\n2022\n2\n4\n4\n1\n19977\n4292\n20445\n4292\n...\n47\n54\n12266\n1226603\n31453\n48\n74\n1306\n4\n0\n\n\n8\n1424\n2022\n2\n4\n4\n1\n19977\n4291\n20445\n4291\n...\n48\n74\n10185\n1018502\n30185\n22\n72\n1524\n1\n0\n\n\n9\n954\n2022\n2\n4\n4\n1\n19977\n4290\n20445\n4290\n...\n48\n74\n13422\n1342202\n30562\n1\n51\n1121\n2\n0\n\n\n\n\n10 rows × 23 columns",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#select-3-rows-and-4-column-cells",
+    "href": "data manipulation/1 Pandas.html#select-3-rows-and-4-column-cells",
+    "title": "Data manipulation with Pandas",
+    "section": "2.1 select 3 rows and 4 column cells",
+    "text": "2.1 select 3 rows and 4 column cells\n\n\nCode\ndf.iloc[2, 3]\n\n\n'DEN'",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#select-first-5-rows-and-first-5-column-cells",
+    "href": "data manipulation/1 Pandas.html#select-first-5-rows-and-first-5-column-cells",
+    "title": "Data manipulation with Pandas",
+    "section": "2.2 select first 5 rows and first 5 column cells",
+    "text": "2.2 select first 5 rows and first 5 column cells\n\n\nCode\ndf.iloc[:5, :5] \n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\n\n\n\n\n0\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nGJT\nDEN\nFalse\n\n\n1\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nHRL\nIAH\nFalse\n\n\n2\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\nDEN\nFalse\n\n\n3\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nIAH\nGPT\nFalse\n\n\n4\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\nDEN\nFalse",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 Pandas.html#select-3rd-rows",
+    "href": "data manipulation/1 Pandas.html#select-3rd-rows",
+    "title": "Data manipulation with Pandas",
+    "section": "2.3 select 3rd rows",
+    "text": "2.3 select 3rd rows\n\n\nCode\ndf.iloc[[2]]\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n2\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\nDEN\nFalse\nFalse\n1529\n1514.0\n0.0\n-15.0\n...\n1535.0\n1622.0\n14.0\n1639\n-3.0\n0.0\n-1.0\n1600-1659\n2\n0\n\n\n\n\n1 rows × 61 columns",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "classification/6.1 Random Forest.html",
+    "href": "classification/6.1 Random Forest.html",
+    "title": "Random Forest",
+    "section": "",
+    "text": "Code\nimport os\n#os.system('pip install xgboost')\n\n\n\n\nCode\nimport os\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport re\nimport numpy as np\nfrom sklearn import tree\nfrom sklearn.model_selection import train_test_split",
+    "crumbs": [
+      "Classification",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "classification/6.1 Random Forest.html#input-data",
+    "href": "classification/6.1 Random Forest.html#input-data",
+    "title": "Random Forest",
+    "section": "2.1 input data",
+    "text": "2.1 input data\n\n\nCode\n# Loading the data\ndf_train = pd.read_csv('./data/train.csv')\ndf_test = pd.read_csv('./data/test.csv')\n\n# Store our test passenger IDs for easy access\nPassengerId = df_train['PassengerId']\n\n\n# Showing overview of the train dataset\ndf_train.head()\n\n\n\n\n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n0\n1\n0\n3\nBraund, Mr. Owen Harris\nmale\n22.0\n1\n0\nA/5 21171\n7.2500\nNaN\nS\n\n\n1\n2\n1\n1\nCumings, Mrs. John Bradley (Florence Briggs Th...\nfemale\n38.0\n1\n0\nPC 17599\n71.2833\nC85\nC\n\n\n2\n3\n1\n3\nHeikkinen, Miss. Laina\nfemale\n26.0\n0\n0\nSTON/O2. 3101282\n7.9250\nNaN\nS\n\n\n3\n4\n1\n1\nFutrelle, Mrs. Jacques Heath (Lily May Peel)\nfemale\n35.0\n1\n0\n113803\n53.1000\nC123\nS\n\n\n4\n5\n0\n3\nAllen, Mr. William Henry\nmale\n35.0\n0\n0\n373450\n8.0500\nNaN\nS",
+    "crumbs": [
+      "Classification",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "classification/6.1 Random Forest.html#data-eda",
+    "href": "classification/6.1 Random Forest.html#data-eda",
+    "title": "Random Forest",
+    "section": "2.2 data EDA",
+    "text": "2.2 data EDA\n\n\nCode\nsns.countplot(x='Survived', data=df_train);\n\n\n\n\n\n\n\n\n\n\n\nCode\nsns.catplot(x='Survived', col='Sex', kind='count', data=df_train);\n\n\n\n\n\n\n\n\n\n\n\nCode\nprint(df_train[df_train.Sex == 'female'].Survived.sum()/df_train[df_train.Sex == 'female'].Survived.count())\nprint(df_train[df_train.Sex == 'male'].Survived.sum()/df_train[df_train.Sex == 'male'].Survived.count())\n\n\n0.7420382165605095\n0.18890814558058924",
+    "crumbs": [
+      "Classification",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "classification/6.1 Random Forest.html#data-wrangling",
+    "href": "classification/6.1 Random Forest.html#data-wrangling",
+    "title": "Random Forest",
+    "section": "2.3 Data Wrangling",
+    "text": "2.3 Data Wrangling\n\n\nCode\n# Store target variable of training data in a safe place\nsurvived_train = df_train.Survived\n\n\n\ndf_train['role'] = 'train'\ndf_test['role'] = 'test'\n\n# Concatenate training and test sets\ndata = pd.concat([df_train.drop(['Survived'], axis=1), df_test])\n\n\n\n\nCode\ndata.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 1309 entries, 0 to 417\nData columns (total 12 columns):\n #   Column       Non-Null Count  Dtype  \n---  ------       --------------  -----  \n 0   PassengerId  1309 non-null   int64  \n 1   Pclass       1309 non-null   int64  \n 2   Name         1309 non-null   object \n 3   Sex          1309 non-null   object \n 4   Age          1046 non-null   float64\n 5   SibSp        1309 non-null   int64  \n 6   Parch        1309 non-null   int64  \n 7   Ticket       1309 non-null   object \n 8   Fare         1308 non-null   float64\n 9   Cabin        295 non-null    object \n 10  Embarked     1307 non-null   object \n 11  role         1309 non-null   object \ndtypes: float64(2), int64(4), object(6)\nmemory usage: 132.9+ KB\n\n\n\n\nCode\n# Dealing with missing numerical variables\ndata['Age'] = data.Age.fillna(data.Age.median())\ndata['Fare'] = data.Fare.fillna(data.Fare.median())\n\n# Check out info of data\ndata.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 1309 entries, 0 to 417\nData columns (total 12 columns):\n #   Column       Non-Null Count  Dtype  \n---  ------       --------------  -----  \n 0   PassengerId  1309 non-null   int64  \n 1   Pclass       1309 non-null   int64  \n 2   Name         1309 non-null   object \n 3   Sex          1309 non-null   object \n 4   Age          1309 non-null   float64\n 5   SibSp        1309 non-null   int64  \n 6   Parch        1309 non-null   int64  \n 7   Ticket       1309 non-null   object \n 8   Fare         1309 non-null   float64\n 9   Cabin        295 non-null    object \n 10  Embarked     1307 non-null   object \n 11  role         1309 non-null   object \ndtypes: float64(2), int64(4), object(6)\nmemory usage: 132.9+ KB\n\n\n\n\nCode\n# Tranform Sex feature to numeric value\n# create a new column for each of the options in 'Sex'\n# creates a new column for female, called 'Sex_female', \n# creates a new column for 'Sex_male'\n# more then two categorical values it is better to use one-hot-encode\ndata = pd.get_dummies(data, columns=['Sex'], drop_first=True)\ndata.head()\n\n\n\n\n\n\n\n\n\n\nPassengerId\nPclass\nName\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\nrole\nSex_male\n\n\n\n\n0\n1\n3\nBraund, Mr. Owen Harris\n22.0\n1\n0\nA/5 21171\n7.2500\nNaN\nS\ntrain\nTrue\n\n\n1\n2\n1\nCumings, Mrs. John Bradley (Florence Briggs Th...\n38.0\n1\n0\nPC 17599\n71.2833\nC85\nC\ntrain\nFalse\n\n\n2\n3\n3\nHeikkinen, Miss. Laina\n26.0\n0\n0\nSTON/O2. 3101282\n7.9250\nNaN\nS\ntrain\nFalse\n\n\n3\n4\n1\nFutrelle, Mrs. Jacques Heath (Lily May Peel)\n35.0\n1\n0\n113803\n53.1000\nC123\nS\ntrain\nFalse\n\n\n4\n5\n3\nAllen, Mr. William Henry\n35.0\n0\n0\n373450\n8.0500\nNaN\nS\ntrain\nTrue\n\n\n\n\n\n\n\n\n\n\nCode\n# Select features columns\ndata = data[['Sex_male', 'Fare', 'Age','Pclass', 'SibSp','role']]\ndata.head()\n\n\n\n\n\n\n\n\n\n\nSex_male\nFare\nAge\nPclass\nSibSp\nrole\n\n\n\n\n0\nTrue\n7.2500\n22.0\n3\n1\ntrain\n\n\n1\nFalse\n71.2833\n38.0\n1\n1\ntrain\n\n\n2\nFalse\n7.9250\n26.0\n3\n0\ntrain\n\n\n3\nFalse\n53.1000\n35.0\n1\n1\ntrain\n\n\n4\nTrue\n8.0500\n35.0\n3\n0\ntrain",
+    "crumbs": [
+      "Classification",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "classification/6.1 Random Forest.html#split-data",
+    "href": "classification/6.1 Random Forest.html#split-data",
+    "title": "Random Forest",
+    "section": "2.4 split data",
+    "text": "2.4 split data\n\n\nCode\nY=df_train['Survived']\nX=data[data.role =='train']\n\nX_train,X_test,Y_train,Y_test=train_test_split(X,Y,train_size = 0.8)\n\nX_train = X_train.drop('role', axis=1)\nX_test = X_test.drop('role', axis=1)\n\n\n\n\nCode\nX_train.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 712 entries, 705 to 820\nData columns (total 5 columns):\n #   Column    Non-Null Count  Dtype  \n---  ------    --------------  -----  \n 0   Sex_male  712 non-null    bool   \n 1   Fare      712 non-null    float64\n 2   Age       712 non-null    float64\n 3   Pclass    712 non-null    int64  \n 4   SibSp     712 non-null    int64  \ndtypes: bool(1), float64(2), int64(2)\nmemory usage: 28.5 KB",
+    "crumbs": [
+      "Classification",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "classification/6.1 Random Forest.html#define-model",
+    "href": "classification/6.1 Random Forest.html#define-model",
+    "title": "Random Forest",
+    "section": "3.1 define model",
+    "text": "3.1 define model\nThe solvers implemented in the class Logistic Regression are “liblinear”, “newton-cg”, “lbfgs”, “sag” and “saga”. According to Scikit Documentation: The “liblinear” solver was the one used by default for historical reasons before version 0.22. Since then, default use is lbfgs Algorithm.\n\n\nCode\nfrom sklearn.ensemble import RandomForestClassifier\nml_model = RandomForestClassifier()\nml_model\n\n\nRandomForestClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  RandomForestClassifier?Documentation for RandomForestClassifieriNot fittedRandomForestClassifier()",
+    "crumbs": [
+      "Classification",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "classification/6.1 Random Forest.html#train-model",
+    "href": "classification/6.1 Random Forest.html#train-model",
+    "title": "Random Forest",
+    "section": "3.2 train model",
+    "text": "3.2 train model\n\n\nCode\nml_model.fit(X_train,Y_train)\n\n\nRandomForestClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  RandomForestClassifier?Documentation for RandomForestClassifieriFittedRandomForestClassifier()",
+    "crumbs": [
+      "Classification",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "classification/6.1 Random Forest.html#preformance",
+    "href": "classification/6.1 Random Forest.html#preformance",
+    "title": "Random Forest",
+    "section": "3.3 Preformance",
+    "text": "3.3 Preformance\n\n\nCode\n#Using predict method to test the model\nY_pred_dt = ml_model.predict(X_test) #always gets x and retuns y\nY_pred_dt\n\n\narray([1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1,\n       1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,\n       0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0,\n       1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0,\n       0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1,\n       0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1,\n       0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1,\n       0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1,\n       1, 0, 0])\n\n\n\nAccuracy\n\n\n\nCode\n# Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives\n# Here is another way to find the accuracy score\nfrom sklearn import metrics\naccuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  \naccuracy\n\n\n0.8100558659217877\n\n\n\nPrecision\n\n\n\nCode\n# Precision = true positive / true positive + false positive\nprecision_dt = metrics.precision_score(Y_test,Y_pred_dt)  \nprecision_dt\n\n\n0.782608695652174\n\n\n\nRecall\n\n\n\nCode\n# Recall = true positive / true positive + false negative\nrecall_dt = metrics.recall_score(Y_test,Y_pred_dt)  \nrecall_dt\n\n\n0.7397260273972602\n\n\n\nConfusion matrix\n\n\n\nCode\nimport seaborn as sns\nconfusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)\nconfusion_matrix_dt\n\n\narray([[91, 15],\n       [19, 54]])\n\n\n\nAUC - ROC Curve\n\n\n\nCode\nauc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score\nauc_dt\n\n\n0.7991082967174981",
+    "crumbs": [
+      "Classification",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "classification/6.1 Random Forest.html#k-fold-cross-validation",
+    "href": "classification/6.1 Random Forest.html#k-fold-cross-validation",
+    "title": "Random Forest",
+    "section": "3.4 k-Fold Cross-Validation",
+    "text": "3.4 k-Fold Cross-Validation\n\n\nCode\nimport numpy as np\nfrom sklearn.model_selection import KFold\nfrom sklearn.model_selection import cross_val_score\n\n\n\n\nCode\nkf_dt = KFold(n_splits=5,shuffle=True)  \ncv_dt = cross_val_score(ml_model, X_train, Y_train, cv=kf_dt)\nnp.mean(cv_dt)\n\n\n0.8118290160543682",
+    "crumbs": [
+      "Classification",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "classification/6.2 Random Forest.html",
+    "href": "classification/6.2 Random Forest.html",
+    "title": "Random Forest with pipeline and fast tuning",
+    "section": "",
+    "text": "Code\nimport os\n#os.system('pip install xgboost')\n\n\n\n\nCode\nimport os\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport re\nimport numpy as np\nfrom sklearn import tree\nfrom sklearn.model_selection import train_test_split",
+    "crumbs": [
+      "Classification",
+      "Random Forest with pipeline and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/6.2 Random Forest.html#input-data",
+    "href": "classification/6.2 Random Forest.html#input-data",
+    "title": "Random Forest with pipeline and fast tuning",
+    "section": "2.1 input data",
+    "text": "2.1 input data\n\n\nCode\n# Loading the data\ndf_train = pd.read_csv('./data/train.csv')\ndf_test = pd.read_csv('./data/test.csv')\n\n# Store our test passenger IDs for easy access\nPassengerId = df_train['PassengerId']\n\n\n# Showing overview of the train dataset\ndf_train.head()\n\n\n\n\n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n0\n1\n0\n3\nBraund, Mr. Owen Harris\nmale\n22.0\n1\n0\nA/5 21171\n7.2500\nNaN\nS\n\n\n1\n2\n1\n1\nCumings, Mrs. John Bradley (Florence Briggs Th...\nfemale\n38.0\n1\n0\nPC 17599\n71.2833\nC85\nC\n\n\n2\n3\n1\n3\nHeikkinen, Miss. Laina\nfemale\n26.0\n0\n0\nSTON/O2. 3101282\n7.9250\nNaN\nS\n\n\n3\n4\n1\n1\nFutrelle, Mrs. Jacques Heath (Lily May Peel)\nfemale\n35.0\n1\n0\n113803\n53.1000\nC123\nS\n\n\n4\n5\n0\n3\nAllen, Mr. William Henry\nmale\n35.0\n0\n0\n373450\n8.0500\nNaN\nS",
+    "crumbs": [
+      "Classification",
+      "Random Forest with pipeline and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/6.2 Random Forest.html#data-eda",
+    "href": "classification/6.2 Random Forest.html#data-eda",
+    "title": "Random Forest with pipeline and fast tuning",
+    "section": "2.2 data EDA",
+    "text": "2.2 data EDA\n\n\nCode\nsns.countplot(x='Survived', data=df_train);\n\n\n\n\n\n\n\n\n\n\n\nCode\nsns.catplot(x='Survived', col='Sex', kind='count', data=df_train);\n\n\n\n\n\n\n\n\n\n\n\nCode\nprint(df_train[df_train.Sex == 'female'].Survived.sum()/df_train[df_train.Sex == 'female'].Survived.count())\nprint(df_train[df_train.Sex == 'male'].Survived.sum()/df_train[df_train.Sex == 'male'].Survived.count())\n\n\n0.7420382165605095\n0.18890814558058924",
+    "crumbs": [
+      "Classification",
+      "Random Forest with pipeline and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/6.2 Random Forest.html#data-wrangling",
+    "href": "classification/6.2 Random Forest.html#data-wrangling",
+    "title": "Random Forest with pipeline and fast tuning",
+    "section": "2.3 Data Wrangling",
+    "text": "2.3 Data Wrangling\n\n\nCode\n# Store target variable of training data in a safe place\nsurvived_train = df_train.Survived\n\n\n\ndf_train['role'] = 'train'\ndf_test['role'] = 'test'\n\n# Concatenate training and test sets\ndata = pd.concat([df_train.drop(['Survived'], axis=1), df_test])\n\n\n\n\nCode\ndata.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 1309 entries, 0 to 417\nData columns (total 12 columns):\n #   Column       Non-Null Count  Dtype  \n---  ------       --------------  -----  \n 0   PassengerId  1309 non-null   int64  \n 1   Pclass       1309 non-null   int64  \n 2   Name         1309 non-null   object \n 3   Sex          1309 non-null   object \n 4   Age          1046 non-null   float64\n 5   SibSp        1309 non-null   int64  \n 6   Parch        1309 non-null   int64  \n 7   Ticket       1309 non-null   object \n 8   Fare         1308 non-null   float64\n 9   Cabin        295 non-null    object \n 10  Embarked     1307 non-null   object \n 11  role         1309 non-null   object \ndtypes: float64(2), int64(4), object(6)\nmemory usage: 132.9+ KB\n\n\n\n\nCode\n# Dealing with missing numerical variables\ndata['Age'] = data.Age.fillna(data.Age.median())\ndata['Fare'] = data.Fare.fillna(data.Fare.median())\n\n# Check out info of data\ndata.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 1309 entries, 0 to 417\nData columns (total 12 columns):\n #   Column       Non-Null Count  Dtype  \n---  ------       --------------  -----  \n 0   PassengerId  1309 non-null   int64  \n 1   Pclass       1309 non-null   int64  \n 2   Name         1309 non-null   object \n 3   Sex          1309 non-null   object \n 4   Age          1309 non-null   float64\n 5   SibSp        1309 non-null   int64  \n 6   Parch        1309 non-null   int64  \n 7   Ticket       1309 non-null   object \n 8   Fare         1309 non-null   float64\n 9   Cabin        295 non-null    object \n 10  Embarked     1307 non-null   object \n 11  role         1309 non-null   object \ndtypes: float64(2), int64(4), object(6)\nmemory usage: 132.9+ KB\n\n\n\n\nCode\n# Tranform Sex feature to numeric value\n# create a new column for each of the options in 'Sex'\n# creates a new column for female, called 'Sex_female', \n# creates a new column for 'Sex_male'\n# more then two categorical values it is better to use one-hot-encode\ndata = pd.get_dummies(data, columns=['Sex'], drop_first=True)\ndata.head()\n\n\n\n\n\n\n\n\n\n\nPassengerId\nPclass\nName\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\nrole\nSex_male\n\n\n\n\n0\n1\n3\nBraund, Mr. Owen Harris\n22.0\n1\n0\nA/5 21171\n7.2500\nNaN\nS\ntrain\nTrue\n\n\n1\n2\n1\nCumings, Mrs. John Bradley (Florence Briggs Th...\n38.0\n1\n0\nPC 17599\n71.2833\nC85\nC\ntrain\nFalse\n\n\n2\n3\n3\nHeikkinen, Miss. Laina\n26.0\n0\n0\nSTON/O2. 3101282\n7.9250\nNaN\nS\ntrain\nFalse\n\n\n3\n4\n1\nFutrelle, Mrs. Jacques Heath (Lily May Peel)\n35.0\n1\n0\n113803\n53.1000\nC123\nS\ntrain\nFalse\n\n\n4\n5\n3\nAllen, Mr. William Henry\n35.0\n0\n0\n373450\n8.0500\nNaN\nS\ntrain\nTrue\n\n\n\n\n\n\n\n\n\n\nCode\n# Select features columns\ndata = data[['Sex_male', 'Fare', 'Age','Pclass', 'SibSp','role']]\ndata.head()\n\n\n\n\n\n\n\n\n\n\nSex_male\nFare\nAge\nPclass\nSibSp\nrole\n\n\n\n\n0\nTrue\n7.2500\n22.0\n3\n1\ntrain\n\n\n1\nFalse\n71.2833\n38.0\n1\n1\ntrain\n\n\n2\nFalse\n7.9250\n26.0\n3\n0\ntrain\n\n\n3\nFalse\n53.1000\n35.0\n1\n1\ntrain\n\n\n4\nTrue\n8.0500\n35.0\n3\n0\ntrain",
+    "crumbs": [
+      "Classification",
+      "Random Forest with pipeline and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/6.2 Random Forest.html#split-data",
+    "href": "classification/6.2 Random Forest.html#split-data",
+    "title": "Random Forest with pipeline and fast tuning",
+    "section": "2.4 split data",
+    "text": "2.4 split data\n\n\nCode\nY=df_train['Survived']\nX=data[data.role =='train']\n\nX_train,X_test,Y_train,Y_test=train_test_split(X,Y,train_size = 0.8)\n\nX_train = X_train.drop('role', axis=1)\nX_test = X_test.drop('role', axis=1)\n\n\n\n\nCode\nX_train.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 712 entries, 791 to 377\nData columns (total 5 columns):\n #   Column    Non-Null Count  Dtype  \n---  ------    --------------  -----  \n 0   Sex_male  712 non-null    bool   \n 1   Fare      712 non-null    float64\n 2   Age       712 non-null    float64\n 3   Pclass    712 non-null    int64  \n 4   SibSp     712 non-null    int64  \ndtypes: bool(1), float64(2), int64(2)\nmemory usage: 28.5 KB",
+    "crumbs": [
+      "Classification",
+      "Random Forest with pipeline and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/6.2 Random Forest.html#define-model",
+    "href": "classification/6.2 Random Forest.html#define-model",
+    "title": "Random Forest with pipeline and fast tuning",
+    "section": "3.1 define model",
+    "text": "3.1 define model\nThe solvers implemented in the class Logistic Regression are “liblinear”, “newton-cg”, “lbfgs”, “sag” and “saga”. According to Scikit Documentation: The “liblinear” solver was the one used by default for historical reasons before version 0.22. Since then, default use is lbfgs Algorithm.\n\n\nCode\nfrom sklearn.ensemble import RandomForestClassifier\nml_model = RandomForestClassifier()\nml_model\n\n\nRandomForestClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  RandomForestClassifier?Documentation for RandomForestClassifieriNot fittedRandomForestClassifier()",
+    "crumbs": [
+      "Classification",
+      "Random Forest with pipeline and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/6.2 Random Forest.html#train-model",
+    "href": "classification/6.2 Random Forest.html#train-model",
+    "title": "Random Forest with pipeline and fast tuning",
+    "section": "3.2 train model",
+    "text": "3.2 train model\n\n\nCode\nml_model.fit(X_train,Y_train)\n\n\nRandomForestClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  RandomForestClassifier?Documentation for RandomForestClassifieriFittedRandomForestClassifier()",
+    "crumbs": [
+      "Classification",
+      "Random Forest with pipeline and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/6.2 Random Forest.html#preformance",
+    "href": "classification/6.2 Random Forest.html#preformance",
+    "title": "Random Forest with pipeline and fast tuning",
+    "section": "3.3 Preformance",
+    "text": "3.3 Preformance\n\n\nCode\n#Using predict method to test the model\nY_pred_dt = ml_model.predict(X_test) #always gets x and retuns y\nY_pred_dt\n\n\narray([0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1,\n       0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0,\n       1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0,\n       0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0,\n       1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1,\n       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0,\n       1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1,\n       0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0,\n       0, 0, 1])\n\n\n\nAccuracy\n\n\n\nCode\n# Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives\n# Here is another way to find the accuracy score\nfrom sklearn import metrics\naccuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  \naccuracy\n\n\n0.8770949720670391\n\n\n\nPrecision\n\n\n\nCode\n# Precision = true positive / true positive + false positive\nprecision_dt = metrics.precision_score(Y_test,Y_pred_dt)  \nprecision_dt\n\n\n0.8181818181818182\n\n\n\nRecall\n\n\n\nCode\n# Recall = true positive / true positive + false negative\nrecall_dt = metrics.recall_score(Y_test,Y_pred_dt)  \nrecall_dt\n\n\n0.84375\n\n\n\nConfusion matrix\n\n\n\nCode\nimport seaborn as sns\nconfusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)\nconfusion_matrix_dt\n\n\narray([[103,  12],\n       [ 10,  54]])\n\n\n\nAUC - ROC Curve\n\n\n\nCode\nauc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score\nauc_dt\n\n\n0.8697010869565218",
+    "crumbs": [
+      "Classification",
+      "Random Forest with pipeline and fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification/6.2 Random Forest.html#k-fold-cross-validation",
+    "href": "classification/6.2 Random Forest.html#k-fold-cross-validation",
+    "title": "Random Forest with pipeline and fast tuning",
+    "section": "3.4 k-Fold Cross-Validation",
+    "text": "3.4 k-Fold Cross-Validation\n\n\nCode\nimport numpy as np\nfrom sklearn.model_selection import KFold\nfrom sklearn.model_selection import cross_val_score\n\n\n\n\nCode\nkf_dt = KFold(n_splits=5,shuffle=True)  \ncv_dt = cross_val_score(ml_model, X_train, Y_train, cv=kf_dt)\nnp.mean(cv_dt)\n\n\n0.794907908992416",
+    "crumbs": [
+      "Classification",
+      "Random Forest with pipeline and fast tuning"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 siuba.html",
+    "href": "data manipulation/2 siuba.html",
+    "title": "Data manipulation with siuba",
+    "section": "",
+    "text": "siuba (小巴) is a port of dplyr and other R libraries with seamless support for pandas and SQL",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
     ]
   }
 ]

@@ -78,7 +78,7 @@ all 'apple' in the list
 [index for index, value in enumerate(fruits) if value == 'apple']
 ```
 
-## reverse the list
+### reverse the list
 
 ```{python}
 fruits.reverse()
@@ -99,7 +99,7 @@ fruits.append('grape')
 fruits
 ```
 
-## drop last element
+### drop last element
 
 ```{python}
 fruits.pop()

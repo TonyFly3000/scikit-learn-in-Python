@@ -224,10 +224,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Decision tree and hyperparameter tuning</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/1.3 decision tree and fast tuning.html">
- <span class="dropdown-text">Decision tree and fast tuning</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../classification/3 Logistic Regression on titanic data.html">
  <span class="dropdown-text">Classification with Logistic Regression</span></a>
   </li>  
@@ -240,8 +236,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Classification with K-Nearest Neighbors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../classification/6 Random Forest on titanic dat.html">
- <span class="dropdown-text">Classification with Random Forest</span></a>
+    <a class="dropdown-item" href="../classification/6.1 Random Forest.html">
+ <span class="dropdown-text">Random Forest</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/6.2 Random Forest.html">
+ <span class="dropdown-text">Random Forest with pipeline and fast tuning</span></a>
   </li>  
     </ul>
   </li>
@@ -345,7 +345,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#get-short-info" id="toc-get-short-info" class="nav-link" data-scroll-target="#get-short-info"><span class="header-section-number">0.8</span> get short info</a></li>
   <li><a href="#summary-of-numeric-column" id="toc-summary-of-numeric-column" class="nav-link" data-scroll-target="#summary-of-numeric-column"><span class="header-section-number">0.9</span> summary of numeric column</a></li>
   <li><a href="#summary-of-categorical-column" id="toc-summary-of-categorical-column" class="nav-link" data-scroll-target="#summary-of-categorical-column"><span class="header-section-number">0.10</span> summary of categorical column</a></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">1</span> Reference:</a></li>
+  <li><a href="#select-column" id="toc-select-column" class="nav-link" data-scroll-target="#select-column"><span class="header-section-number">1</span> select column</a>
+  <ul class="collapse">
+  <li><a href="#select-column-by-column-names" id="toc-select-column-by-column-names" class="nav-link" data-scroll-target="#select-column-by-column-names"><span class="header-section-number">1.1</span> select column by column names</a></li>
+  <li><a href="#first-3-columns" id="toc-first-3-columns" class="nav-link" data-scroll-target="#first-3-columns"><span class="header-section-number">1.2</span> first 3 columns</a></li>
+  <li><a href="#last-3-columns" id="toc-last-3-columns" class="nav-link" data-scroll-target="#last-3-columns"><span class="header-section-number">1.3</span> last 3 columns</a></li>
+  <li><a href="#select-3rd-columns" id="toc-select-3rd-columns" class="nav-link" data-scroll-target="#select-3rd-columns"><span class="header-section-number">1.4</span> select 3rd columns</a></li>
+  <li><a href="#select-int-data-type-column" id="toc-select-int-data-type-column" class="nav-link" data-scroll-target="#select-int-data-type-column"><span class="header-section-number">1.5</span> select int data type column</a></li>
+  </ul></li>
+  <li><a href="#select-cells" id="toc-select-cells" class="nav-link" data-scroll-target="#select-cells"><span class="header-section-number">2</span> select cells</a>
+  <ul class="collapse">
+  <li><a href="#select-3-rows-and-4-column-cells" id="toc-select-3-rows-and-4-column-cells" class="nav-link" data-scroll-target="#select-3-rows-and-4-column-cells"><span class="header-section-number">2.1</span> select 3 rows and 4 column cells</a></li>
+  <li><a href="#select-first-5-rows-and-first-5-column-cells" id="toc-select-first-5-rows-and-first-5-column-cells" class="nav-link" data-scroll-target="#select-first-5-rows-and-first-5-column-cells"><span class="header-section-number">2.2</span> select first 5 rows and first 5 column cells</a></li>
+  <li><a href="#select-3rd-rows" id="toc-select-3rd-rows" class="nav-link" data-scroll-target="#select-3rd-rows"><span class="header-section-number">2.3</span> select 3rd rows</a></li>
+  </ul></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">3</span> Reference:</a></li>
   </ul>
 </nav>
     </div>
@@ -371,8 +385,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="images/Pandas_logo.svg.png" class="img-fluid" width="600"></p>
-<div id="8d017270" class="cell" data-execution_count="1">
+<p><img src="images/Pandas_logo.svg.png" class="img-fluid" width="600"> pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.</p>
+<div id="4b60e352" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -382,7 +396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>3.11.4 (v3.11.4:d2340ef257, Jun  6 2023, 19:15:51) [Clang 13.0.0 (clang-1300.0.29.30)]</code></pre>
 </div>
 </div>
-<div id="1064e789" class="cell" data-execution_count="2">
+<div id="7f412c40" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -394,16 +408,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="reading-from-parquet" class="level2" data-number="0.1">
 <h2 data-number="0.1" class="anchored" data-anchor-id="reading-from-parquet"><span class="header-section-number">0.1</span> Reading from parquet</h2>
-<div id="3a665b2e" class="cell" data-execution_count="3">
+<div id="c5e35b36" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(<span class="st">"data/Combined_Flights_2022.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>big_df <span class="op">=</span> pd.read_parquet(<span class="st">"data/Combined_Flights_2022.parquet"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>big_df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 <section id="get-first-3-rows" class="level2" data-number="0.2">
 <h2 data-number="0.2" class="anchored" data-anchor-id="get-first-3-rows"><span class="header-section-number">0.2</span> get first 3 rows</h2>
-<div id="cd59d38a" class="cell" data-execution_count="4">
+<div id="fdaf6239" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -524,7 +540,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="get-last-3-rows" class="level2" data-number="0.3">
 <h2 data-number="0.3" class="anchored" data-anchor-id="get-last-3-rows"><span class="header-section-number">0.3</span> get last 3 rows</h2>
-<div id="dde722e0" class="cell" data-execution_count="5">
+<div id="f62336e7" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df.tail(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -563,76 +579,76 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">590539</td>
-<td>2022-03-08</td>
-<td>Republic Airlines</td>
-<td>ALB</td>
-<td>ORD</td>
+<td data-quarto-table-cell-role="th">7</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>TYS</td>
+<td>IAH</td>
 <td>False</td>
 <td>False</td>
-<td>1700</td>
-<td>2318.0</td>
-<td>378.0</td>
-<td>378.0</td>
+<td>1129</td>
+<td>1117.0</td>
+<td>0.0</td>
+<td>-12.0</td>
 <td>...</td>
-<td>2337.0</td>
-<td>52.0</td>
-<td>7.0</td>
-<td>1838</td>
-<td>381.0</td>
-<td>1.0</td>
-<td>12.0</td>
-<td>1800-1859</td>
-<td>3</td>
+<td>1139.0</td>
+<td>1255.0</td>
+<td>16.0</td>
+<td>1306</td>
+<td>5.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1300-1359</td>
+<td>4</td>
 <td>0</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">590540</td>
-<td>2022-03-25</td>
-<td>Republic Airlines</td>
-<td>EWR</td>
-<td>PIT</td>
+<td data-quarto-table-cell-role="th">8</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>IAH</td>
+<td>AEX</td>
 <td>False</td>
-<td>True</td>
-<td>2129</td>
-<td>2322.0</td>
-<td>113.0</td>
-<td>113.0</td>
+<td>False</td>
+<td>1424</td>
+<td>1414.0</td>
+<td>0.0</td>
+<td>-10.0</td>
 <td>...</td>
-<td>2347.0</td>
-<td>933.0</td>
+<td>1430.0</td>
+<td>1507.0</td>
 <td>6.0</td>
-<td>2255</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2200-2259</td>
-<td>2</td>
+<td>1524</td>
+<td>-11.0</td>
+<td>0.0</td>
+<td>-1.0</td>
+<td>1500-1559</td>
 <td>1</td>
+<td>0</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">590541</td>
-<td>2022-03-07</td>
-<td>Republic Airlines</td>
-<td>EWR</td>
-<td>RDU</td>
+<td data-quarto-table-cell-role="th">9</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>IAH</td>
+<td>MOB</td>
 <td>False</td>
-<td>True</td>
-<td>1154</td>
-<td>1148.0</td>
+<td>False</td>
+<td>954</td>
+<td>947.0</td>
 <td>0.0</td>
-<td>-6.0</td>
+<td>-7.0</td>
 <td>...</td>
-<td>1201.0</td>
-<td>1552.0</td>
-<td>4.0</td>
-<td>1333</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1300-1359</td>
+<td>1004.0</td>
+<td>1104.0</td>
+<td>6.0</td>
+<td>1121</td>
+<td>-11.0</td>
+<td>0.0</td>
+<td>-1.0</td>
+<td>1100-1159</td>
 <td>2</td>
-<td>1</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
@@ -645,7 +661,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="get-ramdon-5-rows" class="level2" data-number="0.4">
 <h2 data-number="0.4" class="anchored" data-anchor-id="get-ramdon-5-rows"><span class="header-section-number">0.4</span> get ramdon 5 rows</h2>
-<div id="3a975e61" class="cell" data-execution_count="6">
+<div id="b8e9b9c2" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.sample(<span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -684,123 +700,123 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">324021</td>
-<td>2022-03-19</td>
-<td>SkyWest Airlines Inc.</td>
-<td>ASE</td>
-<td>DEN</td>
+<td data-quarto-table-cell-role="th">8</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>IAH</td>
+<td>AEX</td>
 <td>False</td>
 <td>False</td>
-<td>1831</td>
-<td>1826.0</td>
+<td>1424</td>
+<td>1414.0</td>
 <td>0.0</td>
-<td>-5.0</td>
-<td>...</td>
-<td>1845.0</td>
-<td>1916.0</td>
-<td>7.0</td>
-<td>1933</td>
 <td>-10.0</td>
+<td>...</td>
+<td>1430.0</td>
+<td>1507.0</td>
+<td>6.0</td>
+<td>1524</td>
+<td>-11.0</td>
 <td>0.0</td>
 <td>-1.0</td>
-<td>1900-1959</td>
+<td>1500-1559</td>
 <td>1</td>
 <td>0</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">34739</td>
-<td>2022-02-16</td>
-<td>SkyWest Airlines Inc.</td>
-<td>TYS</td>
-<td>DEN</td>
+<td data-quarto-table-cell-role="th">1</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>HRL</td>
+<td>IAH</td>
 <td>False</td>
 <td>False</td>
-<td>1605</td>
-<td>1605.0</td>
+<td>732</td>
+<td>728.0</td>
 <td>0.0</td>
-<td>0.0</td>
+<td>-4.0</td>
 <td>...</td>
-<td>1614.0</td>
-<td>1728.0</td>
-<td>44.0</td>
-<td>1737</td>
-<td>35.0</td>
-<td>1.0</td>
-<td>2.0</td>
-<td>1700-1759</td>
-<td>5</td>
+<td>744.0</td>
+<td>839.0</td>
+<td>9.0</td>
+<td>849</td>
+<td>-1.0</td>
+<td>0.0</td>
+<td>-1.0</td>
+<td>0800-0859</td>
+<td>2</td>
 <td>0</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">304494</td>
-<td>2022-01-18</td>
-<td>American Airlines Inc.</td>
-<td>LAX</td>
-<td>OGG</td>
+<td data-quarto-table-cell-role="th">5</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>DEN</td>
+<td>TUL</td>
 <td>False</td>
 <td>False</td>
-<td>1719</td>
-<td>1714.0</td>
+<td>955</td>
+<td>952.0</td>
 <td>0.0</td>
-<td>-5.0</td>
+<td>-3.0</td>
 <td>...</td>
-<td>1728.0</td>
-<td>2042.0</td>
-<td>10.0</td>
-<td>2049</td>
-<td>3.0</td>
+<td>1017.0</td>
+<td>1234.0</td>
+<td>4.0</td>
+<td>1240</td>
+<td>-2.0</td>
 <td>0.0</td>
-<td>0.0</td>
-<td>2000-2059</td>
-<td>10</td>
+<td>-1.0</td>
+<td>1200-1259</td>
+<td>3</td>
 <td>0</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">205451</td>
-<td>2022-01-23</td>
-<td>Southwest Airlines Co.</td>
-<td>LAS</td>
-<td>BWI</td>
+<td data-quarto-table-cell-role="th">0</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>GJT</td>
+<td>DEN</td>
 <td>False</td>
 <td>False</td>
-<td>1515</td>
-<td>1533.0</td>
-<td>18.0</td>
-<td>18.0</td>
+<td>1133</td>
+<td>1123.0</td>
+<td>0.0</td>
+<td>-10.0</td>
 <td>...</td>
-<td>1548.0</td>
-<td>2259.0</td>
-<td>3.0</td>
-<td>2235</td>
-<td>27.0</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>2200-2259</td>
-<td>9</td>
+<td>1140.0</td>
+<td>1220.0</td>
+<td>8.0</td>
+<td>1245</td>
+<td>-17.0</td>
+<td>0.0</td>
+<td>-2.0</td>
+<td>1200-1259</td>
+<td>1</td>
 <td>0</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">173176</td>
-<td>2022-07-01</td>
-<td>Delta Air Lines Inc.</td>
-<td>DTW</td>
-<td>RDU</td>
+<td data-quarto-table-cell-role="th">7</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>TYS</td>
+<td>IAH</td>
 <td>False</td>
 <td>False</td>
-<td>715</td>
-<td>709.0</td>
+<td>1129</td>
+<td>1117.0</td>
 <td>0.0</td>
-<td>-6.0</td>
+<td>-12.0</td>
 <td>...</td>
-<td>721.0</td>
-<td>834.0</td>
-<td>3.0</td>
-<td>853</td>
-<td>-16.0</td>
+<td>1139.0</td>
+<td>1255.0</td>
+<td>16.0</td>
+<td>1306</td>
+<td>5.0</td>
 <td>0.0</td>
-<td>-2.0</td>
-<td>0800-0859</td>
-<td>3</td>
+<td>0.0</td>
+<td>1300-1359</td>
+<td>4</td>
 <td>0</td>
 </tr>
 </tbody>
@@ -814,7 +830,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="get-columns-names" class="level2" data-number="0.5">
 <h2 data-number="0.5" class="anchored" data-anchor-id="get-columns-names"><span class="header-section-number">0.5</span> get columns names</h2>
-<div id="7f517a42" class="cell" data-execution_count="7">
+<div id="dd371d1d" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -843,124 +859,128 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="get-row-index" class="level2" data-number="0.6">
 <h2 data-number="0.6" class="anchored" data-anchor-id="get-row-index"><span class="header-section-number">0.6</span> get row index</h2>
-<div id="49b5c617" class="cell" data-execution_count="8">
+<div id="11e094c0" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>Index([     0,      1,      2,      3,      4,      5,      6,      7,      8,
-            9,
-       ...
-       590532, 590533, 590534, 590535, 590536, 590537, 590538, 590539, 590540,
-       590541],
-      dtype='int64', length=4078318)</code></pre>
+<pre><code>Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype='int64')</code></pre>
 </div>
 </div>
 </section>
 <section id="get-long-info" class="level2" data-number="0.7">
 <h2 data-number="0.7" class="anchored" data-anchor-id="get-long-info"><span class="header-section-number">0.7</span> get long info</h2>
-<div id="780aa1e5" class="cell" data-execution_count="9">
+<div id="bd9564c5" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>(10, 61)</code></pre>
+</div>
+</div>
+<div id="42aae92b" class="cell" data-execution_count="10">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-Index: 4078318 entries, 0 to 590541
+Index: 10 entries, 0 to 9
 Data columns (total 61 columns):
- #   Column                                   Dtype         
----  ------                                   -----         
- 0   FlightDate                               datetime64[us]
- 1   Airline                                  object        
- 2   Origin                                   object        
- 3   Dest                                     object        
- 4   Cancelled                                bool          
- 5   Diverted                                 bool          
- 6   CRSDepTime                               int64         
- 7   DepTime                                  float64       
- 8   DepDelayMinutes                          float64       
- 9   DepDelay                                 float64       
- 10  ArrTime                                  float64       
- 11  ArrDelayMinutes                          float64       
- 12  AirTime                                  float64       
- 13  CRSElapsedTime                           float64       
- 14  ActualElapsedTime                        float64       
- 15  Distance                                 float64       
- 16  Year                                     int64         
- 17  Quarter                                  int64         
- 18  Month                                    int64         
- 19  DayofMonth                               int64         
- 20  DayOfWeek                                int64         
- 21  Marketing_Airline_Network                object        
- 22  Operated_or_Branded_Code_Share_Partners  object        
- 23  DOT_ID_Marketing_Airline                 int64         
- 24  IATA_Code_Marketing_Airline              object        
- 25  Flight_Number_Marketing_Airline          int64         
- 26  Operating_Airline                        object        
- 27  DOT_ID_Operating_Airline                 int64         
- 28  IATA_Code_Operating_Airline              object        
- 29  Tail_Number                              object        
- 30  Flight_Number_Operating_Airline          int64         
- 31  OriginAirportID                          int64         
- 32  OriginAirportSeqID                       int64         
- 33  OriginCityMarketID                       int64         
- 34  OriginCityName                           object        
- 35  OriginState                              object        
- 36  OriginStateFips                          int64         
- 37  OriginStateName                          object        
- 38  OriginWac                                int64         
- 39  DestAirportID                            int64         
- 40  DestAirportSeqID                         int64         
- 41  DestCityMarketID                         int64         
- 42  DestCityName                             object        
- 43  DestState                                object        
- 44  DestStateFips                            int64         
- 45  DestStateName                            object        
- 46  DestWac                                  int64         
- 47  DepDel15                                 float64       
- 48  DepartureDelayGroups                     float64       
- 49  DepTimeBlk                               object        
- 50  TaxiOut                                  float64       
- 51  WheelsOff                                float64       
- 52  WheelsOn                                 float64       
- 53  TaxiIn                                   float64       
- 54  CRSArrTime                               int64         
- 55  ArrDelay                                 float64       
- 56  ArrDel15                                 float64       
- 57  ArrivalDelayGroups                       float64       
- 58  ArrTimeBlk                               object        
- 59  DistanceGroup                            int64         
- 60  DivAirportLandings                       int64         
+ #   Column                                   Non-Null Count  Dtype         
+---  ------                                   --------------  -----         
+ 0   FlightDate                               10 non-null     datetime64[us]
+ 1   Airline                                  10 non-null     object        
+ 2   Origin                                   10 non-null     object        
+ 3   Dest                                     10 non-null     object        
+ 4   Cancelled                                10 non-null     bool          
+ 5   Diverted                                 10 non-null     bool          
+ 6   CRSDepTime                               10 non-null     int64         
+ 7   DepTime                                  10 non-null     float64       
+ 8   DepDelayMinutes                          10 non-null     float64       
+ 9   DepDelay                                 10 non-null     float64       
+ 10  ArrTime                                  10 non-null     float64       
+ 11  ArrDelayMinutes                          10 non-null     float64       
+ 12  AirTime                                  10 non-null     float64       
+ 13  CRSElapsedTime                           10 non-null     float64       
+ 14  ActualElapsedTime                        10 non-null     float64       
+ 15  Distance                                 10 non-null     float64       
+ 16  Year                                     10 non-null     int64         
+ 17  Quarter                                  10 non-null     int64         
+ 18  Month                                    10 non-null     int64         
+ 19  DayofMonth                               10 non-null     int64         
+ 20  DayOfWeek                                10 non-null     int64         
+ 21  Marketing_Airline_Network                10 non-null     object        
+ 22  Operated_or_Branded_Code_Share_Partners  10 non-null     object        
+ 23  DOT_ID_Marketing_Airline                 10 non-null     int64         
+ 24  IATA_Code_Marketing_Airline              10 non-null     object        
+ 25  Flight_Number_Marketing_Airline          10 non-null     int64         
+ 26  Operating_Airline                        10 non-null     object        
+ 27  DOT_ID_Operating_Airline                 10 non-null     int64         
+ 28  IATA_Code_Operating_Airline              10 non-null     object        
+ 29  Tail_Number                              10 non-null     object        
+ 30  Flight_Number_Operating_Airline          10 non-null     int64         
+ 31  OriginAirportID                          10 non-null     int64         
+ 32  OriginAirportSeqID                       10 non-null     int64         
+ 33  OriginCityMarketID                       10 non-null     int64         
+ 34  OriginCityName                           10 non-null     object        
+ 35  OriginState                              10 non-null     object        
+ 36  OriginStateFips                          10 non-null     int64         
+ 37  OriginStateName                          10 non-null     object        
+ 38  OriginWac                                10 non-null     int64         
+ 39  DestAirportID                            10 non-null     int64         
+ 40  DestAirportSeqID                         10 non-null     int64         
+ 41  DestCityMarketID                         10 non-null     int64         
+ 42  DestCityName                             10 non-null     object        
+ 43  DestState                                10 non-null     object        
+ 44  DestStateFips                            10 non-null     int64         
+ 45  DestStateName                            10 non-null     object        
+ 46  DestWac                                  10 non-null     int64         
+ 47  DepDel15                                 10 non-null     float64       
+ 48  DepartureDelayGroups                     10 non-null     float64       
+ 49  DepTimeBlk                               10 non-null     object        
+ 50  TaxiOut                                  10 non-null     float64       
+ 51  WheelsOff                                10 non-null     float64       
+ 52  WheelsOn                                 10 non-null     float64       
+ 53  TaxiIn                                   10 non-null     float64       
+ 54  CRSArrTime                               10 non-null     int64         
+ 55  ArrDelay                                 10 non-null     float64       
+ 56  ArrDel15                                 10 non-null     float64       
+ 57  ArrivalDelayGroups                       10 non-null     float64       
+ 58  ArrTimeBlk                               10 non-null     object        
+ 59  DistanceGroup                            10 non-null     int64         
+ 60  DivAirportLandings                       10 non-null     int64         
 dtypes: bool(2), datetime64[us](1), float64(18), int64(23), object(17)
-memory usage: 1.8+ GB</code></pre>
+memory usage: 4.7+ KB</code></pre>
 </div>
 </div>
 </section>
 <section id="get-short-info" class="level2" data-number="0.8">
 <h2 data-number="0.8" class="anchored" data-anchor-id="get-short-info"><span class="header-section-number">0.8</span> get short info</h2>
-<div id="839a8345" class="cell" data-execution_count="10">
+<div id="e9753f18" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.info(verbose<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df.info(verbose<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-Index: 4078318 entries, 0 to 590541
+Index: 10 entries, 0 to 9
 Columns: 61 entries, FlightDate to DivAirportLandings
 dtypes: bool(2), datetime64[us](1), float64(18), int64(23), object(17)
-memory usage: 1.8+ GB</code></pre>
+memory usage: 4.7+ KB</code></pre>
 </div>
 </div>
 </section>
 <section id="summary-of-numeric-column" class="level2" data-number="0.9">
 <h2 data-number="0.9" class="anchored" data-anchor-id="summary-of-numeric-column"><span class="header-section-number">0.9</span> summary of numeric column</h2>
-<div id="70e99b0b" class="cell" data-execution_count="11">
+<div id="166d2d39" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 <div>
 
@@ -995,195 +1015,195 @@ memory usage: 1.8+ GB</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">count</td>
-<td>4078318</td>
-<td>4.078318e+06</td>
-<td>3.957885e+06</td>
-<td>3.957823e+06</td>
-<td>3.957823e+06</td>
-<td>3.954079e+06</td>
-<td>3.944916e+06</td>
-<td>3.944916e+06</td>
-<td>4.078318e+06</td>
-<td>3.944916e+06</td>
+<td>10</td>
+<td>10.000000</td>
+<td>10.000000</td>
+<td>10.0</td>
+<td>10.00000</td>
+<td>10.000000</td>
+<td>10.000000</td>
+<td>10.000000</td>
+<td>10.00000</td>
+<td>10.000000</td>
 <td>...</td>
-<td>3.955652e+06</td>
-<td>3.955652e+06</td>
-<td>3.954076e+06</td>
-<td>3.954076e+06</td>
-<td>4.078318e+06</td>
-<td>3.944916e+06</td>
-<td>3.944916e+06</td>
-<td>3.944916e+06</td>
-<td>4.078318e+06</td>
-<td>4.078318e+06</td>
+<td>10.00000</td>
+<td>10.000000</td>
+<td>10.000000</td>
+<td>10.000000</td>
+<td>10.000000</td>
+<td>10.000000</td>
+<td>10.0</td>
+<td>10.000000</td>
+<td>10.000000</td>
+<td>10.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">mean</td>
-<td>2022-04-18 12:10:43.903101</td>
-<td>1.329587e+03</td>
-<td>1.334374e+03</td>
-<td>1.601494e+01</td>
-<td>1.309049e+01</td>
-<td>1.457886e+03</td>
-<td>1.578307e+01</td>
-<td>1.110075e+02</td>
-<td>1.413211e+02</td>
-<td>1.358624e+02</td>
+<td>2022-04-04 00:00:00</td>
+<td>1256.500000</td>
+<td>1249.600000</td>
+<td>0.0</td>
+<td>-6.90000</td>
+<td>1390.000000</td>
+<td>1.100000</td>
+<td>58.400000</td>
+<td>84.00000</td>
+<td>84.400000</td>
 <td>...</td>
-<td>1.697375e+01</td>
-<td>1.356576e+03</td>
-<td>1.455073e+03</td>
-<td>7.894387e+00</td>
-<td>1.486058e+03</td>
-<td>7.528486e+00</td>
-<td>2.164715e-01</td>
-<td>-6.256103e-02</td>
-<td>3.663516e+00</td>
-<td>3.685098e-03</td>
+<td>18.00000</td>
+<td>1275.600000</td>
+<td>1378.000000</td>
+<td>8.000000</td>
+<td>1400.500000</td>
+<td>-6.500000</td>
+<td>0.0</td>
+<td>-1.000000</td>
+<td>2.000000</td>
+<td>0.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">min</td>
-<td>2022-01-01 00:00:00</td>
-<td>1.000000e+00</td>
-<td>1.000000e+00</td>
-<td>0.000000e+00</td>
-<td>-7.800000e+01</td>
-<td>1.000000e+00</td>
-<td>0.000000e+00</td>
-<td>8.000000e+00</td>
-<td>-4.800000e+01</td>
-<td>1.400000e+01</td>
+<td>2022-04-04 00:00:00</td>
+<td>732.000000</td>
+<td>728.000000</td>
+<td>0.0</td>
+<td>-15.00000</td>
+<td>848.000000</td>
+<td>0.000000</td>
+<td>26.000000</td>
+<td>52.00000</td>
+<td>42.000000</td>
 <td>...</td>
-<td>1.000000e+00</td>
-<td>1.000000e+00</td>
-<td>1.000000e+00</td>
-<td>1.000000e+00</td>
-<td>1.000000e+00</td>
-<td>-1.000000e+02</td>
-<td>0.000000e+00</td>
-<td>-2.000000e+00</td>
-<td>1.000000e+00</td>
-<td>0.000000e+00</td>
+<td>11.00000</td>
+<td>744.000000</td>
+<td>839.000000</td>
+<td>4.000000</td>
+<td>849.000000</td>
+<td>-18.000000</td>
+<td>0.0</td>
+<td>-2.000000</td>
+<td>1.000000</td>
+<td>0.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">25%</td>
-<td>2022-02-25 00:00:00</td>
-<td>9.140000e+02</td>
-<td>9.170000e+02</td>
-<td>0.000000e+00</td>
-<td>-5.000000e+00</td>
-<td>1.046000e+03</td>
-<td>0.000000e+00</td>
-<td>6.000000e+01</td>
-<td>8.900000e+01</td>
-<td>8.300000e+01</td>
+<td>2022-04-04 00:00:00</td>
+<td>998.500000</td>
+<td>993.250000</td>
+<td>0.0</td>
+<td>-10.00000</td>
+<td>1230.500000</td>
+<td>0.000000</td>
+<td>41.750000</td>
+<td>70.00000</td>
+<td>67.750000</td>
 <td>...</td>
-<td>1.100000e+01</td>
-<td>9.320000e+02</td>
-<td>1.044000e+03</td>
-<td>4.000000e+00</td>
-<td>1.103000e+03</td>
-<td>-1.400000e+01</td>
-<td>0.000000e+00</td>
-<td>-1.000000e+00</td>
-<td>2.000000e+00</td>
-<td>0.000000e+00</td>
+<td>16.00000</td>
+<td>1047.500000</td>
+<td>1223.500000</td>
+<td>5.250000</td>
+<td>1241.250000</td>
+<td>-12.500000</td>
+<td>0.0</td>
+<td>-1.000000</td>
+<td>1.250000</td>
+<td>0.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">50%</td>
-<td>2022-04-19 00:00:00</td>
-<td>1.320000e+03</td>
-<td>1.325000e+03</td>
-<td>0.000000e+00</td>
-<td>-2.000000e+00</td>
-<td>1.500000e+03</td>
-<td>0.000000e+00</td>
-<td>9.400000e+01</td>
-<td>1.240000e+02</td>
-<td>1.190000e+02</td>
+<td>2022-04-04 00:00:00</td>
+<td>1134.000000</td>
+<td>1129.000000</td>
+<td>0.0</td>
+<td>-6.00000</td>
+<td>1281.000000</td>
+<td>0.000000</td>
+<td>52.000000</td>
+<td>74.50000</td>
+<td>78.500000</td>
 <td>...</td>
-<td>1.500000e+01</td>
-<td>1.338000e+03</td>
-<td>1.456000e+03</td>
-<td>6.000000e+00</td>
-<td>1.513000e+03</td>
-<td>-5.000000e+00</td>
-<td>0.000000e+00</td>
-<td>-1.000000e+00</td>
-<td>3.000000e+00</td>
-<td>0.000000e+00</td>
+<td>17.00000</td>
+<td>1147.000000</td>
+<td>1249.000000</td>
+<td>7.000000</td>
+<td>1275.500000</td>
+<td>-7.000000</td>
+<td>0.0</td>
+<td>-1.000000</td>
+<td>2.000000</td>
+<td>0.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">75%</td>
-<td>2022-06-11 00:00:00</td>
-<td>1.735000e+03</td>
-<td>1.744000e+03</td>
-<td>1.100000e+01</td>
-<td>1.100000e+01</td>
-<td>1.914000e+03</td>
-<td>1.000000e+01</td>
-<td>1.410000e+02</td>
-<td>1.710000e+02</td>
-<td>1.670000e+02</td>
+<td>2022-04-04 00:00:00</td>
+<td>1432.250000</td>
+<td>1426.000000</td>
+<td>0.0</td>
+<td>-3.25000</td>
+<td>1538.500000</td>
+<td>0.000000</td>
+<td>59.250000</td>
+<td>89.25000</td>
+<td>82.750000</td>
 <td>...</td>
-<td>1.900000e+01</td>
-<td>1.758000e+03</td>
-<td>1.909000e+03</td>
-<td>9.000000e+00</td>
-<td>1.920000e+03</td>
-<td>1.000000e+01</td>
-<td>0.000000e+00</td>
-<td>0.000000e+00</td>
-<td>5.000000e+00</td>
-<td>0.000000e+00</td>
+<td>20.50000</td>
+<td>1442.000000</td>
+<td>1534.000000</td>
+<td>8.750000</td>
+<td>1584.750000</td>
+<td>-1.250000</td>
+<td>0.0</td>
+<td>-1.000000</td>
+<td>2.000000</td>
+<td>0.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">max</td>
-<td>2022-07-31 00:00:00</td>
-<td>2.359000e+03</td>
-<td>2.400000e+03</td>
-<td>7.223000e+03</td>
-<td>7.223000e+03</td>
-<td>2.400000e+03</td>
-<td>7.232000e+03</td>
-<td>7.270000e+02</td>
-<td>6.900000e+02</td>
-<td>7.640000e+02</td>
+<td>2022-04-04 00:00:00</td>
+<td>2139.000000</td>
+<td>2136.000000</td>
+<td>0.0</td>
+<td>0.00000</td>
+<td>2218.000000</td>
+<td>6.000000</td>
+<td>136.000000</td>
+<td>157.00000</td>
+<td>174.000000</td>
 <td>...</td>
-<td>2.210000e+02</td>
-<td>2.400000e+03</td>
-<td>2.400000e+03</td>
-<td>2.900000e+02</td>
-<td>2.359000e+03</td>
-<td>7.232000e+03</td>
-<td>1.000000e+00</td>
-<td>1.200000e+01</td>
-<td>1.100000e+01</td>
-<td>9.000000e+00</td>
+<td>25.00000</td>
+<td>2147.000000</td>
+<td>2213.000000</td>
+<td>16.000000</td>
+<td>2231.000000</td>
+<td>6.000000</td>
+<td>0.0</td>
+<td>0.000000</td>
+<td>4.000000</td>
+<td>0.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">std</td>
 <td>NaN</td>
-<td>4.904801e+02</td>
-<td>5.056219e+02</td>
-<td>5.231498e+01</td>
-<td>5.332016e+01</td>
-<td>5.431841e+02</td>
-<td>5.198424e+01</td>
-<td>6.996246e+01</td>
-<td>7.179635e+01</td>
-<td>7.185501e+01</td>
+<td>396.759163</td>
+<td>396.390156</td>
+<td>0.0</td>
+<td>4.72464</td>
+<td>370.127906</td>
+<td>2.330951</td>
+<td>30.638393</td>
+<td>29.81424</td>
+<td>35.693759</td>
 <td>...</td>
-<td>9.495407e+00</td>
-<td>5.075580e+02</td>
-<td>5.378428e+02</td>
-<td>6.663118e+00</td>
-<td>5.185078e+02</td>
-<td>5.524625e+01</td>
-<td>4.118393e-01</td>
-<td>2.487442e+00</td>
-<td>2.320848e+00</td>
-<td>1.141331e-01</td>
+<td>3.91578</td>
+<td>387.953949</td>
+<td>371.973416</td>
+<td>4.082483</td>
+<td>375.500925</td>
+<td>8.669871</td>
+<td>0.0</td>
+<td>0.666667</td>
+<td>0.942809</td>
+<td>0.0</td>
 </tr>
 </tbody>
 </table>
@@ -1196,12 +1216,12 @@ memory usage: 1.8+ GB</code></pre>
 </section>
 <section id="summary-of-categorical-column" class="level2" data-number="0.10">
 <h2 data-number="0.10" class="anchored" data-anchor-id="summary-of-categorical-column"><span class="header-section-number">0.10</span> summary of categorical column</h2>
-<div id="19fcd218" class="cell" data-execution_count="12">
+<div id="a5e5e258" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"Airline"</span>]].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"Airline"</span>]].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 <div>
 
@@ -1216,19 +1236,19 @@ memory usage: 1.8+ GB</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">count</td>
-<td>4078318</td>
+<td>10</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">unique</td>
-<td>21</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">top</td>
-<td>Southwest Airlines Co.</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">freq</td>
-<td>731925</td>
+<td>10</td>
 </tr>
 </tbody>
 </table>
@@ -1238,8 +1258,741 @@ memory usage: 1.8+ GB</code></pre>
 </div>
 </div>
 </section>
-<section id="reference" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Reference:</h1>
+<section id="select-column" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> select column</h1>
+<section id="select-column-by-column-names" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="select-column-by-column-names"><span class="header-section-number">1.1</span> select column by column names</h2>
+<div id="d59d8d26" class="cell" data-execution_count="14">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'FlightDate'</span>,<span class="st">'Airline'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">FlightDate</th>
+<th data-quarto-table-cell-role="th">Airline</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="first-3-columns" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="first-3-columns"><span class="header-section-number">1.2</span> first 3 columns</h2>
+<div id="da046717" class="cell" data-execution_count="15">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df[df.columns[:<span class="dv">3</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">FlightDate</th>
+<th data-quarto-table-cell-role="th">Airline</th>
+<th data-quarto-table-cell-role="th">Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>GJT</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>HRL</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>DRO</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>IAH</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>DRO</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>DEN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>IAH</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>TYS</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>IAH</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>IAH</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="last-3-columns" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="last-3-columns"><span class="header-section-number">1.3</span> last 3 columns</h2>
+<div id="2bc3b738" class="cell" data-execution_count="16">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df[df.columns[<span class="op">-</span><span class="dv">3</span>:]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ArrTimeBlk</th>
+<th data-quarto-table-cell-role="th">DistanceGroup</th>
+<th data-quarto-table-cell-role="th">DivAirportLandings</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1200-1259</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0800-0859</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1600-1659</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1600-1659</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1200-1259</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>1200-1259</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>2200-2259</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>1300-1359</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>1500-1559</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>1100-1159</td>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="select-3rd-columns" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="select-3rd-columns"><span class="header-section-number">1.4</span> select 3rd columns</h2>
+<div id="62b94d93" class="cell" data-execution_count="17">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df.iloc[:,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>0    GJT
+1    HRL
+2    DRO
+3    IAH
+4    DRO
+5    DEN
+6    IAH
+7    TYS
+8    IAH
+9    IAH
+Name: Origin, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="select-int-data-type-column" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="select-int-data-type-column"><span class="header-section-number">1.5</span> select int data type column</h2>
+<div id="aaac36de" class="cell" data-execution_count="18">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df.select_dtypes(<span class="st">'int'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CRSDepTime</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Quarter</th>
+<th data-quarto-table-cell-role="th">Month</th>
+<th data-quarto-table-cell-role="th">DayofMonth</th>
+<th data-quarto-table-cell-role="th">DayOfWeek</th>
+<th data-quarto-table-cell-role="th">DOT_ID_Marketing_Airline</th>
+<th data-quarto-table-cell-role="th">Flight_Number_Marketing_Airline</th>
+<th data-quarto-table-cell-role="th">DOT_ID_Operating_Airline</th>
+<th data-quarto-table-cell-role="th">Flight_Number_Operating_Airline</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">OriginStateFips</th>
+<th data-quarto-table-cell-role="th">OriginWac</th>
+<th data-quarto-table-cell-role="th">DestAirportID</th>
+<th data-quarto-table-cell-role="th">DestAirportSeqID</th>
+<th data-quarto-table-cell-role="th">DestCityMarketID</th>
+<th data-quarto-table-cell-role="th">DestStateFips</th>
+<th data-quarto-table-cell-role="th">DestWac</th>
+<th data-quarto-table-cell-role="th">CRSArrTime</th>
+<th data-quarto-table-cell-role="th">DistanceGroup</th>
+<th data-quarto-table-cell-role="th">DivAirportLandings</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1133</td>
+<td>2022</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>19977</td>
+<td>4301</td>
+<td>20445</td>
+<td>4301</td>
+<td>...</td>
+<td>8</td>
+<td>82</td>
+<td>11292</td>
+<td>1129202</td>
+<td>30325</td>
+<td>8</td>
+<td>82</td>
+<td>1245</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>732</td>
+<td>2022</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>19977</td>
+<td>4299</td>
+<td>20445</td>
+<td>4299</td>
+<td>...</td>
+<td>48</td>
+<td>74</td>
+<td>12266</td>
+<td>1226603</td>
+<td>31453</td>
+<td>48</td>
+<td>74</td>
+<td>849</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1529</td>
+<td>2022</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>19977</td>
+<td>4298</td>
+<td>20445</td>
+<td>4298</td>
+<td>...</td>
+<td>8</td>
+<td>82</td>
+<td>11292</td>
+<td>1129202</td>
+<td>30325</td>
+<td>8</td>
+<td>82</td>
+<td>1639</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1435</td>
+<td>2022</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>19977</td>
+<td>4296</td>
+<td>20445</td>
+<td>4296</td>
+<td>...</td>
+<td>48</td>
+<td>74</td>
+<td>11973</td>
+<td>1197302</td>
+<td>31973</td>
+<td>28</td>
+<td>53</td>
+<td>1605</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1135</td>
+<td>2022</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>19977</td>
+<td>4295</td>
+<td>20445</td>
+<td>4295</td>
+<td>...</td>
+<td>8</td>
+<td>82</td>
+<td>11292</td>
+<td>1129202</td>
+<td>30325</td>
+<td>8</td>
+<td>82</td>
+<td>1245</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>955</td>
+<td>2022</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>19977</td>
+<td>4294</td>
+<td>20445</td>
+<td>4294</td>
+<td>...</td>
+<td>8</td>
+<td>82</td>
+<td>15370</td>
+<td>1537002</td>
+<td>34653</td>
+<td>40</td>
+<td>73</td>
+<td>1240</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>2139</td>
+<td>2022</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>19977</td>
+<td>4293</td>
+<td>20445</td>
+<td>4293</td>
+<td>...</td>
+<td>48</td>
+<td>74</td>
+<td>12915</td>
+<td>1291503</td>
+<td>31205</td>
+<td>22</td>
+<td>72</td>
+<td>2231</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>1129</td>
+<td>2022</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>19977</td>
+<td>4292</td>
+<td>20445</td>
+<td>4292</td>
+<td>...</td>
+<td>47</td>
+<td>54</td>
+<td>12266</td>
+<td>1226603</td>
+<td>31453</td>
+<td>48</td>
+<td>74</td>
+<td>1306</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>1424</td>
+<td>2022</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>19977</td>
+<td>4291</td>
+<td>20445</td>
+<td>4291</td>
+<td>...</td>
+<td>48</td>
+<td>74</td>
+<td>10185</td>
+<td>1018502</td>
+<td>30185</td>
+<td>22</td>
+<td>72</td>
+<td>1524</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>954</td>
+<td>2022</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>19977</td>
+<td>4290</td>
+<td>20445</td>
+<td>4290</td>
+<td>...</td>
+<td>48</td>
+<td>74</td>
+<td>13422</td>
+<td>1342202</td>
+<td>30562</td>
+<td>1</td>
+<td>51</td>
+<td>1121</td>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>10 rows × 23 columns</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="select-cells" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> select cells</h1>
+<section id="select-3-rows-and-4-column-cells" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="select-3-rows-and-4-column-cells"><span class="header-section-number">2.1</span> select 3 rows and 4 column cells</h2>
+<div id="45ebf927" class="cell" data-execution_count="19">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">2</span>, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>'DEN'</code></pre>
+</div>
+</div>
+</section>
+<section id="select-first-5-rows-and-first-5-column-cells" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="select-first-5-rows-and-first-5-column-cells"><span class="header-section-number">2.2</span> select first 5 rows and first 5 column cells</h2>
+<div id="41d7d019" class="cell" data-execution_count="20">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df.iloc[:<span class="dv">5</span>, :<span class="dv">5</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">FlightDate</th>
+<th data-quarto-table-cell-role="th">Airline</th>
+<th data-quarto-table-cell-role="th">Origin</th>
+<th data-quarto-table-cell-role="th">Dest</th>
+<th data-quarto-table-cell-role="th">Cancelled</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>GJT</td>
+<td>DEN</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>HRL</td>
+<td>IAH</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>DRO</td>
+<td>DEN</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>IAH</td>
+<td>GPT</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>DRO</td>
+<td>DEN</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="select-3rd-rows" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="select-3rd-rows"><span class="header-section-number">2.3</span> select 3rd rows</h2>
+<div id="671050bc" class="cell" data-execution_count="21">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df.iloc[[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">FlightDate</th>
+<th data-quarto-table-cell-role="th">Airline</th>
+<th data-quarto-table-cell-role="th">Origin</th>
+<th data-quarto-table-cell-role="th">Dest</th>
+<th data-quarto-table-cell-role="th">Cancelled</th>
+<th data-quarto-table-cell-role="th">Diverted</th>
+<th data-quarto-table-cell-role="th">CRSDepTime</th>
+<th data-quarto-table-cell-role="th">DepTime</th>
+<th data-quarto-table-cell-role="th">DepDelayMinutes</th>
+<th data-quarto-table-cell-role="th">DepDelay</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">WheelsOff</th>
+<th data-quarto-table-cell-role="th">WheelsOn</th>
+<th data-quarto-table-cell-role="th">TaxiIn</th>
+<th data-quarto-table-cell-role="th">CRSArrTime</th>
+<th data-quarto-table-cell-role="th">ArrDelay</th>
+<th data-quarto-table-cell-role="th">ArrDel15</th>
+<th data-quarto-table-cell-role="th">ArrivalDelayGroups</th>
+<th data-quarto-table-cell-role="th">ArrTimeBlk</th>
+<th data-quarto-table-cell-role="th">DistanceGroup</th>
+<th data-quarto-table-cell-role="th">DivAirportLandings</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2022-04-04</td>
+<td>Commutair Aka Champlain Enterprises, Inc.</td>
+<td>DRO</td>
+<td>DEN</td>
+<td>False</td>
+<td>False</td>
+<td>1529</td>
+<td>1514.0</td>
+<td>0.0</td>
+<td>-15.0</td>
+<td>...</td>
+<td>1535.0</td>
+<td>1622.0</td>
+<td>14.0</td>
+<td>1639</td>
+<td>-3.0</td>
+<td>0.0</td>
+<td>-1.0</td>
+<td>1600-1659</td>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>1 rows × 61 columns</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="reference" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Reference:</h1>
 <p>https://www.youtube.com/watch?v=DkjCaAMBGWM</p>
 <p>https://www.youtube.com/watch?v=_gaAoJBMJ_Q</p>
 <p>https://pandas.pydata.org/</p>
@@ -1689,105 +2442,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb19" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Data manipulation with Pandas"</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-bg: true</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-border-left: "#31BAE9"</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Pandas_logo.svg.png)</span>{width="600"}</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.version)</span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'pandas version'</span>, pd.__version__)</span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reading from parquet</span></span>
-<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(<span class="st">"data/Combined_Flights_2022.parquet"</span>)</span>
-<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## get first 3 rows</span></span>
-<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span>
-<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## get last 3 rows</span></span>
-<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>df.tail(<span class="dv">3</span>)</span>
-<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## get ramdon 5 rows</span></span>
-<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>df.sample(<span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## get columns names</span></span>
-<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a>df.columns</span>
-<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## get row index</span></span>
-<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a>df.index</span>
-<span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-80"><a href="#cb19-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## get long info </span></span>
-<span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a>df.info()</span>
-<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## get short info </span></span>
-<span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-93"><a href="#cb19-93" aria-hidden="true" tabindex="-1"></a>df.info(verbose<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a><span class="fu">## summary of numeric column</span></span>
-<span id="cb19-100"><a href="#cb19-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-101"><a href="#cb19-101" aria-hidden="true" tabindex="-1"></a>df.describe()</span>
-<span id="cb19-102"><a href="#cb19-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-103"><a href="#cb19-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-104"><a href="#cb19-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-105"><a href="#cb19-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## summary of categorical column</span></span>
-<span id="cb19-108"><a href="#cb19-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-109"><a href="#cb19-109" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"Airline"</span>]].describe()</span>
-<span id="cb19-110"><a href="#cb19-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-111"><a href="#cb19-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-112"><a href="#cb19-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-113"><a href="#cb19-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-114"><a href="#cb19-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-115"><a href="#cb19-115" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reference:</span></span>
-<span id="cb19-116"><a href="#cb19-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-117"><a href="#cb19-117" aria-hidden="true" tabindex="-1"></a>https://www.youtube.com/watch?v=DkjCaAMBGWM</span>
-<span id="cb19-118"><a href="#cb19-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-119"><a href="#cb19-119" aria-hidden="true" tabindex="-1"></a>https://www.youtube.com/watch?v=_gaAoJBMJ_Q</span>
-<span id="cb19-120"><a href="#cb19-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-121"><a href="#cb19-121" aria-hidden="true" tabindex="-1"></a>https://pandas.pydata.org/</span>
-<span id="cb19-122"><a href="#cb19-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-123"><a href="#cb19-123" aria-hidden="true" tabindex="-1"></a>https://www.kaggle.com/code/lizhecheng/pandas-2-0-1-tutorial/notebook</span>
+<div class="sourceCode" id="cb31" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Data manipulation with Pandas"</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-bg: true</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-border-left: "#31BAE9"</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Pandas_logo.svg.png)</span>{width="600"}</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>built on top of the Python programming language.</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.version)</span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'pandas version'</span>, pd.__version__)</span>
+<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reading from parquet</span></span>
+<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-42"><a href="#cb31-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-43"><a href="#cb31-43" aria-hidden="true" tabindex="-1"></a>big_df <span class="op">=</span> pd.read_parquet(<span class="st">"data/Combined_Flights_2022.parquet"</span>)</span>
+<span id="cb31-44"><a href="#cb31-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-45"><a href="#cb31-45" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>big_df.head(<span class="dv">10</span>)</span>
+<span id="cb31-46"><a href="#cb31-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-47"><a href="#cb31-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-48"><a href="#cb31-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-49"><a href="#cb31-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## get first 3 rows</span></span>
+<span id="cb31-52"><a href="#cb31-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-53"><a href="#cb31-53" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span>
+<span id="cb31-54"><a href="#cb31-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-55"><a href="#cb31-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-56"><a href="#cb31-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## get last 3 rows</span></span>
+<span id="cb31-59"><a href="#cb31-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-60"><a href="#cb31-60" aria-hidden="true" tabindex="-1"></a>df.tail(<span class="dv">3</span>)</span>
+<span id="cb31-61"><a href="#cb31-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-62"><a href="#cb31-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-63"><a href="#cb31-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## get ramdon 5 rows</span></span>
+<span id="cb31-64"><a href="#cb31-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-67"><a href="#cb31-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-68"><a href="#cb31-68" aria-hidden="true" tabindex="-1"></a>df.sample(<span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb31-69"><a href="#cb31-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-70"><a href="#cb31-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-71"><a href="#cb31-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-72"><a href="#cb31-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## get columns names</span></span>
+<span id="cb31-75"><a href="#cb31-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-76"><a href="#cb31-76" aria-hidden="true" tabindex="-1"></a>df.columns</span>
+<span id="cb31-77"><a href="#cb31-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-78"><a href="#cb31-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-79"><a href="#cb31-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## get row index</span></span>
+<span id="cb31-82"><a href="#cb31-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-83"><a href="#cb31-83" aria-hidden="true" tabindex="-1"></a>df.index</span>
+<span id="cb31-84"><a href="#cb31-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-85"><a href="#cb31-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-86"><a href="#cb31-86" aria-hidden="true" tabindex="-1"></a><span class="fu">## get long info </span></span>
+<span id="cb31-87"><a href="#cb31-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-90"><a href="#cb31-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-91"><a href="#cb31-91" aria-hidden="true" tabindex="-1"></a>df.shape</span>
+<span id="cb31-92"><a href="#cb31-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-93"><a href="#cb31-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-94"><a href="#cb31-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-97"><a href="#cb31-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-98"><a href="#cb31-98" aria-hidden="true" tabindex="-1"></a>df.info()</span>
+<span id="cb31-99"><a href="#cb31-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-100"><a href="#cb31-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-101"><a href="#cb31-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-102"><a href="#cb31-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-103"><a href="#cb31-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## get short info </span></span>
+<span id="cb31-106"><a href="#cb31-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-107"><a href="#cb31-107" aria-hidden="true" tabindex="-1"></a>df.info(verbose<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb31-108"><a href="#cb31-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-109"><a href="#cb31-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-110"><a href="#cb31-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-111"><a href="#cb31-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## summary of numeric column</span></span>
+<span id="cb31-114"><a href="#cb31-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-115"><a href="#cb31-115" aria-hidden="true" tabindex="-1"></a>df.describe()</span>
+<span id="cb31-116"><a href="#cb31-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-117"><a href="#cb31-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-118"><a href="#cb31-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-119"><a href="#cb31-119" aria-hidden="true" tabindex="-1"></a><span class="fu">## summary of categorical column</span></span>
+<span id="cb31-122"><a href="#cb31-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-123"><a href="#cb31-123" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"Airline"</span>]].describe()</span>
+<span id="cb31-124"><a href="#cb31-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-125"><a href="#cb31-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-126"><a href="#cb31-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-127"><a href="#cb31-127" aria-hidden="true" tabindex="-1"></a><span class="fu"># select column</span></span>
+<span id="cb31-128"><a href="#cb31-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-129"><a href="#cb31-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## select column by column names</span></span>
+<span id="cb31-132"><a href="#cb31-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-133"><a href="#cb31-133" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'FlightDate'</span>,<span class="st">'Airline'</span>]]</span>
+<span id="cb31-134"><a href="#cb31-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-135"><a href="#cb31-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## first 3 columns</span></span>
+<span id="cb31-138"><a href="#cb31-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-139"><a href="#cb31-139" aria-hidden="true" tabindex="-1"></a>df[df.columns[:<span class="dv">3</span>]]</span>
+<span id="cb31-140"><a href="#cb31-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-141"><a href="#cb31-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## last 3 columns</span></span>
+<span id="cb31-144"><a href="#cb31-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-145"><a href="#cb31-145" aria-hidden="true" tabindex="-1"></a>df[df.columns[<span class="op">-</span><span class="dv">3</span>:]]</span>
+<span id="cb31-146"><a href="#cb31-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-147"><a href="#cb31-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-148"><a href="#cb31-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-149"><a href="#cb31-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## select 3rd columns</span></span>
+<span id="cb31-152"><a href="#cb31-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-153"><a href="#cb31-153" aria-hidden="true" tabindex="-1"></a>df.iloc[:,<span class="dv">2</span>]</span>
+<span id="cb31-154"><a href="#cb31-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-155"><a href="#cb31-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-156"><a href="#cb31-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-157"><a href="#cb31-157" aria-hidden="true" tabindex="-1"></a><span class="fu">## select int data type column</span></span>
+<span id="cb31-158"><a href="#cb31-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-161"><a href="#cb31-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-162"><a href="#cb31-162" aria-hidden="true" tabindex="-1"></a>df.select_dtypes(<span class="st">'int'</span>)</span>
+<span id="cb31-163"><a href="#cb31-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-164"><a href="#cb31-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-165"><a href="#cb31-165" aria-hidden="true" tabindex="-1"></a><span class="fu"># select cells</span></span>
+<span id="cb31-166"><a href="#cb31-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-167"><a href="#cb31-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-168"><a href="#cb31-168" aria-hidden="true" tabindex="-1"></a><span class="fu">## select 3 rows and 4 column cells</span></span>
+<span id="cb31-171"><a href="#cb31-171" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-172"><a href="#cb31-172" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb31-173"><a href="#cb31-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-174"><a href="#cb31-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-175"><a href="#cb31-175" aria-hidden="true" tabindex="-1"></a><span class="fu">## select first 5 rows and first 5 column cells</span></span>
+<span id="cb31-178"><a href="#cb31-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-179"><a href="#cb31-179" aria-hidden="true" tabindex="-1"></a>df.iloc[:<span class="dv">5</span>, :<span class="dv">5</span>] </span>
+<span id="cb31-180"><a href="#cb31-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-181"><a href="#cb31-181" aria-hidden="true" tabindex="-1"></a><span class="fu">## select 3rd rows</span></span>
+<span id="cb31-184"><a href="#cb31-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb31-185"><a href="#cb31-185" aria-hidden="true" tabindex="-1"></a>df.iloc[[<span class="dv">2</span>]]</span>
+<span id="cb31-186"><a href="#cb31-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-187"><a href="#cb31-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-188"><a href="#cb31-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-189"><a href="#cb31-189" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reference:</span></span>
+<span id="cb31-190"><a href="#cb31-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-191"><a href="#cb31-191" aria-hidden="true" tabindex="-1"></a>https://www.youtube.com/watch?v=DkjCaAMBGWM</span>
+<span id="cb31-192"><a href="#cb31-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-193"><a href="#cb31-193" aria-hidden="true" tabindex="-1"></a>https://www.youtube.com/watch?v=_gaAoJBMJ_Q</span>
+<span id="cb31-194"><a href="#cb31-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-195"><a href="#cb31-195" aria-hidden="true" tabindex="-1"></a>https://pandas.pydata.org/</span>
+<span id="cb31-196"><a href="#cb31-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-197"><a href="#cb31-197" aria-hidden="true" tabindex="-1"></a>https://www.kaggle.com/code/lizhecheng/pandas-2-0-1-tutorial/notebook</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
