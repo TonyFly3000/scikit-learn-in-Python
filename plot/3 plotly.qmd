@@ -191,8 +191,7 @@ fig.show()
 ```
 
 
-# title,size
-
+# title,size, x y names
 
 ## add title
 
@@ -221,6 +220,21 @@ fig.show()
 ```
 
 
+## change x y name
+
+
+```{python}
+fig = px.scatter(tips,x="tip", y="total_bill"
+                ,labels={
+                     "tip": "new x label)",
+                     "total_bill": "new y label"
+                 }
+
+)
+
+    
+fig.show()
+```
 
 
 # applying themes:

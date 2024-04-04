@@ -979,7 +979,7 @@
     "href": "plot/1 seaborn.html#color-by-group-1",
     "title": "seaborn chart",
     "section": "2.1 color by group",
-    "text": "2.1 color by group\n\n\nCode\nimport random\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndowjones2=dowjones&gt;&gt;mutate(type='old')\n\ndowjones3=dowjones&gt;&gt;mutate(Price=_.Price+random.random()*200,type='new')\n\ndowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)&gt;&gt; arrange(_.Date)\n\n\n\n\nCode\ndowjones4.head()\n\n\n\n\n\n\n\n\n\n\nDate\nPrice\ntype\n\n\n\n\n0\n1914-12-01\n55.000000\nold\n\n\n649\n1914-12-01\n99.424717\nnew\n\n\n1\n1915-01-01\n56.550000\nold\n\n\n650\n1915-01-01\n100.974717\nnew\n\n\n2\n1915-02-01\n56.000000\nold\n\n\n\n\n\n\n\n\n\n\nCode\nsns.lineplot(data=dowjones4,x='Date',y='Price',hue='type')",
+    "text": "2.1 color by group\n\n\nCode\nimport random\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndowjones2=dowjones&gt;&gt;mutate(type='old')\n\ndowjones3=dowjones&gt;&gt;mutate(Price=_.Price+random.random()*200,type='new')\n\ndowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)&gt;&gt; arrange(_.Date)\n\n\n\n\nCode\ndowjones4.head()\n\n\n\n\n\n\n\n\n\n\nDate\nPrice\ntype\n\n\n\n\n0\n1914-12-01\n55.000000\nold\n\n\n649\n1914-12-01\n125.660482\nnew\n\n\n1\n1915-01-01\n56.550000\nold\n\n\n650\n1915-01-01\n127.210482\nnew\n\n\n2\n1915-02-01\n56.000000\nold\n\n\n\n\n\n\n\n\n\n\nCode\nsns.lineplot(data=dowjones4,x='Date',y='Price',hue='type')",
     "crumbs": [
       "Plot",
       "seaborn chart"
@@ -2046,7 +2046,7 @@
     "href": "plot/3 plotly.html#color-by-group-1",
     "title": "Plotly chart",
     "section": "2.1 color by group",
-    "text": "2.1 color by group\n\n\nCode\nimport random\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndowjones2=dowjones&gt;&gt;mutate(type='old')\n\ndowjones3=dowjones&gt;&gt;mutate(Price=_.Price+random.random()*200,type='new')\n\ndowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)&gt;&gt; arrange(_.Date)\n\ndf = px.data.gapminder().query(\"continent=='Oceania'\")\n\n\n\n\nCode\ndowjones4.head()\n\n\n\n\n\n\n\n\n\n\nDate\nPrice\ntype\n\n\n\n\n0\n1914-12-01\n55.00000\nold\n\n\n649\n1914-12-01\n144.07985\nnew\n\n\n1\n1915-01-01\n56.55000\nold\n\n\n650\n1915-01-01\n145.62985\nnew\n\n\n2\n1915-02-01\n56.00000\nold\n\n\n\n\n\n\n\n\n\n\nCode\nimport plotly.express as px\n\nfig = px.line(dowjones4, x=\"Date\", y=\"Price\", color='type')\nfig.show()",
+    "text": "2.1 color by group\n\n\nCode\nimport random\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndowjones2=dowjones&gt;&gt;mutate(type='old')\n\ndowjones3=dowjones&gt;&gt;mutate(Price=_.Price+random.random()*200,type='new')\n\ndowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)&gt;&gt; arrange(_.Date)\n\ndf = px.data.gapminder().query(\"continent=='Oceania'\")\n\n\n\n\nCode\ndowjones4.head()\n\n\n\n\n\n\n\n\n\n\nDate\nPrice\ntype\n\n\n\n\n0\n1914-12-01\n55.000000\nold\n\n\n649\n1914-12-01\n81.210288\nnew\n\n\n1\n1915-01-01\n56.550000\nold\n\n\n650\n1915-01-01\n82.760288\nnew\n\n\n2\n1915-02-01\n56.000000\nold\n\n\n\n\n\n\n\n\n\n\nCode\nimport plotly.express as px\n\nfig = px.line(dowjones4, x=\"Date\", y=\"Price\", color='type')\nfig.show()",
     "crumbs": [
       "Plot",
       "Plotly chart"
@@ -3674,7 +3674,7 @@
     "href": "plot/2 plotnine.html#add-title",
     "title": "plotnine chart",
     "section": "8.1 add title",
-    "text": "8.1 add title\n\n\nCode\np=(\n    ggplot(data=tips)+aes(x=\"tip\",fill = 'sex')+ geom_histogram(position = 'dodge')+ ggtitle(\"tip by sex\")\n)\n\np",
+    "text": "8.1 add title\n\n\nCode\np=(\n    ggplot(data=tips)+aes(x=\"tip\",fill = 'sex')+ geom_histogram(position = 'dodge')+ ggtitle(\"tip by sex\")+ scale_x_continuous(name=\"new x name\")+ scale_y_continuous(name=\"new y name\")\n)\n\np",
     "crumbs": [
       "Plot",
       "plotnine chart"
@@ -5555,7 +5555,7 @@
     "href": "classification/8.2 Multiple Models using Pipeline and tuning.html#train-model",
     "title": "Multiple models using pipeline and tuning",
     "section": "3.4 train model",
-    "text": "3.4 train model\n\n\nCode\nstart_time = time.time()\n\n\nGrids = [Grid_xgb, Grid_rf]\nfor Grid in Grids:\n    Grid.fit(X_train,Y_train)\n\n\nend_time = time.time()\nduration = end_time - start_time\nduration\n\n\n47.97417092323303",
+    "text": "3.4 train model\n\n\nCode\nstart_time = time.time()\n\n\nGrids = [Grid_xgb, Grid_rf,pipeline_xgb,pipeline_rf,pipeline_lr]\nfor Grid in Grids:\n    Grid.fit(X_train,Y_train)\n\n\nend_time = time.time()\nduration = end_time - start_time\nduration\n\n\n45.8913140296936",
     "crumbs": [
       "Classification",
       "Multiple models using pipeline and tuning"
@@ -5566,7 +5566,7 @@
     "href": "classification/8.2 Multiple Models using Pipeline and tuning.html#preformance",
     "title": "Multiple models using pipeline and tuning",
     "section": "3.5 Preformance",
-    "text": "3.5 Preformance\n\n\nCode\ngrid_dict = {0: 'XGB', 1: 'random forest', 2: 'linear regression'}\n\nfor i, model in enumerate(Grids):\n    print('{} Test Accuracy: {}'.format(grid_dict[i],\n    model.score(X_test,Y_test)))\n    print('{} Best Params: {}'.format(grid_dict[i], model.best_params_))\n\n\nXGB Test Accuracy: 0.8316831683168316\nXGB Best Params: {'model__learning_rate': 0.02, 'model__max_depth': 3, 'model__min_child_weight': 5, 'model__n_estimators': 100, 'model__objective': 'reg:squarederror', 'model__subsample': 0.9}\nrandom forest Test Accuracy: 0.8316831683168316\nrandom forest Best Params: {'model__max_depth': 30, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}\n\n\n\n\nCode\nbest_ml=Grid_xgb.best_estimator_\n\n\n\n\nCode\n#Using predict method to test the model\nY_pred_dt = best_ml.predict(X_test) #always gets x and retuns y\nY_pred_dt\n\n\narray([0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\n       1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1,\n       1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0,\n       0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1,\n       0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0])\n\n\n\nAccuracy\n\n\n\nCode\n# Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives\n# Here is another way to find the accuracy score\nfrom sklearn import metrics\naccuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  \naccuracy\n\n\n0.8316831683168316\n\n\n\nPrecision\n\n\n\nCode\n# Precision = true positive / true positive + false positive\nprecision_dt = metrics.precision_score(Y_test,Y_pred_dt)  \nprecision_dt\n\n\n0.8148148148148148\n\n\n\nRecall\n\n\n\nCode\n# Recall = true positive / true positive + false negative\nrecall_dt = metrics.recall_score(Y_test,Y_pred_dt)  \nrecall_dt\n\n\n0.6470588235294118\n\n\n\nConfusion matrix\n\n\n\nCode\nimport seaborn as sns\nconfusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)\nconfusion_matrix_dt\n\n\narray([[62,  5],\n       [12, 22]])\n\n\n\nAUC - ROC Curve\n\n\n\nCode\nauc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score\nauc_dt\n\n\n0.786215978928885",
+    "text": "3.5 Preformance\n\n\nCode\ngrid_dict = {0: 'XGB', 1: 'random forest', 2: 'XGB non tune',3: 'ramdon forest non tune',4:'linear regression non tune' }\n\nfor i, model in enumerate(Grids):\n    print('{} Test Accuracy: {}'.format(grid_dict[i],\n    model.score(X_test,Y_test)))\n    #print('{} Best Params: {}'.format(grid_dict[i], model.best_params_))\n\n\nXGB Test Accuracy: 0.8712871287128713\nrandom forest Test Accuracy: 0.8217821782178217\nXGB non tune Test Accuracy: 0.8514851485148515\nramdon forest non tune Test Accuracy: 0.8217821782178217\nlinear regression non tune Test Accuracy: 0.7821782178217822\n\n\n\n\nCode\nbest_ml=Grid_xgb.best_estimator_\n\n\n\n\nCode\n#Using predict method to test the model\nY_pred_dt = best_ml.predict(X_test) #always gets x and retuns y\nY_pred_dt\n\n\narray([0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\n       1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1,\n       0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0,\n       0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1,\n       0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0])\n\n\n\nAccuracy\n\n\n\nCode\n# Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives\n# Here is another way to find the accuracy score\nfrom sklearn import metrics\naccuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  \naccuracy\n\n\n0.8712871287128713\n\n\n\nPrecision\n\n\n\nCode\n# Precision = true positive / true positive + false positive\nprecision_dt = metrics.precision_score(Y_test,Y_pred_dt)  \nprecision_dt\n\n\n0.9565217391304348\n\n\n\nRecall\n\n\n\nCode\n# Recall = true positive / true positive + false negative\nrecall_dt = metrics.recall_score(Y_test,Y_pred_dt)  \nrecall_dt\n\n\n0.6470588235294118\n\n\n\nConfusion matrix\n\n\n\nCode\nimport seaborn as sns\nconfusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)\nconfusion_matrix_dt\n\n\narray([[66,  1],\n       [12, 22]])\n\n\n\nAUC - ROC Curve\n\n\n\nCode\nauc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score\nauc_dt\n\n\n0.8160667251975416",
     "crumbs": [
       "Classification",
       "Multiple models using pipeline and tuning"
@@ -5577,7 +5577,7 @@
     "href": "classification/8.2 Multiple Models using Pipeline and tuning.html#k-fold-cross-validation",
     "title": "Multiple models using pipeline and tuning",
     "section": "3.6 k-Fold Cross-Validation",
-    "text": "3.6 k-Fold Cross-Validation\n\n\nCode\nimport numpy as np\nfrom sklearn.model_selection import KFold\nfrom sklearn.model_selection import cross_val_score\n\n\n\n\nCode\nkf_dt = KFold(n_splits=5,shuffle=True)  \ncv_dt = cross_val_score(pipeline_xgb, X_train, Y_train, cv=kf_dt)\nnp.mean(cv_dt)\n\n\n0.7942857142857143",
+    "text": "3.6 k-Fold Cross-Validation\n\n\nCode\nimport numpy as np\nfrom sklearn.model_selection import KFold\nfrom sklearn.model_selection import cross_val_score\n\n\n\n\nCode\nkf_dt = KFold(n_splits=5,shuffle=True)  \ncv_dt = cross_val_score(pipeline_xgb, X_train, Y_train, cv=kf_dt)\nnp.mean(cv_dt)\n\n\n0.7985714285714286",
     "crumbs": [
       "Classification",
       "Multiple models using pipeline and tuning"
@@ -5614,6 +5614,50 @@
     "crumbs": [
       "Classification",
       "Multiple models using pipeline and tuning"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#change-name",
+    "href": "plot/1 seaborn.html#change-name",
+    "title": "seaborn chart",
+    "section": "8.3 change name",
+    "text": "8.3 change name\n\n\nCode\nax=sns.boxplot(x = \"day\", y = \"total_bill\", data = df)\nax.set_title(\"tips box plot \")\nax.set(xlabel='x-axis label', ylabel='y-axis label')",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html#change-x-y-name",
+    "href": "plot/3 plotly.html#change-x-y-name",
+    "title": "Plotly chart",
+    "section": "8.3 change x y name",
+    "text": "8.3 change x y name\n\n\nCode\nfig = px.scatter(tips,x=\"tip\", y=\"total_bill\"\n                ,labels={\n                     \"tip\": \"new x label)\",\n                     \"total_bill\": \"new y label\"\n                 }\n\n)\n\n    \nfig.show()",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#change-x-y-name",
+    "href": "plot/1 seaborn.html#change-x-y-name",
+    "title": "seaborn chart",
+    "section": "8.3 change x y name",
+    "text": "8.3 change x y name\n\n\nCode\nax=sns.boxplot(x = \"day\", y = \"total_bill\", data = df)\nax.set_title(\"tips box plot \")\nax.set(xlabel='x-axis label', ylabel='y-axis label')",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/2 plotnine.html#change-x-y-name",
+    "href": "plot/2 plotnine.html#change-x-y-name",
+    "title": "plotnine chart",
+    "section": "8.3 change x y name",
+    "text": "8.3 change x y name\n\n\nCode\np=(\n    ggplot(data=tips)+aes(x=\"tip\",y=\"total_bill\")+ geom_point()\n)\n\np",
+    "crumbs": [
+      "Plot",
+      "plotnine chart"
     ]
   }
 ]

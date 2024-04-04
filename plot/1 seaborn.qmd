@@ -185,7 +185,7 @@ sns.boxplot(data=tips,x='day',y='tip',ax=axes[1])
 ```
 
 
-# title,size
+# title,size,x y name
 
 ## add title
 ```{python}
@@ -210,6 +210,14 @@ plt.show()
 
 ```
 
+## change x y name
+
+```{python}
+ax=sns.boxplot(x = "day", y = "total_bill", data = df)
+ax.set_title("tips box plot ")
+ax.set(xlabel='x-axis label', ylabel='y-axis label')
+
+```
 
 
 # applying themes
@@ -352,7 +360,6 @@ sns.boxplot(x = "day", y = "total_bill", data = df)
 
 # Save the plot with desired size
 plt.savefig("output.png", dpi=100, bbox_inches="tight")
-plt.show()
 
 
 ```

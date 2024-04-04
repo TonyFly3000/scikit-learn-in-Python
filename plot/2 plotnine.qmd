@@ -224,12 +224,12 @@ p=(
 p
 ```
 
-# title,size
+# title,size, x y names
 
 ## add title
 ```{python}
 p=(
-    ggplot(data=tips)+aes(x="tip",fill = 'sex')+ geom_histogram(position = 'dodge')+ ggtitle("tip by sex")
+    ggplot(data=tips)+aes(x="tip",fill = 'sex')+ geom_histogram(position = 'dodge')+ ggtitle("tip by sex")+ scale_x_continuous(name="new x name")+ scale_y_continuous(name="new y name")
 )
 
 p
@@ -245,6 +245,22 @@ p=(
 
 p
 ```
+
+
+## change x y name
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",y="total_bill")+ geom_point()
+)
+
+p
+
+
+```
+
+
+
+
 
 # applying themes
 
