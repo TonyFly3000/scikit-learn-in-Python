@@ -158,6 +158,79 @@ fig = px.scatter(tips, x="total_bill", y="tip", color="sex", facet_col="day",fac
 fig.show()
 ```
 
+
+# title,size
+
+
+
+
+## add title
+
+
+```{python}
+fig = px.scatter(tips,x="tip", y="total_bill", title="total_bill title").update_layout(title_x=0.5)
+fig.show()
+```
+
+
+## adjust size
+
+```{python}
+
+fig = px.scatter(tips,x="tip", y="total_bill")
+
+fig.update_layout(
+    autosize=False
+    ,width=200
+    ,height=200
+    )
+    
+fig.show()
+    
+    
+```
+
+
+
+
+# applying themes:
+
+## ggplot2 themes
+
+```{python}
+fig = px.scatter(tips,x="tip", y="total_bill",template="ggplot2")
+fig.show()
+```
+
+
+## seaborn themes
+
+```{python}
+fig = px.scatter(tips,x="tip", y="total_bill",template="seaborn")
+fig.show()
+```
+
+## plotly_dark themes
+
+```{python}
+fig = px.scatter(tips,x="tip", y="total_bill",template="plotly_dark")
+fig.show()
+```
+
+
+
+# Save plot
+
+install package with pip install -U kaleido
+
+```{python}
+fig = px.line(df, x="year", y="lifeExp", title='Life expectancy in Canada')
+fig.write_image("yourfile.png") 
+```
+
+
+
+
 # reference:
 
 https://plotly.com/python/

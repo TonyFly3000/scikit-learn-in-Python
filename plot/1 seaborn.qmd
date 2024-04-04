@@ -21,17 +21,16 @@ Seaborn is a Python data visualization library based on matplotlib. It provides 
 ```{python}
 # Import seaborn
 import seaborn as sns
-
 import matplotlib.pyplot as plt
+import matplotlib
 
 # Apply the default theme
-sns.set_theme()
+#sns.set_theme()
 
 # Load an example dataset
 tips = sns.load_dataset("tips")
 tips.head()
 ```
-
 # Scatter Plot
 
 ```{python}
@@ -104,24 +103,13 @@ sns.stripplot(data=tips,x='day',y='tip')
 sns.stripplot(data=tips,x='day',y='tip',hue='sex',dodge=True)
 ```
 
-# join plot
+join plot
 
 ```{python}
 sns.jointplot(data=tips,x='total_bill',y='tip',kind='reg')
 ```
 
-# sub plot
 
-```{python}
-sns.set()
-
-#define plotting region (1 rows, 2 columns)
-fig, axes = plt.subplots(1, 2)
-
-
-sns.boxplot(data=tips,x='day',y='tip',hue='sex',ax=axes[0])
-sns.boxplot(data=tips,x='day',y='tip',ax=axes[1])
-```
 
 # Facet plot
 
@@ -131,6 +119,7 @@ g = sns.FacetGrid(data=tips, col="day", hue="sex")
 g.map_dataframe(sns.scatterplot, x="total_bill", y="tip")
 
 g.add_legend()
+
 ```
 
 make 2 plot per column
@@ -141,7 +130,197 @@ g = sns.FacetGrid(data=tips, col="day",col_wrap=2, hue="sex")
 g.map_dataframe(sns.scatterplot, x="total_bill", y="tip")
 
 g.add_legend()
+
 ```
+
+sub plot
+
+```{python}
+#sns.set()
+
+#define plotting region (1 rows, 2 columns)
+fig, axes = plt.subplots(1, 2)
+
+
+sns.boxplot(data=tips,x='day',y='tip',hue='sex',ax=axes[0])
+sns.boxplot(data=tips,x='day',y='tip',ax=axes[1])
+```
+
+
+# title,size
+
+## add title
+```{python}
+
+df = sns.load_dataset("tips")
+
+ax=sns.boxplot(x = "day", y = "total_bill", data = df)
+
+ax.set_title("tips box plot ")
+```
+
+## adjust size
+```{python}
+plt.clf()
+
+plt.figure(figsize=(10, 6))
+
+ax=sns.boxplot(x = "day", y = "total_bill", data = df)
+ax.set_title("tips box plot ")
+
+plt.show()
+
+```
+
+
+
+# applying themes
+
+## darkgrid themes
+
+If you set the set_style function without any arguments the "darkgrid" theme will be used by default, which adds a gray background and white grid lines.
+
+```{python}
+import seaborn as sns
+
+df = sns.load_dataset("tips")
+
+sns.set_theme()
+# Equivalent to:
+# sns.set_style("darkgrid")
+
+sns.boxplot(x = "day", y = "total_bill", data = df)
+```
+
+
+## whitegrid themes
+
+If you want to add gray grid lines but with a white background set this theme.
+
+```{python}
+import seaborn as sns
+
+df = sns.load_dataset("tips")
+sns.set_style("whitegrid")
+
+sns.boxplot(x = "day", y = "total_bill", data = df)
+```
+
+## dark themes
+
+The "dark" theme is the same as "darkgrid" but without the grid lines.
+
+```{python}
+import seaborn as sns
+
+df = sns.load_dataset("tips")
+
+sns.set_style("dark")
+
+sns.boxplot(x = "day", y = "total_bill", data = df)
+```
+
+
+## white themes
+
+The "white" theme is the same as "whitegrid" but without the gray grid lines.
+
+```{python}
+import seaborn as sns
+
+df = sns.load_dataset("tips")
+
+sns.set_style("white")
+
+sns.boxplot(x = "day", y = "total_bill", data = df)
+```
+
+## ticks themes
+
+The "ticks" theme is the same as the "white" theme but this theme adds ticks to the axes.
+
+```{python}
+import seaborn as sns
+
+df = sns.load_dataset("tips")
+
+sns.set_style("ticks")
+
+sns.boxplot(x = "day", y = "total_bill", data = df)
+```
+
+## fivethirtyeight themes
+
+```{python}
+
+plt.clf()
+
+plt.style.use('fivethirtyeight')
+
+sns.boxplot(x = "day", y = "total_bill", data = df)
+
+plt.show()
+```
+
+
+## ggplot
+```{python}
+plt.clf()
+
+plt.style.use('ggplot')
+
+sns.boxplot(x = "day", y = "total_bill", data = df)
+fig.tight_layout()
+plt.show()
+```
+
+## tableau-colorblind10
+```{python}
+plt.clf()
+plt.style.use('tableau-colorblind10')
+
+sns.boxplot(x = "day", y = "total_bill", data = df)
+fig.tight_layout()
+plt.show()
+```
+
+
+
+
+## dark_background
+```{python}
+plt.clf()
+plt.style.use('dark_background')
+
+sns.boxplot(x = "day", y = "total_bill", data = df)
+fig.tight_layout()
+plt.show()
+```
+
+
+
+# Save plot
+
+```{python}
+import seaborn as sns
+
+df = sns.load_dataset("tips")
+
+plt.clf()
+
+plt.style.use('default')
+
+sns.boxplot(x = "day", y = "total_bill", data = df)
+
+# Save the plot with desired size
+plt.savefig("output.png", dpi=100, bbox_inches="tight")
+plt.show()
+
+
+```
+
+
+
 
 # reference:
 

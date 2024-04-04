@@ -946,7 +946,7 @@
     "href": "plot/1 seaborn.html",
     "title": "seaborn chart",
     "section": "",
-    "text": "Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.\nCode\n# Import seaborn\nimport seaborn as sns\n\nimport matplotlib.pyplot as plt\n\n# Apply the default theme\nsns.set_theme()\n\n# Load an example dataset\ntips = sns.load_dataset(\"tips\")\ntips.head()\n\n\n\n\n\n\n\n\n\n\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3\n\n\n3\n23.68\n3.31\nMale\nNo\nSun\nDinner\n2\n\n\n4\n24.59\n3.61\nFemale\nNo\nSun\nDinner\n4",
+    "text": "Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.\nCode\n# Import seaborn\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib\n\n# Apply the default theme\n#sns.set_theme()\n\n# Load an example dataset\ntips = sns.load_dataset(\"tips\")\ntips.head()\n\n\n\n\n\n\n\n\n\n\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3\n\n\n3\n23.68\n3.31\nMale\nNo\nSun\nDinner\n2\n\n\n4\n24.59\n3.61\nFemale\nNo\nSun\nDinner\n4",
     "crumbs": [
       "Plot",
       "seaborn chart"
@@ -1012,7 +1012,7 @@
     "href": "plot/1 seaborn.html#color-by-group-4",
     "title": "seaborn chart",
     "section": "6.1 color by group",
-    "text": "6.1 color by group\n\n\nCode\nsns.stripplot(data=tips,x='day',y='tip',hue='sex',dodge=True)",
+    "text": "6.1 color by group\n\n\nCode\nsns.stripplot(data=tips,x='day',y='tip',hue='sex',dodge=True)\n\n\n\n\n\n\n\n\n\njoin plot\n\n\nCode\nsns.jointplot(data=tips,x='total_bill',y='tip',kind='reg')",
     "crumbs": [
       "Plot",
       "seaborn chart"
@@ -3469,6 +3469,281 @@
     "crumbs": [
       "data manipulation",
       "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#darkgrid",
+    "href": "plot/1 seaborn.html#darkgrid",
+    "title": "seaborn chart",
+    "section": "10.1 darkgrid",
+    "text": "10.1 darkgrid\n\n\nCode\nimport seaborn as sns\n\ndf = sns.load_dataset(\"tips\")\n\nsns.set_theme()\n# Equivalent to:\n# sns.set_style(\"darkgrid\")\n\nsns.boxplot(x = \"day\", y = \"total_bill\", data = df)",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#darkgrid-1",
+    "href": "plot/1 seaborn.html#darkgrid-1",
+    "title": "seaborn chart",
+    "section": "10.2 darkgrid",
+    "text": "10.2 darkgrid\n\n\nCode\nimport seaborn as sns\n\ndf = sns.load_dataset(\"tips\")\nsns.set_style(\"whitegrid\")\n\nsns.boxplot(x = \"day\", y = \"total_bill\", data = df)",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#darkgrid-themes",
+    "href": "plot/1 seaborn.html#darkgrid-themes",
+    "title": "seaborn chart",
+    "section": "9.1 darkgrid themes",
+    "text": "9.1 darkgrid themes\nIf you set the set_style function without any arguments the “darkgrid” theme will be used by default, which adds a gray background and white grid lines.\n\n\nCode\nimport seaborn as sns\n\ndf = sns.load_dataset(\"tips\")\n\nsns.set_theme()\n# Equivalent to:\n# sns.set_style(\"darkgrid\")\n\nsns.boxplot(x = \"day\", y = \"total_bill\", data = df)",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#whitegrid-themes",
+    "href": "plot/1 seaborn.html#whitegrid-themes",
+    "title": "seaborn chart",
+    "section": "9.2 whitegrid themes",
+    "text": "9.2 whitegrid themes\nIf you want to add gray grid lines but with a white background set this theme.\n\n\nCode\nimport seaborn as sns\n\ndf = sns.load_dataset(\"tips\")\nsns.set_style(\"whitegrid\")\n\nsns.boxplot(x = \"day\", y = \"total_bill\", data = df)",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#dark-themes",
+    "href": "plot/1 seaborn.html#dark-themes",
+    "title": "seaborn chart",
+    "section": "9.3 dark themes",
+    "text": "9.3 dark themes\nThe “dark” theme is the same as “darkgrid” but without the grid lines.\n\n\nCode\nimport seaborn as sns\n\ndf = sns.load_dataset(\"tips\")\n\nsns.set_style(\"dark\")\n\nsns.boxplot(x = \"day\", y = \"total_bill\", data = df)",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#white-themes",
+    "href": "plot/1 seaborn.html#white-themes",
+    "title": "seaborn chart",
+    "section": "9.4 white themes",
+    "text": "9.4 white themes\nThe “white” theme is the same as “whitegrid” but without the gray grid lines.\n\n\nCode\nimport seaborn as sns\n\ndf = sns.load_dataset(\"tips\")\n\nsns.set_style(\"white\")\n\nsns.boxplot(x = \"day\", y = \"total_bill\", data = df)",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#ticks-themes",
+    "href": "plot/1 seaborn.html#ticks-themes",
+    "title": "seaborn chart",
+    "section": "9.5 ticks themes",
+    "text": "9.5 ticks themes\nThe “ticks” theme is the same as the “white” theme but this theme adds ticks to the axes.\n\n\nCode\nimport seaborn as sns\n\ndf = sns.load_dataset(\"tips\")\n\nsns.set_style(\"ticks\")\n\nsns.boxplot(x = \"day\", y = \"total_bill\", data = df)",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#add-title",
+    "href": "plot/1 seaborn.html#add-title",
+    "title": "seaborn chart",
+    "section": "8.1 add title",
+    "text": "8.1 add title\n\n\nCode\ndf = sns.load_dataset(\"tips\")\n\nax=sns.boxplot(x = \"day\", y = \"total_bill\", data = df)\n\nax.set_title(\"tips box plot \")\n\n\nText(0.5, 1.0, 'tips box plot ')",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#adjust-size",
+    "href": "plot/1 seaborn.html#adjust-size",
+    "title": "seaborn chart",
+    "section": "8.2 adjust size",
+    "text": "8.2 adjust size\n\n\nCode\nplt.clf()\n\nplt.figure(figsize=(10, 6))\n\nax=sns.boxplot(x = \"day\", y = \"total_bill\", data = df)\nax.set_title(\"tips box plot \")\n\nplt.show()\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#fivethirtyeight-themes",
+    "href": "plot/1 seaborn.html#fivethirtyeight-themes",
+    "title": "seaborn chart",
+    "section": "9.6 fivethirtyeight themes",
+    "text": "9.6 fivethirtyeight themes\n\n\nCode\nplt.clf()\n\nplt.style.use('fivethirtyeight')\n\nsns.boxplot(x = \"day\", y = \"total_bill\", data = df)\n\nplt.show()",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#dark_background",
+    "href": "plot/1 seaborn.html#dark_background",
+    "title": "seaborn chart",
+    "section": "9.9 dark_background",
+    "text": "9.9 dark_background\n\n\nCode\nplt.clf()\nplt.style.use('dark_background')\n\nsns.boxplot(x = \"day\", y = \"total_bill\", data = df)\nfig.tight_layout()\nplt.show()",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#tableau-colorblind1",
+    "href": "plot/1 seaborn.html#tableau-colorblind1",
+    "title": "seaborn chart",
+    "section": "11.8 tableau-colorblind1",
+    "text": "11.8 tableau-colorblind1\n\n\nCode\nmatplotlib.style.use('tableau-colorblind10')\n\nsns.boxplot(x = \"day\", y = \"total_bill\", data = df)\nfig.tight_layout()\nplt.show()",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#tableau-colorblind10",
+    "href": "plot/1 seaborn.html#tableau-colorblind10",
+    "title": "seaborn chart",
+    "section": "9.8 tableau-colorblind10",
+    "text": "9.8 tableau-colorblind10\n\n\nCode\nplt.clf()\nplt.style.use('tableau-colorblind10')\n\nsns.boxplot(x = \"day\", y = \"total_bill\", data = df)\nfig.tight_layout()\nplt.show()",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#ggplot",
+    "href": "plot/1 seaborn.html#ggplot",
+    "title": "seaborn chart",
+    "section": "9.7 ggplot",
+    "text": "9.7 ggplot\n\n\nCode\nplt.clf()\n\nplt.style.use('ggplot')\n\nsns.boxplot(x = \"day\", y = \"total_bill\", data = df)\nfig.tight_layout()\nplt.show()",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#add-legend",
+    "href": "plot/1 seaborn.html#add-legend",
+    "title": "seaborn chart",
+    "section": "10.3 add legend",
+    "text": "10.3 add legend\n\n\nCode\ng = sns.FacetGrid(data=tips, col=\"day\",col_wrap=2, hue=\"sex\")\n\ng.map_dataframe(sns.scatterplot, x=\"total_bill\", y=\"tip\")\n\ng.add_legend()",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "plot/2 plotnine.html#xkcd",
+    "href": "plot/2 plotnine.html#xkcd",
+    "title": "plotnine chart",
+    "section": "9.1 xkcd",
+    "text": "9.1 xkcd\n\n\nCode\np=(\n    ggplot(data=tips)+aes(x=\"tip\",fill = 'sex')+ geom_histogram(position = 'dodge')+ theme_xkcd()\n)\n\np",
+    "crumbs": [
+      "Plot",
+      "plotnine chart"
+    ]
+  },
+  {
+    "objectID": "plot/2 plotnine.html#theme_538",
+    "href": "plot/2 plotnine.html#theme_538",
+    "title": "plotnine chart",
+    "section": "9.2 theme_538",
+    "text": "9.2 theme_538\n\n\nCode\np=(\n    ggplot(data=tips)+aes(x=\"tip\",fill = 'sex')+ geom_histogram(position = 'dodge')+ theme_538()\n)\n\np",
+    "crumbs": [
+      "Plot",
+      "plotnine chart"
+    ]
+  },
+  {
+    "objectID": "plot/2 plotnine.html#theme_dark",
+    "href": "plot/2 plotnine.html#theme_dark",
+    "title": "plotnine chart",
+    "section": "9.3 theme_dark",
+    "text": "9.3 theme_dark\n\n\nCode\np=(\n    ggplot(data=tips)+aes(x=\"tip\",fill = 'sex')+ geom_histogram(position = 'dodge')+ theme_dark()\n)\n\np",
+    "crumbs": [
+      "Plot",
+      "plotnine chart"
+    ]
+  },
+  {
+    "objectID": "plot/2 plotnine.html#add-title",
+    "href": "plot/2 plotnine.html#add-title",
+    "title": "plotnine chart",
+    "section": "8.1 add title",
+    "text": "8.1 add title\n\n\nCode\np=(\n    ggplot(data=tips)+aes(x=\"tip\",fill = 'sex')+ geom_histogram(position = 'dodge')+ ggtitle(\"tip by sex\")\n)\n\np",
+    "crumbs": [
+      "Plot",
+      "plotnine chart"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html#add-title",
+    "href": "plot/3 plotly.html#add-title",
+    "title": "Plotly chart",
+    "section": "8.1 add title",
+    "text": "8.1 add title\n\n\nCode\nfig = px.scatter(tips,x=\"tip\", y=\"total_bill\", title=\"total_bill title\").update_layout(title_x=0.5)\nfig.show()",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html#adjust-size",
+    "href": "plot/3 plotly.html#adjust-size",
+    "title": "Plotly chart",
+    "section": "8.2 adjust size",
+    "text": "8.2 adjust size\n\n\nCode\nfig = px.scatter(tips,x=\"tip\", y=\"total_bill\")\n\nfig.update_layout(\n    autosize=False\n    ,width=200\n    ,height=200\n    )\n    \nfig.show()",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html#ggplot2-themes",
+    "href": "plot/3 plotly.html#ggplot2-themes",
+    "title": "Plotly chart",
+    "section": "9.1 ggplot2 themes",
+    "text": "9.1 ggplot2 themes\n\n\nCode\nfig = px.scatter(tips,x=\"tip\", y=\"total_bill\",template=\"ggplot2\")\nfig.show()",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html#seaborn-themes",
+    "href": "plot/3 plotly.html#seaborn-themes",
+    "title": "Plotly chart",
+    "section": "9.2 seaborn themes",
+    "text": "9.2 seaborn themes\n\n\nCode\nfig = px.scatter(tips,x=\"tip\", y=\"total_bill\",template=\"seaborn\")\nfig.show()",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
+    ]
+  },
+  {
+    "objectID": "plot/3 plotly.html#plotly_dark-themes",
+    "href": "plot/3 plotly.html#plotly_dark-themes",
+    "title": "Plotly chart",
+    "section": "9.3 plotly_dark themes",
+    "text": "9.3 plotly_dark themes\n\n\nCode\nfig = px.scatter(tips,x=\"tip\", y=\"total_bill\",template=\"plotly_dark\")\nfig.show()",
+    "crumbs": [
+      "Plot",
+      "Plotly chart"
+    ]
+  },
+  {
+    "objectID": "plot/2 plotnine.html#adjust-size",
+    "href": "plot/2 plotnine.html#adjust-size",
+    "title": "plotnine chart",
+    "section": "8.2 adjust size",
+    "text": "8.2 adjust size\n\n\nCode\np=(\n    ggplot(data=tips)+aes(x=\"tip\",fill = 'sex')+ geom_histogram(position = 'dodge')+ ggtitle(\"tip by sex\")+ theme(figure_size=(4, 3)) \n)\n\np",
+    "crumbs": [
+      "Plot",
+      "plotnine chart"
     ]
   }
 ]

@@ -192,8 +192,72 @@ p=(
 p
 ```
 
+# title,size
+
+## add title
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",fill = 'sex')+ geom_histogram(position = 'dodge')+ ggtitle("tip by sex")
+)
+
+p
+```
 
 
+## adjust size
+
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",fill = 'sex')+ geom_histogram(position = 'dodge')+ ggtitle("tip by sex")+ theme(figure_size=(4, 3)) 
+)
+
+p
+```
+
+# applying themes
+
+find all build in themes in https://github.com/has2k1/plotnine/tree/main/plotnine/themes
+
+## xkcd
+
+
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",fill = 'sex')+ geom_histogram(position = 'dodge')+ theme_xkcd()
+)
+
+p
+```
+
+## theme_538
+
+
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",fill = 'sex')+ geom_histogram(position = 'dodge')+ theme_538()
+)
+
+p
+```
+## theme_dark
+
+
+```{python}
+p=(
+    ggplot(data=tips)+aes(x="tip",fill = 'sex')+ geom_histogram(position = 'dodge')+ theme_dark()
+)
+
+p
+```
+# Save plot
+```{python}
+
+p=(
+    ggplot(data=tips)+aes(x="tip",fill = 'sex')+ geom_histogram(position = 'dodge')+ theme_dark()
+)
+
+p.save(filename = 'test3.png')
+```
 
 # reference:
 
