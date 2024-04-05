@@ -1,6 +1,6 @@
 ---
 title: "Multiple models using pipeline and fast tuning"
-subtitle: "with titanic data"
+subtitle: "with house price data"
 execute:
   warning: false
   error: false
@@ -14,6 +14,8 @@ format:
     code-block-bg: true
     code-block-border-left: "#31BAE9"
 ---
+
+with pipeline and tunning
 
 # load package
 
@@ -48,37 +50,32 @@ df_train = pd.read_csv('./data/train.csv')
 df_test = pd.read_csv('./data/test.csv')
 
 # Store our test passenger IDs for easy access
-PassengerId = df_train['PassengerId']
-PassengerId_test = df_test['PassengerId']
+Id = df_train['Id']
+Id_test = df_test['Id']
 
-df_train = df_train >> select(~_.PassengerId)
-df_test = df_test >> select(~_.PassengerId)
+df_train = df_train >> select(~_.Id,~_.PoolQC,~_.Fence,~_.MiscFeature,~_.Alley)
+df_test = df_test >> select(~_.Id,~_.PoolQC,~_.Fence,~_.MiscFeature,~_.Alley)
 
 # Showing overview of the train dataset
 df_train.head()
 
 ```
 
+
+
 ## data EDA
 
-```{python}
-sns.countplot(x='Survived', data=df_train);
-```
+in step 1
 
-```{python}
-sns.catplot(x='Survived', col='Sex', kind='count', data=df_train);
-```
+## Data Wrangling
 
-```{python}
-print(df_train[df_train.Sex == 'female'].Survived.sum()/df_train[df_train.Sex == 'female'].Survived.count())
-print(df_train[df_train.Sex == 'male'].Survived.sum()/df_train[df_train.Sex == 'male'].Survived.count())
-```
+
 
 ## Data Wrangling
 
 ```{python}
 # Store target variable of training data in a safe place
-survived_train = df_train.Survived
+#SalePrice_train = df_train.SalePrice
 
 
 
@@ -86,89 +83,40 @@ df_train['role'] = 'train'
 df_test['role'] = 'test'
 
 # Concatenate training and test sets
-data = pd.concat([df_train.drop(['Survived'], axis=1), df_test])
+data = pd.concat([df_train.drop(['SalePrice'], axis=1), df_test])
 ```
 
 ```{python}
-data.info()
-
+data.shape
 ```
 
-```{python}
-# Dealing with missing numerical variables
-#data['Age'] = data.Age.fillna(data.Age.median())
-#data['Fare'] = data.Fare.fillna(data.Fare.median())
-
-# Check out info of data
-data.info()
-```
-
-```{python}
-# Tranform Sex feature to numeric value
-# create a new column for each of the options in 'Sex'
-# creates a new column for female, called 'Sex_female', 
-# creates a new column for 'Sex_male'
-# more then two categorical values it is better to use one-hot-encode
-#data = pd.get_dummies(data, columns=['Sex'], drop_first=True)
-data.head()
-```
-
-```{python}
-# Select features columns
-#data = data[['Sex', 'Fare', 'Age','Pclass', 'SibSp','role']]
-data.head()
-```
 
 ## split data
 
-60% training / 30% validation/ 10% testing
-
-![](images/1_Nv2NNALuokZEcV6hYEHdGA.webp){width="520"}
-
 ```{python}
-Y=df_train['Survived']
-X=data[data.role =='train']
 
-#X_train,X_test,Y_train,Y_test=train_test_split(X,Y,train_size = 0.8)
-
-
-training_size=0.8
-validation_size=0.1
-testing_size=0.1
+Y = df_train.SalePrice
+X = df_train.drop(['SalePrice'], axis=1)
 
 
-X_train, X_val, Y_train, Y_val= train_test_split(X, Y, test_size=validation_size, random_state=1)
-
-
-X_train, X_test, Y_train, Y_test= train_test_split(X_train, Y_train, test_size=testing_size/training_size, random_state=1) 
-    
+X_train,X_test,Y_train,Y_test=train_test_split(X,Y,train_size = 0.8)
 
 X_train = X_train.drop('role', axis=1)
-X_val = X_val.drop('role', axis=1)
 X_test = X_test.drop('role', axis=1)
 
 
 ```
 
+
 ```{python}
-X_train.info()
+print(X_train.shape)
+print(X_test.shape)
 ```
 
 ```{python}
-len(X_train)/(len(X_train) +len(X_val) +len(X_test) )
+print(Y_train.shape)
+print(Y_test.shape)
 ```
-
-```{python}
-len(X_val)/(len(X_train) +len(X_val) +len(X_test) )
-```
-
-```{python}
-len(X_test)/(len(X_train) +len(X_val) +len(X_test) )
-```
-
-
-
-## categorical_cols and numerical_cols
 
 
 ```{python}
@@ -189,10 +137,9 @@ print("The total number of numerical columns:", len(numerical_cols))
 ```{python}
 my_cols = categorical_cols + numerical_cols
 X_train = X_train[my_cols].copy()
-X_val = X_val[my_cols].copy()
 X_test= X_test[my_cols].copy()
 
-my_cols
+
 #X_final = df_test[my_cols].copy()
 ```
 
@@ -214,8 +161,6 @@ numerical_transformer = Pipeline(steps=[
 ```
 
 
-
-
 ```{python}
 from sklearn.preprocessing import OneHotEncoder
 
@@ -235,38 +180,36 @@ preprocessor = ColumnTransformer(transformers=[
 ```
 
 
+
 # model
+
 
 
 ## define model
 
-```{python}
-import xgboost
-print(xgboost.__version__)
-```
 
 ### XGB model
 ```{python}
-from xgboost import XGBClassifier
-xgb_model = XGBClassifier()
+from xgboost import XGBRegressor
+xgb_model = XGBRegressor()
 xgb_model
 ```
 
 ### Random Forest model
 ```{python}
-from sklearn.ensemble import RandomForestClassifier
-random_forest_model = RandomForestClassifier()
+
+from sklearn.ensemble import RandomForestRegressor
+random_forest_model = RandomForestRegressor()
 random_forest_model
 ```
 
-### Logistic Regression model
+### Linear Regression model
 
 ```{python}
-from sklearn.linear_model import LogisticRegression
-LogisticRegression_model = LogisticRegression(solver='liblinear')
-LogisticRegression_model
+from sklearn.linear_model import LinearRegression
+LinearRegression_model = LinearRegression()
+LinearRegression_model
 ```
-
 
 
 ## define pipline
@@ -289,12 +232,14 @@ pipeline_rf = Pipeline(
 pipeline_lr = Pipeline(
   steps=[
          ('preprocessor', preprocessor), 
-         ('model', LogisticRegression_model)
+         ('model', LinearRegression_model)
          ]
 )
 ```
 
 ## define GridSearch
+
+
 
 ```{python}         
 
@@ -313,7 +258,7 @@ parameters_xgb= {
 
 Grid_xgb = HalvingGridSearchCV(pipeline_xgb
                 ,parameters_xgb 
-                ,scoring='accuracy'
+                #,scoring='neg_root_mean_squared_error'
                 ,max_resources=100
                 , cv=10, n_jobs=-1)
                 
@@ -326,7 +271,7 @@ parameters_rf = {'model__max_depth':[20,30,40],
 
 Grid_rf = HalvingGridSearchCV(pipeline_rf
                 ,parameters_rf
-                ,scoring='accuracy'
+                #,scoring='neg_root_mean_squared_error'
                 ,max_resources=100
                 , cv=10, n_jobs=-1)
                 
@@ -340,7 +285,12 @@ Grid_rf = HalvingGridSearchCV(pipeline_rf
 start_time = time.time()
 
 
-Grids = [Grid_xgb, Grid_rf,pipeline_xgb,pipeline_rf,pipeline_lr]
+#Grids = [Grid_xgb,Grid_rf,pipeline_xgb,pipeline_rf,pipeline_lr]
+
+
+Grids = [pipeline_xgb,pipeline_rf]
+
+
 for Grid in Grids:
     Grid.fit(X_train,Y_train)
 
@@ -351,10 +301,15 @@ duration
 
 ```
 
+
+
 ## Preformance
 
 ```{python}
-grid_dict = {0: 'XGB', 1: 'random forest', 2: 'XGB non tune',3: 'ramdon forest non tune',4:'Logistic regression non tune' }
+#grid_dict = {0: 'XGB', 1: 'random forest', 2: 'XGB non tune',3: 'ramdon forest non tune',4:'linear regression non tune' }
+
+grid_dict = {0: 'XGB', 1: 'random forest'}
+
 
 for i, model in enumerate(Grids):
     print('{} Test Accuracy: {}'.format(grid_dict[i],
@@ -362,8 +317,9 @@ for i, model in enumerate(Grids):
     #print('{} Best Params: {}'.format(grid_dict[i], model.best_params_))
 ```
 
+
 ```{python}
-best_ml=Grid_xgb.best_estimator_
+best_ml=pipeline_xgb
 ```
 
 ```{python}
@@ -372,46 +328,31 @@ Y_pred_dt = best_ml.predict(X_test) #always gets x and retuns y
 Y_pred_dt
 ```
 
-a)  Accuracy
+
+
+R 2
+
 
 ```{python}
-# Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives
-# Here is another way to find the accuracy score
-from sklearn import metrics
-accuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  
-accuracy
+from sklearn.metrics import r2_score
+r2_score(Y_test, Y_pred_dt)
 ```
 
-b)  Precision
-
+MAE
 ```{python}
-# Precision = true positive / true positive + false positive
-precision_dt = metrics.precision_score(Y_test,Y_pred_dt)  
-precision_dt
+from sklearn.metrics import mean_absolute_error
+mean_absolute_error(Y_test, Y_pred_dt)
 ```
 
-c)  Recall
-
+RMSE
 ```{python}
-# Recall = true positive / true positive + false negative
-recall_dt = metrics.recall_score(Y_test,Y_pred_dt)  
-recall_dt
+from  math import sqrt
+from sklearn.metrics import mean_squared_error
+mse=mean_squared_error(Y_test, Y_pred_dt)
+rmse=sqrt(mse)
+rmse
 ```
 
-d)  Confusion matrix
-
-```{python}
-import seaborn as sns
-confusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)
-confusion_matrix_dt
-```
-
-e)  AUC - ROC Curve
-
-```{python}
-auc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score
-auc_dt
-```
 
 ## k-Fold Cross-Validation
 
@@ -421,45 +362,24 @@ from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
 ```
 
+
 ```{python}
 kf_dt = KFold(n_splits=5,shuffle=True)  
-cv_dt = cross_val_score(pipeline_xgb, X_train, Y_train, cv=kf_dt)
-np.mean(cv_dt)
-```
-
-## save model
- 
-
-```{python}
-from joblib import dump, load
-dump(Grid_xgb, 'trained_grid_8_2.joblib', compress=True)  
-``` 
-
-## load model
-
-```{python}
-model_reload = load('trained_grid_8_2.joblib') 
 ```
 
 
 
 ```{python}
-best_ml=model_reload.best_estimator_
-```
-
-## final prediction
-
-```{python}
-Y_pred_dt_final =best_ml.predict(X_val) #always gets x and retuns y
-
-Y_pred_dt_final[0:5]
+#cv_dt = cross_val_score(optimised_model_pipeline, X_train, Y_train, cv=kf_dt,scoring = 'neg_mean_squared_error')
+#np.mean(np.sqrt(np.abs(cv_dt)))
 ```
 
 
 # reference:
 
-https://github.com/alicevillar/titanic-kaggle/blob/main/Titanic_DecisionTree.ipynb
 
-https://github.com/ray-project/tune-sklearn
 
-https://medium.com/distributed-computing-with-ray/gridsearchcv-2-0-new-and-improved-ee56644cbabf
+https://scikit-learn.org/stable/modules/tree.html
+
+https://github.com/codebasics/py/blob/master/ML/15_gridsearch/15_grid_search.ipynb
+

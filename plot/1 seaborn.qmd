@@ -99,11 +99,14 @@ dowjones4.head()
 sns.lineplot(data=dowjones4,x='Date',y='Price',hue='type')
 ```
 
+
+
 # histogram
 
 ```{python}
 sns.histplot(data=tips,x='tip')
 ```
+
 
 ## color by group
 
@@ -362,6 +365,47 @@ sns.boxplot(x = "day", y = "total_bill", data = df)
 plt.savefig("output.png", dpi=100, bbox_inches="tight")
 
 
+```
+
+
+# Animation plot
+
+```{python}
+from celluloid import Camera
+```
+
+
+```{python}
+#| output: false 
+from celluloid import Camera
+from matplotlib import pyplot as plt
+
+fig = plt.figure()
+
+camera = Camera(fig)
+
+a=sns.lineplot(data=dowjones4,x='Date',y='Price',hue='type')
+
+hands, labs = a.get_legend_handles_labels()
+
+new_data=dowjones4.sample(50, random_state=42)
+
+new_data=new_data.sort_values(by=['Date'], ascending=True)
+
+for i in (new_data["Date"]):
+  data=dowjones4.query('Date <= @i')
+  #print(data)
+  sns.lineplot(data=data,x='Date',y='Price',hue='type')
+  plt.legend(handles=hands, labels=labs)
+  camera.snap()
+
+animation = camera.animate()
+
+```
+
+```{python}
+from IPython.display import HTML
+HTML(animation.to_html5_video())
 ```
 
 

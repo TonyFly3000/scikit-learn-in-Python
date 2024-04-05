@@ -307,6 +307,57 @@ p=(
 p.save(filename = 'test3.png')
 ```
 
+
+
+# Animation plot
+
+```{python}
+from plotnine.animation import PlotnineAnimation
+```
+
+
+```{python}
+#| output: false 
+
+new_data=dowjones4.sample(50, random_state=42)
+
+new_data=new_data.sort_values(by=['Date'], ascending=True)
+
+#write a function that creates all the plots
+def plot(x):
+    df2 = dowjones4.query('Date <= @x')
+
+    p = (ggplot(df2,
+               aes(x = 'Date', y = 'Price'))
+         + geom_line(aes(color="type"))
+         # Specify the limits for the x and y aesthetics
+         #+ scale_x_continuous(limits=(dowjones4.Date.min(), dowjones4.Date.max()))
+         #+ scale_y_continuous(limits=(dowjones4.Price.min(), dowjones4.Price.max()))
+         + theme(subplots_adjust={'right': 0.85}) # Make space for the legend
+        )
+    return(p)
+
+
+plots = (plot(i) for i in (new_data["Date"]))
+
+
+
+```
+
+```{python}
+from matplotlib import rc
+
+rc("animation", html="html5")
+
+#create the animation
+animation = PlotnineAnimation(plots, interval=300, repeat_delay=500)
+animation
+```
+
+
+
+
+
 # reference:
 
 https://plotnine.org/

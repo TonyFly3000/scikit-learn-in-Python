@@ -261,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../classification/8.2 Multiple Models using Pipeline and tuning.html">
- <span class="dropdown-text">Multiple models using pipeline and tuning</span></a>
+ <span class="dropdown-text">Multiple models using pipeline and fast tuning</span></a>
   </li>  
     </ul>
   </li>
@@ -274,6 +274,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../regression/0 house price data.html">
  <span class="dropdown-text">Housing Prices Dataset</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../regression/1 Linear Regression.html">
+ <span class="dropdown-text">Linear Regression</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../regression/2 Decision Tree on house price data.html">
@@ -290,6 +294,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../regression/5 XGboost on house price data.html">
  <span class="dropdown-text">XGboost and pipeline, hyperparameter tuning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../regression/8 Multiple Models using Pipeline and fast tuning.html">
+ <span class="dropdown-text">Multiple models using pipeline and fast tuning</span></a>
   </li>  
     </ul>
   </li>
@@ -391,7 +399,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#theme_dark" id="toc-theme_dark" class="nav-link" data-scroll-target="#theme_dark"><span class="header-section-number">9.3</span> theme_dark</a></li>
   </ul></li>
   <li><a href="#save-plot" id="toc-save-plot" class="nav-link" data-scroll-target="#save-plot"><span class="header-section-number">10</span> Save plot</a></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">11</span> reference:</a></li>
+  <li><a href="#animation-plot" id="toc-animation-plot" class="nav-link" data-scroll-target="#animation-plot"><span class="header-section-number">11</span> Animation plot</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">12</span> reference:</a></li>
   </ul>
 </nav>
     </div>
@@ -419,7 +428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p><img src="images/logo-540.png" class="img-fluid" width="300"></p>
 <p>plotnine is an implementation of a grammar of graphics in Python based on ggplot2.</p>
-<div id="7c922086" class="cell" data-execution_count="1">
+<div id="c537fa64" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotnine</span>
@@ -429,7 +438,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>0.13.3</code></pre>
 </div>
 </div>
-<div id="55211ac6" class="cell" data-execution_count="2">
+<div id="4787aba4" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
@@ -440,7 +449,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>0.13.3</code></pre>
 </div>
 </div>
-<div id="c64c75b5" class="cell" data-execution_count="3">
+<div id="7051a325" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
@@ -455,7 +464,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>tips <span class="op">=</span> sns.load_dataset(<span class="st">"tips"</span>)</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>tips.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="63">
 <div>
 <div>
 
@@ -533,7 +542,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="scatter-plot" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Scatter Plot</h1>
-<div id="173da002" class="cell" data-execution_count="4">
+<div id="f0bbc72c" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -552,7 +561,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="color-by-group" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="color-by-group"><span class="header-section-number">1.1</span> color by group</h2>
-<div id="34a5190b" class="cell" data-execution_count="5">
+<div id="760dce68" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -572,7 +581,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="size-by-group" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="size-by-group"><span class="header-section-number">1.2</span> size by group</h2>
-<div id="3280cc5e" class="cell" data-execution_count="6">
+<div id="1b1345c4" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -593,13 +602,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="line-plot" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> line Plot</h1>
-<div id="0f0cd25f" class="cell" data-execution_count="7">
+<div id="d9c64ff5" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dowjones<span class="op">=</span> sns.load_dataset(<span class="st">"dowjones"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dowjones.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="67">
 <div>
 <div>
 
@@ -645,7 +654,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="6e076036" class="cell" data-execution_count="8">
+<div id="22cf7da8" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -662,7 +671,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="9b1c8b1c" class="cell" data-execution_count="9">
+<div id="9d9868f7" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
@@ -676,12 +685,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>dowjones4<span class="op">=</span>pd.concat([dowjones2, dowjones3], ignore_index <span class="op">=</span> <span class="va">True</span>)<span class="op">&gt;&gt;</span> arrange(_.Date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="1d757f6c" class="cell" data-execution_count="10">
+<div id="b54c2890" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dowjones4.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="70">
 <div>
 <div>
 
@@ -705,7 +714,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td data-quarto-table-cell-role="th">649</td>
 <td>1914-12-01</td>
-<td>189.800274</td>
+<td>246.716041</td>
 <td>new</td>
 </tr>
 <tr class="odd">
@@ -717,7 +726,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td data-quarto-table-cell-role="th">650</td>
 <td>1915-01-01</td>
-<td>191.350274</td>
+<td>248.266041</td>
 <td>new</td>
 </tr>
 <tr class="odd">
@@ -735,7 +744,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="color-by-group-1" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="color-by-group-1"><span class="header-section-number">2.1</span> color by group</h2>
-<div id="8e454827" class="cell" data-execution_count="11">
+<div id="27fff333" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -756,7 +765,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="histogram" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> histogram</h1>
-<div id="e536c4e6" class="cell" data-execution_count="12">
+<div id="9dd23bb3" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -775,7 +784,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="color-by-group-2" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="color-by-group-2"><span class="header-section-number">3.1</span> color by group</h2>
-<div id="d6b9047d" class="cell" data-execution_count="13">
+<div id="afa3ae99" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -796,7 +805,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="bar-chart" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> bar chart</h1>
-<div id="4de706f6" class="cell" data-execution_count="14">
+<div id="7e6904b3" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -816,7 +825,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="box-plot" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> box plot</h1>
-<div id="e1bd5a24" class="cell" data-execution_count="15">
+<div id="e282f4be" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -835,7 +844,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="color-by-group-3" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="color-by-group-3"><span class="header-section-number">5.1</span> color by group</h2>
-<div id="2fe71aef" class="cell" data-execution_count="16">
+<div id="33727d21" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -856,7 +865,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="strip-plot" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> strip plot</h1>
-<div id="58e79c5b" class="cell" data-execution_count="17">
+<div id="699332cf" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -875,7 +884,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="color-by-group-4" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="color-by-group-4"><span class="header-section-number">6.1</span> color by group</h2>
-<div id="9f34ca92" class="cell" data-execution_count="18">
+<div id="ecb222b9" class="cell" data-execution_count="18">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -896,7 +905,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="facet-plot" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> Facet plot</h1>
-<div id="17864824" class="cell" data-execution_count="19">
+<div id="9005af3a" class="cell" data-execution_count="19">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -915,7 +924,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>make 3 plot per row</p>
-<div id="cd859f33" class="cell" data-execution_count="20">
+<div id="de5758f3" class="cell" data-execution_count="20">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -938,7 +947,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="8"><span class="header-section-number">8</span> title,size, x y names</h1>
 <section id="add-title" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="add-title"><span class="header-section-number">8.1</span> add title</h2>
-<div id="a7f0260e" class="cell" data-execution_count="21">
+<div id="95140724" class="cell" data-execution_count="21">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -958,7 +967,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="adjust-size" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="adjust-size"><span class="header-section-number">8.2</span> adjust size</h2>
-<div id="11cb7280" class="cell" data-execution_count="22">
+<div id="17366463" class="cell" data-execution_count="22">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -978,7 +987,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="change-x-y-name" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="change-x-y-name"><span class="header-section-number">8.3</span> change x y name</h2>
-<div id="64ee6f1a" class="cell" data-execution_count="23">
+<div id="67f3fee1" class="cell" data-execution_count="23">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -1002,7 +1011,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>find all build in themes in https://github.com/has2k1/plotnine/tree/main/plotnine/themes</p>
 <section id="xkcd" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="xkcd"><span class="header-section-number">9.1</span> xkcd</h2>
-<div id="d9eab259" class="cell" data-execution_count="24">
+<div id="8b75928d" class="cell" data-execution_count="24">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -1022,7 +1031,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="theme_538" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="theme_538"><span class="header-section-number">9.2</span> theme_538</h2>
-<div id="e6d42265" class="cell" data-execution_count="25">
+<div id="29bddc34" class="cell" data-execution_count="25">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -1042,7 +1051,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="theme_dark" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="theme_dark"><span class="header-section-number">9.3</span> theme_dark</h2>
-<div id="c9559f4c" class="cell" data-execution_count="26">
+<div id="d0ab45e9" class="cell" data-execution_count="26">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -1063,7 +1072,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="save-plot" class="level1" data-number="10">
 <h1 data-number="10"><span class="header-section-number">10</span> Save plot</h1>
-<div id="b41c69f2" class="cell" data-execution_count="27">
+<div id="646b32f4" class="cell" data-execution_count="27">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
@@ -1074,8 +1083,524 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 </section>
-<section id="reference" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> reference:</h1>
+<section id="animation-plot" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Animation plot</h1>
+<div id="52937991" class="cell" data-execution_count="28">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine.animation <span class="im">import</span> PlotnineAnimation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="ba60d0e0" class="cell" data-execution_count="29">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>new_data<span class="op">=</span>dowjones4.sample(<span class="dv">50</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>new_data<span class="op">=</span>new_data.sort_values(by<span class="op">=</span>[<span class="st">'Date'</span>], ascending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">#write a function that creates all the plots</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot(x):</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    df2 <span class="op">=</span> dowjones4.query(<span class="st">'Date &lt;= @x'</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> (ggplot(df2,</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>               aes(x <span class="op">=</span> <span class="st">'Date'</span>, y <span class="op">=</span> <span class="st">'Price'</span>))</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>         <span class="op">+</span> geom_line(aes(color<span class="op">=</span><span class="st">"type"</span>))</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>         <span class="co"># Specify the limits for the x and y aesthetics</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>         <span class="co">#+ scale_x_continuous(limits=(dowjones4.Date.min(), dowjones4.Date.max()))</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>         <span class="co">#+ scale_y_continuous(limits=(dowjones4.Price.min(), dowjones4.Price.max()))</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>         <span class="op">+</span> theme(subplots_adjust<span class="op">=</span>{<span class="st">'right'</span>: <span class="fl">0.85</span>}) <span class="co"># Make space for the legend</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(p)</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>plots <span class="op">=</span> (plot(i) <span class="cf">for</span> i <span class="kw">in</span> (new_data[<span class="st">"Date"</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="a97149d1" class="cell" data-execution_count="30">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> rc</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>rc(<span class="st">"animation"</span>, html<span class="op">=</span><span class="st">"html5"</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co">#create the animation</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>animation <span class="op">=</span> PlotnineAnimation(plots, interval<span class="op">=</span><span class="dv">300</span>, repeat_delay<span class="op">=</span><span class="dv">500</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>animation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="90">
+<video width="614" height="460" controls="" autoplay="" loop="">
+  <source type="video/mp4" src="data:video/mp4;base64,AAAAIGZ0eXBNNFYgAAACAE00ViBpc29taXNvMmF2YzEAAAAIZnJlZQAAYXxtZGF0AAACrgYF//+q
+3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2NCByMzEwOCAzMWUxOWY5IC0gSC4yNjQvTVBF
+Ry00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAyMyAtIGh0dHA6Ly93d3cudmlkZW9sYW4u
+b3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTEgcmVmPTMgZGVibG9jaz0xOjA6MCBhbmFs
+eXNlPTB4MzoweDExMyBtZT1oZXggc3VibWU9NyBwc3k9MSBwc3lfcmQ9MS4wMDowLjAwIG1peGVk
+X3JlZj0xIG1lX3JhbmdlPTE2IGNocm9tYV9tZT0xIHRyZWxsaXM9MSA4eDhkY3Q9MSBjcW09MCBk
+ZWFkem9uZT0yMSwxMSBmYXN0X3Bza2lwPTEgY2hyb21hX3FwX29mZnNldD0tMiB0aHJlYWRzPTEy
+IGxvb2thaGVhZF90aHJlYWRzPTIgc2xpY2VkX3RocmVhZHM9MCBucj0wIGRlY2ltYXRlPTEgaW50
+ZXJsYWNlZD0wIGJsdXJheV9jb21wYXQ9MCBjb25zdHJhaW5lZF9pbnRyYT0wIGJmcmFtZXM9MyBi
+X3B5cmFtaWQ9MiBiX2FkYXB0PTEgYl9iaWFzPTAgZGlyZWN0PTEgd2VpZ2h0Yj0xIG9wZW5fZ29w
+PTAgd2VpZ2h0cD0yIGtleWludD0yNTAga2V5aW50X21pbj0zIHNjZW5lY3V0PTQwIGludHJhX3Jl
+ZnJlc2g9MCByY19sb29rYWhlYWQ9NDAgcmM9Y3JmIG1idHJlZT0xIGNyZj0yMy4wIHFjb21wPTAu
+NjAgcXBtaW49MCBxcG1heD02OSBxcHN0ZXA9NCBpcF9yYXRpbz0xLjQwIGFxPTE6MS4wMACAAAAY
+eWWIhAAr/8jgm5yzFQiXmbfkDo71zjiGsNfIJn5gDMZ+bS0sXiohrXvzR4XO3Zd+5YFUqAkwPhTj
+8KrOxEYAUglpylXv6GRt9XjIQTjI65tZsRdQLju10QVb04jehHiT2ZG+Cx/q1X4mUxydKaYKS5iX
+WRaKzKsllVFMKA5raGFO09LJar2PZpEAUdj7z998TCqzAEjfLBxaGxlk7uzykptP/pWprDEN3EPv
+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
+YXRhAAAAAQAAAABMYXZmNjAuMTYuMTAw
+">
+  Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</section>
+<section id="reference" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> reference:</h1>
 <p>https://plotnine.org/</p>
 
 
@@ -1522,315 +2047,366 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb30" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "plotnine chart"</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-bg: true</span></span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-border-left: "#31BAE9"</span></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/logo-540.png)</span>{width="300"}</span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>plotnine is an implementation of a grammar of graphics in Python based on ggplot2.</span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotnine</span>
-<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(plotnine.__version__)</span>
-<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(plotnine.__version__)</span>
-<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the default theme</span></span>
-<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Load an example dataset</span></span>
-<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a>tips <span class="op">=</span> sns.load_dataset(<span class="st">"tips"</span>)</span>
-<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a>tips.head()</span>
-<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a><span class="fu"># Scatter Plot</span></span>
-<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,y<span class="op">=</span><span class="st">"total_bill"</span>)<span class="op">+</span> geom_point()</span>
-<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-63"><a href="#cb30-63" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-64"><a href="#cb30-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-65"><a href="#cb30-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-66"><a href="#cb30-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-67"><a href="#cb30-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-68"><a href="#cb30-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## color by group</span></span>
-<span id="cb30-69"><a href="#cb30-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-73"><a href="#cb30-73" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,y<span class="op">=</span><span class="st">"total_bill"</span>)<span class="op">+</span> geom_point(aes(color<span class="op">=</span><span class="st">"sex"</span>))</span>
-<span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-76"><a href="#cb30-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-78"><a href="#cb30-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-79"><a href="#cb30-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-80"><a href="#cb30-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## size by group</span></span>
-<span id="cb30-81"><a href="#cb30-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,y<span class="op">=</span><span class="st">"total_bill"</span>,size<span class="op">=</span><span class="st">"size"</span>)<span class="op">+</span> geom_point()</span>
-<span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-88"><a href="#cb30-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-89"><a href="#cb30-89" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-90"><a href="#cb30-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-91"><a href="#cb30-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-92"><a href="#cb30-92" aria-hidden="true" tabindex="-1"></a><span class="fu"># line Plot</span></span>
-<span id="cb30-93"><a href="#cb30-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-94"><a href="#cb30-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-95"><a href="#cb30-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-98"><a href="#cb30-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-99"><a href="#cb30-99" aria-hidden="true" tabindex="-1"></a>dowjones<span class="op">=</span> sns.load_dataset(<span class="st">"dowjones"</span>)</span>
-<span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a>dowjones.head()</span>
-<span id="cb30-101"><a href="#cb30-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-102"><a href="#cb30-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-106"><a href="#cb30-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-107"><a href="#cb30-107" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>dowjones)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"Date"</span>,y<span class="op">=</span><span class="st">"Price"</span>)<span class="op">+</span> geom_line()</span>
-<span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-112"><a href="#cb30-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-114"><a href="#cb30-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> _, mutate, <span class="bu">filter</span>, group_by, summarize,show_query</span>
-<span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb30-122"><a href="#cb30-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-123"><a href="#cb30-123" aria-hidden="true" tabindex="-1"></a>dowjones2<span class="op">=</span>dowjones<span class="op">&gt;&gt;</span>mutate(<span class="bu">type</span><span class="op">=</span><span class="st">'old'</span>)</span>
-<span id="cb30-124"><a href="#cb30-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-125"><a href="#cb30-125" aria-hidden="true" tabindex="-1"></a>dowjones3<span class="op">=</span>dowjones<span class="op">&gt;&gt;</span>mutate(Price<span class="op">=</span>_.Price<span class="op">+</span>random.random()<span class="op">*</span><span class="dv">200</span>,<span class="bu">type</span><span class="op">=</span><span class="st">'new'</span>)</span>
-<span id="cb30-126"><a href="#cb30-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-127"><a href="#cb30-127" aria-hidden="true" tabindex="-1"></a>dowjones4<span class="op">=</span>pd.concat([dowjones2, dowjones3], ignore_index <span class="op">=</span> <span class="va">True</span>)<span class="op">&gt;&gt;</span> arrange(_.Date)</span>
-<span id="cb30-128"><a href="#cb30-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-129"><a href="#cb30-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-130"><a href="#cb30-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-133"><a href="#cb30-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-134"><a href="#cb30-134" aria-hidden="true" tabindex="-1"></a>dowjones4.head()</span>
-<span id="cb30-135"><a href="#cb30-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-136"><a href="#cb30-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-137"><a href="#cb30-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-138"><a href="#cb30-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-139"><a href="#cb30-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-140"><a href="#cb30-140" aria-hidden="true" tabindex="-1"></a><span class="fu">## color by group</span></span>
-<span id="cb30-141"><a href="#cb30-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-144"><a href="#cb30-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-145"><a href="#cb30-145" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-146"><a href="#cb30-146" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>dowjones4)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"Date"</span>,y<span class="op">=</span><span class="st">"Price"</span>)<span class="op">+</span> geom_line(aes(color<span class="op">=</span><span class="st">"type"</span>))</span>
-<span id="cb30-147"><a href="#cb30-147" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-148"><a href="#cb30-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-149"><a href="#cb30-149" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-150"><a href="#cb30-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-151"><a href="#cb30-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-152"><a href="#cb30-152" aria-hidden="true" tabindex="-1"></a><span class="fu"># histogram</span></span>
-<span id="cb30-153"><a href="#cb30-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-156"><a href="#cb30-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-157"><a href="#cb30-157" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-158"><a href="#cb30-158" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>)<span class="op">+</span> geom_histogram()</span>
-<span id="cb30-159"><a href="#cb30-159" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-161"><a href="#cb30-161" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-162"><a href="#cb30-162" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-163"><a href="#cb30-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-164"><a href="#cb30-164" aria-hidden="true" tabindex="-1"></a><span class="fu">## color by group</span></span>
-<span id="cb30-165"><a href="#cb30-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-168"><a href="#cb30-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-169"><a href="#cb30-169" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-170"><a href="#cb30-170" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)</span>
-<span id="cb30-171"><a href="#cb30-171" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-172"><a href="#cb30-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-173"><a href="#cb30-173" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-174"><a href="#cb30-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-175"><a href="#cb30-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-176"><a href="#cb30-176" aria-hidden="true" tabindex="-1"></a><span class="fu"># bar chart</span></span>
-<span id="cb30-177"><a href="#cb30-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-180"><a href="#cb30-180" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-181"><a href="#cb30-181" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-182"><a href="#cb30-182" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">'sex'</span>,y<span class="op">=</span><span class="st">'tip'</span>,fill<span class="op">=</span><span class="st">"sex"</span>)<span class="op">+</span>geom_col()</span>
-<span id="cb30-183"><a href="#cb30-183" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-184"><a href="#cb30-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-185"><a href="#cb30-185" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-186"><a href="#cb30-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-187"><a href="#cb30-187" aria-hidden="true" tabindex="-1"></a><span class="fu"># box plot</span></span>
-<span id="cb30-188"><a href="#cb30-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-191"><a href="#cb30-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-192"><a href="#cb30-192" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-193"><a href="#cb30-193" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">'day'</span>,y<span class="op">=</span><span class="st">'tip'</span>,fill<span class="op">=</span><span class="st">"day"</span>)<span class="op">+</span>geom_boxplot()</span>
-<span id="cb30-194"><a href="#cb30-194" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-195"><a href="#cb30-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-196"><a href="#cb30-196" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-197"><a href="#cb30-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-198"><a href="#cb30-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-199"><a href="#cb30-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## color by group</span></span>
-<span id="cb30-200"><a href="#cb30-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-203"><a href="#cb30-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-204"><a href="#cb30-204" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-205"><a href="#cb30-205" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">'day'</span>,y<span class="op">=</span><span class="st">'tip'</span>,fill<span class="op">=</span><span class="st">"sex"</span>)<span class="op">+</span>geom_boxplot()</span>
-<span id="cb30-206"><a href="#cb30-206" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-207"><a href="#cb30-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-208"><a href="#cb30-208" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-209"><a href="#cb30-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-210"><a href="#cb30-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-211"><a href="#cb30-211" aria-hidden="true" tabindex="-1"></a><span class="fu"># strip plot</span></span>
-<span id="cb30-212"><a href="#cb30-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-215"><a href="#cb30-215" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-216"><a href="#cb30-216" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-217"><a href="#cb30-217" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">'day'</span>,y<span class="op">=</span><span class="st">'tip'</span>)<span class="op">+</span>geom_jitter(width<span class="op">=</span><span class="fl">0.1</span>)</span>
-<span id="cb30-218"><a href="#cb30-218" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-219"><a href="#cb30-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-220"><a href="#cb30-220" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-221"><a href="#cb30-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-222"><a href="#cb30-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-223"><a href="#cb30-223" aria-hidden="true" tabindex="-1"></a><span class="fu">## color by group</span></span>
-<span id="cb30-224"><a href="#cb30-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-227"><a href="#cb30-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-228"><a href="#cb30-228" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-229"><a href="#cb30-229" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">'day'</span>,y<span class="op">=</span><span class="st">'tip'</span>,fill<span class="op">=</span><span class="st">"sex"</span>)<span class="op">+</span>geom_jitter(position<span class="op">=</span>position_jitterdodge())</span>
-<span id="cb30-230"><a href="#cb30-230" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-231"><a href="#cb30-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-232"><a href="#cb30-232" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-233"><a href="#cb30-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-234"><a href="#cb30-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-235"><a href="#cb30-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-236"><a href="#cb30-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-237"><a href="#cb30-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-238"><a href="#cb30-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-239"><a href="#cb30-239" aria-hidden="true" tabindex="-1"></a><span class="fu"># Facet plot</span></span>
-<span id="cb30-240"><a href="#cb30-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-243"><a href="#cb30-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-244"><a href="#cb30-244" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-245"><a href="#cb30-245" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,y<span class="op">=</span><span class="st">"total_bill"</span>)<span class="op">+</span> geom_point(aes(color<span class="op">=</span><span class="st">"sex"</span>))</span>
-<span id="cb30-246"><a href="#cb30-246" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> facet_wrap(<span class="st">"day"</span>)</span>
-<span id="cb30-247"><a href="#cb30-247" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-248"><a href="#cb30-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-249"><a href="#cb30-249" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-250"><a href="#cb30-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-251"><a href="#cb30-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-252"><a href="#cb30-252" aria-hidden="true" tabindex="-1"></a>make 3 plot per row</span>
-<span id="cb30-253"><a href="#cb30-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-256"><a href="#cb30-256" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-257"><a href="#cb30-257" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-258"><a href="#cb30-258" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,y<span class="op">=</span><span class="st">"total_bill"</span>)<span class="op">+</span> geom_point(aes(color<span class="op">=</span><span class="st">"sex"</span>))</span>
-<span id="cb30-259"><a href="#cb30-259" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> facet_wrap(<span class="st">"day"</span>,ncol <span class="op">=</span> <span class="dv">3</span>)</span>
-<span id="cb30-260"><a href="#cb30-260" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-261"><a href="#cb30-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-262"><a href="#cb30-262" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-263"><a href="#cb30-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-264"><a href="#cb30-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-265"><a href="#cb30-265" aria-hidden="true" tabindex="-1"></a><span class="fu"># title,size, x y names</span></span>
-<span id="cb30-266"><a href="#cb30-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-267"><a href="#cb30-267" aria-hidden="true" tabindex="-1"></a><span class="fu">## add title</span></span>
-<span id="cb30-270"><a href="#cb30-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-271"><a href="#cb30-271" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-272"><a href="#cb30-272" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)<span class="op">+</span> ggtitle(<span class="st">"tip by sex"</span>)<span class="op">+</span> scale_x_continuous(name<span class="op">=</span><span class="st">"new x name"</span>)<span class="op">+</span> scale_y_continuous(name<span class="op">=</span><span class="st">"new y name"</span>)</span>
-<span id="cb30-273"><a href="#cb30-273" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-274"><a href="#cb30-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-275"><a href="#cb30-275" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-276"><a href="#cb30-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-277"><a href="#cb30-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-278"><a href="#cb30-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-279"><a href="#cb30-279" aria-hidden="true" tabindex="-1"></a><span class="fu">## adjust size</span></span>
-<span id="cb30-280"><a href="#cb30-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-283"><a href="#cb30-283" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-284"><a href="#cb30-284" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-285"><a href="#cb30-285" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)<span class="op">+</span> ggtitle(<span class="st">"tip by sex"</span>)<span class="op">+</span> theme(figure_size<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>)) </span>
-<span id="cb30-286"><a href="#cb30-286" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-287"><a href="#cb30-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-288"><a href="#cb30-288" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-289"><a href="#cb30-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-290"><a href="#cb30-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-291"><a href="#cb30-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-292"><a href="#cb30-292" aria-hidden="true" tabindex="-1"></a><span class="fu">## change x y name</span></span>
-<span id="cb30-295"><a href="#cb30-295" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-296"><a href="#cb30-296" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-297"><a href="#cb30-297" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,y<span class="op">=</span><span class="st">"total_bill"</span>)<span class="op">+</span> geom_point()</span>
-<span id="cb30-298"><a href="#cb30-298" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-299"><a href="#cb30-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-300"><a href="#cb30-300" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-301"><a href="#cb30-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-302"><a href="#cb30-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-303"><a href="#cb30-303" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-304"><a href="#cb30-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-305"><a href="#cb30-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-306"><a href="#cb30-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-307"><a href="#cb30-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-308"><a href="#cb30-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-309"><a href="#cb30-309" aria-hidden="true" tabindex="-1"></a><span class="fu"># applying themes</span></span>
-<span id="cb30-310"><a href="#cb30-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-311"><a href="#cb30-311" aria-hidden="true" tabindex="-1"></a>find all build in themes in https://github.com/has2k1/plotnine/tree/main/plotnine/themes</span>
-<span id="cb30-312"><a href="#cb30-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-313"><a href="#cb30-313" aria-hidden="true" tabindex="-1"></a><span class="fu">## xkcd</span></span>
-<span id="cb30-314"><a href="#cb30-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-315"><a href="#cb30-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-318"><a href="#cb30-318" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-319"><a href="#cb30-319" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-320"><a href="#cb30-320" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)<span class="op">+</span> theme_xkcd()</span>
-<span id="cb30-321"><a href="#cb30-321" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-322"><a href="#cb30-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-323"><a href="#cb30-323" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-324"><a href="#cb30-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-325"><a href="#cb30-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-326"><a href="#cb30-326" aria-hidden="true" tabindex="-1"></a><span class="fu">## theme_538</span></span>
-<span id="cb30-327"><a href="#cb30-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-328"><a href="#cb30-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-331"><a href="#cb30-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-332"><a href="#cb30-332" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-333"><a href="#cb30-333" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)<span class="op">+</span> theme_538()</span>
-<span id="cb30-334"><a href="#cb30-334" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-335"><a href="#cb30-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-336"><a href="#cb30-336" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-337"><a href="#cb30-337" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-338"><a href="#cb30-338" aria-hidden="true" tabindex="-1"></a><span class="fu">## theme_dark</span></span>
-<span id="cb30-339"><a href="#cb30-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-340"><a href="#cb30-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-343"><a href="#cb30-343" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-344"><a href="#cb30-344" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-345"><a href="#cb30-345" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)<span class="op">+</span> theme_dark()</span>
-<span id="cb30-346"><a href="#cb30-346" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-347"><a href="#cb30-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-348"><a href="#cb30-348" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb30-349"><a href="#cb30-349" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-350"><a href="#cb30-350" aria-hidden="true" tabindex="-1"></a><span class="fu"># Save plot</span></span>
-<span id="cb30-353"><a href="#cb30-353" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb30-354"><a href="#cb30-354" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
-<span id="cb30-355"><a href="#cb30-355" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)<span class="op">+</span> theme_dark()</span>
-<span id="cb30-356"><a href="#cb30-356" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-357"><a href="#cb30-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-358"><a href="#cb30-358" aria-hidden="true" tabindex="-1"></a>p.save(filename <span class="op">=</span> <span class="st">'test3.png'</span>)</span>
-<span id="cb30-359"><a href="#cb30-359" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-360"><a href="#cb30-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-361"><a href="#cb30-361" aria-hidden="true" tabindex="-1"></a><span class="fu"># reference:</span></span>
-<span id="cb30-362"><a href="#cb30-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-363"><a href="#cb30-363" aria-hidden="true" tabindex="-1"></a>https://plotnine.org/</span>
+<div class="sourceCode" id="cb33" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "plotnine chart"</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-bg: true</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-border-left: "#31BAE9"</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/logo-540.png)</span>{width="300"}</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>plotnine is an implementation of a grammar of graphics in Python based on ggplot2.</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotnine</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(plotnine.__version__)</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(plotnine.__version__)</span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the default theme</span></span>
+<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Load an example dataset</span></span>
+<span id="cb33-49"><a href="#cb33-49" aria-hidden="true" tabindex="-1"></a>tips <span class="op">=</span> sns.load_dataset(<span class="st">"tips"</span>)</span>
+<span id="cb33-50"><a href="#cb33-50" aria-hidden="true" tabindex="-1"></a>tips.head()</span>
+<span id="cb33-51"><a href="#cb33-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-52"><a href="#cb33-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-53"><a href="#cb33-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-54"><a href="#cb33-54" aria-hidden="true" tabindex="-1"></a><span class="fu"># Scatter Plot</span></span>
+<span id="cb33-55"><a href="#cb33-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-58"><a href="#cb33-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-59"><a href="#cb33-59" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-60"><a href="#cb33-60" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,y<span class="op">=</span><span class="st">"total_bill"</span>)<span class="op">+</span> geom_point()</span>
+<span id="cb33-61"><a href="#cb33-61" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-62"><a href="#cb33-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-63"><a href="#cb33-63" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-64"><a href="#cb33-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-65"><a href="#cb33-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-66"><a href="#cb33-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-67"><a href="#cb33-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-68"><a href="#cb33-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## color by group</span></span>
+<span id="cb33-69"><a href="#cb33-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-72"><a href="#cb33-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-73"><a href="#cb33-73" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-74"><a href="#cb33-74" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,y<span class="op">=</span><span class="st">"total_bill"</span>)<span class="op">+</span> geom_point(aes(color<span class="op">=</span><span class="st">"sex"</span>))</span>
+<span id="cb33-75"><a href="#cb33-75" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-76"><a href="#cb33-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-77"><a href="#cb33-77" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-78"><a href="#cb33-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-79"><a href="#cb33-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-80"><a href="#cb33-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## size by group</span></span>
+<span id="cb33-81"><a href="#cb33-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-84"><a href="#cb33-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-85"><a href="#cb33-85" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-86"><a href="#cb33-86" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,y<span class="op">=</span><span class="st">"total_bill"</span>,size<span class="op">=</span><span class="st">"size"</span>)<span class="op">+</span> geom_point()</span>
+<span id="cb33-87"><a href="#cb33-87" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-88"><a href="#cb33-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-89"><a href="#cb33-89" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-90"><a href="#cb33-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-91"><a href="#cb33-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-92"><a href="#cb33-92" aria-hidden="true" tabindex="-1"></a><span class="fu"># line Plot</span></span>
+<span id="cb33-93"><a href="#cb33-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-94"><a href="#cb33-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-95"><a href="#cb33-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-98"><a href="#cb33-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-99"><a href="#cb33-99" aria-hidden="true" tabindex="-1"></a>dowjones<span class="op">=</span> sns.load_dataset(<span class="st">"dowjones"</span>)</span>
+<span id="cb33-100"><a href="#cb33-100" aria-hidden="true" tabindex="-1"></a>dowjones.head()</span>
+<span id="cb33-101"><a href="#cb33-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-102"><a href="#cb33-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-103"><a href="#cb33-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-106"><a href="#cb33-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-107"><a href="#cb33-107" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-108"><a href="#cb33-108" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>dowjones)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"Date"</span>,y<span class="op">=</span><span class="st">"Price"</span>)<span class="op">+</span> geom_line()</span>
+<span id="cb33-109"><a href="#cb33-109" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-110"><a href="#cb33-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-111"><a href="#cb33-111" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-112"><a href="#cb33-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-113"><a href="#cb33-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-114"><a href="#cb33-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-117"><a href="#cb33-117" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-118"><a href="#cb33-118" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb33-119"><a href="#cb33-119" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb33-120"><a href="#cb33-120" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> _, mutate, <span class="bu">filter</span>, group_by, summarize,show_query</span>
+<span id="cb33-121"><a href="#cb33-121" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb33-122"><a href="#cb33-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-123"><a href="#cb33-123" aria-hidden="true" tabindex="-1"></a>dowjones2<span class="op">=</span>dowjones<span class="op">&gt;&gt;</span>mutate(<span class="bu">type</span><span class="op">=</span><span class="st">'old'</span>)</span>
+<span id="cb33-124"><a href="#cb33-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-125"><a href="#cb33-125" aria-hidden="true" tabindex="-1"></a>dowjones3<span class="op">=</span>dowjones<span class="op">&gt;&gt;</span>mutate(Price<span class="op">=</span>_.Price<span class="op">+</span>random.random()<span class="op">*</span><span class="dv">200</span>,<span class="bu">type</span><span class="op">=</span><span class="st">'new'</span>)</span>
+<span id="cb33-126"><a href="#cb33-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-127"><a href="#cb33-127" aria-hidden="true" tabindex="-1"></a>dowjones4<span class="op">=</span>pd.concat([dowjones2, dowjones3], ignore_index <span class="op">=</span> <span class="va">True</span>)<span class="op">&gt;&gt;</span> arrange(_.Date)</span>
+<span id="cb33-128"><a href="#cb33-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-129"><a href="#cb33-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-130"><a href="#cb33-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-133"><a href="#cb33-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-134"><a href="#cb33-134" aria-hidden="true" tabindex="-1"></a>dowjones4.head()</span>
+<span id="cb33-135"><a href="#cb33-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-136"><a href="#cb33-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-137"><a href="#cb33-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-138"><a href="#cb33-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-139"><a href="#cb33-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-140"><a href="#cb33-140" aria-hidden="true" tabindex="-1"></a><span class="fu">## color by group</span></span>
+<span id="cb33-141"><a href="#cb33-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-144"><a href="#cb33-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-145"><a href="#cb33-145" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-146"><a href="#cb33-146" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>dowjones4)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"Date"</span>,y<span class="op">=</span><span class="st">"Price"</span>)<span class="op">+</span> geom_line(aes(color<span class="op">=</span><span class="st">"type"</span>))</span>
+<span id="cb33-147"><a href="#cb33-147" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-148"><a href="#cb33-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-149"><a href="#cb33-149" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-150"><a href="#cb33-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-151"><a href="#cb33-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-152"><a href="#cb33-152" aria-hidden="true" tabindex="-1"></a><span class="fu"># histogram</span></span>
+<span id="cb33-153"><a href="#cb33-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-156"><a href="#cb33-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-157"><a href="#cb33-157" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-158"><a href="#cb33-158" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>)<span class="op">+</span> geom_histogram()</span>
+<span id="cb33-159"><a href="#cb33-159" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-160"><a href="#cb33-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-161"><a href="#cb33-161" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-162"><a href="#cb33-162" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-163"><a href="#cb33-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-164"><a href="#cb33-164" aria-hidden="true" tabindex="-1"></a><span class="fu">## color by group</span></span>
+<span id="cb33-165"><a href="#cb33-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-168"><a href="#cb33-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-169"><a href="#cb33-169" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-170"><a href="#cb33-170" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)</span>
+<span id="cb33-171"><a href="#cb33-171" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-172"><a href="#cb33-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-173"><a href="#cb33-173" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-174"><a href="#cb33-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-175"><a href="#cb33-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-176"><a href="#cb33-176" aria-hidden="true" tabindex="-1"></a><span class="fu"># bar chart</span></span>
+<span id="cb33-177"><a href="#cb33-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-180"><a href="#cb33-180" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-181"><a href="#cb33-181" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-182"><a href="#cb33-182" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">'sex'</span>,y<span class="op">=</span><span class="st">'tip'</span>,fill<span class="op">=</span><span class="st">"sex"</span>)<span class="op">+</span>geom_col()</span>
+<span id="cb33-183"><a href="#cb33-183" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-184"><a href="#cb33-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-185"><a href="#cb33-185" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-186"><a href="#cb33-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-187"><a href="#cb33-187" aria-hidden="true" tabindex="-1"></a><span class="fu"># box plot</span></span>
+<span id="cb33-188"><a href="#cb33-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-191"><a href="#cb33-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-192"><a href="#cb33-192" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-193"><a href="#cb33-193" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">'day'</span>,y<span class="op">=</span><span class="st">'tip'</span>,fill<span class="op">=</span><span class="st">"day"</span>)<span class="op">+</span>geom_boxplot()</span>
+<span id="cb33-194"><a href="#cb33-194" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-195"><a href="#cb33-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-196"><a href="#cb33-196" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-197"><a href="#cb33-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-198"><a href="#cb33-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-199"><a href="#cb33-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## color by group</span></span>
+<span id="cb33-200"><a href="#cb33-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-203"><a href="#cb33-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-204"><a href="#cb33-204" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-205"><a href="#cb33-205" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">'day'</span>,y<span class="op">=</span><span class="st">'tip'</span>,fill<span class="op">=</span><span class="st">"sex"</span>)<span class="op">+</span>geom_boxplot()</span>
+<span id="cb33-206"><a href="#cb33-206" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-207"><a href="#cb33-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-208"><a href="#cb33-208" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-209"><a href="#cb33-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-210"><a href="#cb33-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-211"><a href="#cb33-211" aria-hidden="true" tabindex="-1"></a><span class="fu"># strip plot</span></span>
+<span id="cb33-212"><a href="#cb33-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-215"><a href="#cb33-215" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-216"><a href="#cb33-216" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-217"><a href="#cb33-217" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">'day'</span>,y<span class="op">=</span><span class="st">'tip'</span>)<span class="op">+</span>geom_jitter(width<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb33-218"><a href="#cb33-218" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-219"><a href="#cb33-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-220"><a href="#cb33-220" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-221"><a href="#cb33-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-222"><a href="#cb33-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-223"><a href="#cb33-223" aria-hidden="true" tabindex="-1"></a><span class="fu">## color by group</span></span>
+<span id="cb33-224"><a href="#cb33-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-227"><a href="#cb33-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-228"><a href="#cb33-228" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-229"><a href="#cb33-229" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">'day'</span>,y<span class="op">=</span><span class="st">'tip'</span>,fill<span class="op">=</span><span class="st">"sex"</span>)<span class="op">+</span>geom_jitter(position<span class="op">=</span>position_jitterdodge())</span>
+<span id="cb33-230"><a href="#cb33-230" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-231"><a href="#cb33-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-232"><a href="#cb33-232" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-233"><a href="#cb33-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-234"><a href="#cb33-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-235"><a href="#cb33-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-236"><a href="#cb33-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-237"><a href="#cb33-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-238"><a href="#cb33-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-239"><a href="#cb33-239" aria-hidden="true" tabindex="-1"></a><span class="fu"># Facet plot</span></span>
+<span id="cb33-240"><a href="#cb33-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-243"><a href="#cb33-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-244"><a href="#cb33-244" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-245"><a href="#cb33-245" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,y<span class="op">=</span><span class="st">"total_bill"</span>)<span class="op">+</span> geom_point(aes(color<span class="op">=</span><span class="st">"sex"</span>))</span>
+<span id="cb33-246"><a href="#cb33-246" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> facet_wrap(<span class="st">"day"</span>)</span>
+<span id="cb33-247"><a href="#cb33-247" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-248"><a href="#cb33-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-249"><a href="#cb33-249" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-250"><a href="#cb33-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-251"><a href="#cb33-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-252"><a href="#cb33-252" aria-hidden="true" tabindex="-1"></a>make 3 plot per row</span>
+<span id="cb33-253"><a href="#cb33-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-256"><a href="#cb33-256" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-257"><a href="#cb33-257" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-258"><a href="#cb33-258" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,y<span class="op">=</span><span class="st">"total_bill"</span>)<span class="op">+</span> geom_point(aes(color<span class="op">=</span><span class="st">"sex"</span>))</span>
+<span id="cb33-259"><a href="#cb33-259" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> facet_wrap(<span class="st">"day"</span>,ncol <span class="op">=</span> <span class="dv">3</span>)</span>
+<span id="cb33-260"><a href="#cb33-260" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-261"><a href="#cb33-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-262"><a href="#cb33-262" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-263"><a href="#cb33-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-264"><a href="#cb33-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-265"><a href="#cb33-265" aria-hidden="true" tabindex="-1"></a><span class="fu"># title,size, x y names</span></span>
+<span id="cb33-266"><a href="#cb33-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-267"><a href="#cb33-267" aria-hidden="true" tabindex="-1"></a><span class="fu">## add title</span></span>
+<span id="cb33-270"><a href="#cb33-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-271"><a href="#cb33-271" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-272"><a href="#cb33-272" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)<span class="op">+</span> ggtitle(<span class="st">"tip by sex"</span>)<span class="op">+</span> scale_x_continuous(name<span class="op">=</span><span class="st">"new x name"</span>)<span class="op">+</span> scale_y_continuous(name<span class="op">=</span><span class="st">"new y name"</span>)</span>
+<span id="cb33-273"><a href="#cb33-273" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-274"><a href="#cb33-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-275"><a href="#cb33-275" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-276"><a href="#cb33-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-277"><a href="#cb33-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-278"><a href="#cb33-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-279"><a href="#cb33-279" aria-hidden="true" tabindex="-1"></a><span class="fu">## adjust size</span></span>
+<span id="cb33-280"><a href="#cb33-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-283"><a href="#cb33-283" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-284"><a href="#cb33-284" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-285"><a href="#cb33-285" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)<span class="op">+</span> ggtitle(<span class="st">"tip by sex"</span>)<span class="op">+</span> theme(figure_size<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>)) </span>
+<span id="cb33-286"><a href="#cb33-286" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-287"><a href="#cb33-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-288"><a href="#cb33-288" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-289"><a href="#cb33-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-290"><a href="#cb33-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-291"><a href="#cb33-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-292"><a href="#cb33-292" aria-hidden="true" tabindex="-1"></a><span class="fu">## change x y name</span></span>
+<span id="cb33-295"><a href="#cb33-295" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-296"><a href="#cb33-296" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-297"><a href="#cb33-297" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,y<span class="op">=</span><span class="st">"total_bill"</span>)<span class="op">+</span> geom_point()</span>
+<span id="cb33-298"><a href="#cb33-298" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-299"><a href="#cb33-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-300"><a href="#cb33-300" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-301"><a href="#cb33-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-302"><a href="#cb33-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-303"><a href="#cb33-303" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-304"><a href="#cb33-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-305"><a href="#cb33-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-306"><a href="#cb33-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-307"><a href="#cb33-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-308"><a href="#cb33-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-309"><a href="#cb33-309" aria-hidden="true" tabindex="-1"></a><span class="fu"># applying themes</span></span>
+<span id="cb33-310"><a href="#cb33-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-311"><a href="#cb33-311" aria-hidden="true" tabindex="-1"></a>find all build in themes in https://github.com/has2k1/plotnine/tree/main/plotnine/themes</span>
+<span id="cb33-312"><a href="#cb33-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-313"><a href="#cb33-313" aria-hidden="true" tabindex="-1"></a><span class="fu">## xkcd</span></span>
+<span id="cb33-314"><a href="#cb33-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-315"><a href="#cb33-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-318"><a href="#cb33-318" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-319"><a href="#cb33-319" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-320"><a href="#cb33-320" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)<span class="op">+</span> theme_xkcd()</span>
+<span id="cb33-321"><a href="#cb33-321" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-322"><a href="#cb33-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-323"><a href="#cb33-323" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-324"><a href="#cb33-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-325"><a href="#cb33-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-326"><a href="#cb33-326" aria-hidden="true" tabindex="-1"></a><span class="fu">## theme_538</span></span>
+<span id="cb33-327"><a href="#cb33-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-328"><a href="#cb33-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-331"><a href="#cb33-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-332"><a href="#cb33-332" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-333"><a href="#cb33-333" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)<span class="op">+</span> theme_538()</span>
+<span id="cb33-334"><a href="#cb33-334" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-335"><a href="#cb33-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-336"><a href="#cb33-336" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-337"><a href="#cb33-337" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-338"><a href="#cb33-338" aria-hidden="true" tabindex="-1"></a><span class="fu">## theme_dark</span></span>
+<span id="cb33-339"><a href="#cb33-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-340"><a href="#cb33-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-343"><a href="#cb33-343" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-344"><a href="#cb33-344" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-345"><a href="#cb33-345" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)<span class="op">+</span> theme_dark()</span>
+<span id="cb33-346"><a href="#cb33-346" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-347"><a href="#cb33-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-348"><a href="#cb33-348" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb33-349"><a href="#cb33-349" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-350"><a href="#cb33-350" aria-hidden="true" tabindex="-1"></a><span class="fu"># Save plot</span></span>
+<span id="cb33-353"><a href="#cb33-353" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-354"><a href="#cb33-354" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>(</span>
+<span id="cb33-355"><a href="#cb33-355" aria-hidden="true" tabindex="-1"></a>    ggplot(data<span class="op">=</span>tips)<span class="op">+</span>aes(x<span class="op">=</span><span class="st">"tip"</span>,fill <span class="op">=</span> <span class="st">'sex'</span>)<span class="op">+</span> geom_histogram(position <span class="op">=</span> <span class="st">'dodge'</span>)<span class="op">+</span> theme_dark()</span>
+<span id="cb33-356"><a href="#cb33-356" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-357"><a href="#cb33-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-358"><a href="#cb33-358" aria-hidden="true" tabindex="-1"></a>p.save(filename <span class="op">=</span> <span class="st">'test3.png'</span>)</span>
+<span id="cb33-359"><a href="#cb33-359" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-360"><a href="#cb33-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-361"><a href="#cb33-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-362"><a href="#cb33-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-363"><a href="#cb33-363" aria-hidden="true" tabindex="-1"></a><span class="fu"># Animation plot</span></span>
+<span id="cb33-364"><a href="#cb33-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-367"><a href="#cb33-367" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-368"><a href="#cb33-368" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine.animation <span class="im">import</span> PlotnineAnimation</span>
+<span id="cb33-369"><a href="#cb33-369" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-370"><a href="#cb33-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-371"><a href="#cb33-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-374"><a href="#cb33-374" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-375"><a href="#cb33-375" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false </span></span>
+<span id="cb33-376"><a href="#cb33-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-377"><a href="#cb33-377" aria-hidden="true" tabindex="-1"></a>new_data<span class="op">=</span>dowjones4.sample(<span class="dv">50</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb33-378"><a href="#cb33-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-379"><a href="#cb33-379" aria-hidden="true" tabindex="-1"></a>new_data<span class="op">=</span>new_data.sort_values(by<span class="op">=</span>[<span class="st">'Date'</span>], ascending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb33-380"><a href="#cb33-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-381"><a href="#cb33-381" aria-hidden="true" tabindex="-1"></a><span class="co">#write a function that creates all the plots</span></span>
+<span id="cb33-382"><a href="#cb33-382" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot(x):</span>
+<span id="cb33-383"><a href="#cb33-383" aria-hidden="true" tabindex="-1"></a>    df2 <span class="op">=</span> dowjones4.query(<span class="st">'Date &lt;= @x'</span>)</span>
+<span id="cb33-384"><a href="#cb33-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-385"><a href="#cb33-385" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> (ggplot(df2,</span>
+<span id="cb33-386"><a href="#cb33-386" aria-hidden="true" tabindex="-1"></a>               aes(x <span class="op">=</span> <span class="st">'Date'</span>, y <span class="op">=</span> <span class="st">'Price'</span>))</span>
+<span id="cb33-387"><a href="#cb33-387" aria-hidden="true" tabindex="-1"></a>         <span class="op">+</span> geom_line(aes(color<span class="op">=</span><span class="st">"type"</span>))</span>
+<span id="cb33-388"><a href="#cb33-388" aria-hidden="true" tabindex="-1"></a>         <span class="co"># Specify the limits for the x and y aesthetics</span></span>
+<span id="cb33-389"><a href="#cb33-389" aria-hidden="true" tabindex="-1"></a>         <span class="co">#+ scale_x_continuous(limits=(dowjones4.Date.min(), dowjones4.Date.max()))</span></span>
+<span id="cb33-390"><a href="#cb33-390" aria-hidden="true" tabindex="-1"></a>         <span class="co">#+ scale_y_continuous(limits=(dowjones4.Price.min(), dowjones4.Price.max()))</span></span>
+<span id="cb33-391"><a href="#cb33-391" aria-hidden="true" tabindex="-1"></a>         <span class="op">+</span> theme(subplots_adjust<span class="op">=</span>{<span class="st">'right'</span>: <span class="fl">0.85</span>}) <span class="co"># Make space for the legend</span></span>
+<span id="cb33-392"><a href="#cb33-392" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb33-393"><a href="#cb33-393" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(p)</span>
+<span id="cb33-394"><a href="#cb33-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-395"><a href="#cb33-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-396"><a href="#cb33-396" aria-hidden="true" tabindex="-1"></a>plots <span class="op">=</span> (plot(i) <span class="cf">for</span> i <span class="kw">in</span> (new_data[<span class="st">"Date"</span>]))</span>
+<span id="cb33-397"><a href="#cb33-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-398"><a href="#cb33-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-399"><a href="#cb33-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-400"><a href="#cb33-400" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-401"><a href="#cb33-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-404"><a href="#cb33-404" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-405"><a href="#cb33-405" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> rc</span>
+<span id="cb33-406"><a href="#cb33-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-407"><a href="#cb33-407" aria-hidden="true" tabindex="-1"></a>rc(<span class="st">"animation"</span>, html<span class="op">=</span><span class="st">"html5"</span>)</span>
+<span id="cb33-408"><a href="#cb33-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-409"><a href="#cb33-409" aria-hidden="true" tabindex="-1"></a><span class="co">#create the animation</span></span>
+<span id="cb33-410"><a href="#cb33-410" aria-hidden="true" tabindex="-1"></a>animation <span class="op">=</span> PlotnineAnimation(plots, interval<span class="op">=</span><span class="dv">300</span>, repeat_delay<span class="op">=</span><span class="dv">500</span>)</span>
+<span id="cb33-411"><a href="#cb33-411" aria-hidden="true" tabindex="-1"></a>animation</span>
+<span id="cb33-412"><a href="#cb33-412" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-413"><a href="#cb33-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-414"><a href="#cb33-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-415"><a href="#cb33-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-416"><a href="#cb33-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-417"><a href="#cb33-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-418"><a href="#cb33-418" aria-hidden="true" tabindex="-1"></a><span class="fu"># reference:</span></span>
+<span id="cb33-419"><a href="#cb33-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-420"><a href="#cb33-420" aria-hidden="true" tabindex="-1"></a>https://plotnine.org/</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

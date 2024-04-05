@@ -56,15 +56,32 @@ os.system('pip show siuba')
 
 ```{python}
 small_mtcars = mtcars >> select(_.cyl, _.mpg, _.hp)>> head(5)
-small_penguins=penguins>> head(5)
 ```
 
 ## select column
 
+
+### select columns by name
 ```{python}
 small_mtcars >> select(_.cyl, _.mpg)
 ```
+### select columns by name match with 'p'
 
+```{python}
+small_mtcars >> select(_.contains("p"))
+```
+
+
+### select columns by index
+
+#### select first and 3rd columns
+```{python}
+small_mtcars >> select(0,2)
+```
+#### select first to 3rd columns
+```{python}
+small_mtcars >> select(_[0:3])
+```
 
 ## drop column
 
@@ -122,8 +139,91 @@ mtcars >> filter((_.cyl >4) & (_.gear == 5))
 ```{python}
 mtcars >> filter((_.cyl == 6) | (_.gear == 5))
 ```
+### filter row with index
+
+#### first 3
+
+```{python}
+small_mtcars>>head(3)
+```
+#### last 3
+
+```{python}
+# not in siuba, in pandas
+small_mtcars.tail(3)
+```
+
+#### 5th rows
+```{python}
+# not in siuba, in pandas
+mtcars.iloc[[4]]
+```
+
+#### 1 and 5th rows
+```{python}
+# not in siuba, in pandas
+mtcars.iloc[[0,4]]
+```
+
+#### 1 to 5th rows
+```{python}
+# not in siuba, in pandas
+mtcars.iloc[0:4]
+```
+#### get ramdon 5 rows
+
+```{python}
+mtcars.sample(5, random_state=42)
+```
+
+## Append
+
+
+### append by row
+
+```{python}
+# not available in siuba yet
+#from siuba import bind_rows
+```
+
+```{python}
+# using pandas
+
+# get 1 to 4 rows
+data1=mtcars.iloc[0:4]
+
+# get 9 rows
+data2=mtcars.iloc[10:11]
+
+data3=pd.concat([data1, data2], ignore_index = True,axis=0)
+
+data3
+```
+### append by column
+
+```{python}
+# not available in siuba yet
+#from siuba import bind_columns
+```
+
+```{python}
+# using pandas
+data1=small_mtcars>>select(_.mpg)
+
+data2=small_mtcars>>select(_.cyl)
+
+data3=pd.concat([data1, data2],axis=1)
+
+data3
+```
+
 
 ### Dropping NA values
+
+
+### keep NA values
+
+=
 
 ## group by
 
@@ -240,7 +340,7 @@ costs
 ```
 
 
-### Gather data long
+### Gather data long(wide to long)
 
 Below 3 method will give same result
 
@@ -249,22 +349,27 @@ Below 3 method will give same result
 costs >> gather('measure', 'value', _.price_x, _.price_y, _.price_z)
 ```
 
-
+other way:
 ```{python}
 # selecting variables using a slice
 costs >> gather('measure', 'value', _["price_x":"price_z"])
 ```
-
+other way:
 ```{python}
 # selecting by excluding id
 costs >> gather('measure', 'value', -_.id)
 ```
 
-### Spread data wide
+### Spread data wide(long to wide)
 
 
 ```{python}
+costs_long= costs>> gather('measure', 'value', -_.id)
+costs_long
+```
 
+```{python}
+costs_long>> spread('measure', 'value')
 ```
 
 
