@@ -15,16 +15,18 @@ format:
     code-block-border-left: "#31BAE9"
 ---
 
-## load package
+
 ```{python}
+import warnings
+warnings.filterwarnings("ignore")
+warnings.filterwarnings("ignore", category=DeprecationWarning) 
+```
 
-from siuba.data import mtcars,penguins
+# load package
 
-from siuba.siu import call
-from siuba import _, mutate, filter, group_by, summarize,show_query
-from siuba import *
-
-from siuba.data import mtcars,penguins
+```{python}
+import os
+#os.system('pip install xgboost')
 ```
 
 
@@ -53,15 +55,6 @@ df_test = pd.read_csv('./data/test.csv')
 
 # Store our test passenger IDs for easy access
 Id = df_train['Id']
-
-
-# Store our test passenger IDs for easy access
-Id = df_train['Id']
-Id_test = df_test['Id']
-
-df_train = df_train >> select(~_.Id)
-df_test = df_test >> select(~_.Id)
-
 
 
 # Showing overview of the train dataset
@@ -154,13 +147,9 @@ from sklearn.preprocessing import StandardScaler
 
 
 ```{python}
-from sklearn.preprocessing import MinMaxScaler
-
-
 numerical_transformer = Pipeline(steps=[
-    ('imputer_num', SimpleImputer(strategy='median')), 
-   # ('scaler', StandardScaler())
-     ('scaler', MinMaxScaler())
+    ('imputer_num', SimpleImputer(strategy='median'))
+   # ,('scaler', StandardScaler())
 ])
 ```
 
@@ -193,11 +182,8 @@ preprocessor = ColumnTransformer(transformers=[
 ## define model
 ```{python}
 from sklearn.linear_model import LinearRegression
-ml_model =LinearRegression()
+ml_model = LinearRegression()
 ml_model
-
-
-
 ```
 
 ## define pipline
@@ -225,8 +211,8 @@ fitted_model=pipeline.steps[1][1]
 
 
 ```{python}
-#var=pipeline[:-1].get_feature_names_out()
-#var
+var=pipeline[:-1].get_feature_names_out()
+var
 ```
 
 
@@ -238,15 +224,28 @@ variable importance
 #vi
 ```
 
-## Preformance
 
+```{python}
+fitted_model.intercept_
+```
+
+```{python}
+print('Coefficents:',fitted_model.coef_)
+```
+
+```{python}
+
+```
+
+
+## Preformance
 
 ```{python}
 Y_pred_dt =pipeline.predict(X_test) #always gets x and retuns y
 ```
 
-R 2
 
+R 2
 
 ```{python}
 from sklearn.metrics import r2_score
@@ -293,9 +292,26 @@ np.mean(np.sqrt(np.abs(cv_dt)))
 ```
 
 
+# predict vs real on testing data
+
+```{python}
+#result=pd.DataFrame({'predict':a},{'real':b})
+result= pd.DataFrame(list(zip(Y_pred_dt.tolist(),Y_test.tolist())),columns=['predict','real'])
+
+from plotnine import *
+
+p=(
+    ggplot(data=result)+aes(x="predict",y="real")+ geom_point()
+)
+
+p
+
+
+```
+
+
 # reference:
 
 https://github.com/alicevillar/titanic-kaggle/blob/main/Titanic_DecisionTree.ipynb
 
-https://scikit-learn.org/stable/modules/tree.html
 

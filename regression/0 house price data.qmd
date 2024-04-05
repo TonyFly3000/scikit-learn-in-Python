@@ -93,6 +93,9 @@ import seaborn as sns
 sns.histplot(data=df_train,x='SalePrice')
 ```
 
+
+## feature 
+
 ```{python}
 import sweetviz as sv
 my_report = sv.analyze(df_train)

@@ -272,6 +272,23 @@ np.mean(np.sqrt(np.abs(cv_dt)))
 ```
 
 
+# predict vs real on testing data
+
+```{python}
+#result=pd.DataFrame({'predict':a},{'real':b})
+result= pd.DataFrame(list(zip(Y_pred_dt.tolist(),Y_test.tolist())),columns=['predict','real'])
+
+from plotnine import *
+
+p=(
+    ggplot(data=result)+aes(x="predict",y="real")+ geom_point()
+)
+
+p
+
+
+```
+
 # reference:
 
 https://github.com/alicevillar/titanic-kaggle/blob/main/Titanic_DecisionTree.ipynb

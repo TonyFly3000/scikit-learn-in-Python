@@ -158,6 +158,12 @@ numerical_transformer = Pipeline(steps=[
     ('imputer_num', SimpleImputer(strategy='median')), 
     ('scaler', StandardScaler())
 ])
+
+numerical_transformer_non_scaler = Pipeline(steps=[
+    ('imputer_num', SimpleImputer(strategy='median'))
+   #, ('scaler', StandardScaler())
+])
+
 ```
 
 
@@ -177,6 +183,11 @@ from sklearn.compose import ColumnTransformer
 preprocessor = ColumnTransformer(transformers=[
     ('num', numerical_transformer, numerical_cols),
     ('cat', categorical_transformer, categorical_cols)])
+    
+    
+preprocessor_non_scaler = ColumnTransformer(transformers=[
+    ('num', numerical_transformer_non_scaler, numerical_cols),
+    ('cat', categorical_transformer, categorical_cols)])    
 ```
 
 
@@ -231,7 +242,7 @@ pipeline_rf = Pipeline(
 
 pipeline_lr = Pipeline(
   steps=[
-         ('preprocessor', preprocessor), 
+         ('preprocessor', preprocessor_non_scaler), 
          ('model', LinearRegression_model)
          ]
 )
@@ -288,7 +299,8 @@ start_time = time.time()
 #Grids = [Grid_xgb,Grid_rf,pipeline_xgb,pipeline_rf,pipeline_lr]
 
 
-Grids = [pipeline_xgb,pipeline_rf]
+Grids = [pipeline_xgb,pipeline_rf,pipeline_lr
+        ,Grid_xgb,Grid_rf]
 
 
 for Grid in Grids:
@@ -297,7 +309,7 @@ for Grid in Grids:
 
 end_time = time.time()
 duration = end_time - start_time
-duration
+print("traning time: ",duration)
 
 ```
 
@@ -308,7 +320,10 @@ duration
 ```{python}
 #grid_dict = {0: 'XGB', 1: 'random forest', 2: 'XGB non tune',3: 'ramdon forest non tune',4:'linear regression non tune' }
 
-grid_dict = {0: 'XGB', 1: 'random forest'}
+grid_dict = {0: 'XGB', 1: 'random forest',2: 'linear regression'
+            ,3: 'XGB tuning'
+            ,4: 'random forest tuning'
+            }
 
 
 for i, model in enumerate(Grids):
@@ -325,13 +340,11 @@ best_ml=pipeline_xgb
 ```{python}
 #Using predict method to test the model
 Y_pred_dt = best_ml.predict(X_test) #always gets x and retuns y
-Y_pred_dt
 ```
 
 
 
 R 2
-
 
 ```{python}
 from sklearn.metrics import r2_score

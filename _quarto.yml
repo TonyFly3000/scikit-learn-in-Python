@@ -21,7 +21,7 @@ website:
       - sidebar:bar2
       - sidebar:bar3   
       - sidebar:bar4
-
+      - sidebar:bar5
 
   sidebar:
 
@@ -75,6 +75,12 @@ website:
       collapse-level: 2
       contents: regression
 
+    - id: bar5
+      title: "Clustering"
+      style: "floating"
+      background: light
+      collapse-level: 2
+      contents: clustering
 
   page-footer:
     right: "This website is built with ❤️ and [Quarto](https://quarto.org/)."

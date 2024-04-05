@@ -1,0 +1,88 @@
+---
+title: "Mall_Customers Dataset"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+
+
+
+# load package
+
+
+```{python}
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+```
+
+# data
+
+## download data
+
+https://www.kaggle.com/datasets/shwetabh123/mall-customer
+
+
+
+
+## input data
+
+```{python}
+# Loading the data
+df_train = pd.read_csv('./data/Mall_Customers.csv')
+
+# Showing overview of the train dataset
+df_train.head()
+
+```
+
+
+## data EDA
+
+```{python}
+df_train.describe()
+```
+
+
+```{python}
+df_train.describe(include=[object])
+```
+
+
+
+
+Missing Data
+
+```{python}
+df_train.isnull().sum()
+```
+
+
+
+## feature 
+
+```{python}
+import sweetviz as sv
+my_report = sv.analyze(df_train)
+```
+
+```{python}
+my_report.show_notebook()
+```
+
+
+
+
+
