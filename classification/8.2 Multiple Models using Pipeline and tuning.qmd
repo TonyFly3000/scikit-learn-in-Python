@@ -121,7 +121,7 @@ data.head()
 
 ## split data
 
-60% training / 30% validation/ 10% testing
+80% training / 10% validation/ 10% testing
 
 ![](images/1_Nv2NNALuokZEcV6hYEHdGA.webp){width="520"}
 

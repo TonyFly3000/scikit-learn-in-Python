@@ -1738,7 +1738,7 @@
     "href": "data manipulation/2 siuba.html#load-package",
     "title": "Data manipulation with siuba",
     "section": "3 load package",
-    "text": "3 load package\n\n\nCode\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pylab as plt\nimport seaborn as sns\n\nfrom siuba.data import mtcars,penguins\n\nfrom siuba.siu import call\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\nfrom siuba.data import mtcars,penguins\n\n\n\n\nCode\nimport os\nos.system('pip show siuba')\n\n\nName: siuba\nVersion: 0.4.4\nSummary: A package for quick, scrappy analyses with pandas and SQL\nHome-page: https://github.com/machow/siuba\nAuthor: Michael Chow\nAuthor-email: mc_al_gh_siuba@fastmail.com\nLicense: MIT\nLocation: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages\nRequires: numpy, pandas, PyYAML, SQLAlchemy\nRequired-by: \n\n\n0\n\n\n\n\nCode\nsmall_mtcars = mtcars &gt;&gt; select(_.cyl, _.mpg, _.hp)&gt;&gt; head(5)",
+    "text": "3 load package\n\n\nCode\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pylab as plt\nimport seaborn as sns\n\n\n\nfrom siuba.siu import call\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\nfrom siuba.data import mtcars,penguins\n\n\n\n\nCode\nimport os\nos.system('pip show siuba')\n\n\nName: siuba\nVersion: 0.4.4\nSummary: A package for quick, scrappy analyses with pandas and SQL\nHome-page: https://github.com/machow/siuba\nAuthor: Michael Chow\nAuthor-email: mc_al_gh_siuba@fastmail.com\nLicense: MIT\nLocation: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages\nRequires: numpy, pandas, PyYAML, SQLAlchemy\nRequired-by: \n\n\n0\n\n\n\n\nCode\nsmall_mtcars = mtcars &gt;&gt; select(_.cyl, _.mpg, _.hp)&gt;&gt; head(5)",
     "crumbs": [
       "data manipulation",
       "Data manipulation with siuba"
@@ -5665,7 +5665,7 @@
     "href": "data manipulation/2 siuba.html#append",
     "title": "Data manipulation with siuba",
     "section": "9 Append",
-    "text": "9 Append\n\n9.1 append by row\n\n\nCode\n# not available in siuba yet\n#from siuba import bind_rows\n\n\n\n\nCode\n# using pandas\n\n# get 1 to 4 rows\ndata1=mtcars.iloc[0:4]\n\n# get 9 rows\ndata2=mtcars.iloc[10:11]\n\ndata3=pd.concat([data1, data2], ignore_index = True,axis=0)\n\ndata3\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n4\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n\n\n\n\n\n\n\n\n9.2 append by column\n\n\nCode\n# not available in siuba yet\n#from siuba import bind_columns\n\n\n\n\nCode\n# using pandas\ndata1=small_mtcars&gt;&gt;select(_.mpg)\n\ndata2=small_mtcars&gt;&gt;select(_.cyl)\n\ndata3=pd.concat([data1, data2],axis=1)\n\ndata3\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\n\n\n\n\n0\n21.0\n6\n\n\n1\n21.0\n6\n\n\n2\n22.8\n4\n\n\n3\n21.4\n6\n\n\n4\n18.7\n8\n\n\n\n\n\n\n\n\n\n\n9.3 Dropping NA values\n\n\n9.4 keep NA values\n=",
+    "text": "9 Append\n\n9.1 append by row\n\n\nCode\n# not available in siuba yet\n#from siuba import bind_rows\n\n\n\n\nCode\n# using pandas\n\n# get 1 to 4 rows\ndata1=mtcars.iloc[0:4]\n\n# get 9 rows\ndata2=mtcars.iloc[10:11]\n\ndata3=pd.concat([data1, data2], ignore_index = True,axis=0)\n\ndata3\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n4\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n\n\n\n\n\n\n\n\n9.2 append by column\n\n\nCode\n# not available in siuba yet\n#from siuba import bind_columns\n\n\n\n\nCode\n# using pandas\ndata1=small_mtcars&gt;&gt;select(_.mpg)\n\ndata2=small_mtcars&gt;&gt;select(_.cyl)\n\ndata3=pd.concat([data1, data2],axis=1)\n\ndata3\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\n\n\n\n\n0\n21.0\n6\n\n\n1\n21.0\n6\n\n\n2\n22.8\n4\n\n\n3\n21.4\n6\n\n\n4\n18.7\n8\n\n\n\n\n\n\n\n\n\n\n9.3 Dropping NA values\n\n\n9.4 keep NA values",
     "crumbs": [
       "data manipulation",
       "Data manipulation with siuba"
@@ -6092,56 +6092,56 @@
   {
     "objectID": "clustering/0 Mall Customers.html",
     "href": "clustering/0 Mall Customers.html",
-    "title": "Mall_Customers Dataset",
+    "title": "Mall Customers Dataset",
     "section": "",
     "text": "Code\nimport os\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns",
     "crumbs": [
       "Clustering",
-      "Mall_Customers Dataset"
+      "Mall Customers Dataset"
     ]
   },
   {
     "objectID": "clustering/0 Mall Customers.html#download-data",
     "href": "clustering/0 Mall Customers.html#download-data",
-    "title": "Mall_Customers Dataset",
+    "title": "Mall Customers Dataset",
     "section": "2.1 download data",
     "text": "2.1 download data\nhttps://www.kaggle.com/datasets/shwetabh123/mall-customer",
     "crumbs": [
       "Clustering",
-      "Mall_Customers Dataset"
+      "Mall Customers Dataset"
     ]
   },
   {
     "objectID": "clustering/0 Mall Customers.html#input-data",
     "href": "clustering/0 Mall Customers.html#input-data",
-    "title": "Mall_Customers Dataset",
+    "title": "Mall Customers Dataset",
     "section": "2.2 input data",
     "text": "2.2 input data\n\n\nCode\n# Loading the data\ndf_train = pd.read_csv('./data/Mall_Customers.csv')\n\n# Showing overview of the train dataset\ndf_train.head()\n\n\n\n\n\n\n\n\n\n\nCustomerID\nGenre\nAge\nAnnual Income (k$)\nSpending Score (1-100)\n\n\n\n\n0\n1\nMale\n19\n15\n39\n\n\n1\n2\nMale\n21\n15\n81\n\n\n2\n3\nFemale\n20\n16\n6\n\n\n3\n4\nFemale\n23\n16\n77\n\n\n4\n5\nFemale\n31\n17\n40",
     "crumbs": [
       "Clustering",
-      "Mall_Customers Dataset"
+      "Mall Customers Dataset"
     ]
   },
   {
     "objectID": "clustering/0 Mall Customers.html#data-eda",
     "href": "clustering/0 Mall Customers.html#data-eda",
-    "title": "Mall_Customers Dataset",
+    "title": "Mall Customers Dataset",
     "section": "2.3 data EDA",
     "text": "2.3 data EDA\n\n\nCode\ndf_train.describe()\n\n\n\n\n\n\n\n\n\n\nCustomerID\nAge\nAnnual Income (k$)\nSpending Score (1-100)\n\n\n\n\ncount\n200.000000\n200.000000\n200.000000\n200.000000\n\n\nmean\n100.500000\n38.850000\n60.560000\n50.200000\n\n\nstd\n57.879185\n13.969007\n26.264721\n25.823522\n\n\nmin\n1.000000\n18.000000\n15.000000\n1.000000\n\n\n25%\n50.750000\n28.750000\n41.500000\n34.750000\n\n\n50%\n100.500000\n36.000000\n61.500000\n50.000000\n\n\n75%\n150.250000\n49.000000\n78.000000\n73.000000\n\n\nmax\n200.000000\n70.000000\n137.000000\n99.000000\n\n\n\n\n\n\n\n\n\n\nCode\ndf_train.describe(include=[object])\n\n\n\n\n\n\n\n\n\n\nGenre\n\n\n\n\ncount\n200\n\n\nunique\n2\n\n\ntop\nFemale\n\n\nfreq\n112\n\n\n\n\n\n\n\n\nMissing Data\n\n\nCode\ndf_train.isnull().sum()\n\n\nCustomerID                0\nGenre                     0\nAge                       0\nAnnual Income (k$)        0\nSpending Score (1-100)    0\ndtype: int64",
     "crumbs": [
       "Clustering",
-      "Mall_Customers Dataset"
+      "Mall Customers Dataset"
     ]
   },
   {
     "objectID": "clustering/0 Mall Customers.html#feature",
     "href": "clustering/0 Mall Customers.html#feature",
-    "title": "Mall_Customers Dataset",
+    "title": "Mall Customers Dataset",
     "section": "2.4 feature",
-    "text": "2.4 feature\n\n\nCode\nimport sweetviz as sv\nmy_report = sv.analyze(df_train)\n\n\n\n\n\n\n\nCode\nmy_report.show_notebook()",
+    "text": "2.4 feature\n\n\nCode\nimport sweetviz as sv\nmy_report = sv.analyze(df_train)\n\n\n\n\n\n\n\nCode\nmy_report.show_notebook()\n\n\n \n\n\nhttps://www.kaggle.com/code/sangwookchn/clustering-techniques-using-scikit-learn",
     "crumbs": [
       "Clustering",
-      "Mall_Customers Dataset"
+      "Mall Customers Dataset"
     ]
   },
   {
@@ -6153,6 +6153,1566 @@
     "crumbs": [
       "Regression",
       "Housing Prices Dataset"
+    ]
+  },
+  {
+    "objectID": "classification 2/0 hotel booking data.html",
+    "href": "classification 2/0 hotel booking data.html",
+    "title": "Hotel booking Dataset",
+    "section": "",
+    "text": "Code\nimport os\n#os.system('pip install xgboost')\n\n\n\n\nCode\nimport os\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport re\nimport numpy as np\nfrom sklearn import tree\nfrom sklearn.model_selection import train_test_split"
+  },
+  {
+    "objectID": "classification 2/0 hotel booking data.html#download-data",
+    "href": "classification 2/0 hotel booking data.html#download-data",
+    "title": "Hotel booking Dataset",
+    "section": "2.1 download data",
+    "text": "2.1 download data\nhttps://www.kaggle.com/c/titanic/data\n\n\nCode\nimport pandas as pd\nurl='https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv'\nhotels=pd.read_csv(url)\n\n\n\n\nCode\nhotels.head()\n\n\n\n\n\n\n\n\n\n\nhotel\nis_canceled\nlead_time\narrival_date_year\narrival_date_month\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\n...\ndeposit_type\nagent\ncompany\ndays_in_waiting_list\ncustomer_type\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\nreservation_status\nreservation_status_date\n\n\n\n\n0\nResort Hotel\n0\n342\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n1\nResort Hotel\n0\n737\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n2\nResort Hotel\n0\n7\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n3\nResort Hotel\n0\n13\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\n304.0\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n4\nResort Hotel\n0\n14\n2015\nJuly\n27\n1\n0\n2\n2\n...\nNo Deposit\n240.0\nNaN\n0\nTransient\n98.0\n0\n1\nCheck-Out\n2015-07-03\n\n\n\n\n5 rows × 32 columns"
+  },
+  {
+    "objectID": "classification 2/0 hotel booking data.html#data-eda",
+    "href": "classification 2/0 hotel booking data.html#data-eda",
+    "title": "Hotel booking Dataset",
+    "section": "2.2 data EDA",
+    "text": "2.2 data EDA\n\n\nCode\nhotels.describe()\n\n\n\n\n\n\n\n\n\n\nis_canceled\nlead_time\narrival_date_year\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\nchildren\nbabies\nis_repeated_guest\nprevious_cancellations\nprevious_bookings_not_canceled\nbooking_changes\nagent\ncompany\ndays_in_waiting_list\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\n\n\n\n\ncount\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119386.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n103050.000000\n6797.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n\n\nmean\n0.370416\n104.011416\n2016.156554\n27.165173\n15.798241\n0.927599\n2.500302\n1.856403\n0.103890\n0.007949\n0.031912\n0.087118\n0.137097\n0.221124\n86.693382\n189.266735\n2.321149\n101.831122\n0.062518\n0.571363\n\n\nstd\n0.482918\n106.863097\n0.707476\n13.605138\n8.780829\n0.998613\n1.908286\n0.579261\n0.398561\n0.097436\n0.175767\n0.844336\n1.497437\n0.652306\n110.774548\n131.655015\n17.594721\n50.535790\n0.245291\n0.792798\n\n\nmin\n0.000000\n0.000000\n2015.000000\n1.000000\n1.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n1.000000\n6.000000\n0.000000\n-6.380000\n0.000000\n0.000000\n\n\n25%\n0.000000\n18.000000\n2016.000000\n16.000000\n8.000000\n0.000000\n1.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n9.000000\n62.000000\n0.000000\n69.290000\n0.000000\n0.000000\n\n\n50%\n0.000000\n69.000000\n2016.000000\n28.000000\n16.000000\n1.000000\n2.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n14.000000\n179.000000\n0.000000\n94.575000\n0.000000\n0.000000\n\n\n75%\n1.000000\n160.000000\n2017.000000\n38.000000\n23.000000\n2.000000\n3.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n229.000000\n270.000000\n0.000000\n126.000000\n0.000000\n1.000000\n\n\nmax\n1.000000\n737.000000\n2017.000000\n53.000000\n31.000000\n19.000000\n50.000000\n55.000000\n10.000000\n10.000000\n1.000000\n26.000000\n72.000000\n21.000000\n535.000000\n543.000000\n391.000000\n5400.000000\n8.000000\n5.000000\n\n\n\n\n\n\n\n\n\n\nCode\nhotels.describe(include=[object])\n\n\n\n\n\n\n\n\n\n\nhotel\narrival_date_month\nmeal\ncountry\nmarket_segment\ndistribution_channel\nreserved_room_type\nassigned_room_type\ndeposit_type\ncustomer_type\nreservation_status\nreservation_status_date\n\n\n\n\ncount\n119390\n119390\n119390\n118902\n119390\n119390\n119390\n119390\n119390\n119390\n119390\n119390\n\n\nunique\n2\n12\n5\n177\n8\n5\n10\n12\n3\n4\n3\n926\n\n\ntop\nCity Hotel\nAugust\nBB\nPRT\nOnline TA\nTA/TO\nA\nA\nNo Deposit\nTransient\nCheck-Out\n2015-10-21\n\n\nfreq\n79330\n13877\n92310\n48590\n56477\n97870\n85994\n74053\n104641\n89613\n75166\n1461\n\n\n\n\n\n\n\n\nMissing Data\n\n\nCode\nhotels.isnull().sum()\n\n\nhotel                                  0\nis_canceled                            0\nlead_time                              0\narrival_date_year                      0\narrival_date_month                     0\narrival_date_week_number               0\narrival_date_day_of_month              0\nstays_in_weekend_nights                0\nstays_in_week_nights                   0\nadults                                 0\nchildren                               4\nbabies                                 0\nmeal                                   0\ncountry                              488\nmarket_segment                         0\ndistribution_channel                   0\nis_repeated_guest                      0\nprevious_cancellations                 0\nprevious_bookings_not_canceled         0\nreserved_room_type                     0\nassigned_room_type                     0\nbooking_changes                        0\ndeposit_type                           0\nagent                              16340\ncompany                           112593\ndays_in_waiting_list                   0\ncustomer_type                          0\nadr                                    0\nrequired_car_parking_spaces            0\ntotal_of_special_requests              0\nreservation_status                     0\nreservation_status_date                0\ndtype: int64\n\n\n\n\nCode\n#import math\n#hotels=hotels&gt;&gt; filter(math.isnan(_.children)==False)\nfrom siuba.siu import call\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\nhotels &gt;&gt; group_by(_.children)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\nchildren\nn\n\n\n\n\n0\n0.0\n110796\n\n\n1\n1.0\n4861\n\n\n2\n2.0\n3652\n\n\n3\n3.0\n76\n\n\n4\n10.0\n1\n\n\n5\nNaN\n4\n\n\n\n\n\n\n\n\n\n\nCode\n#import math\nhotels=hotels&gt;&gt;mutate(children=if_else(_.children &gt; 0, True, False))\n\n# Create a boolean mask and apply it\nmask = pd.notna(hotels['children'])\nhotels = hotels[mask]\n\n\n\n\nCode\nimport sweetviz as sv\nmy_report = sv.analyze(hotels)\n\n\n\n\n\n\n\nCode\nmy_report.show_notebook()"
+  },
+  {
+    "objectID": "classification 2/0 hotel booking data.html#feature-vs-target",
+    "href": "classification 2/0 hotel booking data.html#feature-vs-target",
+    "title": "Hotel booking Dataset",
+    "section": "2.3 feature vs target",
+    "text": "2.3 feature vs target\n\n\nCode\nmy_report2 = sv.analyze(hotels,target_feat='children')\n\n\n\n\n\n\n\nCode\nmy_report2.show_notebook()"
+  },
+  {
+    "objectID": "classification 2/0 hotel booking data.html#compare-train-data-and-test-data",
+    "href": "classification 2/0 hotel booking data.html#compare-train-data-and-test-data",
+    "title": "Hotel booking Dataset",
+    "section": "2.4 compare train data and test data",
+    "text": "2.4 compare train data and test data\n\n\nCode\n#compare = sv.compare(source=df_train, compare=df_test)\n\n\n\n\nCode\n#compare.show_notebook()"
+  },
+  {
+    "objectID": "classification 2/0 hotel booking data.html#data-dictionary",
+    "href": "classification 2/0 hotel booking data.html#data-dictionary",
+    "title": "Hotel booking Dataset",
+    "section": "2.5 data dictionary",
+    "text": "2.5 data dictionary"
+  },
+  {
+    "objectID": "intro/1 input output.html#csv-1",
+    "href": "intro/1 input output.html#csv-1",
+    "title": "input output",
+    "section": "2.1 CSV",
+    "text": "2.1 CSV",
+    "crumbs": [
+      "Intro",
+      "input output"
+    ]
+  },
+  {
+    "objectID": "intro/1 input output.html#excel-1",
+    "href": "intro/1 input output.html#excel-1",
+    "title": "input output",
+    "section": "2.2 excel",
+    "text": "2.2 excel",
+    "crumbs": [
+      "Intro",
+      "input output"
+    ]
+  },
+  {
+    "objectID": "classification2/0 hotel booking data.html",
+    "href": "classification2/0 hotel booking data.html",
+    "title": "Hotel booking Dataset",
+    "section": "",
+    "text": "Code\nimport os\n#os.system('pip install xgboost')\n\n\n\n\nCode\nimport os\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport re\nimport numpy as np\nfrom sklearn import tree\nfrom sklearn.model_selection import train_test_split",
+    "crumbs": [
+      "Classification2",
+      "Hotel booking Dataset"
+    ]
+  },
+  {
+    "objectID": "classification2/0 hotel booking data.html#download-data",
+    "href": "classification2/0 hotel booking data.html#download-data",
+    "title": "Hotel booking Dataset",
+    "section": "2.1 download data",
+    "text": "2.1 download data\nhttps://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-11/readme.md\n\n\nCode\nimport pandas as pd\nurl='https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv'\nhotels=pd.read_csv(url)\n\nhotels.to_csv('data/hotels.csv', index=False)  \n\n\n\n\nCode\nhotels.head()\n\n\n\n\n\n\n\n\n\n\nhotel\nis_canceled\nlead_time\narrival_date_year\narrival_date_month\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\n...\ndeposit_type\nagent\ncompany\ndays_in_waiting_list\ncustomer_type\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\nreservation_status\nreservation_status_date\n\n\n\n\n0\nResort Hotel\n0\n342\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n1\nResort Hotel\n0\n737\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n2\nResort Hotel\n0\n7\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n3\nResort Hotel\n0\n13\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\n304.0\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n4\nResort Hotel\n0\n14\n2015\nJuly\n27\n1\n0\n2\n2\n...\nNo Deposit\n240.0\nNaN\n0\nTransient\n98.0\n0\n1\nCheck-Out\n2015-07-03\n\n\n\n\n5 rows × 32 columns",
+    "crumbs": [
+      "Classification2",
+      "Hotel booking Dataset"
+    ]
+  },
+  {
+    "objectID": "classification2/0 hotel booking data.html#data-eda",
+    "href": "classification2/0 hotel booking data.html#data-eda",
+    "title": "Hotel booking Dataset",
+    "section": "2.2 data EDA",
+    "text": "2.2 data EDA\n\n\nCode\nhotels.describe()\n\n\n\n\n\n\n\n\n\n\nis_canceled\nlead_time\narrival_date_year\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\nchildren\nbabies\nis_repeated_guest\nprevious_cancellations\nprevious_bookings_not_canceled\nbooking_changes\nagent\ncompany\ndays_in_waiting_list\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\n\n\n\n\ncount\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119386.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n103050.000000\n6797.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n\n\nmean\n0.370416\n104.011416\n2016.156554\n27.165173\n15.798241\n0.927599\n2.500302\n1.856403\n0.103890\n0.007949\n0.031912\n0.087118\n0.137097\n0.221124\n86.693382\n189.266735\n2.321149\n101.831122\n0.062518\n0.571363\n\n\nstd\n0.482918\n106.863097\n0.707476\n13.605138\n8.780829\n0.998613\n1.908286\n0.579261\n0.398561\n0.097436\n0.175767\n0.844336\n1.497437\n0.652306\n110.774548\n131.655015\n17.594721\n50.535790\n0.245291\n0.792798\n\n\nmin\n0.000000\n0.000000\n2015.000000\n1.000000\n1.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n1.000000\n6.000000\n0.000000\n-6.380000\n0.000000\n0.000000\n\n\n25%\n0.000000\n18.000000\n2016.000000\n16.000000\n8.000000\n0.000000\n1.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n9.000000\n62.000000\n0.000000\n69.290000\n0.000000\n0.000000\n\n\n50%\n0.000000\n69.000000\n2016.000000\n28.000000\n16.000000\n1.000000\n2.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n14.000000\n179.000000\n0.000000\n94.575000\n0.000000\n0.000000\n\n\n75%\n1.000000\n160.000000\n2017.000000\n38.000000\n23.000000\n2.000000\n3.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n229.000000\n270.000000\n0.000000\n126.000000\n0.000000\n1.000000\n\n\nmax\n1.000000\n737.000000\n2017.000000\n53.000000\n31.000000\n19.000000\n50.000000\n55.000000\n10.000000\n10.000000\n1.000000\n26.000000\n72.000000\n21.000000\n535.000000\n543.000000\n391.000000\n5400.000000\n8.000000\n5.000000\n\n\n\n\n\n\n\n\n\n\nCode\nhotels.describe(include=[object])\n\n\n\n\n\n\n\n\n\n\nhotel\narrival_date_month\nmeal\ncountry\nmarket_segment\ndistribution_channel\nreserved_room_type\nassigned_room_type\ndeposit_type\ncustomer_type\nreservation_status\nreservation_status_date\n\n\n\n\ncount\n119390\n119390\n119390\n118902\n119390\n119390\n119390\n119390\n119390\n119390\n119390\n119390\n\n\nunique\n2\n12\n5\n177\n8\n5\n10\n12\n3\n4\n3\n926\n\n\ntop\nCity Hotel\nAugust\nBB\nPRT\nOnline TA\nTA/TO\nA\nA\nNo Deposit\nTransient\nCheck-Out\n2015-10-21\n\n\nfreq\n79330\n13877\n92310\n48590\n56477\n97870\n85994\n74053\n104641\n89613\n75166\n1461\n\n\n\n\n\n\n\n\nMissing Data\n\n\nCode\nhotels.isnull().sum()\n\n\nhotel                                  0\nis_canceled                            0\nlead_time                              0\narrival_date_year                      0\narrival_date_month                     0\narrival_date_week_number               0\narrival_date_day_of_month              0\nstays_in_weekend_nights                0\nstays_in_week_nights                   0\nadults                                 0\nchildren                               4\nbabies                                 0\nmeal                                   0\ncountry                              488\nmarket_segment                         0\ndistribution_channel                   0\nis_repeated_guest                      0\nprevious_cancellations                 0\nprevious_bookings_not_canceled         0\nreserved_room_type                     0\nassigned_room_type                     0\nbooking_changes                        0\ndeposit_type                           0\nagent                              16340\ncompany                           112593\ndays_in_waiting_list                   0\ncustomer_type                          0\nadr                                    0\nrequired_car_parking_spaces            0\ntotal_of_special_requests              0\nreservation_status                     0\nreservation_status_date                0\ndtype: int64\n\n\n\n\nCode\n#import math\n#hotels=hotels&gt;&gt; filter(math.isnan(_.children)==False)\nfrom siuba.siu import call\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\nhotels &gt;&gt; group_by(_.children)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\nchildren\nn\n\n\n\n\n0\n0.0\n110796\n\n\n1\n1.0\n4861\n\n\n2\n2.0\n3652\n\n\n3\n3.0\n76\n\n\n4\n10.0\n1\n\n\n5\nNaN\n4\n\n\n\n\n\n\n\n\n\n\nCode\n#import math\nhotels=hotels&gt;&gt;mutate(children=if_else(_.children &gt; 0, True, False))\n\n# Create a boolean mask and apply it\nmask = pd.notna(hotels['children'])\nhotels = hotels[mask]\n\n\n\n\nCode\nimport sweetviz as sv\nmy_report = sv.analyze(hotels)\n\n\n\n\n\n\n\nCode\nmy_report.show_notebook()",
+    "crumbs": [
+      "Classification2",
+      "Hotel booking Dataset"
+    ]
+  },
+  {
+    "objectID": "classification2/0 hotel booking data.html#feature-vs-target",
+    "href": "classification2/0 hotel booking data.html#feature-vs-target",
+    "title": "Hotel booking Dataset",
+    "section": "2.3 feature vs target",
+    "text": "2.3 feature vs target\n\n\nCode\nmy_report2 = sv.analyze(hotels,target_feat='children')\n\n\n\n\n\n\n\nCode\nmy_report2.show_notebook()",
+    "crumbs": [
+      "Classification2",
+      "Hotel booking Dataset"
+    ]
+  },
+  {
+    "objectID": "classification2/0 hotel booking data.html#compare-train-data-and-test-data",
+    "href": "classification2/0 hotel booking data.html#compare-train-data-and-test-data",
+    "title": "Hotel booking Dataset",
+    "section": "2.4 compare train data and test data",
+    "text": "2.4 compare train data and test data\n\n\nCode\n#compare = sv.compare(source=df_train, compare=df_test)\n\n\n\n\nCode\n#compare.show_notebook()",
+    "crumbs": [
+      "Classification2",
+      "Hotel booking Dataset"
+    ]
+  },
+  {
+    "objectID": "classification2/0 hotel booking data.html#data-dictionary",
+    "href": "classification2/0 hotel booking data.html#data-dictionary",
+    "title": "Hotel booking Dataset",
+    "section": "2.5 data dictionary",
+    "text": "2.5 data dictionary\n\n\n\n\n\n\n\n\nvariable\nclass\ndescription\n\n\n\n\nhotel\ncharacter\nHotel (H1 = Resort Hotel or H2 = City Hotel)\n\n\nis_canceled\ndouble\nValue indicating if the booking was canceled (1) or not (0)\n\n\nlead_time\ndouble\nNumber of days that elapsed between the entering date of the booking into the PMS and the arrival date\n\n\narrival_date_year\ndouble\nYear of arrival date\n\n\narrival_date_month\ncharacter\nMonth of arrival date\n\n\narrival_date_week_number\ndouble\nWeek number of year for arrival date\n\n\narrival_date_day_of_month\ndouble\nDay of arrival date\n\n\nstays_in_weekend_nights\ndouble\nNumber of weekend nights (Saturday or Sunday) the guest stayed or booked to stay at the hotel\n\n\nstays_in_week_nights\ndouble\nNumber of week nights (Monday to Friday) the guest stayed or booked to stay at the hotel\n\n\nadults\ndouble\nNumber of adults\n\n\nchildren\ndouble\nNumber of children\n\n\nbabies\ndouble\nNumber of babies\n\n\nmeal\ncharacter\nType of meal booked. Categories are presented in standard hospitality meal packages:\nUndefined/SC – no meal package;\nBB – Bed & Breakfast;\nHB – Half board (breakfast and one other meal – usually dinner);\nFB – Full board (breakfast, lunch and dinner)\n\n\ncountry\ncharacter\nCountry of origin. Categories are represented in the ISO 3155–3:2013 format\n\n\nmarket_segment\ncharacter\nMarket segment designation. In categories, the term “TA” means “Travel Agents” and “TO” means “Tour Operators”\n\n\ndistribution_channel\ncharacter\nBooking distribution channel. The term “TA” means “Travel Agents” and “TO” means “Tour Operators”\n\n\nis_repeated_guest\ndouble\nValue indicating if the booking name was from a repeated guest (1) or not (0)\n\n\nprevious_cancellations\ndouble\nNumber of previous bookings that were cancelled by the customer prior to the current booking\n\n\nprevious_bookings_not_canceled\ndouble\nNumber of previous bookings not cancelled by the customer prior to the current booking\n\n\nreserved_room_type\ncharacter\nCode of room type reserved. Code is presented instead of designation for anonymity reasons\n\n\nassigned_room_type\ncharacter\nCode for the type of room assigned to the booking. Sometimes the assigned room type differs from the reserved room type due to hotel operation reasons (e.g. overbooking) or by customer request. Code is presented instead of designation for anonymity reasons\n\n\nbooking_changes\ndouble\nNumber of changes/amendments made to the booking from the moment the booking was entered on the PMS until the moment of check-in or cancellation\n\n\ndeposit_type\ncharacter\nIndication on if the customer made a deposit to guarantee the booking. This variable can assume three categories:\nNo Deposit – no deposit was made;\nNon Refund – a deposit was made in the value of the total stay cost;\nRefundable – a deposit was made with a value under the total cost of stay.\n\n\nagent\ncharacter\nID of the travel agency that made the booking\n\n\ncompany\ncharacter\nID of the company/entity that made the booking or responsible for paying the booking. ID is presented instead of designation for anonymity reasons\n\n\ndays_in_waiting_list\ndouble\nNumber of days the booking was in the waiting list before it was confirmed to the customer\n\n\ncustomer_type\ncharacter\nType of booking, assuming one of four categories:\nContract - when the booking has an allotment or other type of contract associated to it;\nGroup – when the booking is associated to a group;\nTransient – when the booking is not part of a group or contract, and is not associated to other transient booking;\nTransient-party – when the booking is transient, but is associated to at least other transient booking\n\n\nadr\ndouble\nAverage Daily Rate as defined by dividing the sum of all lodging transactions by the total number of staying nights\n\n\nrequired_car_parking_spaces\ndouble\nNumber of car parking spaces required by the customer\n\n\ntotal_of_special_requests\ndouble\nNumber of special requests made by the customer (e.g. twin bed or high floor)\n\n\nreservation_status\ncharacter\nReservation last status, assuming one of three categories:\nCanceled – booking was canceled by the customer;\nCheck-Out – customer has checked in but already departed;\nNo-Show – customer did not check-in and did inform the hotel of the reason why\n\n\nreservation_status_date\ndouble\nDate at which the last status was set. This variable can be used in conjunction with the ReservationStatus to understand when was the booking canceled or when did the customer checked-out of the hotel",
+    "crumbs": [
+      "Classification2",
+      "Hotel booking Dataset"
+    ]
+  },
+  {
+    "objectID": "classification2/1 decision tree on hotel booking data.html",
+    "href": "classification2/1 decision tree on hotel booking data.html",
+    "title": "Decision tree",
+    "section": "",
+    "text": "8590 booking with children.110800 bookings with no children.\nOnly 7% booking with children.Its imbalanced data.Why it causes problems?\nThe model cannot learn to predict the minority class well because of class imbalance.\nModel is only able to learn a simple heuristic (e.g. always predict the dominate class) and it gets stuck in a sub optimal solution.\nAn accuracy of over 90% can be misleading because the model may not have predictive power on the rare class.\nSince we have enough rare class data(at least 1K).Let handle imbalanced data with down sample before training.\nIf there is no enough rare class data, we will do over smaple method.",
+    "crumbs": [
+      "Classification2",
+      "Decision tree"
+    ]
+  },
+  {
+    "objectID": "classification2/1 decision tree on hotel booking data.html#download-data",
+    "href": "classification2/1 decision tree on hotel booking data.html#download-data",
+    "title": "Decision tree",
+    "section": "2.1 download data",
+    "text": "2.1 download data\n\n\nCode\nimport pandas as pd\n#url='https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv'\nhotels=pd.read_csv('data/hotels.csv')\n\n\n\n\nCode\nhotels.head()\n\n\n\n\n\n\n\n\n\n\nhotel\nis_canceled\nlead_time\narrival_date_year\narrival_date_month\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\n...\ndeposit_type\nagent\ncompany\ndays_in_waiting_list\ncustomer_type\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\nreservation_status\nreservation_status_date\n\n\n\n\n0\nResort Hotel\n0\n342\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n1\nResort Hotel\n0\n737\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n2\nResort Hotel\n0\n7\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n3\nResort Hotel\n0\n13\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\n304.0\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n4\nResort Hotel\n0\n14\n2015\nJuly\n27\n1\n0\n2\n2\n...\nNo Deposit\n240.0\nNaN\n0\nTransient\n98.0\n0\n1\nCheck-Out\n2015-07-03\n\n\n\n\n5 rows × 32 columns",
+    "crumbs": [
+      "Classification2",
+      "Decision tree"
+    ]
+  },
+  {
+    "objectID": "classification2/1 decision tree on hotel booking data.html#data-eda",
+    "href": "classification2/1 decision tree on hotel booking data.html#data-eda",
+    "title": "Decision tree",
+    "section": "2.2 data EDA",
+    "text": "2.2 data EDA\nMissing Data\n\n\nCode\nhotels.isnull().sum()\n\n\nhotel                                  0\nis_canceled                            0\nlead_time                              0\narrival_date_year                      0\narrival_date_month                     0\narrival_date_week_number               0\narrival_date_day_of_month              0\nstays_in_weekend_nights                0\nstays_in_week_nights                   0\nadults                                 0\nchildren                               4\nbabies                                 0\nmeal                                   0\ncountry                              488\nmarket_segment                         0\ndistribution_channel                   0\nis_repeated_guest                      0\nprevious_cancellations                 0\nprevious_bookings_not_canceled         0\nreserved_room_type                     0\nassigned_room_type                     0\nbooking_changes                        0\ndeposit_type                           0\nagent                              16340\ncompany                           112593\ndays_in_waiting_list                   0\ncustomer_type                          0\nadr                                    0\nrequired_car_parking_spaces            0\ntotal_of_special_requests              0\nreservation_status                     0\nreservation_status_date                0\ndtype: int64\n\n\n\n\nCode\n#import math\n#hotels=hotels&gt;&gt; filter(math.isnan(_.children)==False)\nfrom siuba.siu import call\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\nhotels &gt;&gt; group_by(_.children)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\nchildren\nn\n\n\n\n\n0\n0.0\n110796\n\n\n1\n1.0\n4861\n\n\n2\n2.0\n3652\n\n\n3\n3.0\n76\n\n\n4\n10.0\n1\n\n\n5\nNaN\n4\n\n\n\n\n\n\n\n\n\n\nCode\n#import math\nhotels=hotels&gt;&gt;mutate(children=if_else(_.children &gt; 0, True, False))\n\n# Create a boolean mask and apply it\nmask = pd.notna(hotels['children'])\nhotels = hotels[mask]",
+    "crumbs": [
+      "Classification2",
+      "Decision tree"
+    ]
+  },
+  {
+    "objectID": "classification2/1 decision tree on hotel booking data.html#data-wrangling",
+    "href": "classification2/1 decision tree on hotel booking data.html#data-wrangling",
+    "title": "Decision tree",
+    "section": "2.3 Data Wrangling",
+    "text": "2.3 Data Wrangling\n\n\nCode\n# Store target variable of training data in a safe place\nchildren_train = hotels .children\n\n# Concatenate training and test sets\ndata  = hotels",
+    "crumbs": [
+      "Classification2",
+      "Decision tree"
+    ]
+  },
+  {
+    "objectID": "classification2/1 decision tree on hotel booking data.html#categorical_cols-and-numerical_cols",
+    "href": "classification2/1 decision tree on hotel booking data.html#categorical_cols-and-numerical_cols",
+    "title": "Decision tree",
+    "section": "2.4 categorical_cols and numerical_cols",
+    "text": "2.4 categorical_cols and numerical_cols\n\n\nCode\ncategorical_cols = [cname for cname in data \n                    if data[cname].nunique() &lt; 10 and data[cname].dtype == \"object\"]\n                    \n                    \nnumerical_cols = numerical_cols = [cname for cname in data.columns \n                    if data[cname].dtype in ['int64', 'float64']]\n\n\n\n\nCode\nprint(\"The total number of categorical columns:\", len(categorical_cols))\nprint(\"The total number of numerical columns:\", len(numerical_cols))\n\n\nThe total number of categorical columns: 7\nThe total number of numerical columns: 19\n\n\n\n\nCode\ndata &gt;&gt; group_by(_.children)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\nchildren\nn\n\n\n\n\n0\nFalse\n110800\n\n\n1\nTrue\n8590",
+    "crumbs": [
+      "Classification2",
+      "Decision tree"
+    ]
+  },
+  {
+    "objectID": "classification2/1 decision tree on hotel booking data.html#split-data",
+    "href": "classification2/1 decision tree on hotel booking data.html#split-data",
+    "title": "Decision tree",
+    "section": "2.5 split data",
+    "text": "2.5 split data\n\n\nCode\nY=data['children']\nX=data.drop('children', axis=1)\n\nX_train,X_test,Y_train,Y_test=train_test_split(X,Y,train_size = 0.8)\n\n\n\n\nCode\nfrom imblearn.under_sampling import RandomUnderSampler\n\nros=RandomUnderSampler(random_state=0)\n\nX_train_resample,Y_train_resample=ros.fit_resample(X_train,Y_train)\n\n\nbefore split\n\n\nCode\nY.value_counts()\n\n\nchildren\nFalse    110800\nTrue       8590\nName: count, dtype: int64\n\n\nafter split before downsample:\n\n\nCode\nY_train.value_counts()\n\n\nchildren\nFalse    88646\nTrue      6866\nName: count, dtype: int64\n\n\nafter split after downsample:\n\n\nCode\nY_train_resample.value_counts()\n\n\nchildren\nFalse    6866\nTrue     6866\nName: count, dtype: int64\n\n\n\n\nCode\nX_train_resample.shape\n\n\n(13732, 31)",
+    "crumbs": [
+      "Classification2",
+      "Decision tree"
+    ]
+  },
+  {
+    "objectID": "classification2/1 decision tree on hotel booking data.html#define-model",
+    "href": "classification2/1 decision tree on hotel booking data.html#define-model",
+    "title": "Decision tree",
+    "section": "3.1 define model",
+    "text": "3.1 define model\n\n\nCode\nml_model = tree.DecisionTreeClassifier()  \nml_model\n\n\nDecisionTreeClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  DecisionTreeClassifier?Documentation for DecisionTreeClassifieriNot fittedDecisionTreeClassifier()",
+    "crumbs": [
+      "Classification2",
+      "Decision tree"
+    ]
+  },
+  {
+    "objectID": "classification2/1 decision tree on hotel booking data.html#train-model",
+    "href": "classification2/1 decision tree on hotel booking data.html#train-model",
+    "title": "Decision tree",
+    "section": "3.2 train model",
+    "text": "3.2 train model\ntrain on resample data\n\n\nCode\nml_model.fit(X_train_resample[numerical_cols],Y_train_resample)\n\n\nDecisionTreeClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  DecisionTreeClassifier?Documentation for DecisionTreeClassifieriFittedDecisionTreeClassifier() \n\n\nvariable importance\n\n\nCode\nimportances = ml_model.feature_importances_\nvi=pd.DataFrame({\"variable\":X_train_resample[numerical_cols].columns,\"importances\":importances})\n#vi=vi.sort_values('importances',ascending=False)\n#vi",
+    "crumbs": [
+      "Classification2",
+      "Decision tree"
+    ]
+  },
+  {
+    "objectID": "classification2/1 decision tree on hotel booking data.html#preformance",
+    "href": "classification2/1 decision tree on hotel booking data.html#preformance",
+    "title": "Decision tree",
+    "section": "3.3 Preformance",
+    "text": "3.3 Preformance\n\n\nCode\n#Using predict method to test the model\nY_pred_dt = ml_model.predict(X_test[numerical_cols]) #always gets x and retuns y\n\n\n\n\nCode\nimport collections, numpy\ncollections.Counter(Y_pred_dt)\n\n\nCounter({False: 17588, True: 6290})\n\n\npredict 25% have children,the truth is only 7% have children,because we have make downsample before training.\n\n\nCode\n5977/(5977+17901)\n\n\n0.2503140966580116\n\n\n\n\nCode\ncollections.Counter(Y_test)\n\n1762/(22116+1762)\n\n\n0.07379177485551554\n\n\n\nAccuracy\n\n\n\nCode\n# Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives\n# Here is another way to find the accuracy score\nfrom sklearn import metrics\naccuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  \naccuracy\n\n\n0.7809699304799397\n\n\n\nPrecision\n\n\n\nCode\n# Precision = true positive / true positive + false positive\nprecision_dt = metrics.precision_score(Y_test,Y_pred_dt)  \nprecision_dt\n\n\n0.22130365659777423\n\n\n\nRecall\n\n\n\nCode\n# Recall = true positive / true positive + false negative\nrecall_dt = metrics.recall_score(Y_test,Y_pred_dt)  \nrecall_dt\n\n\n0.8074245939675174\n\n\n\nConfusion matrix\n\n\n\nCode\nimport seaborn as sns\nconfusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)\nconfusion_matrix_dt\n\n\narray([[17256,  4898],\n       [  332,  1392]])\n\n\n\n\nCode\nfrom sklearn.metrics import ConfusionMatrixDisplay\nConfusionMatrixDisplay(confusion_matrix_dt).plot()\n\n\n\n\n\n\n\n\n\n\nAUC - ROC Curve\n\n\n\nCode\nauc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score\nauc_dt\n\n\n0.7931679257641144\n\n\n\n\nCode\nfpr, tpr, thresholds = metrics.roc_curve(Y_test, Y_pred_dt)\nroc_auc = metrics.auc(fpr, tpr)\n\ndisplay = metrics.RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=roc_auc,\n                                 estimator_name='example estimator')\n\ndisplay.plot()\n\nplt.show()",
+    "crumbs": [
+      "Classification2",
+      "Decision tree"
+    ]
+  },
+  {
+    "objectID": "classification2/1 decision tree on hotel booking data.html#k-fold-cross-validation",
+    "href": "classification2/1 decision tree on hotel booking data.html#k-fold-cross-validation",
+    "title": "Decision tree",
+    "section": "3.4 k-Fold Cross-Validation",
+    "text": "3.4 k-Fold Cross-Validation\n\n\nCode\nimport numpy as np\nfrom sklearn.model_selection import KFold\nfrom sklearn.model_selection import cross_val_score\n\n\n\n\nCode\nkf_dt = KFold(n_splits=5,shuffle=True)  \ncv_dt = cross_val_score(ml_model, X_train[numerical_cols], Y_train, cv=kf_dt)\nnp.mean(cv_dt)\n\n\n0.9292445080288813",
+    "crumbs": [
+      "Classification2",
+      "Decision tree"
+    ]
+  },
+  {
+    "objectID": "classification2/1 decision tree on hotel booking data.html#save-model",
+    "href": "classification2/1 decision tree on hotel booking data.html#save-model",
+    "title": "Decision tree",
+    "section": "3.5 save model",
+    "text": "3.5 save model\n\n\nCode\nfrom joblib import dump, load\ndump(ml_model, 'trained_model_1.joblib') \n\n\n['trained_model_1.joblib']",
+    "crumbs": [
+      "Classification2",
+      "Decision tree"
+    ]
+  },
+  {
+    "objectID": "classification2/1 decision tree on hotel booking data.html#load-model",
+    "href": "classification2/1 decision tree on hotel booking data.html#load-model",
+    "title": "Decision tree",
+    "section": "3.6 load model",
+    "text": "3.6 load model\n\n\nCode\nml_model_reload = load('trained_model_1.joblib') \n\n\n\n\nCode\nY_pred_dt = ml_model_reload.predict(X_test[numerical_cols]) #always gets x and retuns y\n\nY_pred_dt[0:5]\n\n\narray([False, False, False, False, False])",
+    "crumbs": [
+      "Classification2",
+      "Decision tree"
+    ]
+  },
+  {
+    "objectID": "intro/1 input output.html",
+    "href": "intro/1 input output.html",
+    "title": "input output",
+    "section": "",
+    "text": "Code\nimport pandas as pd\ndata=pd.read_csv('data/Book3.csv')\ndata\n\n\n\n\n\n\n\n\n\n\na\nb\n\n\n\n\n0\n1241\nrhth\n\n\n1\n35235\nrjyyj\n\n\n\n\n\n\n\n\nCSV online\n\n\nCode\nimport pandas as pd\nurl='https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv'\nhotels=pd.read_csv(url)\n\n\n\n\n\nsheet_name=0 read first sheet.\nsheet_name=1 read second sheet.\n.sheet_name=‘Sheet1’ read ‘Sheet1’ sheet.\n\n\nCode\nimport pandas as pd\ndata=pd.read_excel('data/Book1.xlsx',sheet_name=0)\ndata\n\n\n\n\n\n\n\n\n\n\na\nb\n\n\n\n\n0\n1241\nrhth\n\n\n1\n35235\nrjyyj\n\n\n\n\n\n\n\n\n\n\n\nparquet format is one of the best for data analytic\n\n\nCode\ndata= pd.read_parquet(\"data/df.parquet\")\ndata.shape\n\n\n(100, 61)\n\n\n\n\nCode\ndata.head()\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n0\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nGJT\nDEN\nFalse\nFalse\n1133\n1123.0\n0.0\n-10.0\n...\n1140.0\n1220.0\n8.0\n1245\n-17.0\n0.0\n-2.0\n1200-1259\n1\n0\n\n\n1\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nHRL\nIAH\nFalse\nFalse\n732\n728.0\n0.0\n-4.0\n...\n744.0\n839.0\n9.0\n849\n-1.0\n0.0\n-1.0\n0800-0859\n2\n0\n\n\n2\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\nDEN\nFalse\nFalse\n1529\n1514.0\n0.0\n-15.0\n...\n1535.0\n1622.0\n14.0\n1639\n-3.0\n0.0\n-1.0\n1600-1659\n2\n0\n\n\n3\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nIAH\nGPT\nFalse\nFalse\n1435\n1430.0\n0.0\n-5.0\n...\n1446.0\n1543.0\n4.0\n1605\n-18.0\n0.0\n-2.0\n1600-1659\n2\n0\n\n\n4\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\nDEN\nFalse\nFalse\n1135\n1135.0\n0.0\n0.0\n...\n1154.0\n1243.0\n8.0\n1245\n6.0\n0.0\n0.0\n1200-1259\n2\n0\n\n\n\n\n5 rows × 61 columns\n\n\n\n\nread parquet zip\n\n\nCode\ndata= pd.read_parquet(\"data/df.parquet.gzip\")\ndata.shape\n\n\n(100, 61)\n\n\n\n\n\n\n\nCode\ndata=pd.read_feather(\"data/file.feather\")",
+    "crumbs": [
+      "Intro",
+      "input output"
+    ]
+  },
+  {
+    "objectID": "intro/1 input output.html#read-csv",
+    "href": "intro/1 input output.html#read-csv",
+    "title": "input output",
+    "section": "",
+    "text": "Code\nimport pandas as pd\ndata=pd.read_csv('data/Book3.csv')\ndata\n\n\n\n\n\n\n\n\n\n\na\nb\n\n\n\n\n0\n1241\nrhth\n\n\n1\n35235\nrjyyj\n\n\n\n\n\n\n\n\nCSV online\n\n\nCode\nimport pandas as pd\nurl='https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv'\nhotels=pd.read_csv(url)",
+    "crumbs": [
+      "Intro",
+      "input output"
+    ]
+  },
+  {
+    "objectID": "intro/1 input output.html#read-excel",
+    "href": "intro/1 input output.html#read-excel",
+    "title": "input output",
+    "section": "",
+    "text": "sheet_name=0 read first sheet.\nsheet_name=1 read second sheet.\n.sheet_name=‘Sheet1’ read ‘Sheet1’ sheet.\n\n\nCode\nimport pandas as pd\ndata=pd.read_excel('data/Book1.xlsx',sheet_name=0)\ndata\n\n\n\n\n\n\n\n\n\n\na\nb\n\n\n\n\n0\n1241\nrhth\n\n\n1\n35235\nrjyyj",
+    "crumbs": [
+      "Intro",
+      "input output"
+    ]
+  },
+  {
+    "objectID": "intro/1 input output.html#read-parquet",
+    "href": "intro/1 input output.html#read-parquet",
+    "title": "input output",
+    "section": "",
+    "text": "parquet format is one of the best for data analytic\n\n\nCode\ndata= pd.read_parquet(\"data/df.parquet\")\ndata.shape\n\n\n(100, 61)\n\n\n\n\nCode\ndata.head()\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n0\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nGJT\nDEN\nFalse\nFalse\n1133\n1123.0\n0.0\n-10.0\n...\n1140.0\n1220.0\n8.0\n1245\n-17.0\n0.0\n-2.0\n1200-1259\n1\n0\n\n\n1\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nHRL\nIAH\nFalse\nFalse\n732\n728.0\n0.0\n-4.0\n...\n744.0\n839.0\n9.0\n849\n-1.0\n0.0\n-1.0\n0800-0859\n2\n0\n\n\n2\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\nDEN\nFalse\nFalse\n1529\n1514.0\n0.0\n-15.0\n...\n1535.0\n1622.0\n14.0\n1639\n-3.0\n0.0\n-1.0\n1600-1659\n2\n0\n\n\n3\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nIAH\nGPT\nFalse\nFalse\n1435\n1430.0\n0.0\n-5.0\n...\n1446.0\n1543.0\n4.0\n1605\n-18.0\n0.0\n-2.0\n1600-1659\n2\n0\n\n\n4\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\nDEN\nFalse\nFalse\n1135\n1135.0\n0.0\n0.0\n...\n1154.0\n1243.0\n8.0\n1245\n6.0\n0.0\n0.0\n1200-1259\n2\n0\n\n\n\n\n5 rows × 61 columns\n\n\n\n\nread parquet zip\n\n\nCode\ndata= pd.read_parquet(\"data/df.parquet.gzip\")\ndata.shape\n\n\n(100, 61)",
+    "crumbs": [
+      "Intro",
+      "input output"
+    ]
+  },
+  {
+    "objectID": "intro/1 input output.html#read-feather",
+    "href": "intro/1 input output.html#read-feather",
+    "title": "input output",
+    "section": "",
+    "text": "Code\ndata=pd.read_feather(\"data/file.feather\")",
+    "crumbs": [
+      "Intro",
+      "input output"
+    ]
+  },
+  {
+    "objectID": "intro/1 input output.html#write-csv",
+    "href": "intro/1 input output.html#write-csv",
+    "title": "input output",
+    "section": "2.1 write CSV",
+    "text": "2.1 write CSV\n\n\nCode\ndata.head().to_csv('data/out.csv', index=False)",
+    "crumbs": [
+      "Intro",
+      "input output"
+    ]
+  },
+  {
+    "objectID": "intro/1 input output.html#write-excel",
+    "href": "intro/1 input output.html#write-excel",
+    "title": "input output",
+    "section": "2.2 write excel",
+    "text": "2.2 write excel\n\n\nCode\ndata.head().to_excel('data/out.xlsx')",
+    "crumbs": [
+      "Intro",
+      "input output"
+    ]
+  },
+  {
+    "objectID": "intro/1 input output.html#write-parquet",
+    "href": "intro/1 input output.html#write-parquet",
+    "title": "input output",
+    "section": "2.3 write parquet",
+    "text": "2.3 write parquet\n\n\nCode\ndata.head(100).to_parquet('data/df.parquet') \n\n\noutput to zip format\n\n\nCode\ndata.head(100).to_parquet('data/df.parquet.gzip',\n              compression='gzip')",
+    "crumbs": [
+      "Intro",
+      "input output"
+    ]
+  },
+  {
+    "objectID": "intro/1 input output.html#write-feather",
+    "href": "intro/1 input output.html#write-feather",
+    "title": "input output",
+    "section": "2.4 write feather",
+    "text": "2.4 write feather\n\n\nCode\ndata.head(100).to_feather(\"data/file.feather\")",
+    "crumbs": [
+      "Intro",
+      "input output"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 input output.html",
+    "href": "data manipulation/1 input output.html",
+    "title": "input & output",
+    "section": "",
+    "text": "Data input and ouput in python",
+    "crumbs": [
+      "data manipulation",
+      "input & output"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 input output.html#read-csv",
+    "href": "data manipulation/1 input output.html#read-csv",
+    "title": "input & output",
+    "section": "1.1 read CSV",
+    "text": "1.1 read CSV\n\n\nCode\nimport pandas as pd\ndata=pd.read_csv('data/Book3.csv')\ndata\n\n\n\n\n\n\n\n\n\n\na\nb\n\n\n\n\n0\n1241\nrhth\n\n\n1\n35235\nrjyyj\n\n\n\n\n\n\n\n\nCSV online\n\n\nCode\nimport pandas as pd\nurl='https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv'\nhotels=pd.read_csv(url)",
+    "crumbs": [
+      "data manipulation",
+      "input & output"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 input output.html#read-excel",
+    "href": "data manipulation/1 input output.html#read-excel",
+    "title": "input & output",
+    "section": "1.2 read excel",
+    "text": "1.2 read excel\nsheet_name=0 read first sheet.\nsheet_name=1 read second sheet.\n.sheet_name=‘Sheet1’ read ‘Sheet1’ sheet.\n\n\nCode\nimport pandas as pd\ndata=pd.read_excel('data/Book1.xlsx',sheet_name=0)\ndata\n\n\n\n\n\n\n\n\n\n\na\nb\n\n\n\n\n0\n1241\nrhth\n\n\n1\n35235\nrjyyj",
+    "crumbs": [
+      "data manipulation",
+      "input & output"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 input output.html#read-parquet",
+    "href": "data manipulation/1 input output.html#read-parquet",
+    "title": "input & output",
+    "section": "1.3 read parquet",
+    "text": "1.3 read parquet\nparquet format is one of the best for data analytic\n\n\nCode\ndata= pd.read_parquet(\"data/df.parquet\")\ndata.shape\n\n\n(100, 61)\n\n\n\n\nCode\ndata.head()\n\n\n\n\n\n\n\n\n\n\nFlightDate\nAirline\nOrigin\nDest\nCancelled\nDiverted\nCRSDepTime\nDepTime\nDepDelayMinutes\nDepDelay\n...\nWheelsOff\nWheelsOn\nTaxiIn\nCRSArrTime\nArrDelay\nArrDel15\nArrivalDelayGroups\nArrTimeBlk\nDistanceGroup\nDivAirportLandings\n\n\n\n\n0\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nGJT\nDEN\nFalse\nFalse\n1133\n1123.0\n0.0\n-10.0\n...\n1140.0\n1220.0\n8.0\n1245\n-17.0\n0.0\n-2.0\n1200-1259\n1\n0\n\n\n1\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nHRL\nIAH\nFalse\nFalse\n732\n728.0\n0.0\n-4.0\n...\n744.0\n839.0\n9.0\n849\n-1.0\n0.0\n-1.0\n0800-0859\n2\n0\n\n\n2\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\nDEN\nFalse\nFalse\n1529\n1514.0\n0.0\n-15.0\n...\n1535.0\n1622.0\n14.0\n1639\n-3.0\n0.0\n-1.0\n1600-1659\n2\n0\n\n\n3\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nIAH\nGPT\nFalse\nFalse\n1435\n1430.0\n0.0\n-5.0\n...\n1446.0\n1543.0\n4.0\n1605\n-18.0\n0.0\n-2.0\n1600-1659\n2\n0\n\n\n4\n2022-04-04\nCommutair Aka Champlain Enterprises, Inc.\nDRO\nDEN\nFalse\nFalse\n1135\n1135.0\n0.0\n0.0\n...\n1154.0\n1243.0\n8.0\n1245\n6.0\n0.0\n0.0\n1200-1259\n2\n0\n\n\n\n\n5 rows × 61 columns\n\n\n\n\nread parquet zip\n\n\nCode\ndata= pd.read_parquet(\"data/df.parquet.gzip\")\ndata.shape\n\n\n(100, 61)",
+    "crumbs": [
+      "data manipulation",
+      "input & output"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 input output.html#read-feather",
+    "href": "data manipulation/1 input output.html#read-feather",
+    "title": "input & output",
+    "section": "1.4 read feather",
+    "text": "1.4 read feather\n\n\nCode\ndata=pd.read_feather(\"data/file.feather\")",
+    "crumbs": [
+      "data manipulation",
+      "input & output"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 input output.html#write-csv",
+    "href": "data manipulation/1 input output.html#write-csv",
+    "title": "input & output",
+    "section": "2.1 write CSV",
+    "text": "2.1 write CSV\n\n\nCode\ndata.head().to_csv('data/out.csv', index=False)",
+    "crumbs": [
+      "data manipulation",
+      "input & output"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 input output.html#write-excel",
+    "href": "data manipulation/1 input output.html#write-excel",
+    "title": "input & output",
+    "section": "2.2 write excel",
+    "text": "2.2 write excel\n\n\nCode\ndata.head().to_excel('data/out.xlsx')",
+    "crumbs": [
+      "data manipulation",
+      "input & output"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 input output.html#write-parquet",
+    "href": "data manipulation/1 input output.html#write-parquet",
+    "title": "input & output",
+    "section": "2.3 write parquet",
+    "text": "2.3 write parquet\n\n\nCode\ndata.head(100).to_parquet('data/df.parquet') \n\n\noutput to zip format\n\n\nCode\ndata.head(100).to_parquet('data/df.parquet.gzip',\n              compression='gzip')",
+    "crumbs": [
+      "data manipulation",
+      "input & output"
+    ]
+  },
+  {
+    "objectID": "data manipulation/1 input output.html#write-feather",
+    "href": "data manipulation/1 input output.html#write-feather",
+    "title": "input & output",
+    "section": "2.4 write feather",
+    "text": "2.4 write feather\n\n\nCode\ndata.head(100).to_feather(\"data/file.feather\")",
+    "crumbs": [
+      "data manipulation",
+      "input & output"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 data structure in Python .html#singular",
+    "href": "data manipulation/2 data structure in Python .html#singular",
+    "title": "Data structure in Python",
+    "section": "1.1 singular",
+    "text": "1.1 singular\n\n\nCode\na=1\ntype(a)\n\n\nint\n\n\n\n\nCode\na=1.3\ntype(a)\n\n\nfloat\n\n\n\n\nCode\na='hell'\ntype(a)\n\n\nstr",
+    "crumbs": [
+      "data manipulation",
+      "Data structure in Python"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 data structure in Python .html#list",
+    "href": "data manipulation/2 data structure in Python .html#list",
+    "title": "Data structure in Python",
+    "section": "1.2 list",
+    "text": "1.2 list\n\n\nCode\na=[1,2,3]\n\na\n\n\n[1, 2, 3]\n\n\n\n\nCode\ntype(a) \n\n\nlist\n\n\n\n\nCode\nfruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana','apple']\n\n\n\n1.2.1 find length of the list with len()\n\n\nCode\nlen(fruits)\n\n\n8\n\n\n\n\n1.2.2 find how many time in the list with count()\n\n\nCode\nfruits.count('apple')\n\n\n3\n\n\n\n\n1.2.3 find locaiton of on the list with index()\nshow the first ‘apple’ index. python list start at 0\n\n\nCode\nfruits.index('apple')\n\n\n1\n\n\nall ‘apple’ in the list\n\n\nCode\n[index for index, value in enumerate(fruits) if value == 'apple']\n\n\n[1, 5, 7]\n\n\n\n\n1.2.4 reverse the list\n\n\nCode\nfruits.reverse()\nfruits\n\n\n['apple', 'banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange']\n\n\n\n\n1.2.5 sort the list\n\n\nCode\nfruits.sort()\nfruits\n\n\n['apple', 'apple', 'apple', 'banana', 'banana', 'kiwi', 'orange', 'pear']\n\n\n\n\n1.2.6 add element on the list\n\n\nCode\nfruits.append('grape')\nfruits\n\n\n['apple',\n 'apple',\n 'apple',\n 'banana',\n 'banana',\n 'kiwi',\n 'orange',\n 'pear',\n 'grape']\n\n\n\n\n1.2.7 drop last element\n\n\nCode\nfruits.pop()\n\nfruits\n\n\n['apple', 'apple', 'apple', 'banana', 'banana', 'kiwi', 'orange', 'pear']\n\n\n\n\n1.2.8 List Comprehensions\nusing loop:\n\n\nCode\nsquares = []\nfor x in range(10):\n  squares.append(x**2)\n  \nsquares\n\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\n\nusing List Comprehensions\n\n\nCode\nsquares = [x**2 for x in range(10)]\nsquares\n\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\n\n\n\n1.2.9 list to Tuples\n\n\nCode\ntuple(squares)\n\n\n(0, 1, 4, 9, 16, 25, 36, 49, 64, 81)\n\n\n\n\n1.2.10 list to set\n\n\nCode\nset(squares)\n\n\n{0, 1, 4, 9, 16, 25, 36, 49, 64, 81}\n\n\n\n\n1.2.11 list to dictionary\n\n1.2.11.1 one list to dictionary\n\n\nCode\nlist=['a', 1, 'b', 2, 'c', 3]\n\ndef convert(lst):\n   res_dict = {}\n   for i in range(0, len(lst), 2):\n       res_dict[lst[i]] = lst[i + 1]\n   return res_dict\n \nconvert(list)\n\n\n{'a': 1, 'b': 2, 'c': 3}\n\n\n\n\n1.2.11.2 two list to dictionary\n\n\nCode\nimport itertools\n\nkeys = ('name', 'age', 'food')\n\nvalues = ('Monty', 42, 'spam')\n\ndict(zip(keys, values))\n\n\n{'name': 'Monty', 'age': 42, 'food': 'spam'}",
+    "crumbs": [
+      "data manipulation",
+      "Data structure in Python"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 data structure in Python .html#tuples",
+    "href": "data manipulation/2 data structure in Python .html#tuples",
+    "title": "Data structure in Python",
+    "section": "1.3 Tuples",
+    "text": "1.3 Tuples\n\n\nCode\nfruits = ('orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana','apple')\n\nfruits\n\n\n('orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana', 'apple')\n\n\n\n\nCode\ntype(fruits)\n\n\ntuple\n\n\ntuple can not be modified.",
+    "crumbs": [
+      "data manipulation",
+      "Data structure in Python"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 data structure in Python .html#sets",
+    "href": "data manipulation/2 data structure in Python .html#sets",
+    "title": "Data structure in Python",
+    "section": "1.4 Sets",
+    "text": "1.4 Sets\nA set is an unordered collection with no duplicate elements.\n\n\nCode\nbasket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}\n\nbasket\n\n\n{'apple', 'banana', 'orange', 'pear'}\n\n\n\n\nCode\ntype(basket)\n\n\nset",
+    "crumbs": [
+      "data manipulation",
+      "Data structure in Python"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 data structure in Python .html#dictionaries",
+    "href": "data manipulation/2 data structure in Python .html#dictionaries",
+    "title": "Data structure in Python",
+    "section": "1.5 Dictionaries",
+    "text": "1.5 Dictionaries\n\n\nCode\ntel = {'jack': 4098, 'sape': 4139}\n\ntel\n\n\n{'jack': 4098, 'sape': 4139}\n\n\n\n\nCode\ntype(tel)\n\n\ndict\n\n\n\n\nCode\ntel['jack']\n\n\n4098",
+    "crumbs": [
+      "data manipulation",
+      "Data structure in Python"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html",
+    "href": "data manipulation/3 Pandas.html",
+    "title": "Data manipulation with Pandas",
+    "section": "",
+    "text": "pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.\nCode\nimport pandas as pd\nprint('pandas version', pd.__version__)\n\n\npandas version 2.2.1\nCode\nimport os\n#os.system('pip show pandas')",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#load-package",
+    "href": "data manipulation/3 Pandas.html#load-package",
+    "title": "Data manipulation with Pandas",
+    "section": "0.1 load package",
+    "text": "0.1 load package\n\n\nCode\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pylab as plt\nimport seaborn as sns\n\nfrom siuba.data import mtcars,penguins\n\nfrom siuba.siu import call\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\nfrom siuba.data import mtcars,penguins\n\n\n\n\nCode\nsmall_mtcars = mtcars[[\"cyl\", \"mpg\",'hp']]\nsmall_mtcars=small_mtcars.head(5)",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#select-column",
+    "href": "data manipulation/3 Pandas.html#select-column",
+    "title": "Data manipulation with Pandas",
+    "section": "0.2 select column",
+    "text": "0.2 select column\n\n0.2.1 get column names\n\n\nCode\nlist(small_mtcars)\n\n\n['cyl', 'mpg', 'hp']\n\n\n\n\n0.2.2 select by name\n\n\nCode\nsmall_mtcars [[\"cyl\", \"mpg\",'hp']]\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nsmall_mtcars.filter(items=['cyl', 'mpg','hp'])\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175\n\n\n\n\n\n\n\n\n\n\n0.2.3 select columns by name match with ‘p’\n\n\nCode\nsmall_mtcars.loc[:,small_mtcars.columns.str.contains(\"p\")]\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nsmall_mtcars.filter(regex='p.*', axis=1)\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175\n\n\n\n\n\n\n\n\n\n\n0.2.4 select columns by index\n\n0.2.4.1 select first and 3rd columns\n\n\nCode\nsmall_mtcars.iloc[[0,2]]\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n\n\n\n\n\n\n\n\n0.2.4.2 select first to 3rd columns\n\n\nCode\nsmall_mtcars[0:3]\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#drop-column",
+    "href": "data manipulation/3 Pandas.html#drop-column",
+    "title": "Data manipulation with Pandas",
+    "section": "0.3 drop column",
+    "text": "0.3 drop column\n\n\nCode\nsmall_mtcars.drop('cyl', axis=1)\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#renaming-column",
+    "href": "data manipulation/3 Pandas.html#renaming-column",
+    "title": "Data manipulation with Pandas",
+    "section": "0.4 Renaming column",
+    "text": "0.4 Renaming column\n\n\nCode\nsmall_mtcars.rename(columns={'mpg':\"new_name_mpg\", 'cyl':'new_name_cyl'})\n\n\n\n\n\n\n\n\n\n\nnew_name_cyl\nnew_name_mpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#create-column",
+    "href": "data manipulation/3 Pandas.html#create-column",
+    "title": "Data manipulation with Pandas",
+    "section": "0.5 Create column",
+    "text": "0.5 Create column\n\n0.5.1 Mutate\n\n\nCode\nsmall_mtcars['mpg2'] = small_mtcars['mpg']+1\n\nsmall_mtcars['mpg3'] = if_else(small_mtcars['mpg']&gt; 20, \"long\", \"short\")\n\nsmall_mtcars['mpg4'] = small_mtcars[\"mpg\"].case_when([\n    (small_mtcars.eval(\"mpg &lt; 19\"), \"short\"), \n    (small_mtcars.eval(\"mpg &lt;= 22\"), \"Medium\"), \n    (small_mtcars.eval(\"mpg &gt; 22\"), \"long\")\n])\n\n\nsmall_mtcars\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\nmpg2\nmpg3\nmpg4\n\n\n\n\n0\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n1\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n2\n4\n22.8\n93\n23.8\nlong\nlong\n\n\n3\n6\n21.4\n110\n22.4\nlong\nMedium\n\n\n4\n8\n18.7\n175\n19.7\nshort\nshort\n\n\n\n\n\n\n\n\n\n\n0.5.2 Transmute,create column and only keep this column\n\n\nCode\nsmall_mtcars['mpg2'] = small_mtcars['mpg']+1\n\nnew_data=small_mtcars[['mpg2']]\n\nnew_data\n\n\n\n\n\n\n\n\n\n\nmpg2\n\n\n\n\n0\n22.0\n\n\n1\n22.0\n\n\n2\n23.8\n\n\n3\n22.4\n\n\n4\n19.7",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#filter-rows",
+    "href": "data manipulation/3 Pandas.html#filter-rows",
+    "title": "Data manipulation with Pandas",
+    "section": "0.6 Filter rows",
+    "text": "0.6 Filter rows\n\n\nCode\nmtcars[(mtcars['gear'] ==4)]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n7\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n18\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\n19\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\n25\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\n31\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nmtcars.query('gear==4')\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n7\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n18\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\n19\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\n25\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\n31\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\n\n0.6.1 Filters with AND conditions\n\n\nCode\nmtcars[(mtcars['cyl'] &gt;4)&(mtcars['gear'] ==5) ]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.17\n14.5\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.77\n15.5\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.57\n14.6\n0\n1\n5\n8\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nmtcars.query('cyl&gt;4 and gear==5')\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.17\n14.5\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.77\n15.5\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.57\n14.6\n0\n1\n5\n8\n\n\n\n\n\n\n\n\n\n\n0.6.2 Filters with OR conditions\n\n\nCode\nmtcars[(mtcars['cyl'] ==6) |(mtcars['gear'] ==5) ]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n5\n18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n26\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\n27\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nmtcars.query('cyl==6 or gear==5')\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n5\n18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n26\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\n27\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\n\n\n\n\n\n\n\n\n0.6.3 filter row with index\n\n0.6.3.1 5th rows\n\n\nCode\n# not in siuba, in pandas\nmtcars.iloc[[4]]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n4\n18.7\n8\n360.0\n175\n3.15\n3.44\n17.02\n0\n0\n3\n2\n\n\n\n\n\n\n\n\n\n\n0.6.3.2 1 and 5tj rows\n\n\nCode\n# not in siuba, in pandas\nmtcars.iloc[[0,4]]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.62\n16.46\n0\n1\n4\n4\n\n\n4\n18.7\n8\n360.0\n175\n3.15\n3.44\n17.02\n0\n0\n3\n2\n\n\n\n\n\n\n\n\n\n\n0.6.3.3 1 to 5th rows\n\n\nCode\n# not in siuba, in pandas\nmtcars.iloc[0:4]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n\n\n\n\n\n\n\n\n0.6.3.4 get ramdon 5 rows\n\n\nCode\nmtcars.sample(5, random_state=42)\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n15\n10.4\n8\n460.0\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n\n\n24\n19.2\n8\n400.0\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#append",
+    "href": "data manipulation/3 Pandas.html#append",
+    "title": "Data manipulation with Pandas",
+    "section": "0.7 Append",
+    "text": "0.7 Append\n\n0.7.1 append by row\n\n\nCode\n# not available in siuba yet\n#from siuba import bind_rows\n\n\n\n\nCode\n# using pandas\n\n# get 1 to 4 rows\ndata1=mtcars.iloc[0:4]\n\n# get 9 rows\ndata2=mtcars.iloc[10:11]\n\ndata3=pd.concat([data1, data2], ignore_index = True,axis=0)\n\ndata3\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n4\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n\n\n\n\n\n\n\n\n0.7.2 append by column\n\n\nCode\n# not available in siuba yet\n#from siuba import bind_columns\n\n\n\n\nCode\n# using pandas\ndata1=small_mtcars&gt;&gt;select(_.mpg)\n\ndata2=small_mtcars&gt;&gt;select(_.cyl)\n\ndata3=pd.concat([data1, data2],axis=1)\n\ndata3\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\n\n\n\n\n0\n21.0\n6\n\n\n1\n21.0\n6\n\n\n2\n22.8\n4\n\n\n3\n21.4\n6\n\n\n4\n18.7\n8\n\n\n\n\n\n\n\n\n\n\n0.7.3 Dropping NA values\n\n\n0.7.4 keep NA values",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#group-by",
+    "href": "data manipulation/3 Pandas.html#group-by",
+    "title": "Data manipulation with Pandas",
+    "section": "0.8 group by",
+    "text": "0.8 group by\n\n0.8.1 average,min,max,sum\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].mean()\n\n\ncyl\n4     82.636364\n6    122.285714\n8    209.214286\nName: hp, dtype: float64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].min()\n\n\ncyl\n4     52\n6    105\n8    150\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].max()\n\n\ncyl\n4    113\n6    175\n8    335\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].sum()\n\n\ncyl\n4     909\n6     856\n8    2929\nName: hp, dtype: int64\n\n\n\n\n0.8.2 count\n\n\nCode\nmtcars.groupby(\"cyl\")[\"cyl\"].count()\n\n\ncyl\n4    11\n6     7\n8    14\nName: cyl, dtype: int64",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#order-rows",
+    "href": "data manipulation/3 Pandas.html#order-rows",
+    "title": "Data manipulation with Pandas",
+    "section": "0.9 order rows",
+    "text": "0.9 order rows\n\n\nCode\nsmall_mtcars.sort_values('hp')\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\nmpg2\nmpg3\nmpg4\n\n\n\n\n2\n4\n22.8\n93\n23.8\nlong\nlong\n\n\n0\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n1\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n3\n6\n21.4\n110\n22.4\nlong\nMedium\n\n\n4\n8\n18.7\n175\n19.7\nshort\nshort\n\n\n\n\n\n\n\n\n\n0.9.1 Sort in descending order\n\n\nCode\nsmall_mtcars.sort_values('hp',ascending=False)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\nmpg2\nmpg3\nmpg4\n\n\n\n\n4\n8\n18.7\n175\n19.7\nshort\nshort\n\n\n0\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n1\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n3\n6\n21.4\n110\n22.4\nlong\nMedium\n\n\n2\n4\n22.8\n93\n23.8\nlong\nlong\n\n\n\n\n\n\n\n\n\n\n0.9.2 Arrange by multiple variables\n\n\nCode\nsmall_mtcars.sort_values(by=['cyl','mpg'])\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\nmpg2\nmpg3\nmpg4\n\n\n\n\n2\n4\n22.8\n93\n23.8\nlong\nlong\n\n\n0\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n1\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n3\n6\n21.4\n110\n22.4\nlong\nMedium\n\n\n4\n8\n18.7\n175\n19.7\nshort\nshort",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#join",
+    "href": "data manipulation/3 Pandas.html#join",
+    "title": "Data manipulation with Pandas",
+    "section": "0.10 join",
+    "text": "0.10 join\n\n\nCode\nlhs = pd.DataFrame({'id': [1,2,3], 'val': ['lhs.1', 'lhs.2', 'lhs.3']})\nrhs = pd.DataFrame({'id': [1,2,4], 'val': ['rhs.1', 'rhs.2', 'rhs.3']})\n\n\n\n\nCode\nlhs\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n0\n1\nlhs.1\n\n\n1\n2\nlhs.2\n\n\n2\n3\nlhs.3\n\n\n\n\n\n\n\n\n\n\nCode\nrhs\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n0\n1\nrhs.1\n\n\n1\n2\nrhs.2\n\n\n2\n4\nrhs.3\n\n\n\n\n\n\n\n\n\n0.10.1 inner_join\n\n\nCode\nresult=pd.merge(lhs, rhs, on='id', how='inner')\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n\n\n\n\n\n\n\n\n0.10.2 full join\n\n\nCode\nresult=pd.merge(lhs, rhs, on='id', how='outer')\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n2\n3\nlhs.3\nNaN\n\n\n3\n4\nNaN\nrhs.3\n\n\n\n\n\n\n\n\n\n\n0.10.3 left join\n\n\nCode\nresult=pd.merge(lhs, rhs, on='id', how='left')\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n2\n3\nlhs.3\nNaN\n\n\n\n\n\n\n\n\n\n\n0.10.4 anti join\nkeep data in left which not in right\n\n\nCode\n#in siuba\nresult=lhs &gt;&gt; anti_join(_, rhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n2\n3\nlhs.3\n\n\n\n\n\n\n\n\nkeep data in right which not in left\n\n\nCode\n#in siuba\nresult=rhs &gt;&gt; anti_join(_, lhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n2\n4\nrhs.3",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#reshape-tables",
+    "href": "data manipulation/3 Pandas.html#reshape-tables",
+    "title": "Data manipulation with Pandas",
+    "section": "0.11 Reshape tables",
+    "text": "0.11 Reshape tables\n\n\nCode\ncosts = pd.DataFrame({\n    'id': [1,2],\n    'price_x': [.1, .2],\n    'price_y': [.4, .5],\n    'price_z': [.7, .8]\n})\n\ncosts\n\n\n\n\n\n\n\n\n\n\nid\nprice_x\nprice_y\nprice_z\n\n\n\n\n0\n1\n0.1\n0.4\n0.7\n\n\n1\n2\n0.2\n0.5\n0.8\n\n\n\n\n\n\n\n\n\n0.11.1 Gather data long(wide to long)\n\n\nCode\n# selecting each variable manually\nlong_date=pd.melt(costs,id_vars=['id'], value_vars=['price_x', 'price_y','price_z'])\n\nlong_date\n#costs &gt;&gt; gather('measure', 'value', _.price_x, _.price_y, _.price_z)\n\n\n\n\n\n\n\n\n\n\nid\nvariable\nvalue\n\n\n\n\n0\n1\nprice_x\n0.1\n\n\n1\n2\nprice_x\n0.2\n\n\n2\n1\nprice_y\n0.4\n\n\n3\n2\nprice_y\n0.5\n\n\n4\n1\nprice_z\n0.7\n\n\n5\n2\nprice_z\n0.8\n\n\n\n\n\n\n\n\n\n\n0.11.2 Spread data wide (long to wide)\n\n\nCode\nlong_date.pivot(index=\"id\", columns=\"variable\", values=\"value\")\n\n\n\n\n\n\n\n\n\nvariable\nprice_x\nprice_y\nprice_z\n\n\nid\n\n\n\n\n\n\n\n1\n0.1\n0.4\n0.7\n\n\n2\n0.2\n0.5\n0.8",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#string",
+    "href": "data manipulation/3 Pandas.html#string",
+    "title": "Data manipulation with Pandas",
+    "section": "0.12 string",
+    "text": "0.12 string\n\n\nCode\ndf = pd.DataFrame({'text': ['abc', 'DDD','1243c','aeEe'], 'num': [3, 4,7,8]})\n\ndf\n\n\n\n\n\n\n\n\n\n\ntext\nnum\n\n\n\n\n0\nabc\n3\n\n\n1\nDDD\n4\n\n\n2\n1243c\n7\n\n\n3\naeEe\n8\n\n\n\n\n\n\n\n\n\n0.12.1 upper case\n\n\nCode\ndf&gt;&gt; mutate(text_new=_.text.str.upper())\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new\n\n\n\n\n0\nabc\n3\nABC\n\n\n1\nDDD\n4\nDDD\n\n\n2\n1243c\n7\n1243C\n\n\n3\naeEe\n8\nAEEE\n\n\n\n\n\n\n\n\n\n\n0.12.2 lower case\n\n\nCode\ndf&gt;&gt; mutate(text_new=_.text.str.lower())\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new\n\n\n\n\n0\nabc\n3\nabc\n\n\n1\nDDD\n4\nddd\n\n\n2\n1243c\n7\n1243c\n\n\n3\naeEe\n8\naeee\n\n\n\n\n\n\n\n\n\n\n0.12.3 match\n\n\nCode\ndf&gt;&gt; mutate(text_new1=if_else(_.text== \"abc\",'T','F')\n            ,text_new2=if_else(_.text.str.startswith(\"a\"),'T','F')\n            ,text_new3=if_else(_.text.str.endswith(\"c\"),'T','F')\n            ,text_new4=if_else(_.text.str.contains(\"4\"),'T','F')\n\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\ntext_new2\ntext_new3\ntext_new4\n\n\n\n\n0\nabc\n3\nT\nT\nT\nF\n\n\n1\nDDD\n4\nF\nF\nF\nF\n\n\n2\n1243c\n7\nF\nF\nT\nT\n\n\n3\naeEe\n8\nF\nT\nF\nF\n\n\n\n\n\n\n\n\n\n\n0.12.4 concatenation\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text+' is '+_.text\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\n\n\n\n\n0\nabc\n3\nabc is abc\n\n\n1\nDDD\n4\nDDD is DDD\n\n\n2\n1243c\n7\n1243c is 1243c\n\n\n3\naeEe\n8\naeEe is aeEe\n\n\n\n\n\n\n\n\n\n\n0.12.5 replace\nUse .str.replace(…, regex=True) with regular expressions to replace patterns in strings.\nFor example, the code below uses “p.”, where . is called a wildcard–which matches any character.\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text.str.replace(\"a.\", \"XX\", regex=True)\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\n\n\n\n\n0\nabc\n3\nXXc\n\n\n1\nDDD\n4\nDDD\n\n\n2\n1243c\n7\n1243c\n\n\n3\naeEe\n8\nXXEe\n\n\n\n\n\n\n\n\n\n\n0.12.6 extract\nUse str.extract() with a regular expression to pull out a matching piece of text.\nFor example the regular expression “^(.*) ” contains the following pieces:\n\na matches the literal letter “a”\n.* has a . which matches anything, and * which modifies it to apply 0 or more times.\n\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text.str.extract(\"a(.*)\")\n            ,text_new2=_.text.str.extract(\"(.*)c\")\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\ntext_new2\n\n\n\n\n0\nabc\n3\nbc\nab\n\n\n1\nDDD\n4\nNaN\nNaN\n\n\n2\n1243c\n7\nNaN\n1243\n\n\n3\naeEe\n8\neEe\nNaN",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#date",
+    "href": "data manipulation/3 Pandas.html#date",
+    "title": "Data manipulation with Pandas",
+    "section": "0.13 date",
+    "text": "0.13 date\n\n\nCode\ndf_dates = pd.DataFrame({\n    \"dates\": pd.to_datetime([\"2021-01-02\", \"2021-02-03\"]),\n    \"raw\": [\"2023-04-05 06:07:08\", \"2024-05-06 07:08:09\"],\n})\ndf_dates\n\n\n\n\n\n\n\n\n\n\ndates\nraw\n\n\n\n\n0\n2021-01-02\n2023-04-05 06:07:08\n\n\n1\n2021-02-03\n2024-05-06 07:08:09\n\n\n\n\n\n\n\n\n\n\nCode\nfrom datetime import datetime\n\ndf_date=df_dates&gt;&gt;mutate(month=_.dates.dt.month_name()\n                  ,date_format_raw = call(pd.to_datetime, _.raw)\n                  ,date_format_raw_year=_.date_format_raw.dt.year\n\n)\n\ndf_date\n\n\n\n\n\n\n\n\n\n\ndates\nraw\nmonth\ndate_format_raw\ndate_format_raw_year\n\n\n\n\n0\n2021-01-02\n2023-04-05 06:07:08\nJanuary\n2023-04-05 06:07:08\n2023\n\n\n1\n2021-02-03\n2024-05-06 07:08:09\nFebruary\n2024-05-06 07:08:09\n2024\n\n\n\n\n\n\n\n\n\n\nCode\ndf_date.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 2 entries, 0 to 1\nData columns (total 5 columns):\n #   Column                Non-Null Count  Dtype         \n---  ------                --------------  -----         \n 0   dates                 2 non-null      datetime64[ns]\n 1   raw                   2 non-null      object        \n 2   month                 2 non-null      object        \n 3   date_format_raw       2 non-null      datetime64[ns]\n 4   date_format_raw_year  2 non-null      int32         \ndtypes: datetime64[ns](2), int32(1), object(2)\nmemory usage: 204.0+ bytes",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html",
+    "href": "data manipulation/4 siuba.html",
+    "title": "Data manipulation with siuba",
+    "section": "",
+    "text": "siuba (小巴) is a port of dplyr and other R libraries with seamless support for pandas and SQL",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#comparison-with-different-python-dataframe-package",
+    "href": "data manipulation/4 siuba.html#comparison-with-different-python-dataframe-package",
+    "title": "Data manipulation with siuba",
+    "section": "1 Comparison with different python dataframe package",
+    "text": "1 Comparison with different python dataframe package",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#package-download",
+    "href": "data manipulation/4 siuba.html#package-download",
+    "title": "Data manipulation with siuba",
+    "section": "2 Package download",
+    "text": "2 Package download\n\n\nCode\nimport os\nos.system('pip install siuba')",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#load-package",
+    "href": "data manipulation/4 siuba.html#load-package",
+    "title": "Data manipulation with siuba",
+    "section": "3 load package",
+    "text": "3 load package\n\n\nCode\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pylab as plt\nimport seaborn as sns\n\n\n\nfrom siuba.siu import call\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\nfrom siuba.data import mtcars,penguins\n\n\n\n\nCode\nimport os\nos.system('pip show siuba')\n\n\nName: siuba\nVersion: 0.4.4\nSummary: A package for quick, scrappy analyses with pandas and SQL\nHome-page: https://github.com/machow/siuba\nAuthor: Michael Chow\nAuthor-email: mc_al_gh_siuba@fastmail.com\nLicense: MIT\nLocation: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages\nRequires: numpy, pandas, PyYAML, SQLAlchemy\nRequired-by: \n\n\n0\n\n\n\n\nCode\nsmall_mtcars = mtcars &gt;&gt; select(_.cyl, _.mpg, _.hp)&gt;&gt; head(5)",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#select-column",
+    "href": "data manipulation/4 siuba.html#select-column",
+    "title": "Data manipulation with siuba",
+    "section": "4 select column",
+    "text": "4 select column\n\n4.1 select columns by name\n\n\nCode\nsmall_mtcars &gt;&gt; select(_.cyl, _.mpg)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\n\n\n\n\n0\n6\n21.0\n\n\n1\n6\n21.0\n\n\n2\n4\n22.8\n\n\n3\n6\n21.4\n\n\n4\n8\n18.7\n\n\n\n\n\n\n\n\n\n\n4.2 select columns by name match with ‘p’\n\n\nCode\nsmall_mtcars &gt;&gt; select(_.contains(\"p\"))\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175\n\n\n\n\n\n\n\n\n\n\n4.3 select columns by index\n\n4.3.1 select first and 3rd columns\n\n\nCode\nsmall_mtcars &gt;&gt; select(0,2)\n\n\n\n\n\n\n\n\n\n\ncyl\nhp\n\n\n\n\n0\n6\n110\n\n\n1\n6\n110\n\n\n2\n4\n93\n\n\n3\n6\n110\n\n\n4\n8\n175\n\n\n\n\n\n\n\n\n\n\n4.3.2 select first to 3rd columns\n\n\nCode\nsmall_mtcars &gt;&gt; select(_[0:3])\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#drop-column",
+    "href": "data manipulation/4 siuba.html#drop-column",
+    "title": "Data manipulation with siuba",
+    "section": "5 drop column",
+    "text": "5 drop column\n\n\nCode\nsmall_mtcars &gt;&gt; select(~_.cyl)\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#renaming-column",
+    "href": "data manipulation/4 siuba.html#renaming-column",
+    "title": "Data manipulation with siuba",
+    "section": "6 Renaming column",
+    "text": "6 Renaming column\n\n\nCode\nsmall_mtcars &gt;&gt; rename(new_name_mpg = _.mpg)\n\n\n\n\n\n\n\n\n\n\ncyl\nnew_name_mpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#create-column",
+    "href": "data manipulation/4 siuba.html#create-column",
+    "title": "Data manipulation with siuba",
+    "section": "7 Create column",
+    "text": "7 Create column\n\n7.1 Mutate\n\n\nCode\nmtcars.head()&gt;&gt; mutate(gear2 = _.gear+1\n                      ,gear3=if_else(_.gear &gt; 3, \"long\", \"short\")\n                       ,qsec2=case_when({\n                                          _.qsec &lt;= 17: \"short\",\n                                          _.qsec &lt;= 18: \"Medium\",\n                                          True: \"long\"\n                                                     })\n                       )\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\ngear2\ngear3\nqsec2\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n5\nlong\nshort\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n5\nlong\nMedium\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n5\nlong\nlong\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n4\nshort\nlong\n\n\n4\n18.7\n8\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n4\nshort\nMedium\n\n\n\n\n\n\n\n\n\n\n7.2 Transmute,create column and only keep this column\n\n\nCode\nmtcars.head()&gt;&gt; transmute(gear2 = _.gear+1)\n\n\n\n\n\n\n\n\n\n\ngear2\n\n\n\n\n0\n5\n\n\n1\n5\n\n\n2\n5\n\n\n3\n4\n\n\n4\n4",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#filter-rows",
+    "href": "data manipulation/4 siuba.html#filter-rows",
+    "title": "Data manipulation with siuba",
+    "section": "8 Filter rows",
+    "text": "8 Filter rows\n\n\nCode\nmtcars&gt;&gt; filter(_.gear ==4)\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n7\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n18\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\n19\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\n25\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\n31\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\n\n8.1 Filters with AND conditions\n\n\nCode\nmtcars &gt;&gt; filter((_.cyl &gt;4) & (_.gear == 5))\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.17\n14.5\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.77\n15.5\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.57\n14.6\n0\n1\n5\n8\n\n\n\n\n\n\n\n\n\n\n8.2 Filters with OR conditions\n\n\nCode\nmtcars &gt;&gt; filter((_.cyl == 6) | (_.gear == 5))\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n5\n18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n26\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\n27\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\n\n\n\n\n\n\n\n\n8.3 filter row with index\n\n8.3.1 first 3\n\n\nCode\nsmall_mtcars&gt;&gt;head(3)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n\n\n\n\n\n\n\n\n8.3.2 last 3\n\n\nCode\n# not in siuba, in pandas\nsmall_mtcars.tail(3)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175\n\n\n\n\n\n\n\n\n\n\n8.3.3 5th rows\n\n\nCode\n# not in siuba, in pandas\nmtcars.iloc[[4]]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n4\n18.7\n8\n360.0\n175\n3.15\n3.44\n17.02\n0\n0\n3\n2\n\n\n\n\n\n\n\n\n\n\n8.3.4 1 and 5th rows\n\n\nCode\n# not in siuba, in pandas\nmtcars.iloc[[0,4]]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.62\n16.46\n0\n1\n4\n4\n\n\n4\n18.7\n8\n360.0\n175\n3.15\n3.44\n17.02\n0\n0\n3\n2\n\n\n\n\n\n\n\n\n\n\n8.3.5 1 to 5th rows\n\n\nCode\n# not in siuba, in pandas\nmtcars.iloc[0:4]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n\n\n\n\n\n\n\n\n8.3.6 get ramdon 5 rows\n\n\nCode\nmtcars.sample(5, random_state=42)\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n15\n10.4\n8\n460.0\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n\n\n24\n19.2\n8\n400.0\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#append",
+    "href": "data manipulation/4 siuba.html#append",
+    "title": "Data manipulation with siuba",
+    "section": "9 Append",
+    "text": "9 Append\n\n9.1 append by row\n\n\nCode\n# not available in siuba yet\n#from siuba import bind_rows\n\n\n\n\nCode\n# using pandas\n\n# get 1 to 4 rows\ndata1=mtcars.iloc[0:4]\n\n# get 9 rows\ndata2=mtcars.iloc[10:11]\n\ndata3=pd.concat([data1, data2], ignore_index = True,axis=0)\n\ndata3\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n4\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n\n\n\n\n\n\n\n\n9.2 append by column\n\n\nCode\n# not available in siuba yet\n#from siuba import bind_columns\n\n\n\n\nCode\n# using pandas\ndata1=small_mtcars&gt;&gt;select(_.mpg)\n\ndata2=small_mtcars&gt;&gt;select(_.cyl)\n\ndata3=pd.concat([data1, data2],axis=1)\n\ndata3\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\n\n\n\n\n0\n21.0\n6\n\n\n1\n21.0\n6\n\n\n2\n22.8\n4\n\n\n3\n21.4\n6\n\n\n4\n18.7\n8\n\n\n\n\n\n\n\n\n\n\n9.3 Dropping NA values\n\n\n9.4 keep NA values",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#group-by",
+    "href": "data manipulation/4 siuba.html#group-by",
+    "title": "Data manipulation with siuba",
+    "section": "10 group by",
+    "text": "10 group by\n\n10.1 average,min,max,sum\n\n\nCode\ntbl_query = (mtcars\n  &gt;&gt; group_by(_.cyl)\n  &gt;&gt; summarize(avg_hp = _.hp.mean()\n              ,min_hp=_.hp.min()\n              ,max_hp=_.hp.max()\n              ,totol_disp=_.disp.sum()\n  )\n  )\n\ntbl_query\n\n\n\n\n\n\n\n\n\n\ncyl\navg_hp\nmin_hp\nmax_hp\ntotol_disp\n\n\n\n\n0\n4\n82.636364\n52\n113\n1156.5\n\n\n1\n6\n122.285714\n105\n175\n1283.2\n\n\n2\n8\n209.214286\n150\n335\n4943.4\n\n\n\n\n\n\n\n\n\n\n10.2 count\n\n\nCode\nmtcars &gt;&gt; group_by(_.cyl)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\ncyl\nn\n\n\n\n\n0\n4\n11\n\n\n1\n6\n7\n\n\n2\n8\n14",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#order-rows",
+    "href": "data manipulation/4 siuba.html#order-rows",
+    "title": "Data manipulation with siuba",
+    "section": "11 order rows",
+    "text": "11 order rows\n\n\nCode\nsmall_mtcars &gt;&gt; arrange(_.hp)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n2\n4\n22.8\n93\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175\n\n\n\n\n\n\n\n\n\n11.1 Sort in descending order\n\n\nCode\nsmall_mtcars &gt;&gt; arrange(-_.hp)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n4\n8\n18.7\n175\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n3\n6\n21.4\n110\n\n\n2\n4\n22.8\n93\n\n\n\n\n\n\n\n\n\n\n11.2 Arrange by multiple variables\n\n\nCode\nsmall_mtcars &gt;&gt; arrange(_.cyl, -_.mpg)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n4\n8\n18.7\n175",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#join",
+    "href": "data manipulation/4 siuba.html#join",
+    "title": "Data manipulation with siuba",
+    "section": "12 join",
+    "text": "12 join\n\n\nCode\nlhs = pd.DataFrame({'id': [1,2,3], 'val': ['lhs.1', 'lhs.2', 'lhs.3']})\nrhs = pd.DataFrame({'id': [1,2,4], 'val': ['rhs.1', 'rhs.2', 'rhs.3']})\n\n\n\n\nCode\nlhs\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n0\n1\nlhs.1\n\n\n1\n2\nlhs.2\n\n\n2\n3\nlhs.3\n\n\n\n\n\n\n\n\n\n\nCode\nrhs\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n0\n1\nrhs.1\n\n\n1\n2\nrhs.2\n\n\n2\n4\nrhs.3\n\n\n\n\n\n\n\n\n\n12.1 inner_join\n\n\nCode\nresult=lhs &gt;&gt; inner_join(_, rhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n\n\n\n\n\n\n\n\n12.2 full join\n\n\nCode\nresult=rhs &gt;&gt; full_join(_, lhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nrhs.1\nlhs.1\n\n\n1\n2\nrhs.2\nlhs.2\n\n\n2\n3\nNaN\nlhs.3\n\n\n3\n4\nrhs.3\nNaN\n\n\n\n\n\n\n\n\n\n\n12.3 left join\n\n\nCode\nresult=lhs &gt;&gt; left_join(_, rhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n2\n3\nlhs.3\nNaN\n\n\n\n\n\n\n\n\n\n\n12.4 anti join\nkeep data in left which not in right\n\n\nCode\nresult=lhs &gt;&gt; anti_join(_, rhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n2\n3\nlhs.3\n\n\n\n\n\n\n\n\nkeep data in right which not in left\n\n\nCode\nresult=rhs &gt;&gt; anti_join(_, lhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n2\n4\nrhs.3",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#reshape-tables",
+    "href": "data manipulation/4 siuba.html#reshape-tables",
+    "title": "Data manipulation with siuba",
+    "section": "13 Reshape tables",
+    "text": "13 Reshape tables\n\n\nCode\ncosts = pd.DataFrame({\n    'id': [1,2],\n    'price_x': [.1, .2],\n    'price_y': [.4, .5],\n    'price_z': [.7, .8]\n})\n\ncosts\n\n\n\n\n\n\n\n\n\n\nid\nprice_x\nprice_y\nprice_z\n\n\n\n\n0\n1\n0.1\n0.4\n0.7\n\n\n1\n2\n0.2\n0.5\n0.8\n\n\n\n\n\n\n\n\n\n13.1 Gather data long(wide to long)\nBelow 3 method will give same result\n\n\nCode\n# selecting each variable manually\ncosts &gt;&gt; gather('measure', 'value', _.price_x, _.price_y, _.price_z)\n\n\n\n\n\n\n\n\n\n\nid\nmeasure\nvalue\n\n\n\n\n0\n1\nprice_x\n0.1\n\n\n1\n2\nprice_x\n0.2\n\n\n2\n1\nprice_y\n0.4\n\n\n3\n2\nprice_y\n0.5\n\n\n4\n1\nprice_z\n0.7\n\n\n5\n2\nprice_z\n0.8\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\n# selecting variables using a slice\ncosts &gt;&gt; gather('measure', 'value', _[\"price_x\":\"price_z\"])\n\n\n\n\n\n\n\n\n\n\nid\nmeasure\nvalue\n\n\n\n\n0\n1\nprice_x\n0.1\n\n\n1\n2\nprice_x\n0.2\n\n\n2\n1\nprice_y\n0.4\n\n\n3\n2\nprice_y\n0.5\n\n\n4\n1\nprice_z\n0.7\n\n\n5\n2\nprice_z\n0.8\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\n# selecting by excluding id\ncosts &gt;&gt; gather('measure', 'value', -_.id)\n\n\n\n\n\n\n\n\n\n\nid\nmeasure\nvalue\n\n\n\n\n0\n1\nprice_x\n0.1\n\n\n1\n2\nprice_x\n0.2\n\n\n2\n1\nprice_y\n0.4\n\n\n3\n2\nprice_y\n0.5\n\n\n4\n1\nprice_z\n0.7\n\n\n5\n2\nprice_z\n0.8\n\n\n\n\n\n\n\n\n\n\n13.2 Spread data wide(long to wide)\n\n\nCode\ncosts_long= costs&gt;&gt; gather('measure', 'value', -_.id)\ncosts_long\n\n\n\n\n\n\n\n\n\n\nid\nmeasure\nvalue\n\n\n\n\n0\n1\nprice_x\n0.1\n\n\n1\n2\nprice_x\n0.2\n\n\n2\n1\nprice_y\n0.4\n\n\n3\n2\nprice_y\n0.5\n\n\n4\n1\nprice_z\n0.7\n\n\n5\n2\nprice_z\n0.8\n\n\n\n\n\n\n\n\n\n\nCode\ncosts_long&gt;&gt; spread('measure', 'value')\n\n\n\n\n\n\n\n\n\n\nid\nprice_x\nprice_y\nprice_z\n\n\n\n\n0\n1\n0.1\n0.4\n0.7\n\n\n1\n2\n0.2\n0.5\n0.8",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#string",
+    "href": "data manipulation/4 siuba.html#string",
+    "title": "Data manipulation with siuba",
+    "section": "14 string",
+    "text": "14 string\n\n\nCode\ndf = pd.DataFrame({'text': ['abc', 'DDD','1243c','aeEe'], 'num': [3, 4,7,8]})\n\ndf\n\n\n\n\n\n\n\n\n\n\ntext\nnum\n\n\n\n\n0\nabc\n3\n\n\n1\nDDD\n4\n\n\n2\n1243c\n7\n\n\n3\naeEe\n8\n\n\n\n\n\n\n\n\n\n14.1 upper case\n\n\nCode\ndf&gt;&gt; mutate(text_new=_.text.str.upper())\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new\n\n\n\n\n0\nabc\n3\nABC\n\n\n1\nDDD\n4\nDDD\n\n\n2\n1243c\n7\n1243C\n\n\n3\naeEe\n8\nAEEE\n\n\n\n\n\n\n\n\n\n\n14.2 lower case\n\n\nCode\ndf&gt;&gt; mutate(text_new=_.text.str.lower())\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new\n\n\n\n\n0\nabc\n3\nabc\n\n\n1\nDDD\n4\nddd\n\n\n2\n1243c\n7\n1243c\n\n\n3\naeEe\n8\naeee\n\n\n\n\n\n\n\n\n\n\n14.3 match\n\n\nCode\ndf&gt;&gt; mutate(text_new1=if_else(_.text== \"abc\",'T','F')\n            ,text_new2=if_else(_.text.str.startswith(\"a\"),'T','F')\n            ,text_new3=if_else(_.text.str.endswith(\"c\"),'T','F')\n            ,text_new4=if_else(_.text.str.contains(\"4\"),'T','F')\n\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\ntext_new2\ntext_new3\ntext_new4\n\n\n\n\n0\nabc\n3\nT\nT\nT\nF\n\n\n1\nDDD\n4\nF\nF\nF\nF\n\n\n2\n1243c\n7\nF\nF\nT\nT\n\n\n3\naeEe\n8\nF\nT\nF\nF\n\n\n\n\n\n\n\n\n\n\n14.4 concatenation\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text+' is '+_.text\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\n\n\n\n\n0\nabc\n3\nabc is abc\n\n\n1\nDDD\n4\nDDD is DDD\n\n\n2\n1243c\n7\n1243c is 1243c\n\n\n3\naeEe\n8\naeEe is aeEe\n\n\n\n\n\n\n\n\n\n\n14.5 replace\nUse .str.replace(…, regex=True) with regular expressions to replace patterns in strings.\nFor example, the code below uses “p.”, where . is called a wildcard–which matches any character.\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text.str.replace(\"a.\", \"XX\", regex=True)\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\n\n\n\n\n0\nabc\n3\nXXc\n\n\n1\nDDD\n4\nDDD\n\n\n2\n1243c\n7\n1243c\n\n\n3\naeEe\n8\nXXEe\n\n\n\n\n\n\n\n\n\n\n14.6 extract\nUse str.extract() with a regular expression to pull out a matching piece of text.\nFor example the regular expression “^(.*) ” contains the following pieces:\n\na matches the literal letter “a”\n.* has a . which matches anything, and * which modifies it to apply 0 or more times.\n\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text.str.extract(\"a(.*)\")\n            ,text_new2=_.text.str.extract(\"(.*)c\")\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\ntext_new2\n\n\n\n\n0\nabc\n3\nbc\nab\n\n\n1\nDDD\n4\nNaN\nNaN\n\n\n2\n1243c\n7\nNaN\n1243\n\n\n3\naeEe\n8\neEe\nNaN",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#date",
+    "href": "data manipulation/4 siuba.html#date",
+    "title": "Data manipulation with siuba",
+    "section": "15 date",
+    "text": "15 date\n\n\nCode\ndf_dates = pd.DataFrame({\n    \"dates\": pd.to_datetime([\"2021-01-02\", \"2021-02-03\"]),\n    \"raw\": [\"2023-04-05 06:07:08\", \"2024-05-06 07:08:09\"],\n})\ndf_dates\n\n\n\n\n\n\n\n\n\n\ndates\nraw\n\n\n\n\n0\n2021-01-02\n2023-04-05 06:07:08\n\n\n1\n2021-02-03\n2024-05-06 07:08:09\n\n\n\n\n\n\n\n\n\n\nCode\nfrom datetime import datetime\n\ndf_date=df_dates&gt;&gt;mutate(month=_.dates.dt.month_name()\n                  ,date_format_raw = call(pd.to_datetime, _.raw)\n                  ,date_format_raw_year=_.date_format_raw.dt.year\n\n)\n\ndf_date\n\n\n\n\n\n\n\n\n\n\ndates\nraw\nmonth\ndate_format_raw\ndate_format_raw_year\n\n\n\n\n0\n2021-01-02\n2023-04-05 06:07:08\nJanuary\n2023-04-05 06:07:08\n2023\n\n\n1\n2021-02-03\n2024-05-06 07:08:09\nFebruary\n2024-05-06 07:08:09\n2024\n\n\n\n\n\n\n\n\n\n\nCode\ndf_date.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 2 entries, 0 to 1\nData columns (total 5 columns):\n #   Column                Non-Null Count  Dtype         \n---  ------                --------------  -----         \n 0   dates                 2 non-null      datetime64[ns]\n 1   raw                   2 non-null      object        \n 2   month                 2 non-null      object        \n 3   date_format_raw       2 non-null      datetime64[ns]\n 4   date_format_raw_year  2 non-null      int32         \ndtypes: datetime64[ns](2), int32(1), object(2)\nmemory usage: 204.0+ bytes",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#using-siuba-with-database",
+    "href": "data manipulation/4 siuba.html#using-siuba-with-database",
+    "title": "Data manipulation with siuba",
+    "section": "16 using siuba with database",
+    "text": "16 using siuba with database\n\n16.1 set up a sqlite database, with an mtcars table.\n\n\nCode\nfrom sqlalchemy import create_engine\nfrom siuba.sql import LazyTbl\nfrom siuba import _, group_by, summarize, show_query, collect \nfrom siuba.data import mtcars\n\n# copy in to sqlite, using the pandas .to_sql() method\nengine = create_engine(\"sqlite:///:memory:\")\nmtcars.to_sql(\"mtcars\", engine, if_exists = \"replace\")\n\n\n32\n\n\n\n\n16.2 create table\n\n\nCode\n# Create a lazy SQL DataFrame\ntbl_mtcars = LazyTbl(engine, \"mtcars\")\ntbl_mtcars\n\n\n\n# Source: lazy query\n# DB Conn: Engine(sqlite:///:memory:)\n# Preview:\n\n\n\n\n\n\n\nindex\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n4\n4\n18.7\n8\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n\n\n\n\n# .. may have more rows\n\n\n\n\n\n16.3 create query\n\n\nCode\n# connect with siuba\n\ntbl_query = (tbl_mtcars\n  &gt;&gt; group_by(_.mpg)\n  &gt;&gt; summarize(avg_hp = _.hp.mean())\n  )\n\ntbl_query\n\n\n\n# Source: lazy query\n# DB Conn: Engine(sqlite:///:memory:)\n# Preview:\n\n\n\n\n\n\n\nmpg\navg_hp\n\n\n\n\n0\n10.4\n210.0\n\n\n1\n13.3\n245.0\n\n\n2\n14.3\n245.0\n\n\n3\n14.7\n230.0\n\n\n4\n15.0\n335.0\n\n\n\n\n# .. may have more rows\n\n\n\n\n\n16.4 show query\n\n\nCode\n tbl_query &gt;&gt; show_query()\n\n\nSELECT mtcars.mpg, avg(mtcars.hp) AS avg_hp \nFROM mtcars GROUP BY mtcars.mpg\n\n\n\n# Source: lazy query\n# DB Conn: Engine(sqlite:///:memory:)\n# Preview:\n\n\n\n\n\n\n\nmpg\navg_hp\n\n\n\n\n0\n10.4\n210.0\n\n\n1\n13.3\n245.0\n\n\n2\n14.3\n245.0\n\n\n3\n14.7\n230.0\n\n\n4\n15.0\n335.0\n\n\n\n\n# .. may have more rows\n\n\n\n\n\n16.5 Collect to DataFrame\nbecause lazy expressions,the collect function is actually running the sql.\n\n\nCode\ndata=tbl_query &gt;&gt; collect()\nprint(data)\n\n\n     mpg  avg_hp\n0   10.4   210.0\n1   13.3   245.0\n2   14.3   245.0\n3   14.7   230.0\n4   15.0   335.0\n5   15.2   165.0\n6   15.5   150.0\n7   15.8   264.0\n8   16.4   180.0\n9   17.3   180.0\n10  17.8   123.0\n11  18.1   105.0\n12  18.7   175.0\n13  19.2   149.0\n14  19.7   175.0\n15  21.0   110.0\n16  21.4   109.5\n17  21.5    97.0\n18  22.8    94.0\n19  24.4    62.0\n20  26.0    91.0\n21  27.3    66.0\n22  30.4    82.5\n23  32.4    66.0\n24  33.9    65.0",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/4 siuba.html#reference",
+    "href": "data manipulation/4 siuba.html#reference",
+    "title": "Data manipulation with siuba",
+    "section": "17 reference:",
+    "text": "17 reference:\nhttps://siuba.org/",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with siuba"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 data structure in Python .html#numpy-array",
+    "href": "data manipulation/2 data structure in Python .html#numpy-array",
+    "title": "Data structure in Python",
+    "section": "2.1 numpy Array",
+    "text": "2.1 numpy Array\n\n\nCode\nimport numpy as np\n\nA2 = np.array([[1, 2, 3], [3, 4, 5]])\nprint(A2)\n\n\n[[1 2 3]\n [3 4 5]]\n\n\n\n\nCode\ntype(A2)\n\n\nnumpy.ndarray",
+    "crumbs": [
+      "data manipulation",
+      "Data structure in Python"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 data structure in Python .html#shape",
+    "href": "data manipulation/2 data structure in Python .html#shape",
+    "title": "Data structure in Python",
+    "section": "2.2 shape",
+    "text": "2.2 shape\n\n\nCode\nA2.shape\n\n\n(2, 3)",
+    "crumbs": [
+      "data manipulation",
+      "Data structure in Python"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 data structure in Python .html#row-number",
+    "href": "data manipulation/2 data structure in Python .html#row-number",
+    "title": "Data structure in Python",
+    "section": "2.3 row number",
+    "text": "2.3 row number\n\n\nCode\nlen(A2)\n\n\n2",
+    "crumbs": [
+      "data manipulation",
+      "Data structure in Python"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 data structure in Python .html#total-elements",
+    "href": "data manipulation/2 data structure in Python .html#total-elements",
+    "title": "Data structure in Python",
+    "section": "2.4 total elements",
+    "text": "2.4 total elements\n\n\nCode\nA2.size\n\n\n6",
+    "crumbs": [
+      "data manipulation",
+      "Data structure in Python"
+    ]
+  },
+  {
+    "objectID": "clustering/1 k mean  Clustering.html#download-data",
+    "href": "clustering/1 k mean  Clustering.html#download-data",
+    "title": "K mean Clustering",
+    "section": "2.1 download data",
+    "text": "2.1 download data\nhttps://www.kaggle.com/datasets/shwetabh123/mall-customer",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/1 k mean  Clustering.html#input-data",
+    "href": "clustering/1 k mean  Clustering.html#input-data",
+    "title": "K mean Clustering",
+    "section": "2.2 input data",
+    "text": "2.2 input data\n\n\nCode\n# Loading the data\ndataset = pd.read_csv('./data/Mall_Customers.csv')\n\n# Showing overview of the train dataset\ndataset.head()\n\n\n\n\n\n\n\n\n\n\nCustomerID\nGenre\nAge\nAnnual Income (k$)\nSpending Score (1-100)\n\n\n\n\n0\n1\nMale\n19\n15\n39\n\n\n1\n2\nMale\n21\n15\n81\n\n\n2\n3\nFemale\n20\n16\n6\n\n\n3\n4\nFemale\n23\n16\n77\n\n\n4\n5\nFemale\n31\n17\n40",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/1 k mean  Clustering.html#data-eda",
+    "href": "clustering/1 k mean  Clustering.html#data-eda",
+    "title": "K mean Clustering",
+    "section": "2.3 data EDA",
+    "text": "2.3 data EDA",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/1 k mean  Clustering.html#annual-income-k",
+    "href": "clustering/1 k mean  Clustering.html#annual-income-k",
+    "title": "K mean Clustering",
+    "section": "5.1 ‘Annual Income (k$)’",
+    "text": "5.1 ‘Annual Income (k$)’\n\n\nCode\nfrom plotnine import *\n\np=(\n)\n\np\n\n\n()",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/1 k mean  Clustering.html#spending-score-1-100",
+    "href": "clustering/1 k mean  Clustering.html#spending-score-1-100",
+    "title": "K mean Clustering",
+    "section": "5.2 ‘Spending Score (1-100)’",
+    "text": "5.2 ‘Spending Score (1-100)’\n\n\nCode\nfrom plotnine import *\n\np=(\n    ggplot(data=dataset)+aes(x='group_no',y='Spending Score (1-100)',fill=\"group_no\")+geom_boxplot()\n)\n\np",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/1 k mean  Clustering.html#age",
+    "href": "clustering/1 k mean  Clustering.html#age",
+    "title": "K mean Clustering",
+    "section": "5.3 Age",
+    "text": "5.3 Age\n\n\nCode\nfrom plotnine import *\n\np=(\n    ggplot(data=dataset)+aes(x='group_no',y='Age',fill=\"group_no\")+geom_boxplot()\n)\n\np",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/3 k mode Clustering.html",
+    "href": "clustering/3 k mode Clustering.html",
+    "title": "k mode Clustering",
+    "section": "",
+    "text": "K-mode clustering is an unsupervised machine-learning technique used to group a set of data objects into a specified number of clusters, based on their categorical attributes. The algorithm is called “K-Mode” because it uses modes (i.e. the most frequent values) instead of means or medians to represent the clusters.\nIn K-means clustering when we used categorical data after converting it into a numerical form. it doesn’t give a good result for high-dimensional data. So, Some changes are made for categorical data t.\nReplace Euclidean distance with Dissimilarity metric\nReplace Mean by Mode for cluster centers.\nApply a frequency-based method in each iteration to update the mode.\nhttps://pypi.org/project/kmodes/",
+    "crumbs": [
+      "Clustering",
+      "k mode Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/3 k mode Clustering.html#download-data",
+    "href": "clustering/3 k mode Clustering.html#download-data",
+    "title": "k mode Clustering",
+    "section": "2.1 download data",
+    "text": "2.1 download data\nhttps://www.kaggle.com/datasets/shwetabh123/mall-customer",
+    "crumbs": [
+      "Clustering",
+      "k mode Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/3 k mode Clustering.html#input-data",
+    "href": "clustering/3 k mode Clustering.html#input-data",
+    "title": "k mode Clustering",
+    "section": "2.2 input data",
+    "text": "2.2 input data\n\n\nCode\n# Loading the data\ndataset = pd.read_csv('./data/Mall_Customers.csv')\n\n# Showing overview of the train dataset\ndataset.head()\n\n\n\n\n\n\n\n\n\n\nCustomerID\nGenre\nAge\nAnnual Income (k$)\nSpending Score (1-100)\n\n\n\n\n0\n1\nMale\n19\n15\n39\n\n\n1\n2\nMale\n21\n15\n81\n\n\n2\n3\nFemale\n20\n16\n6\n\n\n3\n4\nFemale\n23\n16\n77\n\n\n4\n5\nFemale\n31\n17\n40",
+    "crumbs": [
+      "Clustering",
+      "k mode Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/3 k mode Clustering.html#data-eda",
+    "href": "clustering/3 k mode Clustering.html#data-eda",
+    "title": "k mode Clustering",
+    "section": "2.3 data EDA",
+    "text": "2.3 data EDA",
+    "crumbs": [
+      "Clustering",
+      "k mode Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/2 Hierarchical Clustering.html",
+    "href": "clustering/2 Hierarchical Clustering.html",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "Code\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt",
+    "crumbs": [
+      "Clustering",
+      "Hierarchical Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/2 Hierarchical Clustering.html#download-data",
+    "href": "clustering/2 Hierarchical Clustering.html#download-data",
+    "title": "Hierarchical Clustering",
+    "section": "2.1 download data",
+    "text": "2.1 download data\nhttps://www.kaggle.com/datasets/shwetabh123/mall-customer",
+    "crumbs": [
+      "Clustering",
+      "Hierarchical Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/2 Hierarchical Clustering.html#input-data",
+    "href": "clustering/2 Hierarchical Clustering.html#input-data",
+    "title": "Hierarchical Clustering",
+    "section": "2.2 input data",
+    "text": "2.2 input data\n\n\nCode\n# Loading the data\ndataset = pd.read_csv('./data/Mall_Customers.csv')\n\n# Showing overview of the train dataset\ndataset.head()\n\n\n\n\n\n\n\n\n\n\nCustomerID\nGenre\nAge\nAnnual Income (k$)\nSpending Score (1-100)\n\n\n\n\n0\n1\nMale\n19\n15\n39\n\n\n1\n2\nMale\n21\n15\n81\n\n\n2\n3\nFemale\n20\n16\n6\n\n\n3\n4\nFemale\n23\n16\n77\n\n\n4\n5\nFemale\n31\n17\n40",
+    "crumbs": [
+      "Clustering",
+      "Hierarchical Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/2 Hierarchical Clustering.html#data-eda",
+    "href": "clustering/2 Hierarchical Clustering.html#data-eda",
+    "title": "Hierarchical Clustering",
+    "section": "2.3 data EDA",
+    "text": "2.3 data EDA",
+    "crumbs": [
+      "Clustering",
+      "Hierarchical Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/1 k mean Clustering.html#download-data",
+    "href": "clustering/1 k mean Clustering.html#download-data",
+    "title": "K mean Clustering",
+    "section": "2.1 download data",
+    "text": "2.1 download data\nhttps://www.kaggle.com/datasets/shwetabh123/mall-customer",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/1 k mean Clustering.html#input-data",
+    "href": "clustering/1 k mean Clustering.html#input-data",
+    "title": "K mean Clustering",
+    "section": "2.2 input data",
+    "text": "2.2 input data\n\n\nCode\n# Loading the data\ndataset = pd.read_csv('./data/Mall_Customers.csv')\n\n# Showing overview of the train dataset\ndataset.head()\n\n\n\n\n\n\n\n\n\n\nCustomerID\nGenre\nAge\nAnnual Income (k$)\nSpending Score (1-100)\n\n\n\n\n0\n1\nMale\n19\n15\n39\n\n\n1\n2\nMale\n21\n15\n81\n\n\n2\n3\nFemale\n20\n16\n6\n\n\n3\n4\nFemale\n23\n16\n77\n\n\n4\n5\nFemale\n31\n17\n40",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/1 k mean Clustering.html#data-eda",
+    "href": "clustering/1 k mean Clustering.html#data-eda",
+    "title": "K mean Clustering",
+    "section": "2.3 data EDA",
+    "text": "2.3 data EDA",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/1 k mean Clustering.html#annual-income-k",
+    "href": "clustering/1 k mean Clustering.html#annual-income-k",
+    "title": "K mean Clustering",
+    "section": "5.1 ‘Annual Income (k$)’",
+    "text": "5.1 ‘Annual Income (k$)’\n\n\nCode\nfrom plotnine import *\n\np=(\n)\n\np\n\n\n()",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/1 k mean Clustering.html#spending-score-1-100",
+    "href": "clustering/1 k mean Clustering.html#spending-score-1-100",
+    "title": "K mean Clustering",
+    "section": "5.2 ‘Spending Score (1-100)’",
+    "text": "5.2 ‘Spending Score (1-100)’\n\n\nCode\nfrom plotnine import *\n\np=(\n    ggplot(data=dataset)+aes(x='group_no',y='Spending Score (1-100)',fill=\"group_no\")+geom_boxplot()\n)\n\np",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/1 k mean Clustering.html#age",
+    "href": "clustering/1 k mean Clustering.html#age",
+    "title": "K mean Clustering",
+    "section": "5.3 Age",
+    "text": "5.3 Age\n\n\nCode\nfrom plotnine import *\n\np=(\n    ggplot(data=dataset)+aes(x='group_no',y='Age',fill=\"group_no\")+geom_boxplot()\n)\n\np",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "",
+    "text": "Code\nimport os\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport re\nimport numpy as np\nfrom sklearn import tree\nfrom sklearn.model_selection import train_test_split\n\nfrom siuba.siu import call\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\n\nimport time\nfrom sklearn.experimental import enable_halving_search_cv  # noqa\nfrom sklearn.model_selection import HalvingGridSearchCV",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#download-data",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#download-data",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "2.1 download data",
+    "text": "2.1 download data\n\n\nCode\nimport pandas as pd\n#url='https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv'\n#hotels=pd.read_csv(url)\n\nhotels=pd.read_csv('data/hotels.csv')\n\n\n\n\nCode\nhotels.head()\n\n\n\n\n\n\n\n\n\n\nhotel\nis_canceled\nlead_time\narrival_date_year\narrival_date_month\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\n...\ndeposit_type\nagent\ncompany\ndays_in_waiting_list\ncustomer_type\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\nreservation_status\nreservation_status_date\n\n\n\n\n0\nResort Hotel\n0\n342\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n1\nResort Hotel\n0\n737\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n2\nResort Hotel\n0\n7\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n3\nResort Hotel\n0\n13\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\n304.0\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n4\nResort Hotel\n0\n14\n2015\nJuly\n27\n1\n0\n2\n2\n...\nNo Deposit\n240.0\nNaN\n0\nTransient\n98.0\n0\n1\nCheck-Out\n2015-07-03\n\n\n\n\n5 rows × 32 columns",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#data-eda",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#data-eda",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "2.2 data EDA",
+    "text": "2.2 data EDA\nMissing Data\n\n\nCode\nhotels.isnull().sum()\n\n\nhotel                                  0\nis_canceled                            0\nlead_time                              0\narrival_date_year                      0\narrival_date_month                     0\narrival_date_week_number               0\narrival_date_day_of_month              0\nstays_in_weekend_nights                0\nstays_in_week_nights                   0\nadults                                 0\nchildren                               4\nbabies                                 0\nmeal                                   0\ncountry                              488\nmarket_segment                         0\ndistribution_channel                   0\nis_repeated_guest                      0\nprevious_cancellations                 0\nprevious_bookings_not_canceled         0\nreserved_room_type                     0\nassigned_room_type                     0\nbooking_changes                        0\ndeposit_type                           0\nagent                              16340\ncompany                           112593\ndays_in_waiting_list                   0\ncustomer_type                          0\nadr                                    0\nrequired_car_parking_spaces            0\ntotal_of_special_requests              0\nreservation_status                     0\nreservation_status_date                0\ndtype: int64\n\n\n\n\nCode\n#import math\n#hotels=hotels&gt;&gt; filter(math.isnan(_.children)==False)\nfrom siuba.siu import call\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\nhotels=hotels.drop('company', axis=1)\n\nhotels &gt;&gt; group_by(_.children)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\nchildren\nn\n\n\n\n\n0\n0.0\n110796\n\n\n1\n1.0\n4861\n\n\n2\n2.0\n3652\n\n\n3\n3.0\n76\n\n\n4\n10.0\n1\n\n\n5\nNaN\n4\n\n\n\n\n\n\n\n\n\n\nCode\n#import math\nhotels=hotels&gt;&gt;mutate(children=if_else(_.children &gt; 0, True, False))\n\n# Create a boolean mask and apply it\nmask = pd.notna(hotels['children'])\nhotels = hotels[mask]",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#data-wrangling",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#data-wrangling",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "2.3 Data Wrangling",
+    "text": "2.3 Data Wrangling\n\n\nCode\n# Store target variable of training data in a safe place\nchildren_train = hotels .children\n\n# Concatenate training and test sets\ndata  = hotels",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#categorical_cols-and-numerical_cols",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#categorical_cols-and-numerical_cols",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "2.4 categorical_cols and numerical_cols",
+    "text": "2.4 categorical_cols and numerical_cols\n\n\nCode\ncategorical_cols = [cname for cname in data \n                    if data[cname].nunique() &lt; 10 and data[cname].dtype == \"object\"]\n                    \n                    \nnumerical_cols = numerical_cols = [cname for cname in data.columns \n                    if data[cname].dtype in ['int64', 'float64']]\n\n\n\n\nCode\nprint(\"The total number of categorical columns:\", len(categorical_cols))\nprint(\"The total number of numerical columns:\", len(numerical_cols))\n\n\nThe total number of categorical columns: 7\nThe total number of numerical columns: 18\n\n\n\n\nCode\ndata &gt;&gt; group_by(_.children)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\nchildren\nn\n\n\n\n\n0\nFalse\n110800\n\n\n1\nTrue\n8590",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#split-data",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#split-data",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "2.5 split data",
+    "text": "2.5 split data\n80% training / 10% validation/ 10% testing\n\n\n\nCode\nY=data['children']\nX=data.drop('children', axis=1)\n\ntraining_size=0.8\nvalidation_size=0.1\ntesting_size=0.1\n\n\nX_train, X_val, Y_train, Y_val= train_test_split(X, Y, test_size=validation_size, random_state=1)\n\n\nX_train, X_test, Y_train, Y_test= train_test_split(X_train, Y_train, test_size=testing_size/training_size, random_state=1) \n\n\n\n\nCode\nlen(X_train)/(len(X_train) +len(X_val) +len(X_test) )\n\n\n0.7874947650556998\n\n\n\n\nCode\nlen(X_val)/(len(X_train) +len(X_val) +len(X_test) )\n\n\n0.1\n\n\n\n\nCode\nlen(X_test)/(len(X_train) +len(X_val) +len(X_test) )\n\n\n0.11250523494430019",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#categorical_cols-and-numerical_cols-1",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#categorical_cols-and-numerical_cols-1",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "2.6 categorical_cols and numerical_cols",
+    "text": "2.6 categorical_cols and numerical_cols\n\n\nCode\ncategorical_cols = [cname for cname in X_train.columns \n                    if X_train[cname].nunique() &lt; 10 and X_train[cname].dtype == \"object\"]\n                    \n                    \nnumerical_cols = numerical_cols = [cname for cname in X_train.columns \n                    if X_train[cname].dtype in ['int64', 'float64']]\n\n\n\n\nCode\nprint(\"The total number of categorical columns:\", len(categorical_cols))\nprint(\"The total number of numerical columns:\", len(numerical_cols))\n\n\nThe total number of categorical columns: 7\nThe total number of numerical columns: 18\n\n\n\n\nCode\nmy_cols = categorical_cols + numerical_cols\nX_train = X_train[my_cols].copy()\nX_val = X_val[my_cols].copy()\nX_test= X_test[my_cols].copy()\n\nmy_cols\n#X_final = df_test[my_cols].copy()\n\n\n['hotel',\n 'meal',\n 'market_segment',\n 'distribution_channel',\n 'deposit_type',\n 'customer_type',\n 'reservation_status',\n 'is_canceled',\n 'lead_time',\n 'arrival_date_year',\n 'arrival_date_week_number',\n 'arrival_date_day_of_month',\n 'stays_in_weekend_nights',\n 'stays_in_week_nights',\n 'adults',\n 'babies',\n 'is_repeated_guest',\n 'previous_cancellations',\n 'previous_bookings_not_canceled',\n 'booking_changes',\n 'agent',\n 'days_in_waiting_list',\n 'adr',\n 'required_car_parking_spaces',\n 'total_of_special_requests']",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#pipelines-for-data-preprocessing",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#pipelines-for-data-preprocessing",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "2.7 Pipelines for Data Preprocessing",
+    "text": "2.7 Pipelines for Data Preprocessing\n\n\nCode\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.impute import SimpleImputer\nfrom sklearn.preprocessing import StandardScaler\n\n\n\n\nCode\nnumerical_transformer = Pipeline(steps=[\n    ('imputer_num', SimpleImputer(strategy='median')), \n    ('scaler', StandardScaler())\n])\n\n\n\n\nCode\nfrom sklearn.preprocessing import OneHotEncoder\n\ncategorical_transformer = Pipeline(steps=[\n    ('imputer_cat', SimpleImputer(strategy='most_frequent')),\n    ('onehot', OneHotEncoder(handle_unknown='ignore'))\n])\n\n\n\n\nCode\nfrom sklearn.compose import ColumnTransformer\n\npreprocessor = ColumnTransformer(transformers=[\n    ('num', numerical_transformer, numerical_cols),\n    ('cat', categorical_transformer, categorical_cols)])",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#define-model",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#define-model",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "3.1 define model",
+    "text": "3.1 define model\n\n3.1.1 XGB model\n\n\nCode\nimport xgboost\nprint(xgboost.__version__)\n\n\n2.0.3\n\n\n\n\nCode\nfrom xgboost import XGBClassifier\nxgb_model = XGBClassifier()\nxgb_model\n\n\nXGBClassifier(base_score=None, booster=None, callbacks=None,\n              colsample_bylevel=None, colsample_bynode=None,\n              colsample_bytree=None, device=None, early_stopping_rounds=None,\n              enable_categorical=False, eval_metric=None, feature_types=None,\n              gamma=None, grow_policy=None, importance_type=None,\n              interaction_constraints=None, learning_rate=None, max_bin=None,\n              max_cat_threshold=None, max_cat_to_onehot=None,\n              max_delta_step=None, max_depth=None, max_leaves=None,\n              min_child_weight=None, missing=nan, monotone_constraints=None,\n              multi_strategy=None, n_estimators=None, n_jobs=None,\n              num_parallel_tree=None, random_state=None, ...)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org. XGBClassifieriNot fittedXGBClassifier(base_score=None, booster=None, callbacks=None,\n              colsample_bylevel=None, colsample_bynode=None,\n              colsample_bytree=None, device=None, early_stopping_rounds=None,\n              enable_categorical=False, eval_metric=None, feature_types=None,\n              gamma=None, grow_policy=None, importance_type=None,\n              interaction_constraints=None, learning_rate=None, max_bin=None,\n              max_cat_threshold=None, max_cat_to_onehot=None,\n              max_delta_step=None, max_depth=None, max_leaves=None,\n              min_child_weight=None, missing=nan, monotone_constraints=None,\n              multi_strategy=None, n_estimators=None, n_jobs=None,\n              num_parallel_tree=None, random_state=None, ...) \n\n\n\n\n3.1.2 Random Forest model\n\n\nCode\nfrom sklearn.ensemble import RandomForestClassifier\nrandom_forest_model = RandomForestClassifier()\nrandom_forest_model\n\n\nRandomForestClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  RandomForestClassifier?Documentation for RandomForestClassifieriNot fittedRandomForestClassifier() \n\n\n\n\n3.1.3 Logistic Regression model\n\n\nCode\nfrom sklearn.linear_model import LogisticRegression\nLogisticRegression_model = LogisticRegression(solver='liblinear')\nLogisticRegression_model\n\n\nLogisticRegression(solver='liblinear')In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  LogisticRegression?Documentation for LogisticRegressioniNot fittedLogisticRegression(solver='liblinear')",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#define-pipline",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#define-pipline",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "3.2 define pipline",
+    "text": "3.2 define pipline\n\n\nCode\npipeline_xgb = Pipeline(\n  steps=[\n         ('preprocessor', preprocessor), \n         ('model', xgb_model)\n         ]\n)\n\npipeline_rf = Pipeline(\n  steps=[\n         ('preprocessor', preprocessor), \n         ('model', random_forest_model)\n         ]\n)\n\npipeline_lr = Pipeline(\n  steps=[\n         ('preprocessor', preprocessor), \n         ('model', LogisticRegression_model)\n         ]\n)",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#define-gridsearch",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#define-gridsearch",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "3.3 define GridSearch",
+    "text": "3.3 define GridSearch\n\n\nCode\nparameters_xgb= {\n        'model__learning_rate': [0.01, 0.02,0.08,0.1],\n        'model__max_depth': [3, 5, 7,8,9,10],\n        'model__min_child_weight': [1, 3,5,8],\n        'model__subsample': [0.5, 0.7,0.9],\n        \n       # 'model__colsample__bytree': [0.5, 0.7],\n       \n        'model__n_estimators' : [100, 200],\n        'model__objective': ['reg:squarederror']\n    }\n\n\nGrid_xgb = HalvingGridSearchCV(pipeline_xgb\n                ,parameters_xgb \n                ,scoring='accuracy'\n                ,max_resources=50\n                , cv=10, n_jobs=-1)\n                \n                \nparameters_rf = {'model__max_depth':[20,30,40],\n                 'model__n_estimators':[200,250],\n                 'model__min_samples_leaf':[1,2,3]\n                 }                \n                \n\nGrid_rf = HalvingGridSearchCV(pipeline_rf\n                ,parameters_rf\n                ,scoring='accuracy'\n                ,max_resources=50\n                , cv=10, n_jobs=-1)",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#train-model",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#train-model",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "3.4 train model",
+    "text": "3.4 train model\n\n\nCode\nstart_time = time.time()\n\n\nGrids = [Grid_xgb, Grid_rf,pipeline_xgb,pipeline_rf,pipeline_lr]\nfor Grid in Grids:\n    Grid.fit(X_train,Y_train)\n\n\nend_time = time.time()\nduration = end_time - start_time\nduration\n\nprint(\"trainning time:\",duration)\n\n\ntrainning time: 235.7956202030182",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#preformance",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#preformance",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "3.5 Preformance",
+    "text": "3.5 Preformance\n\n\nCode\ngrid_dict = {0: 'XGB', 1: 'random forest', 2: 'XGB non tune',3: 'ramdon forest non tune',4:'Logistic regression non tune' }\n\nfor i, model in enumerate(Grids):\n    print('{} Test Accuracy: {}'.format(grid_dict[i],\n    model.score(X_test,Y_test)))\n    #print('{} Best Params: {}'.format(grid_dict[i], model.best_params_))\n\n\nXGB Test Accuracy: 0.928752233472305\nrandom forest Test Accuracy: 0.944237641453246\nXGB non tune Test Accuracy: 0.9532459797498511\nramdon forest non tune Test Accuracy: 0.949746873138773\nLogistic regression non tune Test Accuracy: 0.9321768910065515\n\n\n\n\nCode\nbest_ml=Grid_xgb.best_estimator_\n\n\n\n\nCode\n#Using predict method to test the model\nY_pred_dt = best_ml.predict(X_test) #always gets x and retuns y\nY_pred_dt\n\n\narray([0, 0, 0, ..., 0, 0, 0])\n\n\n\nAccuracy\n\n\n\nCode\n# Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives\n# Here is another way to find the accuracy score\nfrom sklearn import metrics\naccuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  \naccuracy\n\n\n0.928752233472305\n\n\n\nPrecision\n\n\n\nCode\n# Precision = true positive / true positive + false positive\nprecision_dt = metrics.precision_score(Y_test,Y_pred_dt)  \nprecision_dt\n\n\n0.0\n\n\n\nRecall\n\n\n\nCode\n# Recall = true positive / true positive + false negative\nrecall_dt = metrics.recall_score(Y_test,Y_pred_dt)  \nrecall_dt\n\n\n0.0\n\n\n\nConfusion matrix\n\n\n\nCode\nimport seaborn as sns\nconfusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)\nconfusion_matrix_dt\n\n\narray([[12475,     0],\n       [  957,     0]])\n\n\n\n\nCode\nfrom sklearn.metrics import ConfusionMatrixDisplay\nConfusionMatrixDisplay.from_estimator(best_ml, X_test, Y_test)\nplt.show()\n\n\n\n\n\n\n\n\n\n\nAUC - ROC Curve\n\n\n\nCode\nauc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score\nauc_dt\n\n\n0.5\n\n\n\n\nCode\nfpr, tpr, thresholds = metrics.roc_curve(Y_test, Y_pred_dt)\nroc_auc = metrics.auc(fpr, tpr)\n\ndisplay = metrics.RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=roc_auc,\n                                 estimator_name='example estimator')\n\ndisplay.plot()\n\nplt.show()",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#k-fold-cross-validation",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#k-fold-cross-validation",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "3.6 k-Fold Cross-Validation",
+    "text": "3.6 k-Fold Cross-Validation\n\n\nCode\nimport numpy as np\nfrom sklearn.model_selection import KFold\nfrom sklearn.model_selection import cross_val_score\n\n\n\n\nCode\nkf_dt = KFold(n_splits=5,shuffle=True)  \ncv_dt = cross_val_score(pipeline_xgb, X_train, Y_train, cv=kf_dt)\nnp.mean(cv_dt)\n\n\n0.9532328670096966",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#save-model",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#save-model",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "3.7 save model",
+    "text": "3.7 save model\n\n\nCode\nfrom joblib import dump, load\ndump(Grid_xgb, 'trained_grid_8.joblib', compress=True)  \n\n\n['trained_grid_8.joblib']",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#load-model",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#load-model",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "3.8 load model",
+    "text": "3.8 load model\n\n\nCode\nmodel_reload = load('trained_grid_8.joblib') \n\n\n\n\nCode\nbest_ml=model_reload.best_estimator_",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8 Multiple Models using Pipeline and tuning.html#final-prediction",
+    "href": "classification2/8 Multiple Models using Pipeline and tuning.html#final-prediction",
+    "title": "Multiple models using pipeline,fast tuning",
+    "section": "3.9 final prediction",
+    "text": "3.9 final prediction\n\n\nCode\nY_pred_dt_final =best_ml.predict(X_val) #always gets x and retuns y\n\nY_pred_dt_final[0:5]\n\n\narray([0, 0, 0, 0, 0])\n\n\n\n\nCode\nimport collections, numpy\ncollections.Counter(Y_pred_dt_final)\n\n\nCounter({0: 11939})",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "",
+    "text": "Since we have enough rare class data(at least 1K).Let handle imbalanced data with down sample before training.",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#download-data",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#download-data",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "2.1 download data",
+    "text": "2.1 download data\n\n\nCode\nimport pandas as pd\n#url='https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv'\n#hotels=pd.read_csv(url)\n\nhotels=pd.read_csv('data/hotels.csv')\n\n\n\n\nCode\nhotels.head()\n\n\n\n\n\n\n\n\n\n\nhotel\nis_canceled\nlead_time\narrival_date_year\narrival_date_month\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\n...\ndeposit_type\nagent\ncompany\ndays_in_waiting_list\ncustomer_type\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\nreservation_status\nreservation_status_date\n\n\n\n\n0\nResort Hotel\n0\n342\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n1\nResort Hotel\n0\n737\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n2\nResort Hotel\n0\n7\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n3\nResort Hotel\n0\n13\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\n304.0\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n4\nResort Hotel\n0\n14\n2015\nJuly\n27\n1\n0\n2\n2\n...\nNo Deposit\n240.0\nNaN\n0\nTransient\n98.0\n0\n1\nCheck-Out\n2015-07-03\n\n\n\n\n5 rows × 32 columns",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#data-eda",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#data-eda",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "2.2 data EDA",
+    "text": "2.2 data EDA\nMissing Data\n\n\nCode\nhotels.isnull().sum()\n\n\nhotel                                  0\nis_canceled                            0\nlead_time                              0\narrival_date_year                      0\narrival_date_month                     0\narrival_date_week_number               0\narrival_date_day_of_month              0\nstays_in_weekend_nights                0\nstays_in_week_nights                   0\nadults                                 0\nchildren                               4\nbabies                                 0\nmeal                                   0\ncountry                              488\nmarket_segment                         0\ndistribution_channel                   0\nis_repeated_guest                      0\nprevious_cancellations                 0\nprevious_bookings_not_canceled         0\nreserved_room_type                     0\nassigned_room_type                     0\nbooking_changes                        0\ndeposit_type                           0\nagent                              16340\ncompany                           112593\ndays_in_waiting_list                   0\ncustomer_type                          0\nadr                                    0\nrequired_car_parking_spaces            0\ntotal_of_special_requests              0\nreservation_status                     0\nreservation_status_date                0\ndtype: int64\n\n\n\n\nCode\n#import math\n#hotels=hotels&gt;&gt; filter(math.isnan(_.children)==False)\nfrom siuba.siu import call\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\nhotels=hotels.drop('company', axis=1)\n\nhotels &gt;&gt; group_by(_.children)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\nchildren\nn\n\n\n\n\n0\n0.0\n110796\n\n\n1\n1.0\n4861\n\n\n2\n2.0\n3652\n\n\n3\n3.0\n76\n\n\n4\n10.0\n1\n\n\n5\nNaN\n4\n\n\n\n\n\n\n\n\n\n\nCode\n#import math\nhotels=hotels&gt;&gt;mutate(children=if_else(_.children &gt; 0, True, False))\n\n# Create a boolean mask and apply it\nmask = pd.notna(hotels['children'])\nhotels = hotels[mask]",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#data-wrangling",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#data-wrangling",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "2.3 Data Wrangling",
+    "text": "2.3 Data Wrangling\n\n\nCode\n# Store target variable of training data in a safe place\nchildren_train = hotels .children\n\n# Concatenate training and test sets\ndata  = hotels",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#categorical_cols-and-numerical_cols",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#categorical_cols-and-numerical_cols",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "2.4 categorical_cols and numerical_cols",
+    "text": "2.4 categorical_cols and numerical_cols\n\n\nCode\ncategorical_cols = [cname for cname in data \n                    if data[cname].nunique() &lt; 10 and data[cname].dtype == \"object\"]\n                    \n                    \nnumerical_cols = numerical_cols = [cname for cname in data.columns \n                    if data[cname].dtype in ['int64', 'float64']]\n\n\n\n\nCode\nprint(\"The total number of categorical columns:\", len(categorical_cols))\nprint(\"The total number of numerical columns:\", len(numerical_cols))\n\n\nThe total number of categorical columns: 7\nThe total number of numerical columns: 18\n\n\n\n\nCode\ndata &gt;&gt; group_by(_.children)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\nchildren\nn\n\n\n\n\n0\nFalse\n110800\n\n\n1\nTrue\n8590",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#split-data",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#split-data",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "2.5 split data",
+    "text": "2.5 split data\n80% training / 10% validation/ 10% testing\n\n\n\nCode\nY=data['children']\nX=data.drop('children', axis=1)\n\ntraining_size=0.8\nvalidation_size=0.1\ntesting_size=0.1\n\n\nX_train, X_val, Y_train, Y_val= train_test_split(X, Y, test_size=validation_size, random_state=1)\n\nX_train, X_test, Y_train, Y_test= train_test_split(X_train, Y_train, test_size=testing_size/training_size, random_state=1) \n\n\n\n\nCode\nfrom imblearn.under_sampling import RandomUnderSampler\n\nros=RandomUnderSampler(random_state=0)\n\nX_train_resample,Y_train_resample=ros.fit_resample(X_train,Y_train)\n\n\n\n\nCode\nX_train_resample.shape\n\n\n(13552, 30)\n\n\n\n\nCode\nY_train_resample.shape\n\n\n(13552,)\n\n\n\n\nCode\nlen(X_train)/(len(X_train) +len(X_val) +len(X_test) )\n\n\n0.7874947650556998\n\n\n\n\nCode\nlen(X_val)/(len(X_train) +len(X_val) +len(X_test) )\n\n\n0.1\n\n\n\n\nCode\nlen(X_test)/(len(X_train) +len(X_val) +len(X_test) )\n\n\n0.11250523494430019\n\n\n\n\nCode\nY_train.value_counts()\n\n\nchildren\nFalse    87243\nTrue      6776\nName: count, dtype: int64\n\n\n\n\nCode\nY_train_resample.value_counts()\n\n\nchildren\nFalse    6776\nTrue     6776\nName: count, dtype: int64\n\n\n\n\nCode\nY_test.value_counts()\n\n\nchildren\nFalse    12475\nTrue       957\nName: count, dtype: int64\n\n\n\n\nCode\nY_val.value_counts()\n\n\nchildren\nFalse    11082\nTrue       857\nName: count, dtype: int64",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#categorical_cols-and-numerical_cols-1",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#categorical_cols-and-numerical_cols-1",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "2.6 categorical_cols and numerical_cols",
+    "text": "2.6 categorical_cols and numerical_cols\n\n\nCode\ncategorical_cols = [cname for cname in X_train.columns \n                    if X_train[cname].nunique() &lt; 10 and X_train[cname].dtype == \"object\"]\n                    \n                    \nnumerical_cols = numerical_cols = [cname for cname in X_train.columns \n                    if X_train[cname].dtype in ['int64', 'float64']]\n\n\n\n\nCode\nprint(\"The total number of categorical columns:\", len(categorical_cols))\nprint(\"The total number of numerical columns:\", len(numerical_cols))\n\n\nThe total number of categorical columns: 7\nThe total number of numerical columns: 18\n\n\n\n\nCode\nmy_cols = categorical_cols + numerical_cols\nX_train_resample = X_train_resample[my_cols].copy()\nX_val = X_val[my_cols].copy()\nX_test= X_test[my_cols].copy()\n\nmy_cols\n#X_final = df_test[my_cols].copy()\n\n\n['hotel',\n 'meal',\n 'market_segment',\n 'distribution_channel',\n 'deposit_type',\n 'customer_type',\n 'reservation_status',\n 'is_canceled',\n 'lead_time',\n 'arrival_date_year',\n 'arrival_date_week_number',\n 'arrival_date_day_of_month',\n 'stays_in_weekend_nights',\n 'stays_in_week_nights',\n 'adults',\n 'babies',\n 'is_repeated_guest',\n 'previous_cancellations',\n 'previous_bookings_not_canceled',\n 'booking_changes',\n 'agent',\n 'days_in_waiting_list',\n 'adr',\n 'required_car_parking_spaces',\n 'total_of_special_requests']",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#pipelines-for-data-preprocessing",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#pipelines-for-data-preprocessing",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "2.7 Pipelines for Data Preprocessing",
+    "text": "2.7 Pipelines for Data Preprocessing\n\n\nCode\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.impute import SimpleImputer\nfrom sklearn.preprocessing import StandardScaler\n\n\n\n\nCode\nnumerical_transformer = Pipeline(steps=[\n    ('imputer_num', SimpleImputer(strategy='median')), \n    ('scaler', StandardScaler())\n])\n\n\n\n\nCode\nfrom sklearn.preprocessing import OneHotEncoder\n\ncategorical_transformer = Pipeline(steps=[\n    ('imputer_cat', SimpleImputer(strategy='most_frequent')),\n    ('onehot', OneHotEncoder(handle_unknown='ignore'))\n])\n\n\n\n\nCode\nfrom sklearn.compose import ColumnTransformer\n\npreprocessor = ColumnTransformer(transformers=[\n    ('num', numerical_transformer, numerical_cols),\n    ('cat', categorical_transformer, categorical_cols)])",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#define-model",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#define-model",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "3.1 define model",
+    "text": "3.1 define model\n\n3.1.1 XGB model\n\n\nCode\nimport xgboost\nprint(xgboost.__version__)\n\n\n2.0.3\n\n\n\n\nCode\nfrom xgboost import XGBClassifier\nxgb_model = XGBClassifier()\nxgb_model\n\n\nXGBClassifier(base_score=None, booster=None, callbacks=None,\n              colsample_bylevel=None, colsample_bynode=None,\n              colsample_bytree=None, device=None, early_stopping_rounds=None,\n              enable_categorical=False, eval_metric=None, feature_types=None,\n              gamma=None, grow_policy=None, importance_type=None,\n              interaction_constraints=None, learning_rate=None, max_bin=None,\n              max_cat_threshold=None, max_cat_to_onehot=None,\n              max_delta_step=None, max_depth=None, max_leaves=None,\n              min_child_weight=None, missing=nan, monotone_constraints=None,\n              multi_strategy=None, n_estimators=None, n_jobs=None,\n              num_parallel_tree=None, random_state=None, ...)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org. XGBClassifieriNot fittedXGBClassifier(base_score=None, booster=None, callbacks=None,\n              colsample_bylevel=None, colsample_bynode=None,\n              colsample_bytree=None, device=None, early_stopping_rounds=None,\n              enable_categorical=False, eval_metric=None, feature_types=None,\n              gamma=None, grow_policy=None, importance_type=None,\n              interaction_constraints=None, learning_rate=None, max_bin=None,\n              max_cat_threshold=None, max_cat_to_onehot=None,\n              max_delta_step=None, max_depth=None, max_leaves=None,\n              min_child_weight=None, missing=nan, monotone_constraints=None,\n              multi_strategy=None, n_estimators=None, n_jobs=None,\n              num_parallel_tree=None, random_state=None, ...) \n\n\n\n\n3.1.2 Random Forest model\n\n\nCode\nfrom sklearn.ensemble import RandomForestClassifier\nrandom_forest_model = RandomForestClassifier()\nrandom_forest_model\n\n\nRandomForestClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  RandomForestClassifier?Documentation for RandomForestClassifieriNot fittedRandomForestClassifier() \n\n\n\n\n3.1.3 Logistic Regression model\n\n\nCode\nfrom sklearn.linear_model import LogisticRegression\nLogisticRegression_model = LogisticRegression(solver='liblinear')\nLogisticRegression_model\n\n\nLogisticRegression(solver='liblinear')In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  LogisticRegression?Documentation for LogisticRegressioniNot fittedLogisticRegression(solver='liblinear')",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#define-pipline",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#define-pipline",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "3.2 define pipline",
+    "text": "3.2 define pipline\n\n\nCode\npipeline_xgb = Pipeline(\n  steps=[\n         ('preprocessor', preprocessor), \n         ('model', xgb_model)\n         ]\n)\n\npipeline_rf = Pipeline(\n  steps=[\n         ('preprocessor', preprocessor), \n         ('model', random_forest_model)\n         ]\n)\n\npipeline_lr = Pipeline(\n  steps=[\n         ('preprocessor', preprocessor), \n         ('model', LogisticRegression_model)\n         ]\n)",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#define-gridsearch",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#define-gridsearch",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "3.3 define GridSearch",
+    "text": "3.3 define GridSearch\n\n\nCode\nparameters_xgb= {\n        'model__learning_rate': [0.01, 0.02,0.08,0.1],\n        'model__max_depth': [3, 5, 7,8,9,10],\n        'model__min_child_weight': [1, 3,5,8],\n        'model__subsample': [0.5, 0.7,0.9],\n        \n       # 'model__colsample__bytree': [0.5, 0.7],\n       \n        'model__n_estimators' : [100, 200],\n        'model__objective': ['reg:squarederror']\n    }\n\n\nGrid_xgb = HalvingGridSearchCV(pipeline_xgb\n                ,parameters_xgb \n                ,scoring='accuracy'\n                ,max_resources=50\n                , cv=10, n_jobs=-1)\n                \n                \nparameters_rf = {'model__max_depth':[20,30,40],\n                 'model__n_estimators':[200,250],\n                 'model__min_samples_leaf':[1,2,3]\n                 }                \n                \n\nGrid_rf = HalvingGridSearchCV(pipeline_rf\n                ,parameters_rf\n                ,scoring='accuracy'\n                ,max_resources=50\n                , cv=10, n_jobs=-1)",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#train-model",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#train-model",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "3.4 train model",
+    "text": "3.4 train model\n\n\nCode\nstart_time = time.time()\n\n\nGrids = [Grid_xgb, Grid_rf,pipeline_xgb,pipeline_rf,pipeline_lr]\nfor Grid in Grids:\n    Grid.fit(X_train_resample,Y_train_resample)\n\n\nend_time = time.time()\nduration = end_time - start_time\nduration\n\nprint(\"trainning time:\",duration)\n\n\ntrainning time: 62.23781609535217",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#preformance",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#preformance",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "3.5 Preformance",
+    "text": "3.5 Preformance\n\n\nCode\ngrid_dict = {0: 'XGB', 1: 'random forest', 2: 'XGB non tune',3: 'ramdon forest non tune',4:'Logistic regression non tune' }\n\nfor i, model in enumerate(Grids):\n    print('{} Test Accuracy: {}'.format(grid_dict[i],\n    model.score(X_test,Y_test)))\n    #print('{} Best Params: {}'.format(grid_dict[i], model.best_params_))\n\n\nXGB Test Accuracy: 0.7948927933293627\nrandom forest Test Accuracy: 0.8039011316259679\nXGB non tune Test Accuracy: 0.8515485407980941\nramdon forest non tune Test Accuracy: 0.829883859440143\nLogistic regression non tune Test Accuracy: 0.740842763549732\n\n\n\n\nCode\nfrom sklearn import metrics\nfor i, model in enumerate(Grids):\n    Y_pred_dt = model.predict(X_test)\n    print('{} Test auc: {}'.format(grid_dict[i],\n    metrics.roc_auc_score(Y_test, Y_pred_dt)))\n\n\nXGB Test auc: 0.7897252812835702\nrandom forest Test auc: 0.8404016392241118\nXGB non tune Test auc: 0.8650881700705486\nramdon forest non tune Test auc: 0.8505305281409213\nLogistic regression non tune Test auc: 0.7779929765487088\n\n\n\n\nCode\nbest_ml=Grid_xgb.best_estimator_\n\n\n\n\nCode\n#Using predict method to test the model\nY_pred_dt = best_ml.predict(X_test) #always gets x and retuns y\nY_pred_dt\n\n\narray([1, 1, 0, ..., 0, 0, 1])\n\n\n\nAccuracy\n\n\n\nCode\n# Accuracy = true negatives + true positives / true positives + false positives + true negatives + false negatives\n# Here is another way to find the accuracy score\nfrom sklearn import metrics\naccuracy = metrics.accuracy_score(Y_test,Y_pred_dt)  \naccuracy\n\n\n0.7948927933293627\n\n\n\nPrecision\n\n\n\nCode\n# Precision = true positive / true positive + false positive\nprecision_dt = metrics.precision_score(Y_test,Y_pred_dt)  \nprecision_dt\n\n\n0.22741055184960582\n\n\n\nRecall\n\n\n\nCode\n# Recall = true positive / true positive + false negative\nrecall_dt = metrics.recall_score(Y_test,Y_pred_dt)  \nrecall_dt\n\n\n0.7836990595611285\n\n\n\nConfusion matrix\n\n\n\nCode\nimport seaborn as sns\nconfusion_matrix_dt = metrics.confusion_matrix(Y_test,Y_pred_dt)\nconfusion_matrix_dt\n\n\narray([[9927, 2548],\n       [ 207,  750]])\n\n\n\n\nCode\nfrom sklearn.metrics import ConfusionMatrixDisplay\nConfusionMatrixDisplay.from_estimator(best_ml, X_test, Y_test)\nplt.show()\n\n\n\n\n\n\n\n\n\n\nAUC - ROC Curve\n\n\n\nCode\nauc_dt = metrics.roc_auc_score(Y_test, Y_pred_dt) # as the documentation explain, the main parameters are: y_true and y_score\nauc_dt\n\n\n0.7897252812835702\n\n\n\n\nCode\nfpr, tpr, thresholds = metrics.roc_curve(Y_test, Y_pred_dt)\nroc_auc = metrics.auc(fpr, tpr)\n\ndisplay = metrics.RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=roc_auc,\n                                 estimator_name='example estimator')\n\ndisplay.plot()\n\nplt.show()",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#k-fold-cross-validation",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#k-fold-cross-validation",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "3.6 k-Fold Cross-Validation",
+    "text": "3.6 k-Fold Cross-Validation\n\n\nCode\nimport numpy as np\nfrom sklearn.model_selection import KFold\nfrom sklearn.model_selection import cross_val_score\n\n\n\n\nCode\nkf_dt = KFold(n_splits=5,shuffle=True)  \ncv_dt = cross_val_score(pipeline_xgb, X_train, Y_train, cv=kf_dt)\nnp.mean(cv_dt)\n\n\n0.9531690383559412",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#save-model",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#save-model",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "3.7 save model",
+    "text": "3.7 save model\n\n\nCode\nfrom joblib import dump, load\ndump(Grid_xgb, 'trained_grid_8_2.joblib', compress=True)  \n\n\n['trained_grid_8_2.joblib']",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#load-model",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#load-model",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "3.8 load model",
+    "text": "3.8 load model\n\n\nCode\nmodel_reload = load('trained_grid_8_2.joblib') \n\n\n\n\nCode\nbest_ml=model_reload.best_estimator_",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "classification2/8.2 Multiple Models using Pipeline and tuning.html#final-prediction",
+    "href": "classification2/8.2 Multiple Models using Pipeline and tuning.html#final-prediction",
+    "title": "Multiple models using downsample,pipeline,fast tuning",
+    "section": "3.9 final prediction",
+    "text": "3.9 final prediction\n\n\nCode\nY_pred_dt_final =best_ml.predict(X_val) #always gets x and retuns y\n\nY_pred_dt_final[0:5]\n\n\narray([0, 1, 0, 0, 0])\n\n\n\n\nCode\nimport collections, numpy\ncollections.Counter(Y_pred_dt_final)\n\n\nCounter({0: 8969, 1: 2970})",
+    "crumbs": [
+      "Classification2",
+      "Multiple models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "clustering/1.2 k mean Clustering.html",
+    "href": "clustering/1.2 k mean Clustering.html",
+    "title": "K mean Clustering",
+    "section": "",
+    "text": "Using K mean Clustering to filter below picture",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "clustering/1.2 k mean Clustering.html#input-data",
+    "href": "clustering/1.2 k mean Clustering.html#input-data",
+    "title": "K mean Clustering",
+    "section": "2.1 input data",
+    "text": "2.1 input data\n\n\nCode\nfrom PIL import Image\nimage = Image.open('python logo.jpg')\n \n# summarize some details about the image\nprint(image.format)\nprint(image.size)\nprint(image.mode)\n\n\nJPEG\n(214, 235)\nRGB\n\n\n\n\nCode\n# Read in the image\nimage = cv2.imread('python logo.jpg')\n \n# Change color to RGB (from BGR)\nimage = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)\n \nplt.imshow(image)\n\n\n\n\n\n\n\n\n\n\n\nCode\nimport numpy as np\nfrom sklearn.cluster import KMeans\nfrom skimage.io import imread, imsave\n\nsample_img = imread('python logo.jpg')\nw,h,c = sample_img.shape\n\n\n\n\nCode\nw\nh\nc\n\n\n3\n\n\n\n\nCode\nsample_img.shape\n\n\n(235, 214, 3)\n\n\n\n\nCode\nsample_img = sample_img.reshape(w*h,3)\n\n\n\n\nCode\nsample_img.shape\n\n\n(50290, 3)\n\n\n\n\nCode\nx=sample_img",
+    "crumbs": [
+      "Clustering",
+      "K mean Clustering"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 data structure in Python .html#count-numpy.ndarray",
+    "href": "data manipulation/2 data structure in Python .html#count-numpy.ndarray",
+    "title": "Data structure in Python",
+    "section": "2.5 count numpy.ndarray",
+    "text": "2.5 count numpy.ndarray\n\n2.5.1 convert list into numpy array\n\n\nCode\nA = [\n  [1, 4, 5, 12], \n  [-5, 8, 9, 0],\n  [-6, 7, 11, 19],\n  [1, 4, 5, 12], \n  [-5, 8, 9, 0],\n  [-6, 7, 11, 19],\n  [1, 4, 5, 12], \n  [-5, 8, 9, 0],\n  [-6, 7, 11, 19]\n  ]\n    \nA3 = np.array(A)\n\nprint(A3)\n\n\n[[ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]\n [ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]\n [ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]]\n\n\n\n\n2.5.2 selection\n\n2.5.2.1 first 5 row\n\n\nCode\nA[:5]\n\n\n[[1, 4, 5, 12], [-5, 8, 9, 0], [-6, 7, 11, 19], [1, 4, 5, 12], [-5, 8, 9, 0]]\n\n\n\n\n2.5.2.2 lst 5 row\n\n\nCode\nA[:-5]\n\n\n[[1, 4, 5, 12], [-5, 8, 9, 0], [-6, 7, 11, 19], [1, 4, 5, 12]]\n\n\n\n\n2.5.2.3 first row\n\n\nCode\nA[0]\n\n\n[1, 4, 5, 12]\n\n\n\n\n2.5.2.4 first column\n\n\nCode\nA2[:,0]\n\n\narray([1, 3])\n\n\n\n\n2.5.2.5 first row and first column element\n\n\nCode\nA2[0,0]\n\n\n1\n\n\n\n\nCode\nA2.dtype\n\n\ndtype('int64')\n\n\n\n\n2.5.2.6 2 row and 3 column\n\n\nCode\nA2[1,2]\n\n\n5\n\n\n\n\n2.5.2.7 filter\n\n2.5.2.7.1 filter all\n\n\nCode\nprint(A3)\n\n\n[[ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]\n [ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]\n [ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]]\n\n\n\n\nCode\nA3&gt;4\n\n\narray([[False, False,  True,  True],\n       [False,  True,  True, False],\n       [False,  True,  True,  True],\n       [False, False,  True,  True],\n       [False,  True,  True, False],\n       [False,  True,  True,  True],\n       [False, False,  True,  True],\n       [False,  True,  True, False],\n       [False,  True,  True,  True]])\n\n\n\n\nCode\nA3[A3&gt;4]\n\n\narray([ 5, 12,  8,  9,  7, 11, 19,  5, 12,  8,  9,  7, 11, 19,  5, 12,  8,\n        9,  7, 11, 19])\n\n\n\n\n2.5.2.7.2 filter row\n\n\nCode\nA3\n\n\narray([[ 1,  4,  5, 12],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19],\n       [ 1,  4,  5, 12],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19],\n       [ 1,  4,  5, 12],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19]])\n\n\nfilter secound column&gt;5\n\n\nCode\nfilter_val=(A3&gt;5)[:,2]\n\n\nwhich only keep 2,3 row.\n\n\nCode\nA3[filter_val,0:]\n\n\narray([[-5,  8,  9,  0],\n       [-6,  7, 11, 19],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19]])\n\n\n\n\n\n\n2.5.3 create numpy array\n\n2.5.3.1 create eye\n\n\nCode\nnp.eye(3)\n\n\narray([[1., 0., 0.],\n       [0., 1., 0.],\n       [0., 0., 1.]])\n\n\n\n\n2.5.3.2 create zero\n\n\nCode\nnp.zeros((2,3))\n\n\narray([[0., 0., 0.],\n       [0., 0., 0.]])\n\n\n\n\n2.5.3.3 create ones\n\n\nCode\nnp.ones((2,3))\n\n\narray([[1., 1., 1.],\n       [1., 1., 1.]])\n\n\n\n\n\n2.5.4 compare\n\n\nCode\n# Creating Array\na = np.array([1,2,3,4]) \nb = np.array([3,2,5,6])\n\n\n\n\nCode\n# Comparing two arrays\nnp.greater(a, b)\n\n\narray([False, False, False, False])\n\n\n\n\nCode\na &gt;= b\n\n\narray([False,  True, False, False])\n\n\n\n\nCode\n# Comparing two arrays\nnp.less(a, b)\n\n\narray([ True, False,  True,  True])\n\n\n\n\nCode\n# Comparing two arrays\nnp.equal(a, b)\n\n\narray([False,  True, False, False])\n\n\n\n\n2.5.5 reshape\n\n\nCode\na=np.arange(9).reshape(3, 3)\n\na\n\n\narray([[0, 1, 2],\n       [3, 4, 5],\n       [6, 7, 8]])\n\n\n\n\n2.5.6 calculation\n\n\nCode\nb=a*a\nb\n\n\narray([[ 0,  1,  4],\n       [ 9, 16, 25],\n       [36, 49, 64]])\n\n\n\n\nCode\nb=a+a\nb\n\n\narray([[ 0,  2,  4],\n       [ 6,  8, 10],\n       [12, 14, 16]])\n\n\n\n\n2.5.7 numpy array to dataframe\n\n\nCode\nimport pandas as pd\ndf = pd.DataFrame(b, columns=['Column_A', 'Column_B', 'Column_C'])\n\ndf\n\n\n\n\n\n\n\n\n\n\nColumn_A\nColumn_B\nColumn_C\n\n\n\n\n0\n0\n2\n4\n\n\n1\n6\n8\n10\n\n\n2\n12\n14\n16",
+    "crumbs": [
+      "data manipulation",
+      "Data structure in Python"
+    ]
+  },
+  {
+    "objectID": "intro/1 Book.html",
+    "href": "intro/1 Book.html",
+    "title": "Boook",
+    "section": "",
+    "text": "1 Python for Data Analysis\nby William McKinney\n\n\n\n2 Introduction to Machine Learning with Python\nby Andreas C. Müller, Sarah Guido\n\n\n\n3 Machine Learning with Python Cookbook\nby Chris Albon\n\n\n\n4 Data Wrangling with Python\nby Jacqueline Kazil (Author), Katharine Jarmul (Author)\n\n\n\n5 A Course in Machine Learning\nby Hal Daumé\n\n\n\n6 Think Stats\nby Allen B. Downey\n\n\n\n7 Think Bayes\nby Allen B. Downey\n\n\n\n8 Think Like a Data Scientist\nby Brian Godsey\n\n\n\n9 Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow\nby Aurélien Géron\n\n\n\n10 Deep Learning with Python\nBy Francois Chollet",
+    "crumbs": [
+      "Intro",
+      "Boook"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#dataframe-to-numpy-array",
+    "href": "data manipulation/3 Pandas.html#dataframe-to-numpy-array",
+    "title": "Data manipulation with Pandas",
+    "section": "0.14 dataframe to numpy array",
+    "text": "0.14 dataframe to numpy array\n\n\nCode\ndf_date.to_numpy()\n\n\narray([[Timestamp('2021-01-02 00:00:00'), '2023-04-05 06:07:08',\n        'January', Timestamp('2023-04-05 06:07:08'), 2023],\n       [Timestamp('2021-02-03 00:00:00'), '2024-05-06 07:08:09',\n        'February', Timestamp('2024-05-06 07:08:09'), 2024]], dtype=object)",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
     ]
   }
 ]

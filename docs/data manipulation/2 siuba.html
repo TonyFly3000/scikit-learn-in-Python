@@ -140,6 +140,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-intro">    
         <li class="dropdown-header">Intro</li>
         <li>
+    <a class="dropdown-item" href="../intro/1 input output.html">
+ <span class="dropdown-text">input output</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../intro/3 install package.html">
  <span class="dropdown-text">install pacakge</span></a>
   </li>  
@@ -261,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../classification/8.2 Multiple Models using Pipeline and tuning.html">
- <span class="dropdown-text">Multiple models using pipeline and tuning</span></a>
+ <span class="dropdown-text">Multiple models using pipeline and fast tuning</span></a>
   </li>  
     </ul>
   </li>
@@ -274,6 +278,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../regression/0 house price data.html">
  <span class="dropdown-text">Housing Prices Dataset</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../regression/1 Linear Regression.html">
+ <span class="dropdown-text">Linear Regression</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../regression/2 Decision Tree on house price data.html">
@@ -290,6 +298,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../regression/5 XGboost on house price data.html">
  <span class="dropdown-text">XGboost and pipeline, hyperparameter tuning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../regression/8 Multiple Models using Pipeline and fast tuning.html">
+ <span class="dropdown-text">Multiple models using pipeline and fast tuning</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-clustering" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Clustering</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-clustering">    
+        <li class="dropdown-header">Clustering</li>
+        <li>
+    <a class="dropdown-item" href="../clustering/0 Mall Customers.html">
+ <span class="dropdown-text">Mall_Customers Dataset</span></a>
   </li>  
     </ul>
   </li>
@@ -457,7 +481,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="package-download" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="package-download"><span class="header-section-number">2</span> Package download</h2>
-<div id="a6e45da6" class="cell" data-execution_count="1">
+<div id="fc7ae516" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -467,7 +491,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="load-package" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="load-package"><span class="header-section-number">3</span> load package</h2>
-<div id="ba7bfb56" class="cell" data-execution_count="2">
+<div id="74312a19" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -475,7 +499,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pylab <span class="im">as</span> plt</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba.data <span class="im">import</span> mtcars,penguins</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba.siu <span class="im">import</span> call</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> _, mutate, <span class="bu">filter</span>, group_by, summarize,show_query</span>
@@ -484,7 +508,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba.data <span class="im">import</span> mtcars,penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="6d5871d0" class="cell" data-execution_count="3">
+<div id="b36efade" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -506,7 +530,7 @@ Required-by: </code></pre>
 <pre><code>0</code></pre>
 </div>
 </div>
-<div id="ae55cbc7" class="cell" data-execution_count="4">
+<div id="a104f8df" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>small_mtcars <span class="op">=</span> mtcars <span class="op">&gt;&gt;</span> select(_.cyl, _.mpg, _.hp)<span class="op">&gt;&gt;</span> head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -517,7 +541,7 @@ Required-by: </code></pre>
 <h2 data-number="4" class="anchored" data-anchor-id="select-column"><span class="header-section-number">4</span> select column</h2>
 <section id="select-columns-by-name" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="select-columns-by-name"><span class="header-section-number">4.1</span> select columns by name</h3>
-<div id="82ee8d1e" class="cell" data-execution_count="5">
+<div id="7fbe841a" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>small_mtcars <span class="op">&gt;&gt;</span> select(_.cyl, _.mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -571,7 +595,7 @@ Required-by: </code></pre>
 </section>
 <section id="select-columns-by-name-match-with-p" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="select-columns-by-name-match-with-p"><span class="header-section-number">4.2</span> select columns by name match with ‘p’</h3>
-<div id="9fd4acfa" class="cell" data-execution_count="6">
+<div id="95f8afac" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>small_mtcars <span class="op">&gt;&gt;</span> select(_.contains(<span class="st">"p"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -627,7 +651,7 @@ Required-by: </code></pre>
 <h3 data-number="4.3" class="anchored" data-anchor-id="select-columns-by-index"><span class="header-section-number">4.3</span> select columns by index</h3>
 <section id="select-first-and-3rd-columns" class="level4" data-number="4.3.1">
 <h4 data-number="4.3.1" class="anchored" data-anchor-id="select-first-and-3rd-columns"><span class="header-section-number">4.3.1</span> select first and 3rd columns</h4>
-<div id="63f8f761" class="cell" data-execution_count="7">
+<div id="c62bd87a" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>small_mtcars <span class="op">&gt;&gt;</span> select(<span class="dv">0</span>,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -681,7 +705,7 @@ Required-by: </code></pre>
 </section>
 <section id="select-first-to-3rd-columns" class="level4" data-number="4.3.2">
 <h4 data-number="4.3.2" class="anchored" data-anchor-id="select-first-to-3rd-columns"><span class="header-section-number">4.3.2</span> select first to 3rd columns</h4>
-<div id="d4516e4d" class="cell" data-execution_count="8">
+<div id="e8bc28b3" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>small_mtcars <span class="op">&gt;&gt;</span> select(_[<span class="dv">0</span>:<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -743,7 +767,7 @@ Required-by: </code></pre>
 </section>
 <section id="drop-column" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="drop-column"><span class="header-section-number">5</span> drop column</h2>
-<div id="9979679d" class="cell" data-execution_count="9">
+<div id="4d5583ba" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>small_mtcars <span class="op">&gt;&gt;</span> select(<span class="op">~</span>_.cyl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -797,7 +821,7 @@ Required-by: </code></pre>
 </section>
 <section id="renaming-column" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="renaming-column"><span class="header-section-number">6</span> Renaming column</h2>
-<div id="abbd171a" class="cell" data-execution_count="10">
+<div id="35358824" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>small_mtcars <span class="op">&gt;&gt;</span> rename(new_name_mpg <span class="op">=</span> _.mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -859,7 +883,7 @@ Required-by: </code></pre>
 <h2 data-number="7" class="anchored" data-anchor-id="create-column"><span class="header-section-number">7</span> Create column</h2>
 <section id="mutate" class="level3" data-number="7.1">
 <h3 data-number="7.1" class="anchored" data-anchor-id="mutate"><span class="header-section-number">7.1</span> Mutate</h3>
-<div id="9ab0e6fe" class="cell" data-execution_count="11">
+<div id="ae8758f3" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mtcars.head()<span class="op">&gt;&gt;</span> mutate(gear2 <span class="op">=</span> _.gear<span class="op">+</span><span class="dv">1</span></span>
@@ -992,7 +1016,7 @@ Required-by: </code></pre>
 </section>
 <section id="transmutecreate-column-and-only-keep-this-column" class="level3" data-number="7.2">
 <h3 data-number="7.2" class="anchored" data-anchor-id="transmutecreate-column-and-only-keep-this-column"><span class="header-section-number">7.2</span> Transmute,create column and only keep this column</h3>
-<div id="71378d65" class="cell" data-execution_count="12">
+<div id="9cdefb94" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mtcars.head()<span class="op">&gt;&gt;</span> transmute(gear2 <span class="op">=</span> _.gear<span class="op">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1041,7 +1065,7 @@ Required-by: </code></pre>
 </section>
 <section id="filter-rows" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="filter-rows"><span class="header-section-number">8</span> Filter rows</h2>
-<div id="bd7b4364" class="cell" data-execution_count="13">
+<div id="4a05f751" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mtcars<span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.gear <span class="op">==</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1246,7 +1270,7 @@ Required-by: </code></pre>
 </div>
 <section id="filters-with-and-conditions" class="level3" data-number="8.1">
 <h3 data-number="8.1" class="anchored" data-anchor-id="filters-with-and-conditions"><span class="header-section-number">8.1</span> Filters with AND conditions</h3>
-<div id="ffa667fc" class="cell" data-execution_count="14">
+<div id="0893e260" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="op">&gt;&gt;</span> <span class="bu">filter</span>((_.cyl <span class="op">&gt;</span><span class="dv">4</span>) <span class="op">&amp;</span> (_.gear <span class="op">==</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1326,7 +1350,7 @@ Required-by: </code></pre>
 </section>
 <section id="filters-with-or-conditions" class="level3" data-number="8.2">
 <h3 data-number="8.2" class="anchored" data-anchor-id="filters-with-or-conditions"><span class="header-section-number">8.2</span> Filters with OR conditions</h3>
-<div id="12364e81" class="cell" data-execution_count="15">
+<div id="3786164f" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="op">&gt;&gt;</span> <span class="bu">filter</span>((_.cyl <span class="op">==</span> <span class="dv">6</span>) <span class="op">|</span> (_.gear <span class="op">==</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1520,7 +1544,7 @@ Required-by: </code></pre>
 <h3 data-number="8.3" class="anchored" data-anchor-id="filter-row-with-index"><span class="header-section-number">8.3</span> filter row with index</h3>
 <section id="first-3" class="level4" data-number="8.3.1">
 <h4 data-number="8.3.1" class="anchored" data-anchor-id="first-3"><span class="header-section-number">8.3.1</span> first 3</h4>
-<div id="fe4f1785" class="cell" data-execution_count="16">
+<div id="10246ad7" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>small_mtcars<span class="op">&gt;&gt;</span>head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1568,7 +1592,7 @@ Required-by: </code></pre>
 </section>
 <section id="last-3" class="level4" data-number="8.3.2">
 <h4 data-number="8.3.2" class="anchored" data-anchor-id="last-3"><span class="header-section-number">8.3.2</span> last 3</h4>
-<div id="1d509c02" class="cell" data-execution_count="17">
+<div id="c92bcea6" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># not in siuba, in pandas</span></span>
@@ -1617,7 +1641,7 @@ Required-by: </code></pre>
 </section>
 <section id="th-rows" class="level4" data-number="8.3.3">
 <h4 data-number="8.3.3" class="anchored" data-anchor-id="th-rows"><span class="header-section-number">8.3.3</span> 5th rows</h4>
-<div id="57febd37" class="cell" data-execution_count="18">
+<div id="8750ba2c" class="cell" data-execution_count="18">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># not in siuba, in pandas</span></span>
@@ -1670,7 +1694,7 @@ Required-by: </code></pre>
 </section>
 <section id="and-5th-rows" class="level4" data-number="8.3.4">
 <h4 data-number="8.3.4" class="anchored" data-anchor-id="and-5th-rows"><span class="header-section-number">8.3.4</span> 1 and 5th rows</h4>
-<div id="3b8c1d3a" class="cell" data-execution_count="19">
+<div id="bba9448d" class="cell" data-execution_count="19">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># not in siuba, in pandas</span></span>
@@ -1737,7 +1761,7 @@ Required-by: </code></pre>
 </section>
 <section id="to-5th-rows" class="level4" data-number="8.3.5">
 <h4 data-number="8.3.5" class="anchored" data-anchor-id="to-5th-rows"><span class="header-section-number">8.3.5</span> 1 to 5th rows</h4>
-<div id="af6a18b5" class="cell" data-execution_count="20">
+<div id="f13af0ba" class="cell" data-execution_count="20">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># not in siuba, in pandas</span></span>
@@ -1832,7 +1856,7 @@ Required-by: </code></pre>
 </section>
 <section id="get-ramdon-5-rows" class="level4" data-number="8.3.6">
 <h4 data-number="8.3.6" class="anchored" data-anchor-id="get-ramdon-5-rows"><span class="header-section-number">8.3.6</span> get ramdon 5 rows</h4>
-<div id="7e0665fc" class="cell" data-execution_count="21">
+<div id="5eae4256" class="cell" data-execution_count="21">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>mtcars.sample(<span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1944,14 +1968,14 @@ Required-by: </code></pre>
 <h2 data-number="9" class="anchored" data-anchor-id="append"><span class="header-section-number">9</span> Append</h2>
 <section id="append-by-row" class="level3" data-number="9.1">
 <h3 data-number="9.1" class="anchored" data-anchor-id="append-by-row"><span class="header-section-number">9.1</span> append by row</h3>
-<div id="118974ce" class="cell" data-execution_count="22">
+<div id="dc591af8" class="cell" data-execution_count="22">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># not available in siuba yet</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#from siuba import bind_rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="9fe7b2c2" class="cell" data-execution_count="23">
+<div id="2e3b9a52" class="cell" data-execution_count="23">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using pandas</span></span>
@@ -2069,14 +2093,14 @@ Required-by: </code></pre>
 </section>
 <section id="append-by-column" class="level3" data-number="9.2">
 <h3 data-number="9.2" class="anchored" data-anchor-id="append-by-column"><span class="header-section-number">9.2</span> append by column</h3>
-<div id="8b471623" class="cell" data-execution_count="24">
+<div id="98be1a44" class="cell" data-execution_count="24">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># not available in siuba yet</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#from siuba import bind_columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="8db904fc" class="cell" data-execution_count="25">
+<div id="3e22ea08" class="cell" data-execution_count="25">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using pandas</span></span>
@@ -2140,14 +2164,13 @@ Required-by: </code></pre>
 </section>
 <section id="keep-na-values" class="level3" data-number="9.4">
 <h3 data-number="9.4" class="anchored" data-anchor-id="keep-na-values"><span class="header-section-number">9.4</span> keep NA values</h3>
-<p>=</p>
 </section>
 </section>
 <section id="group-by" class="level2" data-number="10">
 <h2 data-number="10" class="anchored" data-anchor-id="group-by"><span class="header-section-number">10</span> group by</h2>
 <section id="averageminmaxsum" class="level3" data-number="10.1">
 <h3 data-number="10.1" class="anchored" data-anchor-id="averageminmaxsum"><span class="header-section-number">10.1</span> average,min,max,sum</h3>
-<div id="5157e764" class="cell" data-execution_count="26">
+<div id="a722ca15" class="cell" data-execution_count="26">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>tbl_query <span class="op">=</span> (mtcars</span>
@@ -2212,7 +2235,7 @@ Required-by: </code></pre>
 </section>
 <section id="count" class="level3" data-number="10.2">
 <h3 data-number="10.2" class="anchored" data-anchor-id="count"><span class="header-section-number">10.2</span> count</h3>
-<div id="d27d96d3" class="cell" data-execution_count="27">
+<div id="7b9e613d" class="cell" data-execution_count="27">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="op">&gt;&gt;</span> group_by(_.cyl)  <span class="op">&gt;&gt;</span> summarize(n <span class="op">=</span> _.shape[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2257,7 +2280,7 @@ Required-by: </code></pre>
 </section>
 <section id="order-rows" class="level2" data-number="11">
 <h2 data-number="11" class="anchored" data-anchor-id="order-rows"><span class="header-section-number">11</span> order rows</h2>
-<div id="e172c493" class="cell" data-execution_count="28">
+<div id="eee72b2b" class="cell" data-execution_count="28">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>small_mtcars <span class="op">&gt;&gt;</span> arrange(_.hp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2316,7 +2339,7 @@ Required-by: </code></pre>
 </div>
 <section id="sort-in-descending-order" class="level3" data-number="11.1">
 <h3 data-number="11.1" class="anchored" data-anchor-id="sort-in-descending-order"><span class="header-section-number">11.1</span> Sort in descending order</h3>
-<div id="6776a1fb" class="cell" data-execution_count="29">
+<div id="6ba12bb3" class="cell" data-execution_count="29">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>small_mtcars <span class="op">&gt;&gt;</span> arrange(<span class="op">-</span>_.hp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2376,7 +2399,7 @@ Required-by: </code></pre>
 </section>
 <section id="arrange-by-multiple-variables" class="level3" data-number="11.2">
 <h3 data-number="11.2" class="anchored" data-anchor-id="arrange-by-multiple-variables"><span class="header-section-number">11.2</span> Arrange by multiple variables</h3>
-<div id="9f8fa59f" class="cell" data-execution_count="30">
+<div id="8ebefba6" class="cell" data-execution_count="30">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>small_mtcars <span class="op">&gt;&gt;</span> arrange(_.cyl, <span class="op">-</span>_.mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2437,14 +2460,14 @@ Required-by: </code></pre>
 </section>
 <section id="join" class="level2" data-number="12">
 <h2 data-number="12" class="anchored" data-anchor-id="join"><span class="header-section-number">12</span> join</h2>
-<div id="753c5e93" class="cell" data-execution_count="31">
+<div id="39d2f12c" class="cell" data-execution_count="31">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>lhs <span class="op">=</span> pd.DataFrame({<span class="st">'id'</span>: [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], <span class="st">'val'</span>: [<span class="st">'lhs.1'</span>, <span class="st">'lhs.2'</span>, <span class="st">'lhs.3'</span>]})</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>rhs <span class="op">=</span> pd.DataFrame({<span class="st">'id'</span>: [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>], <span class="st">'val'</span>: [<span class="st">'rhs.1'</span>, <span class="st">'rhs.2'</span>, <span class="st">'rhs.3'</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="e9392bf6" class="cell" data-execution_count="32">
+<div id="0860e510" class="cell" data-execution_count="32">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>lhs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2485,7 +2508,7 @@ Required-by: </code></pre>
 </div>
 </div>
 </div>
-<div id="aa0f8d20" class="cell" data-execution_count="33">
+<div id="171204e9" class="cell" data-execution_count="33">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>rhs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2528,7 +2551,7 @@ Required-by: </code></pre>
 </div>
 <section id="inner_join" class="level3" data-number="12.1">
 <h3 data-number="12.1" class="anchored" data-anchor-id="inner_join"><span class="header-section-number">12.1</span> inner_join</h3>
-<div id="2cc93077" class="cell" data-execution_count="34">
+<div id="6edab82f" class="cell" data-execution_count="34">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>result<span class="op">=</span>lhs <span class="op">&gt;&gt;</span> inner_join(_, rhs, on<span class="op">=</span><span class="st">"id"</span>)</span>
@@ -2571,7 +2594,7 @@ Required-by: </code></pre>
 </section>
 <section id="full-join" class="level3" data-number="12.2">
 <h3 data-number="12.2" class="anchored" data-anchor-id="full-join"><span class="header-section-number">12.2</span> full join</h3>
-<div id="d79372c1" class="cell" data-execution_count="35">
+<div id="d10dffee" class="cell" data-execution_count="35">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>result<span class="op">=</span>rhs <span class="op">&gt;&gt;</span> full_join(_, lhs, on<span class="op">=</span><span class="st">"id"</span>)</span>
@@ -2626,7 +2649,7 @@ Required-by: </code></pre>
 </section>
 <section id="left-join" class="level3" data-number="12.3">
 <h3 data-number="12.3" class="anchored" data-anchor-id="left-join"><span class="header-section-number">12.3</span> left join</h3>
-<div id="5f79de5e" class="cell" data-execution_count="36">
+<div id="77abbad4" class="cell" data-execution_count="36">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>result<span class="op">=</span>lhs <span class="op">&gt;&gt;</span> left_join(_, rhs, on<span class="op">=</span><span class="st">"id"</span>)</span>
@@ -2676,7 +2699,7 @@ Required-by: </code></pre>
 <section id="anti-join" class="level3" data-number="12.4">
 <h3 data-number="12.4" class="anchored" data-anchor-id="anti-join"><span class="header-section-number">12.4</span> anti join</h3>
 <p>keep data in left which not in right</p>
-<div id="add7f85c" class="cell" data-execution_count="37">
+<div id="58b36f8d" class="cell" data-execution_count="37">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>result<span class="op">=</span>lhs <span class="op">&gt;&gt;</span> anti_join(_, rhs, on<span class="op">=</span><span class="st">"id"</span>)</span>
@@ -2709,7 +2732,7 @@ Required-by: </code></pre>
 </div>
 </div>
 <p>keep data in right which not in left</p>
-<div id="2a451ead" class="cell" data-execution_count="38">
+<div id="51877f87" class="cell" data-execution_count="38">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>result<span class="op">=</span>rhs <span class="op">&gt;&gt;</span> anti_join(_, lhs, on<span class="op">=</span><span class="st">"id"</span>)</span>
@@ -2745,7 +2768,7 @@ Required-by: </code></pre>
 </section>
 <section id="reshape-tables" class="level2" data-number="13">
 <h2 data-number="13" class="anchored" data-anchor-id="reshape-tables"><span class="header-section-number">13</span> Reshape tables</h2>
-<div id="a7178104" class="cell" data-execution_count="39">
+<div id="6c465180" class="cell" data-execution_count="39">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>costs <span class="op">=</span> pd.DataFrame({</span>
@@ -2797,7 +2820,7 @@ Required-by: </code></pre>
 <section id="gather-data-longwide-to-long" class="level3" data-number="13.1">
 <h3 data-number="13.1" class="anchored" data-anchor-id="gather-data-longwide-to-long"><span class="header-section-number">13.1</span> Gather data long(wide to long)</h3>
 <p>Below 3 method will give same result</p>
-<div id="4ea40471" class="cell" data-execution_count="40">
+<div id="86384df3" class="cell" data-execution_count="40">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting each variable manually</span></span>
@@ -2862,7 +2885,7 @@ Required-by: </code></pre>
 </div>
 </div>
 <p>other way:</p>
-<div id="36c2fb13" class="cell" data-execution_count="41">
+<div id="ecfb10b1" class="cell" data-execution_count="41">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting variables using a slice</span></span>
@@ -2927,7 +2950,7 @@ Required-by: </code></pre>
 </div>
 </div>
 <p>other way:</p>
-<div id="5c0e5e2b" class="cell" data-execution_count="42">
+<div id="9bc75cfd" class="cell" data-execution_count="42">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting by excluding id</span></span>
@@ -2994,7 +3017,7 @@ Required-by: </code></pre>
 </section>
 <section id="spread-data-widelong-to-wide" class="level3" data-number="13.2">
 <h3 data-number="13.2" class="anchored" data-anchor-id="spread-data-widelong-to-wide"><span class="header-section-number">13.2</span> Spread data wide(long to wide)</h3>
-<div id="90356b0b" class="cell" data-execution_count="43">
+<div id="d12c0f3b" class="cell" data-execution_count="43">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>costs_long<span class="op">=</span> costs<span class="op">&gt;&gt;</span> gather(<span class="st">'measure'</span>, <span class="st">'value'</span>, <span class="op">-</span>_.<span class="bu">id</span>)</span>
@@ -3058,7 +3081,7 @@ Required-by: </code></pre>
 </div>
 </div>
 </div>
-<div id="9f7c516c" class="cell" data-execution_count="44">
+<div id="f5c8e48b" class="cell" data-execution_count="44">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>costs_long<span class="op">&gt;&gt;</span> spread(<span class="st">'measure'</span>, <span class="st">'value'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3104,7 +3127,7 @@ Required-by: </code></pre>
 </section>
 <section id="string" class="level2" data-number="14">
 <h2 data-number="14" class="anchored" data-anchor-id="string"><span class="header-section-number">14</span> string</h2>
-<div id="a02c926b" class="cell" data-execution_count="45">
+<div id="2fc83dbb" class="cell" data-execution_count="45">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'text'</span>: [<span class="st">'abc'</span>, <span class="st">'DDD'</span>,<span class="st">'1243c'</span>,<span class="st">'aeEe'</span>], <span class="st">'num'</span>: [<span class="dv">3</span>, <span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">8</span>]})</span>
@@ -3154,7 +3177,7 @@ Required-by: </code></pre>
 </div>
 <section id="upper-case" class="level3" data-number="14.1">
 <h3 data-number="14.1" class="anchored" data-anchor-id="upper-case"><span class="header-section-number">14.1</span> upper case</h3>
-<div id="66755b9e" class="cell" data-execution_count="46">
+<div id="70034821" class="cell" data-execution_count="46">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">&gt;&gt;</span> mutate(text_new<span class="op">=</span>_.text.<span class="bu">str</span>.upper())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3208,7 +3231,7 @@ Required-by: </code></pre>
 </section>
 <section id="lower-case" class="level3" data-number="14.2">
 <h3 data-number="14.2" class="anchored" data-anchor-id="lower-case"><span class="header-section-number">14.2</span> lower case</h3>
-<div id="3c1aeac3" class="cell" data-execution_count="47">
+<div id="4036ae00" class="cell" data-execution_count="47">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">&gt;&gt;</span> mutate(text_new<span class="op">=</span>_.text.<span class="bu">str</span>.lower())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3262,7 +3285,7 @@ Required-by: </code></pre>
 </section>
 <section id="match" class="level3" data-number="14.3">
 <h3 data-number="14.3" class="anchored" data-anchor-id="match"><span class="header-section-number">14.3</span> match</h3>
-<div id="95f10b1c" class="cell" data-execution_count="48">
+<div id="7dff642b" class="cell" data-execution_count="48">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">&gt;&gt;</span> mutate(text_new1<span class="op">=</span>if_else(_.text<span class="op">==</span> <span class="st">"abc"</span>,<span class="st">'T'</span>,<span class="st">'F'</span>)</span>
@@ -3336,7 +3359,7 @@ Required-by: </code></pre>
 </section>
 <section id="concatenation" class="level3" data-number="14.4">
 <h3 data-number="14.4" class="anchored" data-anchor-id="concatenation"><span class="header-section-number">14.4</span> concatenation</h3>
-<div id="16791b81" class="cell" data-execution_count="49">
+<div id="454fbd7a" class="cell" data-execution_count="49">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">&gt;&gt;</span> mutate(text_new1<span class="op">=</span>_.text<span class="op">+</span><span class="st">' is '</span><span class="op">+</span>_.text</span>
@@ -3393,7 +3416,7 @@ Required-by: </code></pre>
 <h3 data-number="14.5" class="anchored" data-anchor-id="replace"><span class="header-section-number">14.5</span> replace</h3>
 <p>Use .str.replace(…, regex=True) with regular expressions to replace patterns in strings.</p>
 <p>For example, the code below uses “p.”, where . is called a wildcard–which matches any character.</p>
-<div id="531a424f" class="cell" data-execution_count="50">
+<div id="4c1f1373" class="cell" data-execution_count="50">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">&gt;&gt;</span> mutate(text_new1<span class="op">=</span>_.text.<span class="bu">str</span>.replace(<span class="st">"a."</span>, <span class="st">"XX"</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
@@ -3454,7 +3477,7 @@ Required-by: </code></pre>
 <li><p>a matches the literal letter “a”</p></li>
 <li><p>.* has a . which matches anything, and * which modifies it to apply 0 or more times.</p></li>
 </ul>
-<div id="7f477342" class="cell" data-execution_count="51">
+<div id="dc268ae4" class="cell" data-execution_count="51">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">&gt;&gt;</span> mutate(text_new1<span class="op">=</span>_.text.<span class="bu">str</span>.extract(<span class="st">"a(.*)"</span>)</span>
@@ -3516,7 +3539,7 @@ Required-by: </code></pre>
 </section>
 <section id="date" class="level2" data-number="15">
 <h2 data-number="15" class="anchored" data-anchor-id="date"><span class="header-section-number">15</span> date</h2>
-<div id="2a65d107" class="cell" data-execution_count="52">
+<div id="38281853" class="cell" data-execution_count="52">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>df_dates <span class="op">=</span> pd.DataFrame({</span>
@@ -3556,7 +3579,7 @@ Required-by: </code></pre>
 </div>
 </div>
 </div>
-<div id="a9323a1b" class="cell" data-execution_count="53">
+<div id="6da6a365" class="cell" data-execution_count="53">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
@@ -3609,7 +3632,7 @@ Required-by: </code></pre>
 </div>
 </div>
 </div>
-<div id="d7592e90" class="cell" data-execution_count="54">
+<div id="33f3dec5" class="cell" data-execution_count="54">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df_date.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3634,7 +3657,7 @@ memory usage: 204.0+ bytes</code></pre>
 <h2 data-number="16" class="anchored" data-anchor-id="using-siuba-with-database"><span class="header-section-number">16</span> using siuba with database</h2>
 <section id="set-up-a-sqlite-database-with-an-mtcars-table." class="level3" data-number="16.1">
 <h3 data-number="16.1" class="anchored" data-anchor-id="set-up-a-sqlite-database-with-an-mtcars-table."><span class="header-section-number">16.1</span> set up a sqlite database, with an mtcars table.</h3>
-<div id="15fa313c" class="cell" data-execution_count="55">
+<div id="f7ac8e31" class="cell" data-execution_count="55">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine</span>
@@ -3653,7 +3676,7 @@ memory usage: 204.0+ bytes</code></pre>
 </section>
 <section id="create-table" class="level3" data-number="16.2">
 <h3 data-number="16.2" class="anchored" data-anchor-id="create-table"><span class="header-section-number">16.2</span> create table</h3>
-<div id="648f445e" class="cell" data-execution_count="56">
+<div id="b8f529d1" class="cell" data-execution_count="56">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a lazy SQL DataFrame</span></span>
@@ -3772,7 +3795,7 @@ memory usage: 204.0+ bytes</code></pre>
 </section>
 <section id="create-query" class="level3" data-number="16.3">
 <h3 data-number="16.3" class="anchored" data-anchor-id="create-query"><span class="header-section-number">16.3</span> create query</h3>
-<div id="8cd53d4b" class="cell" data-execution_count="57">
+<div id="2b680af6" class="cell" data-execution_count="57">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># connect with siuba</span></span>
@@ -3836,7 +3859,7 @@ memory usage: 204.0+ bytes</code></pre>
 </section>
 <section id="show-query" class="level3" data-number="16.4">
 <h3 data-number="16.4" class="anchored" data-anchor-id="show-query"><span class="header-section-number">16.4</span> show query</h3>
-<div id="aeac5fc1" class="cell" data-execution_count="58">
+<div id="3d8c348d" class="cell" data-execution_count="58">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a> tbl_query <span class="op">&gt;&gt;</span> show_query()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3898,7 +3921,7 @@ FROM mtcars GROUP BY mtcars.mpg</code></pre>
 <section id="collect-to-dataframe" class="level3" data-number="16.5">
 <h3 data-number="16.5" class="anchored" data-anchor-id="collect-to-dataframe"><span class="header-section-number">16.5</span> Collect to DataFrame</h3>
 <p>because lazy expressions,the collect function is actually running the sql.</p>
-<div id="275b94ca" class="cell" data-execution_count="59">
+<div id="77d8a837" class="cell" data-execution_count="59">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>tbl_query <span class="op">&gt;&gt;</span> collect()</span>
@@ -4422,7 +4445,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb66-41"><a href="#cb66-41" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pylab <span class="im">as</span> plt</span>
 <span id="cb66-42"><a href="#cb66-42" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb66-43"><a href="#cb66-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-44"><a href="#cb66-44" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba.data <span class="im">import</span> mtcars,penguins</span>
+<span id="cb66-44"><a href="#cb66-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-45"><a href="#cb66-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-46"><a href="#cb66-46" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba.siu <span class="im">import</span> call</span>
 <span id="cb66-47"><a href="#cb66-47" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> _, mutate, <span class="bu">filter</span>, group_by, summarize,show_query</span>
@@ -4608,7 +4631,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb66-273"><a href="#cb66-273" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-274"><a href="#cb66-274" aria-hidden="true" tabindex="-1"></a><span class="fu">### keep NA values</span></span>
 <span id="cb66-275"><a href="#cb66-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-276"><a href="#cb66-276" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb66-276"><a href="#cb66-276" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-277"><a href="#cb66-277" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-278"><a href="#cb66-278" aria-hidden="true" tabindex="-1"></a><span class="fu">## group by</span></span>
 <span id="cb66-279"><a href="#cb66-279" aria-hidden="true" tabindex="-1"></a></span>

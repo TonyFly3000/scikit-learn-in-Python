@@ -1,0 +1,116 @@
+---
+title: "input & output"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+Data input and ouput in python
+
+![](images/1_-OQi5hp-uoL_KdIydr4hew.gif){width="500"}
+
+# input
+
+
+
+## read CSV
+
+```{python}
+import pandas as pd
+data=pd.read_csv('data/Book3.csv')
+data
+```
+
+CSV online
+
+```{python}
+import pandas as pd
+url='https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv'
+hotels=pd.read_csv(url)
+```
+
+## read excel
+
+sheet_name=0 read first sheet.
+
+sheet_name=1 read second sheet.
+
+.sheet_name='Sheet1' read 'Sheet1' sheet.
+
+```{python}
+import pandas as pd
+data=pd.read_excel('data/Book1.xlsx',sheet_name=0)
+data
+```
+
+## read parquet
+
+parquet format is one of the best for data analytic
+
+```{python}
+data= pd.read_parquet("data/df.parquet")
+data.shape
+```
+
+```{python}
+data.head()
+```
+
+read parquet zip
+
+```{python}
+data= pd.read_parquet("data/df.parquet.gzip")
+data.shape
+```
+
+## read feather
+
+```{python}
+data=pd.read_feather("data/file.feather")
+```
+
+# outout
+
+## write CSV
+
+```{python}
+data.head().to_csv('data/out.csv', index=False)  
+```
+
+## write excel
+
+```{python}
+data.head().to_excel('data/out.xlsx')
+```
+
+## write parquet
+
+```{python}
+data.head(100).to_parquet('data/df.parquet') 
+```
+
+output to zip format
+
+```{python}
+data.head(100).to_parquet('data/df.parquet.gzip',
+              compression='gzip')  
+```
+
+## write feather
+
+```{python}
+data.head(100).to_feather("data/file.feather")
+```
+
+# Refernce
+
+https://medium.com/@gadhvirushiraj/the-best-file-format-for-data-science-ed756f937be8

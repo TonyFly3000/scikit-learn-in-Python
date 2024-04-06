@@ -1,5 +1,5 @@
 ---
-title: "Mall_Customers Dataset"
+title: "Mall Customers Dataset"
 execute:
   warning: false
   error: false
@@ -83,6 +83,6 @@ my_report.show_notebook()
 ```
 
 
-
+https://www.kaggle.com/code/sangwookchn/clustering-techniques-using-scikit-learn
 
 

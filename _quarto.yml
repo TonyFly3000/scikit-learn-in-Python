@@ -20,6 +20,7 @@ website:
       - sidebar:bar1
       - sidebar:bar2
       - sidebar:bar3   
+      - sidebar:bar3b  
       - sidebar:bar4
       - sidebar:bar5
 
@@ -67,6 +68,12 @@ website:
       collapse-level: 2
       contents: classification
 
+    - id: bar3b
+      title: "Classification imbalance"
+      style: "floating"
+      background: light
+      collapse-level: 2
+      contents: classification2
 
     - id: bar4
       title: "Regression"
