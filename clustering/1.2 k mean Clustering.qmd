@@ -1,5 +1,5 @@
 ---
-title: "K mean Clustering"
+title: "K mean Clustering with image"
 subtitle: "with image data"
 execute:
   warning: false
@@ -15,7 +15,7 @@ format:
     code-block-border-left: "#31BAE9"
 ---
 
-Using K mean Clustering to filter below picture
+Using K mean Clustering to replace colow on below picture
 
 
 ![](python logo.jpg){width="300"}
@@ -117,7 +117,7 @@ for i in range(1, 11):
 The best K is 3 from the chart
 ```{python}
 plt.plot(range(1,11), wcss)
-plt.title("Elbow method applied to Mall_customers dataset")
+plt.title("Elbow method applied to find K")
 plt.xlabel("number of clusters")
 plt.ylabel("wcss")
 plt.show()
