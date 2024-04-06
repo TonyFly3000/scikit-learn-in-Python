@@ -6,7 +6,23 @@ project:
 language: 
   search-box-placeholder: Search
 
+    
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    grid:
+      sidebar-width: 300px
+      body-width: 1000px
+      margin-width: 200px
+      gutter-width: 1rem
+
+
+
 website:
+  back-to-top-navigation: true
+  reader-mode: true
   title: "Scikit learn with Python"
 
   favicon: "1.png"
@@ -92,16 +108,5 @@ website:
   page-footer:
     right: "This website is built with ❤️ and [Quarto](https://quarto.org/)."
 
-    
-format:
-  html:
-    theme: cosmo
-    css: styles.css
-    toc: true
-    grid:
-      sidebar-width: 300px
-      body-width: 1000px
-      margin-width: 200px
-      gutter-width: 1rem
 
 

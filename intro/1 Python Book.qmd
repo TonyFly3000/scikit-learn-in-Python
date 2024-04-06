@@ -25,3 +25,11 @@ by Bill Lubanovic
 by Luciano Ramalho
 
 ![](images/91DGHmkQmjL._AC_UF1000,1000_QL80_.jpg){width="400"}
+
+
+
+# Python Crash Course
+
+by [Eric Matthes](https://www.amazon.com/Eric-Matthes/e/B01DPU378I/ref=dp_byline_cont_book_1)
+
+![](images/81py-nCTfrL._AC_UF1000,1000_QL80_.jpg)

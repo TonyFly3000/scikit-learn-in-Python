@@ -36,6 +36,12 @@ a='hell'
 type(a)
 ```
 
+
+```{python}
+a= True
+type(a)
+```
+
 ## list
 
 ```{python}
@@ -47,6 +53,7 @@ a
 ```{python}
 type(a) 
 ```
+
 
 ```{python}
 fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana','apple']

@@ -1,5 +1,5 @@
 ---
-title: "Data analytic Boook"
+title: "Data analytic in Python Boook"
 execute:
   warning: false
   error: false
