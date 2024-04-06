@@ -1,5 +1,5 @@
 ---
-title: "Boook"
+title: "Data analytic Boook"
 execute:
   warning: false
   error: false

@@ -1,0 +1,27 @@
+---
+title: "Python Boook"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+# Introducing Python
+
+by Bill Lubanovic
+
+![](images/91ELJ94KTRL._AC_UF1000,1000_QL80_.jpg){width="400"}
+
+# Fluent Python
+
+by Luciano Ramalho
+
+![](images/91DGHmkQmjL._AC_UF1000,1000_QL80_.jpg){width="400"}

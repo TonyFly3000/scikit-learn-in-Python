@@ -1,0 +1,145 @@
+---
+title: "Basic Python"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+![](images/Python-logo-notext.svg.png){width="300"}
+# if/elif/else
+
+
+```{python}
+a = 200
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+else:
+  print("a is greater than b")
+```
+
+# Loop
+
+## for Loop
+
+```{python}
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x)
+```
+
+## while Loop
+
+```{python}
+i = 1
+while i < 4:
+  print(i)
+  i += 1
+```
+
+with break statement
+
+```{python}
+i = 1
+while i < 6:
+  print(i)
+  if i == 3:
+    break
+  i += 1
+```
+
+# function
+
+## without Arguments
+```{python}
+def my_function():
+  print("Hello from a function")
+```
+
+```{python}
+my_function()
+```
+
+
+## with Arguments
+
+```{python}
+def my_function(x):
+  print(x + " !!!!!!!!!!!!!!!!!")
+```
+
+```{python}
+my_function('hello')
+```
+
+## return result
+
+```{python}
+def adding_ten(x):
+  a=x+10
+  return(a)
+```
+
+```{python}
+result=adding_ten(3)
+result
+```
+
+
+
+# List Comprehension
+
+its a for loop in list
+
+```{python}
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist = [x for x in fruits if "a" in x]
+
+print(newlist)
+```
+
+# Package
+
+
+## check python version 
+
+```{python}
+import sys
+print(sys.version)
+```
+
+
+## install package
+
+```{python}
+#| eval: false
+import os
+os.system('pip install scikit-learn')
+```
+
+## check one package version
+
+```{python}
+import os
+os.system('pip show scikit-learn')
+```
+
+## check all package version
+
+```{python}
+import os
+os.system('pip list')
+
+```
