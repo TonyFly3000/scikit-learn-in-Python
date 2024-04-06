@@ -15,8 +15,9 @@ format:
 ---
 
 ![](images/Python-logo-notext.svg.png){width="300"}
-# if/elif/else
 
+
+# Condition with if/elif/else
 
 ```{python}
 a = 200

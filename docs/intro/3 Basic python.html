@@ -424,24 +424,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#loop" id="toc-loop" class="nav-link active" data-scroll-target="#loop"><span class="header-section-number">1</span> Loop</a>
+  <li><a href="#condition-with-ifelifelse" id="toc-condition-with-ifelifelse" class="nav-link active" data-scroll-target="#condition-with-ifelifelse"><span class="header-section-number">1</span> Condition with if/elif/else</a></li>
+  <li><a href="#loop" id="toc-loop" class="nav-link" data-scroll-target="#loop"><span class="header-section-number">2</span> Loop</a>
   <ul class="collapse">
-  <li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop"><span class="header-section-number">1.1</span> for Loop</a></li>
-  <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop"><span class="header-section-number">1.2</span> while Loop</a></li>
+  <li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop"><span class="header-section-number">2.1</span> for Loop</a></li>
+  <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop"><span class="header-section-number">2.2</span> while Loop</a></li>
   </ul></li>
-  <li><a href="#function" id="toc-function" class="nav-link" data-scroll-target="#function"><span class="header-section-number">2</span> function</a>
+  <li><a href="#function" id="toc-function" class="nav-link" data-scroll-target="#function"><span class="header-section-number">3</span> function</a>
   <ul class="collapse">
-  <li><a href="#without-arguments" id="toc-without-arguments" class="nav-link" data-scroll-target="#without-arguments"><span class="header-section-number">2.1</span> without Arguments</a></li>
-  <li><a href="#with-arguments" id="toc-with-arguments" class="nav-link" data-scroll-target="#with-arguments"><span class="header-section-number">2.2</span> with Arguments</a></li>
-  <li><a href="#return-result" id="toc-return-result" class="nav-link" data-scroll-target="#return-result"><span class="header-section-number">2.3</span> return result</a></li>
+  <li><a href="#without-arguments" id="toc-without-arguments" class="nav-link" data-scroll-target="#without-arguments"><span class="header-section-number">3.1</span> without Arguments</a></li>
+  <li><a href="#with-arguments" id="toc-with-arguments" class="nav-link" data-scroll-target="#with-arguments"><span class="header-section-number">3.2</span> with Arguments</a></li>
+  <li><a href="#return-result" id="toc-return-result" class="nav-link" data-scroll-target="#return-result"><span class="header-section-number">3.3</span> return result</a></li>
   </ul></li>
-  <li><a href="#list-comprehension" id="toc-list-comprehension" class="nav-link" data-scroll-target="#list-comprehension"><span class="header-section-number">3</span> List Comprehension</a></li>
-  <li><a href="#package" id="toc-package" class="nav-link" data-scroll-target="#package"><span class="header-section-number">4</span> Package</a>
+  <li><a href="#list-comprehension" id="toc-list-comprehension" class="nav-link" data-scroll-target="#list-comprehension"><span class="header-section-number">4</span> List Comprehension</a></li>
+  <li><a href="#package" id="toc-package" class="nav-link" data-scroll-target="#package"><span class="header-section-number">5</span> Package</a>
   <ul class="collapse">
-  <li><a href="#check-python-version" id="toc-check-python-version" class="nav-link" data-scroll-target="#check-python-version"><span class="header-section-number">4.1</span> check python version</a></li>
-  <li><a href="#install-package" id="toc-install-package" class="nav-link" data-scroll-target="#install-package"><span class="header-section-number">4.2</span> install package</a></li>
-  <li><a href="#check-one-package-version" id="toc-check-one-package-version" class="nav-link" data-scroll-target="#check-one-package-version"><span class="header-section-number">4.3</span> check one package version</a></li>
-  <li><a href="#check-all-package-version" id="toc-check-all-package-version" class="nav-link" data-scroll-target="#check-all-package-version"><span class="header-section-number">4.4</span> check all package version</a></li>
+  <li><a href="#check-python-version" id="toc-check-python-version" class="nav-link" data-scroll-target="#check-python-version"><span class="header-section-number">5.1</span> check python version</a></li>
+  <li><a href="#install-package" id="toc-install-package" class="nav-link" data-scroll-target="#install-package"><span class="header-section-number">5.2</span> install package</a></li>
+  <li><a href="#check-one-package-version" id="toc-check-one-package-version" class="nav-link" data-scroll-target="#check-one-package-version"><span class="header-section-number">5.3</span> check one package version</a></li>
+  <li><a href="#check-all-package-version" id="toc-check-all-package-version" class="nav-link" data-scroll-target="#check-all-package-version"><span class="header-section-number">5.4</span> check all package version</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -468,8 +469,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="images/Python-logo-notext.svg.png" class="img-fluid" width="300"> # if/elif/else</p>
-<div id="4d3e49df" class="cell" data-execution_count="1">
+<p><img src="images/Python-logo-notext.svg.png" class="img-fluid" width="300"></p>
+<section id="condition-with-ifelifelse" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Condition with if/elif/else</h1>
+<div id="5b8c4b3d" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">200</span></span>
@@ -485,11 +488,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>a is greater than b</code></pre>
 </div>
 </div>
-<section id="loop" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Loop</h1>
-<section id="for-loop" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="for-loop"><span class="header-section-number">1.1</span> for Loop</h2>
-<div id="c0903955" class="cell" data-execution_count="2">
+</section>
+<section id="loop" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Loop</h1>
+<section id="for-loop" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="for-loop"><span class="header-section-number">2.1</span> for Loop</h2>
+<div id="6cacc3ec" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>]</span>
@@ -503,9 +507,9 @@ cherry</code></pre>
 </div>
 </div>
 </section>
-<section id="while-loop" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="while-loop"><span class="header-section-number">1.2</span> while Loop</h2>
-<div id="a785cf74" class="cell" data-execution_count="3">
+<section id="while-loop" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="while-loop"><span class="header-section-number">2.2</span> while Loop</h2>
+<div id="ecee798e" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
@@ -520,7 +524,7 @@ cherry</code></pre>
 </div>
 </div>
 <p>with break statement</p>
-<div id="979c937b" class="cell" data-execution_count="4">
+<div id="b2e4ba38" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
@@ -538,18 +542,18 @@ cherry</code></pre>
 </div>
 </section>
 </section>
-<section id="function" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> function</h1>
-<section id="without-arguments" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="without-arguments"><span class="header-section-number">2.1</span> without Arguments</h2>
-<div id="e8c462f8" class="cell" data-execution_count="5">
+<section id="function" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> function</h1>
+<section id="without-arguments" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="without-arguments"><span class="header-section-number">3.1</span> without Arguments</h2>
+<div id="bb051be8" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function():</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Hello from a function"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="f795a230" class="cell" data-execution_count="6">
+<div id="6575d638" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>my_function()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -559,16 +563,16 @@ cherry</code></pre>
 </div>
 </div>
 </section>
-<section id="with-arguments" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="with-arguments"><span class="header-section-number">2.2</span> with Arguments</h2>
-<div id="cdc65154" class="cell" data-execution_count="7">
+<section id="with-arguments" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="with-arguments"><span class="header-section-number">3.2</span> with Arguments</h2>
+<div id="f8f41701" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function(x):</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x <span class="op">+</span> <span class="st">" !!!!!!!!!!!!!!!!!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="6cc324ee" class="cell" data-execution_count="8">
+<div id="f4205f31" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>my_function(<span class="st">'hello'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -578,9 +582,9 @@ cherry</code></pre>
 </div>
 </div>
 </section>
-<section id="return-result" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="return-result"><span class="header-section-number">2.3</span> return result</h2>
-<div id="ae2af22b" class="cell" data-execution_count="9">
+<section id="return-result" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="return-result"><span class="header-section-number">3.3</span> return result</h2>
+<div id="3ba930e3" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> adding_ten(x):</span>
@@ -588,22 +592,22 @@ cherry</code></pre>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="4ba48aed" class="cell" data-execution_count="10">
+<div id="35c6a04a" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>result<span class="op">=</span>adding_ten(<span class="dv">3</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>13</code></pre>
 </div>
 </div>
 </section>
 </section>
-<section id="list-comprehension" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> List Comprehension</h1>
+<section id="list-comprehension" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> List Comprehension</h1>
 <p>its a for loop in list</p>
-<div id="ba80f274" class="cell" data-execution_count="11">
+<div id="56c412ef" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>, <span class="st">"kiwi"</span>, <span class="st">"mango"</span>]</span>
@@ -617,11 +621,11 @@ cherry</code></pre>
 </div>
 </div>
 </section>
-<section id="package" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Package</h1>
-<section id="check-python-version" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="check-python-version"><span class="header-section-number">4.1</span> check python version</h2>
-<div id="078e2126" class="cell" data-execution_count="12">
+<section id="package" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Package</h1>
+<section id="check-python-version" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="check-python-version"><span class="header-section-number">5.1</span> check python version</h2>
+<div id="63248428" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -632,9 +636,9 @@ cherry</code></pre>
 </div>
 </div>
 </section>
-<section id="install-package" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="install-package"><span class="header-section-number">4.2</span> install package</h2>
-<div id="f0e544d0" class="cell" data-execution_count="13">
+<section id="install-package" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="install-package"><span class="header-section-number">5.2</span> install package</h2>
+<div id="911acb94" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -642,9 +646,9 @@ cherry</code></pre>
 </details>
 </div>
 </section>
-<section id="check-one-package-version" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="check-one-package-version"><span class="header-section-number">4.3</span> check one package version</h2>
-<div id="757fdd79" class="cell" data-execution_count="14">
+<section id="check-one-package-version" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="check-one-package-version"><span class="header-section-number">5.3</span> check one package version</h2>
+<div id="5a9d9017" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -662,14 +666,14 @@ Location: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site
 Requires: joblib, numpy, scipy, threadpoolctl
 Required-by: imbalanced-learn, librosa, tune-sklearn</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>0</code></pre>
 </div>
 </div>
 </section>
-<section id="check-all-package-version" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="check-all-package-version"><span class="header-section-number">4.4</span> check all package version</h2>
-<div id="4e631e69" class="cell" data-execution_count="15">
+<section id="check-all-package-version" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="check-all-package-version"><span class="header-section-number">5.4</span> check all package version</h2>
+<div id="e1bdd63c" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -973,7 +977,7 @@ yt-dlp                       2023.12.30
 zipp                         3.18.1
 zstandard                    0.22.0</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>0</code></pre>
 </div>
 </div>
@@ -1440,134 +1444,135 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Python-logo-notext.svg.png)</span>{width="300"}</span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># if/elif/else</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">200</span></span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">33</span></span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> b <span class="op">&gt;</span> a:</span>
-<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"b is greater than a"</span>)</span>
-<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> a <span class="op">==</span> b:</span>
-<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"a and b are equal"</span>)</span>
-<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"a is greater than b"</span>)</span>
-<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a><span class="fu"># Loop</span></span>
-<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## for Loop</span></span>
-<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>]</span>
-<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> fruits:</span>
-<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x)</span>
-<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## while Loop</span></span>
-<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">4</span>:</span>
-<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span>
-<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a>with break statement</span>
-<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>:</span>
-<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span>
-<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
-<span id="cb29-67"><a href="#cb29-67" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a><span class="fu"># function</span></span>
-<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-72"><a href="#cb29-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## without Arguments</span></span>
-<span id="cb29-75"><a href="#cb29-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-76"><a href="#cb29-76" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function():</span>
-<span id="cb29-77"><a href="#cb29-77" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Hello from a function"</span>)</span>
-<span id="cb29-78"><a href="#cb29-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-79"><a href="#cb29-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-82"><a href="#cb29-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-83"><a href="#cb29-83" aria-hidden="true" tabindex="-1"></a>my_function()</span>
-<span id="cb29-84"><a href="#cb29-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-85"><a href="#cb29-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="fu"># Condition with if/elif/else</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">200</span></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">33</span></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> b <span class="op">&gt;</span> a:</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"b is greater than a"</span>)</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> a <span class="op">==</span> b:</span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"a and b are equal"</span>)</span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"a is greater than b"</span>)</span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a><span class="fu"># Loop</span></span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## for Loop</span></span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>]</span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> fruits:</span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x)</span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## while Loop</span></span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">4</span>:</span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a>with break statement</span>
+<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>:</span>
+<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span>
+<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb29-67"><a href="#cb29-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a><span class="fu"># function</span></span>
+<span id="cb29-72"><a href="#cb29-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-73"><a href="#cb29-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## without Arguments</span></span>
+<span id="cb29-76"><a href="#cb29-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-77"><a href="#cb29-77" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function():</span>
+<span id="cb29-78"><a href="#cb29-78" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Hello from a function"</span>)</span>
+<span id="cb29-79"><a href="#cb29-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-80"><a href="#cb29-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-83"><a href="#cb29-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-84"><a href="#cb29-84" aria-hidden="true" tabindex="-1"></a>my_function()</span>
+<span id="cb29-85"><a href="#cb29-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb29-86"><a href="#cb29-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-87"><a href="#cb29-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## with Arguments</span></span>
-<span id="cb29-88"><a href="#cb29-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-91"><a href="#cb29-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-92"><a href="#cb29-92" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function(x):</span>
-<span id="cb29-93"><a href="#cb29-93" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x <span class="op">+</span> <span class="st">" !!!!!!!!!!!!!!!!!"</span>)</span>
-<span id="cb29-94"><a href="#cb29-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-95"><a href="#cb29-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-98"><a href="#cb29-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-99"><a href="#cb29-99" aria-hidden="true" tabindex="-1"></a>my_function(<span class="st">'hello'</span>)</span>
-<span id="cb29-100"><a href="#cb29-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-101"><a href="#cb29-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-102"><a href="#cb29-102" aria-hidden="true" tabindex="-1"></a><span class="fu">## return result</span></span>
-<span id="cb29-103"><a href="#cb29-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-106"><a href="#cb29-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-107"><a href="#cb29-107" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> adding_ten(x):</span>
-<span id="cb29-108"><a href="#cb29-108" aria-hidden="true" tabindex="-1"></a>  a<span class="op">=</span>x<span class="op">+</span><span class="dv">10</span></span>
-<span id="cb29-109"><a href="#cb29-109" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span>(a)</span>
-<span id="cb29-110"><a href="#cb29-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-111"><a href="#cb29-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-114"><a href="#cb29-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-115"><a href="#cb29-115" aria-hidden="true" tabindex="-1"></a>result<span class="op">=</span>adding_ten(<span class="dv">3</span>)</span>
-<span id="cb29-116"><a href="#cb29-116" aria-hidden="true" tabindex="-1"></a>result</span>
-<span id="cb29-117"><a href="#cb29-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-118"><a href="#cb29-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-87"><a href="#cb29-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-88"><a href="#cb29-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## with Arguments</span></span>
+<span id="cb29-89"><a href="#cb29-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-92"><a href="#cb29-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-93"><a href="#cb29-93" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function(x):</span>
+<span id="cb29-94"><a href="#cb29-94" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x <span class="op">+</span> <span class="st">" !!!!!!!!!!!!!!!!!"</span>)</span>
+<span id="cb29-95"><a href="#cb29-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-96"><a href="#cb29-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-99"><a href="#cb29-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-100"><a href="#cb29-100" aria-hidden="true" tabindex="-1"></a>my_function(<span class="st">'hello'</span>)</span>
+<span id="cb29-101"><a href="#cb29-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-102"><a href="#cb29-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-103"><a href="#cb29-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## return result</span></span>
+<span id="cb29-104"><a href="#cb29-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-107"><a href="#cb29-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-108"><a href="#cb29-108" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> adding_ten(x):</span>
+<span id="cb29-109"><a href="#cb29-109" aria-hidden="true" tabindex="-1"></a>  a<span class="op">=</span>x<span class="op">+</span><span class="dv">10</span></span>
+<span id="cb29-110"><a href="#cb29-110" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span>(a)</span>
+<span id="cb29-111"><a href="#cb29-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-112"><a href="#cb29-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-115"><a href="#cb29-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-116"><a href="#cb29-116" aria-hidden="true" tabindex="-1"></a>result<span class="op">=</span>adding_ten(<span class="dv">3</span>)</span>
+<span id="cb29-117"><a href="#cb29-117" aria-hidden="true" tabindex="-1"></a>result</span>
+<span id="cb29-118"><a href="#cb29-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb29-119"><a href="#cb29-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-120"><a href="#cb29-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-121"><a href="#cb29-121" aria-hidden="true" tabindex="-1"></a><span class="fu"># List Comprehension</span></span>
-<span id="cb29-122"><a href="#cb29-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-123"><a href="#cb29-123" aria-hidden="true" tabindex="-1"></a>its a for loop in list</span>
-<span id="cb29-124"><a href="#cb29-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-127"><a href="#cb29-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-128"><a href="#cb29-128" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>, <span class="st">"kiwi"</span>, <span class="st">"mango"</span>]</span>
-<span id="cb29-129"><a href="#cb29-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-130"><a href="#cb29-130" aria-hidden="true" tabindex="-1"></a>newlist <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> fruits <span class="cf">if</span> <span class="st">"a"</span> <span class="kw">in</span> x]</span>
-<span id="cb29-131"><a href="#cb29-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-132"><a href="#cb29-132" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(newlist)</span>
-<span id="cb29-133"><a href="#cb29-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-134"><a href="#cb29-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-135"><a href="#cb29-135" aria-hidden="true" tabindex="-1"></a><span class="fu"># Package</span></span>
-<span id="cb29-136"><a href="#cb29-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-121"><a href="#cb29-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-122"><a href="#cb29-122" aria-hidden="true" tabindex="-1"></a><span class="fu"># List Comprehension</span></span>
+<span id="cb29-123"><a href="#cb29-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-124"><a href="#cb29-124" aria-hidden="true" tabindex="-1"></a>its a for loop in list</span>
+<span id="cb29-125"><a href="#cb29-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-128"><a href="#cb29-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-129"><a href="#cb29-129" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>, <span class="st">"kiwi"</span>, <span class="st">"mango"</span>]</span>
+<span id="cb29-130"><a href="#cb29-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-131"><a href="#cb29-131" aria-hidden="true" tabindex="-1"></a>newlist <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> fruits <span class="cf">if</span> <span class="st">"a"</span> <span class="kw">in</span> x]</span>
+<span id="cb29-132"><a href="#cb29-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-133"><a href="#cb29-133" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(newlist)</span>
+<span id="cb29-134"><a href="#cb29-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-135"><a href="#cb29-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-136"><a href="#cb29-136" aria-hidden="true" tabindex="-1"></a><span class="fu"># Package</span></span>
 <span id="cb29-137"><a href="#cb29-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-138"><a href="#cb29-138" aria-hidden="true" tabindex="-1"></a><span class="fu">## check python version </span></span>
-<span id="cb29-139"><a href="#cb29-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-142"><a href="#cb29-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-143"><a href="#cb29-143" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb29-144"><a href="#cb29-144" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.version)</span>
-<span id="cb29-145"><a href="#cb29-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-146"><a href="#cb29-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-138"><a href="#cb29-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-139"><a href="#cb29-139" aria-hidden="true" tabindex="-1"></a><span class="fu">## check python version </span></span>
+<span id="cb29-140"><a href="#cb29-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-143"><a href="#cb29-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-144"><a href="#cb29-144" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb29-145"><a href="#cb29-145" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.version)</span>
+<span id="cb29-146"><a href="#cb29-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb29-147"><a href="#cb29-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-148"><a href="#cb29-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## install package</span></span>
-<span id="cb29-149"><a href="#cb29-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-152"><a href="#cb29-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-153"><a href="#cb29-153" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb29-154"><a href="#cb29-154" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb29-155"><a href="#cb29-155" aria-hidden="true" tabindex="-1"></a>os.system(<span class="st">'pip install scikit-learn'</span>)</span>
-<span id="cb29-156"><a href="#cb29-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-157"><a href="#cb29-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-158"><a href="#cb29-158" aria-hidden="true" tabindex="-1"></a><span class="fu">## check one package version</span></span>
-<span id="cb29-159"><a href="#cb29-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-162"><a href="#cb29-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-163"><a href="#cb29-163" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb29-164"><a href="#cb29-164" aria-hidden="true" tabindex="-1"></a>os.system(<span class="st">'pip show scikit-learn'</span>)</span>
-<span id="cb29-165"><a href="#cb29-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-166"><a href="#cb29-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-167"><a href="#cb29-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## check all package version</span></span>
-<span id="cb29-168"><a href="#cb29-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-171"><a href="#cb29-171" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb29-172"><a href="#cb29-172" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb29-173"><a href="#cb29-173" aria-hidden="true" tabindex="-1"></a>os.system(<span class="st">'pip list'</span>)</span>
-<span id="cb29-174"><a href="#cb29-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-175"><a href="#cb29-175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-148"><a href="#cb29-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-149"><a href="#cb29-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## install package</span></span>
+<span id="cb29-150"><a href="#cb29-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-153"><a href="#cb29-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-154"><a href="#cb29-154" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb29-155"><a href="#cb29-155" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb29-156"><a href="#cb29-156" aria-hidden="true" tabindex="-1"></a>os.system(<span class="st">'pip install scikit-learn'</span>)</span>
+<span id="cb29-157"><a href="#cb29-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-158"><a href="#cb29-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-159"><a href="#cb29-159" aria-hidden="true" tabindex="-1"></a><span class="fu">## check one package version</span></span>
+<span id="cb29-160"><a href="#cb29-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-163"><a href="#cb29-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-164"><a href="#cb29-164" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb29-165"><a href="#cb29-165" aria-hidden="true" tabindex="-1"></a>os.system(<span class="st">'pip show scikit-learn'</span>)</span>
+<span id="cb29-166"><a href="#cb29-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-167"><a href="#cb29-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-168"><a href="#cb29-168" aria-hidden="true" tabindex="-1"></a><span class="fu">## check all package version</span></span>
+<span id="cb29-169"><a href="#cb29-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-172"><a href="#cb29-172" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-173"><a href="#cb29-173" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb29-174"><a href="#cb29-174" aria-hidden="true" tabindex="-1"></a>os.system(<span class="st">'pip list'</span>)</span>
+<span id="cb29-175"><a href="#cb29-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-176"><a href="#cb29-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
