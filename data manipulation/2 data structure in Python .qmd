@@ -1,5 +1,7 @@
 ---
 title: "Data structure in Python"
+author: "Tony Duan"
+
 execute:
   warning: false
   error: false

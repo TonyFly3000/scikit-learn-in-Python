@@ -1,5 +1,7 @@
 ---
 title: "Data manipulation with siuba"
+author: "Tony Duan"
+
 execute:
   warning: false
   error: false

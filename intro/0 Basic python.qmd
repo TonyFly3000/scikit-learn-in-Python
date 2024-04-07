@@ -1,5 +1,7 @@
 ---
 title: "Basic Python"
+author: "Tony Duan"
+
 execute:
   warning: false
   error: false
@@ -16,6 +18,81 @@ format:
 
 ![](images/Python-logo-notext.svg.png){width="300"}
 
+# work with file
+
+## get current directory
+
+```{python}
+#| eval: false
+import os
+os.getcwd()
+```
+
+## get all file name under current directory
+
+```{python}
+import os
+os.listdir(os.getcwd()) 
+```
+
+## get file info
+
+```{python}
+a=os.stat('3 statistic Book.qmd')
+a
+```
+
+show st_atime
+
+```{python}
+import datetime as dt
+#a.st_atime
+dt.date.fromtimestamp(a.st_atime).strftime('%Y%m%d')
+```
+
+## create folder
+
+create it if not exist
+
+```{python}
+#| eval: false
+if not os.path.exists('test_folder'): 
+  os.mkdir('test_folder') 
+```
+
+## delete folder
+
+```{python}
+#| eval: false
+os.rmdir('test_folder')
+```
+
+## delete file
+
+```{python}
+#| eval: false
+os.remove('test.csv')
+```
+
+## copy file
+
+```{python}
+#| eval: false
+import shutil
+
+shutil.copyfile('test.csv', 'test2.csv')
+```
+
+## downlaod file online
+
+```{python}
+#| eval: false
+import urllib.request
+
+url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv"
+
+urllib.request.urlretrieve(url, "hotels.csv")
+```
 
 # Condition with if/elif/else
 
@@ -38,6 +115,22 @@ else:
 fruits = ["apple", "banana", "cherry"]
 for x in fruits:
   print(x)
+```
+
+## for enumerate Loop
+
+it will add index
+
+```{python}
+fruits = ["apple", "banana", "cherry"]
+
+list(enumerate(fruits))
+```
+
+```{python}
+for index,i in enumerate(fruits):
+  print("The index is:",index)
+  print("The element is:",i)
 ```
 
 ## while Loop
@@ -63,6 +156,7 @@ while i < 6:
 # function
 
 ## without Arguments
+
 ```{python}
 def my_function():
   print("Hello from a function")
@@ -71,7 +165,6 @@ def my_function():
 ```{python}
 my_function()
 ```
-
 
 ## with Arguments
 
@@ -97,7 +190,17 @@ result=adding_ten(3)
 result
 ```
 
+## lambda function
 
+it a faster way to do function
+
+```{python}
+lambda_adding_ten=lambda x:x+10
+```
+
+```{python}
+lambda_adding_ten(4)
+```
 
 # List Comprehension
 
@@ -113,16 +216,18 @@ print(newlist)
 
 # Package
 
-
-## check python version 
+## check python version
 
 ```{python}
 import sys
 print(sys.version)
 ```
 
-
 ## install package
+
+The Python Package Index (PyPI).<https://pypi.org//>
+
+![](images/logo-large.516e776d.svg){width="300"}
 
 ```{python}
 #| eval: false
@@ -143,4 +248,11 @@ os.system('pip show scikit-learn')
 import os
 os.system('pip list')
 
+```
+
+## check package install location
+
+```{python}
+#| eval: false
+import site; site.getsitepackages()
 ```

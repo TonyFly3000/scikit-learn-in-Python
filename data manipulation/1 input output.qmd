@@ -1,5 +1,7 @@
 ---
-title: "input & output"
+title: "input & output in Python"
+author: "Tony Duan"
+
 execute:
   warning: false
   error: false
@@ -30,7 +32,7 @@ data=pd.read_csv('data/Book3.csv')
 data
 ```
 
-CSV online
+read CSV online
 
 ```{python}
 import pandas as pd
@@ -48,8 +50,8 @@ sheet_name=1 read second sheet.
 
 ```{python}
 import pandas as pd
-data=pd.read_excel('data/Book1.xlsx',sheet_name=0)
-data
+data_excel=pd.read_excel('data/Book1.xlsx',sheet_name=0)
+data_excel
 ```
 
 ## read parquet
@@ -75,7 +77,8 @@ data.shape
 ## read feather
 
 ```{python}
-data=pd.read_feather("data/file.feather")
+data=pd.read_feather("data/feather_file.feather")
+data.head()
 ```
 
 # outout
@@ -89,7 +92,7 @@ data.head().to_csv('data/out.csv', index=False)
 ## write excel
 
 ```{python}
-data.head().to_excel('data/out.xlsx')
+data_excel.to_excel('data/out.xlsx')
 ```
 
 ## write parquet
@@ -108,7 +111,7 @@ data.head(100).to_parquet('data/df.parquet.gzip',
 ## write feather
 
 ```{python}
-data.head(100).to_feather("data/file.feather")
+data.head(100).to_feather("data/feather_file.feather")
 ```
 
 # Refernce

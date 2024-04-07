@@ -1,0 +1,244 @@
+---
+title: "SQL database with python"
+author: "Tony Duan"
+
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+![](images/1594917913096.png){width="600"}
+
+# Connection with database
+
+```{python}
+import seaborn as sns
+import pandas as pd
+import sqlite3
+
+tips = sns.load_dataset("tips")
+planets=sns.load_dataset('planets')
+```
+
+## create database file pythonsqlite.db and copy tips data and planets data into database
+
+```{python}
+#| eval: false
+import sqlite3
+# Create your connection.
+db = sqlite3.connect('pythonsqlite.db')
+
+tips.to_sql(name='tips', con=db,if_exists='replace')
+planets.to_sql(name='planets', con=db,if_exists='replace')
+
+
+db.close()
+```
+
+## check all table in database
+
+```{python}
+db = sqlite3.connect('pythonsqlite.db')
+table = pd.read_sql_query("SELECT name FROM sqlite_master WHERE type='table';", db)
+table
+
+```
+
+# SQL
+
+## select
+
+```{python}
+db = sqlite3.connect('pythonsqlite.db')
+sql="select * from tips LIMIT 3;"
+table = pd.read_sql_query(sql,db)
+table
+```
+
+## Renaming column
+
+```{python}
+sql="select total_bill as new_total_bill from tips"
+table = pd.read_sql_query(sql,db)
+table.head()
+```
+
+## create column
+
+```{python}
+sql="select total_bill as new_total_bill,total_bill from tips"
+table = pd.read_sql_query(sql,db)
+table.head()
+```
+
+## Filter rows
+
+```{python}
+sql="select * from tips where sex='Male'"
+table = pd.read_sql_query(sql,db)
+table.head()
+```
+
+### Filters with AND conditions
+
+```{python}
+sql="select * from tips where sex='Male' and size>3"
+table = pd.read_sql_query(sql,db)
+table.head()
+```
+
+### Filters with or conditions
+
+```{python}
+sql="select * from tips where sex='Male' or size>3"
+table = pd.read_sql_query(sql,db)
+table.shape
+```
+
+## Append
+
+### append by row
+
+```{python}
+sql="select * from tips UNION all select * from tips"
+table = pd.read_sql_query(sql,db)
+table.shape
+```
+
+### append by column
+
+### Dropping NA values
+
+### keep NA values
+
+## group by
+
+### average,min,max,sum
+
+```{python}
+sql="select AVG(total_bill),min(total_bill),max(total_bill),sum(total_bill) from tips group by sex"
+table = pd.read_sql_query(sql,db)
+table
+```
+
+### count
+
+```{python}
+sql="select sex,count(*) from tips group by 1"
+table = pd.read_sql_query(sql,db)
+table
+```
+
+## order rows
+
+```{python}
+sql="select * from tips order by total_bill"
+table = pd.read_sql_query(sql,db)
+table.head()
+```
+
+### Sort in descending order
+
+```{python}
+sql="select * from tips order by total_bill desc"
+table = pd.read_sql_query(sql,db)
+table.head()
+```
+
+### Arrange by multiple variables
+
+```{python}
+sql="select * from tips order by total_bill,tip"
+table = pd.read_sql_query(sql,db)
+table.head()
+```
+
+## join
+
+### inner_join
+
+### full join
+
+### left join
+
+### anti join
+
+## Reshape tables
+
+### Gather data long(wide to long)
+
+### Spread data wide (long to wide)
+
+## string
+
+### upper case
+
+### lower case
+
+### match
+
+### concatenation
+
+### replace
+
+### extract
+
+## date
+
+
+
+
+## create table into database
+
+```{python}
+sql="create table if not exists new_tips as select * from tips"
+db.execute(sql)
+
+table = pd.read_sql_query("SELECT name FROM sqlite_master WHERE type='table';", db)
+table
+```
+
+## delete table in database
+
+```{python}
+sql="drop table if  exists new_tips"
+db.execute(sql)
+
+table = pd.read_sql_query("SELECT name FROM sqlite_master WHERE type='table';", db)
+table
+```
+## edit table in database
+
+
+
+```{python}
+# close database connection
+db.close()
+```
+
+# Using SQL with Pandas
+
+```{python}
+from pandasql import sqldf
+```
+
+```{python}
+sql="SELECT * FROM tips LIMIT 5;"
+data=sqldf(sql)
+data
+```
+
+
+
+
+
+# reference:
