@@ -267,11 +267,18 @@ len(A2)
 A2.size
 ```
 
+## dimension 
+```{python}
+A2.ndim
+```
+
 
 ## count numpy.ndarray
 
 ```{python}
-
+import collections, numpy
+a = numpy.array([0, 3, 0, 4])
+collections.Counter(a)
 ```
 
 ### convert list into numpy array

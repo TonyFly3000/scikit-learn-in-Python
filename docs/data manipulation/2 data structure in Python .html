@@ -279,6 +279,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../classification/8.2 Multiple Models using Pipeline and tuning.html">
  <span class="dropdown-text">Multiple models using pipeline and fast tuning</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../classification/9 break line.html">
+ <span class="dropdown-text">———————————————————</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -367,11 +371,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../clustering/3 k mode Clustering.html">
  <span class="dropdown-text">k mode Clustering</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../clustering/4 Principal component analysis .html">
+ <span class="dropdown-text">Principal component analysis</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -464,15 +477,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#shape" id="toc-shape" class="nav-link" data-scroll-target="#shape"><span class="header-section-number">2.2</span> shape</a></li>
   <li><a href="#row-number" id="toc-row-number" class="nav-link" data-scroll-target="#row-number"><span class="header-section-number">2.3</span> row number</a></li>
   <li><a href="#total-elements" id="toc-total-elements" class="nav-link" data-scroll-target="#total-elements"><span class="header-section-number">2.4</span> total elements</a></li>
-  <li><a href="#count-numpy.ndarray" id="toc-count-numpy.ndarray" class="nav-link" data-scroll-target="#count-numpy.ndarray"><span class="header-section-number">2.5</span> count numpy.ndarray</a>
+  <li><a href="#dimension" id="toc-dimension" class="nav-link" data-scroll-target="#dimension"><span class="header-section-number">2.5</span> dimension</a></li>
+  <li><a href="#count-numpy.ndarray" id="toc-count-numpy.ndarray" class="nav-link" data-scroll-target="#count-numpy.ndarray"><span class="header-section-number">2.6</span> count numpy.ndarray</a>
   <ul class="collapse">
-  <li><a href="#convert-list-into-numpy-array" id="toc-convert-list-into-numpy-array" class="nav-link" data-scroll-target="#convert-list-into-numpy-array"><span class="header-section-number">2.5.1</span> convert list into numpy array</a></li>
-  <li><a href="#selection" id="toc-selection" class="nav-link" data-scroll-target="#selection"><span class="header-section-number">2.5.2</span> selection</a></li>
-  <li><a href="#create-numpy-array" id="toc-create-numpy-array" class="nav-link" data-scroll-target="#create-numpy-array"><span class="header-section-number">2.5.3</span> create numpy array</a></li>
-  <li><a href="#compare" id="toc-compare" class="nav-link" data-scroll-target="#compare"><span class="header-section-number">2.5.4</span> compare</a></li>
-  <li><a href="#reshape" id="toc-reshape" class="nav-link" data-scroll-target="#reshape"><span class="header-section-number">2.5.5</span> reshape</a></li>
-  <li><a href="#calculation" id="toc-calculation" class="nav-link" data-scroll-target="#calculation"><span class="header-section-number">2.5.6</span> calculation</a></li>
-  <li><a href="#numpy-array-to-dataframe" id="toc-numpy-array-to-dataframe" class="nav-link" data-scroll-target="#numpy-array-to-dataframe"><span class="header-section-number">2.5.7</span> numpy array to dataframe</a></li>
+  <li><a href="#convert-list-into-numpy-array" id="toc-convert-list-into-numpy-array" class="nav-link" data-scroll-target="#convert-list-into-numpy-array"><span class="header-section-number">2.6.1</span> convert list into numpy array</a></li>
+  <li><a href="#selection" id="toc-selection" class="nav-link" data-scroll-target="#selection"><span class="header-section-number">2.6.2</span> selection</a></li>
+  <li><a href="#create-numpy-array" id="toc-create-numpy-array" class="nav-link" data-scroll-target="#create-numpy-array"><span class="header-section-number">2.6.3</span> create numpy array</a></li>
+  <li><a href="#compare" id="toc-compare" class="nav-link" data-scroll-target="#compare"><span class="header-section-number">2.6.4</span> compare</a></li>
+  <li><a href="#reshape" id="toc-reshape" class="nav-link" data-scroll-target="#reshape"><span class="header-section-number">2.6.5</span> reshape</a></li>
+  <li><a href="#calculation" id="toc-calculation" class="nav-link" data-scroll-target="#calculation"><span class="header-section-number">2.6.6</span> calculation</a></li>
+  <li><a href="#numpy-array-to-dataframe" id="toc-numpy-array-to-dataframe" class="nav-link" data-scroll-target="#numpy-array-to-dataframe"><span class="header-section-number">2.6.7</span> numpy array to dataframe</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#pandas-series" id="toc-pandas-series" class="nav-link" data-scroll-target="#pandas-series"><span class="header-section-number">3</span> pandas series</a></li>
@@ -507,7 +521,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="1"><span class="header-section-number">1</span> bulid-in data Structures</h1>
 <section id="singular" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="singular"><span class="header-section-number">1.1</span> singular</h2>
-<div id="e8d4d83d" class="cell" data-execution_count="1">
+<div id="46834e57" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="dv">1</span></span>
@@ -517,7 +531,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>int</code></pre>
 </div>
 </div>
-<div id="7aae34b2" class="cell" data-execution_count="2">
+<div id="c023f3a2" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="fl">1.3</span></span>
@@ -527,7 +541,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>float</code></pre>
 </div>
 </div>
-<div id="a85a6f35" class="cell" data-execution_count="3">
+<div id="7bd80d97" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="st">'hell'</span></span>
@@ -537,7 +551,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>str</code></pre>
 </div>
 </div>
-<div id="01d9e9f4" class="cell" data-execution_count="4">
+<div id="a3a0121a" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span> <span class="va">True</span></span>
@@ -550,7 +564,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="list" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="list"><span class="header-section-number">1.2</span> list</h2>
-<div id="a6adcaf6" class="cell" data-execution_count="5">
+<div id="4e9e81d7" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
@@ -561,7 +575,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1, 2, 3]</code></pre>
 </div>
 </div>
-<div id="a60045ea" class="cell" data-execution_count="6">
+<div id="239cc685" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -570,7 +584,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>list</code></pre>
 </div>
 </div>
-<div id="4b759c9a" class="cell" data-execution_count="7">
+<div id="1f004755" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'orange'</span>, <span class="st">'apple'</span>, <span class="st">'pear'</span>, <span class="st">'banana'</span>, <span class="st">'kiwi'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>,<span class="st">'apple'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -578,7 +592,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="find-length-of-the-list-with-len" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="find-length-of-the-list-with-len"><span class="header-section-number">1.2.1</span> find length of the list with <code>len()</code></h3>
-<div id="d3e81566" class="cell" data-execution_count="8">
+<div id="a713d11c" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(fruits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -590,7 +604,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="find-how-many-time-in-the-list-with-count" class="level3" data-number="1.2.2">
 <h3 data-number="1.2.2" class="anchored" data-anchor-id="find-how-many-time-in-the-list-with-count"><span class="header-section-number">1.2.2</span> find how many time in the list with <code>count()</code></h3>
-<div id="e85f5bd0" class="cell" data-execution_count="9">
+<div id="87c9b3dc" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fruits.count(<span class="st">'apple'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -603,7 +617,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="find-locaiton-of-on-the-list-with-index" class="level3" data-number="1.2.3">
 <h3 data-number="1.2.3" class="anchored" data-anchor-id="find-locaiton-of-on-the-list-with-index"><span class="header-section-number">1.2.3</span> find locaiton of on the list with <code>index()</code></h3>
 <p>show the first ‘apple’ index. python list start at 0</p>
-<div id="8a6b0e3a" class="cell" data-execution_count="10">
+<div id="8959107c" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fruits.index(<span class="st">'apple'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -613,7 +627,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>all ‘apple’ in the list</p>
-<div id="da85888f" class="cell" data-execution_count="11">
+<div id="7a4af57e" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>[index <span class="cf">for</span> index, value <span class="kw">in</span> <span class="bu">enumerate</span>(fruits) <span class="cf">if</span> value <span class="op">==</span> <span class="st">'apple'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -625,7 +639,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="reverse-the-list" class="level3" data-number="1.2.4">
 <h3 data-number="1.2.4" class="anchored" data-anchor-id="reverse-the-list"><span class="header-section-number">1.2.4</span> reverse the list</h3>
-<div id="98d2d7af" class="cell" data-execution_count="12">
+<div id="5704ab2c" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fruits.reverse()</span>
@@ -638,7 +652,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="sort-the-list" class="level3" data-number="1.2.5">
 <h3 data-number="1.2.5" class="anchored" data-anchor-id="sort-the-list"><span class="header-section-number">1.2.5</span> sort the list</h3>
-<div id="9dbbdaa7" class="cell" data-execution_count="13">
+<div id="8256a66e" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fruits.sort()</span>
@@ -651,7 +665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="add-element-on-the-list" class="level3" data-number="1.2.6">
 <h3 data-number="1.2.6" class="anchored" data-anchor-id="add-element-on-the-list"><span class="header-section-number">1.2.6</span> add element on the list</h3>
-<div id="e0d9fdb9" class="cell" data-execution_count="14">
+<div id="14bffed9" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>fruits.append(<span class="st">'grape'</span>)</span>
@@ -672,7 +686,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="drop-last-element" class="level3" data-number="1.2.7">
 <h3 data-number="1.2.7" class="anchored" data-anchor-id="drop-last-element"><span class="header-section-number">1.2.7</span> drop last element</h3>
-<div id="4f1602af" class="cell" data-execution_count="15">
+<div id="5ea3538a" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>fruits.pop()</span>
@@ -687,7 +701,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="list-comprehensions" class="level3" data-number="1.2.8">
 <h3 data-number="1.2.8" class="anchored" data-anchor-id="list-comprehensions"><span class="header-section-number">1.2.8</span> List Comprehensions</h3>
 <p>using loop:</p>
-<div id="b0d55638" class="cell" data-execution_count="16">
+<div id="ebe4d7dc" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> []</span>
@@ -701,7 +715,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>using List Comprehensions</p>
-<div id="04169f9f" class="cell" data-execution_count="17">
+<div id="2b982bd3" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span>
@@ -714,7 +728,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="list-to-tuples" class="level3" data-number="1.2.9">
 <h3 data-number="1.2.9" class="anchored" data-anchor-id="list-to-tuples"><span class="header-section-number">1.2.9</span> list to Tuples</h3>
-<div id="7a121689" class="cell" data-execution_count="18">
+<div id="7ace2c79" class="cell" data-execution_count="18">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">tuple</span>(squares)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -726,7 +740,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="list-to-set" class="level3" data-number="1.2.10">
 <h3 data-number="1.2.10" class="anchored" data-anchor-id="list-to-set"><span class="header-section-number">1.2.10</span> list to set</h3>
-<div id="147d2897" class="cell" data-execution_count="19">
+<div id="a6fd4f90" class="cell" data-execution_count="19">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>(squares)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -740,7 +754,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="1.2.11" class="anchored" data-anchor-id="list-to-dictionary"><span class="header-section-number">1.2.11</span> list to dictionary</h3>
 <section id="one-list-to-dictionary" class="level4" data-number="1.2.11.1">
 <h4 data-number="1.2.11.1" class="anchored" data-anchor-id="one-list-to-dictionary"><span class="header-section-number">1.2.11.1</span> one list to dictionary</h4>
-<div id="2e540533" class="cell" data-execution_count="20">
+<div id="bfaabad9" class="cell" data-execution_count="20">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span><span class="op">=</span>[<span class="st">'a'</span>, <span class="dv">1</span>, <span class="st">'b'</span>, <span class="dv">2</span>, <span class="st">'c'</span>, <span class="dv">3</span>]</span>
@@ -760,7 +774,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="two-list-to-dictionary" class="level4" data-number="1.2.11.2">
 <h4 data-number="1.2.11.2" class="anchored" data-anchor-id="two-list-to-dictionary"><span class="header-section-number">1.2.11.2</span> two list to dictionary</h4>
-<div id="078f52e8" class="cell" data-execution_count="21">
+<div id="42337b50" class="cell" data-execution_count="21">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
@@ -780,7 +794,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="tuples" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="tuples"><span class="header-section-number">1.3</span> Tuples</h2>
-<div id="175389d2" class="cell" data-execution_count="22">
+<div id="3302d3e0" class="cell" data-execution_count="22">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> (<span class="st">'orange'</span>, <span class="st">'apple'</span>, <span class="st">'pear'</span>, <span class="st">'banana'</span>, <span class="st">'kiwi'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>,<span class="st">'apple'</span>)</span>
@@ -791,7 +805,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>('orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana', 'apple')</code></pre>
 </div>
 </div>
-<div id="07e068de" class="cell" data-execution_count="23">
+<div id="e74040ba" class="cell" data-execution_count="23">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(fruits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -805,7 +819,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sets" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="sets"><span class="header-section-number">1.4</span> Sets</h2>
 <p>A set is an unordered collection with no duplicate elements.</p>
-<div id="b1aa7d16" class="cell" data-execution_count="24">
+<div id="5d0b6d80" class="cell" data-execution_count="24">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>basket <span class="op">=</span> {<span class="st">'apple'</span>, <span class="st">'orange'</span>, <span class="st">'apple'</span>, <span class="st">'pear'</span>, <span class="st">'orange'</span>, <span class="st">'banana'</span>}</span>
@@ -816,7 +830,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>{'apple', 'banana', 'orange', 'pear'}</code></pre>
 </div>
 </div>
-<div id="6ba5eab7" class="cell" data-execution_count="25">
+<div id="c9910b23" class="cell" data-execution_count="25">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(basket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -828,7 +842,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="dictionaries" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="dictionaries"><span class="header-section-number">1.5</span> Dictionaries</h2>
-<div id="ecc1165c" class="cell" data-execution_count="26">
+<div id="38ac24f0" class="cell" data-execution_count="26">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>tel <span class="op">=</span> {<span class="st">'jack'</span>: <span class="dv">4098</span>, <span class="st">'sape'</span>: <span class="dv">4139</span>}</span>
@@ -839,7 +853,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>{'jack': 4098, 'sape': 4139}</code></pre>
 </div>
 </div>
-<div id="02fe09a8" class="cell" data-execution_count="27">
+<div id="62b9917e" class="cell" data-execution_count="27">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(tel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -848,7 +862,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>dict</code></pre>
 </div>
 </div>
-<div id="a57a0683" class="cell" data-execution_count="28">
+<div id="5b88058d" class="cell" data-execution_count="28">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>tel[<span class="st">'jack'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -863,7 +877,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="2"><span class="header-section-number">2</span> numpy data Structures(matrix in python)</h1>
 <p>NumPy is the fundamental package for scientific computing in Python. It is a Python library that provides a multidimensional array object</p>
 <p>Python doesn’t have a built-in type for matrices. However, we can treat a list of a list as a matrix</p>
-<div id="8ec88938" class="cell" data-execution_count="29">
+<div id="bc8d1e8e" class="cell" data-execution_count="29">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
@@ -878,7 +892,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="numpy-array" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="numpy-array"><span class="header-section-number">2.1</span> numpy Array</h2>
-<div id="6d4c4939" class="cell" data-execution_count="30">
+<div id="522e02bb" class="cell" data-execution_count="30">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -891,7 +905,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  [3 4 5]]</code></pre>
 </div>
 </div>
-<div id="0b976d49" class="cell" data-execution_count="31">
+<div id="07404376" class="cell" data-execution_count="31">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(A2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -903,7 +917,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="shape" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="shape"><span class="header-section-number">2.2</span> shape</h2>
-<div id="d8c783d9" class="cell" data-execution_count="32">
+<div id="4cb86e54" class="cell" data-execution_count="32">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>A2.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -915,7 +929,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="row-number" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="row-number"><span class="header-section-number">2.3</span> row number</h2>
-<div id="845d1abf" class="cell" data-execution_count="33">
+<div id="08e45bd3" class="cell" data-execution_count="33">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(A2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -927,7 +941,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="total-elements" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="total-elements"><span class="header-section-number">2.4</span> total elements</h2>
-<div id="92a47c02" class="cell" data-execution_count="34">
+<div id="a1fdece9" class="cell" data-execution_count="34">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>A2.size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -937,28 +951,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="count-numpy.ndarray" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="count-numpy.ndarray"><span class="header-section-number">2.5</span> count numpy.ndarray</h2>
-<section id="convert-list-into-numpy-array" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="convert-list-into-numpy-array"><span class="header-section-number">2.5.1</span> convert list into numpy array</h3>
-<div id="91591682" class="cell" data-execution_count="35">
+<section id="dimension" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="dimension"><span class="header-section-number">2.5</span> dimension</h2>
+<div id="d75390ba" class="cell" data-execution_count="35">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [</span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>],</span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
-<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>],</span>
-<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
-<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
-<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>]</span>
-<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb68-13"><a href="#cb68-13" aria-hidden="true" tabindex="-1"></a>A3 <span class="op">=</span> np.array(A)</span>
-<span id="cb68-14"><a href="#cb68-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>A2.ndim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>2</code></pre>
+</div>
+</div>
+</section>
+<section id="count-numpy.ndarray" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="count-numpy.ndarray"><span class="header-section-number">2.6</span> count numpy.ndarray</h2>
+<div id="9ed1cc72" class="cell" data-execution_count="36">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> collections, numpy</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> numpy.array([<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">4</span>])</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>collections.Counter(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>Counter({0: 2, 3: 1, 4: 1})</code></pre>
+</div>
+</div>
+<section id="convert-list-into-numpy-array" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="convert-list-into-numpy-array"><span class="header-section-number">2.6.1</span> convert list into numpy array</h3>
+<div id="b1d731c2" class="cell" data-execution_count="37">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>],</span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>],</span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
+<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
+<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>]</span>
+<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb72-12"><a href="#cb72-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb72-13"><a href="#cb72-13" aria-hidden="true" tabindex="-1"></a>A3 <span class="op">=</span> np.array(A)</span>
+<span id="cb72-14"><a href="#cb72-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-15"><a href="#cb72-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[ 1  4  5 12]
@@ -973,97 +1010,97 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="selection" class="level3" data-number="2.5.2">
-<h3 data-number="2.5.2" class="anchored" data-anchor-id="selection"><span class="header-section-number">2.5.2</span> selection</h3>
-<section id="first-5-row" class="level4" data-number="2.5.2.1">
-<h4 data-number="2.5.2.1" class="anchored" data-anchor-id="first-5-row"><span class="header-section-number">2.5.2.1</span> first 5 row</h4>
-<div id="f8f25f5d" class="cell" data-execution_count="36">
+<section id="selection" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="selection"><span class="header-section-number">2.6.2</span> selection</h3>
+<section id="first-5-row" class="level4" data-number="2.6.2.1">
+<h4 data-number="2.6.2.1" class="anchored" data-anchor-id="first-5-row"><span class="header-section-number">2.6.2.1</span> first 5 row</h4>
+<div id="44aa9ae3" class="cell" data-execution_count="38">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>A[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>A[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="36">
+<div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>[[1, 4, 5, 12], [-5, 8, 9, 0], [-6, 7, 11, 19], [1, 4, 5, 12], [-5, 8, 9, 0]]</code></pre>
 </div>
 </div>
 </section>
-<section id="lst-5-row" class="level4" data-number="2.5.2.2">
-<h4 data-number="2.5.2.2" class="anchored" data-anchor-id="lst-5-row"><span class="header-section-number">2.5.2.2</span> lst 5 row</h4>
-<div id="577224d3" class="cell" data-execution_count="37">
+<section id="lst-5-row" class="level4" data-number="2.6.2.2">
+<h4 data-number="2.6.2.2" class="anchored" data-anchor-id="lst-5-row"><span class="header-section-number">2.6.2.2</span> lst 5 row</h4>
+<div id="74327440" class="cell" data-execution_count="39">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>A[:<span class="op">-</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>A[:<span class="op">-</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="39">
 <pre><code>[[1, 4, 5, 12], [-5, 8, 9, 0], [-6, 7, 11, 19], [1, 4, 5, 12]]</code></pre>
 </div>
 </div>
 </section>
-<section id="first-row" class="level4" data-number="2.5.2.3">
-<h4 data-number="2.5.2.3" class="anchored" data-anchor-id="first-row"><span class="header-section-number">2.5.2.3</span> first row</h4>
-<div id="e177f52f" class="cell" data-execution_count="38">
+<section id="first-row" class="level4" data-number="2.6.2.3">
+<h4 data-number="2.6.2.3" class="anchored" data-anchor-id="first-row"><span class="header-section-number">2.6.2.3</span> first row</h4>
+<div id="20708286" class="cell" data-execution_count="40">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>[1, 4, 5, 12]</code></pre>
 </div>
 </div>
 </section>
-<section id="first-column" class="level4" data-number="2.5.2.4">
-<h4 data-number="2.5.2.4" class="anchored" data-anchor-id="first-column"><span class="header-section-number">2.5.2.4</span> first column</h4>
-<div id="4556defc" class="cell" data-execution_count="39">
+<section id="first-column" class="level4" data-number="2.6.2.4">
+<h4 data-number="2.6.2.4" class="anchored" data-anchor-id="first-column"><span class="header-section-number">2.6.2.4</span> first column</h4>
+<div id="c869a7ba" class="cell" data-execution_count="41">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>A2[:,<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>A2[:,<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="39">
+<div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>array([1, 3])</code></pre>
 </div>
 </div>
 </section>
-<section id="first-row-and-first-column-element" class="level4" data-number="2.5.2.5">
-<h4 data-number="2.5.2.5" class="anchored" data-anchor-id="first-row-and-first-column-element"><span class="header-section-number">2.5.2.5</span> first row and first column element</h4>
-<div id="2ef6c32e" class="cell" data-execution_count="40">
+<section id="first-row-and-first-column-element" class="level4" data-number="2.6.2.5">
+<h4 data-number="2.6.2.5" class="anchored" data-anchor-id="first-row-and-first-column-element"><span class="header-section-number">2.6.2.5</span> first row and first column element</h4>
+<div id="5c2b53c4" class="cell" data-execution_count="42">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>A2[<span class="dv">0</span>,<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>A2[<span class="dv">0</span>,<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>1</code></pre>
 </div>
 </div>
-<div id="c5c54590" class="cell" data-execution_count="41">
+<div id="51133721" class="cell" data-execution_count="43">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>A2.dtype</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>A2.dtype</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>dtype('int64')</code></pre>
 </div>
 </div>
 </section>
-<section id="row-and-3-column" class="level4" data-number="2.5.2.6">
-<h4 data-number="2.5.2.6" class="anchored" data-anchor-id="row-and-3-column"><span class="header-section-number">2.5.2.6</span> 2 row and 3 column</h4>
-<div id="f52e77a6" class="cell" data-execution_count="42">
+<section id="row-and-3-column" class="level4" data-number="2.6.2.6">
+<h4 data-number="2.6.2.6" class="anchored" data-anchor-id="row-and-3-column"><span class="header-section-number">2.6.2.6</span> 2 row and 3 column</h4>
+<div id="dd213a45" class="cell" data-execution_count="44">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>A2[<span class="dv">1</span>,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>A2[<span class="dv">1</span>,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="42">
+<div class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>5</code></pre>
 </div>
 </div>
 </section>
-<section id="filter" class="level4" data-number="2.5.2.7">
-<h4 data-number="2.5.2.7" class="anchored" data-anchor-id="filter"><span class="header-section-number">2.5.2.7</span> filter</h4>
-<section id="filter-all" class="level5" data-number="2.5.2.7.1">
-<h5 data-number="2.5.2.7.1" class="anchored" data-anchor-id="filter-all"><span class="header-section-number">2.5.2.7.1</span> filter all</h5>
-<div id="eaaa3431" class="cell" data-execution_count="43">
+<section id="filter" class="level4" data-number="2.6.2.7">
+<h4 data-number="2.6.2.7" class="anchored" data-anchor-id="filter"><span class="header-section-number">2.6.2.7</span> filter</h4>
+<section id="filter-all" class="level5" data-number="2.6.2.7.1">
+<h5 data-number="2.6.2.7.1" class="anchored" data-anchor-id="filter-all"><span class="header-section-number">2.6.2.7.1</span> filter all</h5>
+<div id="8f383d7c" class="cell" data-execution_count="45">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[ 1  4  5 12]
@@ -1077,12 +1114,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  [-6  7 11 19]]</code></pre>
 </div>
 </div>
-<div id="04d3ea86" class="cell" data-execution_count="44">
+<div id="d198e29e" class="cell" data-execution_count="46">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>A3<span class="op">&gt;</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>A3<span class="op">&gt;</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="44">
+<div class="cell-output cell-output-display" data-execution_count="46">
 <pre><code>array([[False, False,  True,  True],
        [False,  True,  True, False],
        [False,  True,  True,  True],
@@ -1094,25 +1131,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        [False,  True,  True,  True]])</code></pre>
 </div>
 </div>
-<div id="2163b953" class="cell" data-execution_count="45">
+<div id="def2357b" class="cell" data-execution_count="47">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>A3[A3<span class="op">&gt;</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>A3[A3<span class="op">&gt;</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="45">
+<div class="cell-output cell-output-display" data-execution_count="47">
 <pre><code>array([ 5, 12,  8,  9,  7, 11, 19,  5, 12,  8,  9,  7, 11, 19,  5, 12,  8,
         9,  7, 11, 19])</code></pre>
 </div>
 </div>
 </section>
-<section id="filter-row" class="level5" data-number="2.5.2.7.2">
-<h5 data-number="2.5.2.7.2" class="anchored" data-anchor-id="filter-row"><span class="header-section-number">2.5.2.7.2</span> filter row</h5>
-<div id="fb5c1080" class="cell" data-execution_count="46">
+<section id="filter-row" class="level5" data-number="2.6.2.7.2">
+<h5 data-number="2.6.2.7.2" class="anchored" data-anchor-id="filter-row"><span class="header-section-number">2.6.2.7.2</span> filter row</h5>
+<div id="4913b76a" class="cell" data-execution_count="48">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>A3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>A3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="46">
+<div class="cell-output cell-output-display" data-execution_count="48">
 <pre><code>array([[ 1,  4,  5, 12],
        [-5,  8,  9,  0],
        [-6,  7, 11, 19],
@@ -1125,19 +1162,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>filter secound column&gt;5</p>
-<div id="622c14aa" class="cell" data-execution_count="47">
+<div id="c8446b79" class="cell" data-execution_count="49">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>filter_val<span class="op">=</span>(A3<span class="op">&gt;</span><span class="dv">5</span>)[:,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>filter_val<span class="op">=</span>(A3<span class="op">&gt;</span><span class="dv">5</span>)[:,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>which only keep 2,3 row.</p>
-<div id="bd425cc2" class="cell" data-execution_count="48">
+<div id="45de0e9a" class="cell" data-execution_count="50">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>A3[filter_val,<span class="dv">0</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>A3[filter_val,<span class="dv">0</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="48">
+<div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>array([[-5,  8,  9,  0],
        [-6,  7, 11, 19],
        [-5,  8,  9,  0],
@@ -1149,153 +1186,153 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
-<section id="create-numpy-array" class="level3" data-number="2.5.3">
-<h3 data-number="2.5.3" class="anchored" data-anchor-id="create-numpy-array"><span class="header-section-number">2.5.3</span> create numpy array</h3>
-<section id="create-eye" class="level4" data-number="2.5.3.1">
-<h4 data-number="2.5.3.1" class="anchored" data-anchor-id="create-eye"><span class="header-section-number">2.5.3.1</span> create eye</h4>
-<div id="28bed78f" class="cell" data-execution_count="49">
+<section id="create-numpy-array" class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="create-numpy-array"><span class="header-section-number">2.6.3</span> create numpy array</h3>
+<section id="create-eye" class="level4" data-number="2.6.3.1">
+<h4 data-number="2.6.3.1" class="anchored" data-anchor-id="create-eye"><span class="header-section-number">2.6.3.1</span> create eye</h4>
+<div id="6cf3c303" class="cell" data-execution_count="51">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>np.eye(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>np.eye(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="49">
+<div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>array([[1., 0., 0.],
        [0., 1., 0.],
        [0., 0., 1.]])</code></pre>
 </div>
 </div>
 </section>
-<section id="create-zero" class="level4" data-number="2.5.3.2">
-<h4 data-number="2.5.3.2" class="anchored" data-anchor-id="create-zero"><span class="header-section-number">2.5.3.2</span> create zero</h4>
-<div id="6415caa2" class="cell" data-execution_count="50">
+<section id="create-zero" class="level4" data-number="2.6.3.2">
+<h4 data-number="2.6.3.2" class="anchored" data-anchor-id="create-zero"><span class="header-section-number">2.6.3.2</span> create zero</h4>
+<div id="59a89ecb" class="cell" data-execution_count="52">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>np.zeros((<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>np.zeros((<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="50">
+<div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>array([[0., 0., 0.],
        [0., 0., 0.]])</code></pre>
 </div>
 </div>
 </section>
-<section id="create-ones" class="level4" data-number="2.5.3.3">
-<h4 data-number="2.5.3.3" class="anchored" data-anchor-id="create-ones"><span class="header-section-number">2.5.3.3</span> create ones</h4>
-<div id="bcc2e53a" class="cell" data-execution_count="51">
+<section id="create-ones" class="level4" data-number="2.6.3.3">
+<h4 data-number="2.6.3.3" class="anchored" data-anchor-id="create-ones"><span class="header-section-number">2.6.3.3</span> create ones</h4>
+<div id="3409574a" class="cell" data-execution_count="53">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>np.ones((<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>np.ones((<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="51">
+<div class="cell-output cell-output-display" data-execution_count="53">
 <pre><code>array([[1., 1., 1.],
        [1., 1., 1.]])</code></pre>
 </div>
 </div>
 </section>
 </section>
-<section id="compare" class="level3" data-number="2.5.4">
-<h3 data-number="2.5.4" class="anchored" data-anchor-id="compare"><span class="header-section-number">2.5.4</span> compare</h3>
-<div id="759a55bd" class="cell" data-execution_count="52">
+<section id="compare" class="level3" data-number="2.6.4">
+<h3 data-number="2.6.4" class="anchored" data-anchor-id="compare"><span class="header-section-number">2.6.4</span> compare</h3>
+<div id="5129054b" class="cell" data-execution_count="54">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating Array</span></span>
-<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]) </span>
-<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating Array</span></span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]) </span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="fac53876" class="cell" data-execution_count="53">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing two arrays</span></span>
-<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>np.greater(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="53">
-<pre><code>array([False, False, False, False])</code></pre>
-</div>
-</div>
-<div id="2bcaefad" class="cell" data-execution_count="54">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">&gt;=</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="54">
-<pre><code>array([False,  True, False, False])</code></pre>
-</div>
-</div>
-<div id="52b780f0" class="cell" data-execution_count="55">
+<div id="276bb759" class="cell" data-execution_count="55">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing two arrays</span></span>
-<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>np.less(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>np.greater(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="55">
-<pre><code>array([ True, False,  True,  True])</code></pre>
+<pre><code>array([False, False, False, False])</code></pre>
 </div>
 </div>
-<div id="c83433ee" class="cell" data-execution_count="56">
+<div id="3f36cf4c" class="cell" data-execution_count="56">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing two arrays</span></span>
-<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>np.equal(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">&gt;=</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="56">
 <pre><code>array([False,  True, False, False])</code></pre>
 </div>
 </div>
-</section>
-<section id="reshape" class="level3" data-number="2.5.5">
-<h3 data-number="2.5.5" class="anchored" data-anchor-id="reshape"><span class="header-section-number">2.5.5</span> reshape</h3>
-<div id="a1dfba0a" class="cell" data-execution_count="57">
+<div id="cfba6e21" class="cell" data-execution_count="57">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>np.arange(<span class="dv">9</span>).reshape(<span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing two arrays</span></span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a>np.less(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="57">
+<pre><code>array([ True, False,  True,  True])</code></pre>
+</div>
+</div>
+<div id="a9a7085b" class="cell" data-execution_count="58">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing two arrays</span></span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>np.equal(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="58">
+<pre><code>array([False,  True, False, False])</code></pre>
+</div>
+</div>
+</section>
+<section id="reshape" class="level3" data-number="2.6.5">
+<h3 data-number="2.6.5" class="anchored" data-anchor-id="reshape"><span class="header-section-number">2.6.5</span> reshape</h3>
+<div id="83582119" class="cell" data-execution_count="59">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>np.arange(<span class="dv">9</span>).reshape(<span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="59">
 <pre><code>array([[0, 1, 2],
        [3, 4, 5],
        [6, 7, 8]])</code></pre>
 </div>
 </div>
 </section>
-<section id="calculation" class="level3" data-number="2.5.6">
-<h3 data-number="2.5.6" class="anchored" data-anchor-id="calculation"><span class="header-section-number">2.5.6</span> calculation</h3>
-<div id="6ce9289a" class="cell" data-execution_count="58">
+<section id="calculation" class="level3" data-number="2.6.6">
+<h3 data-number="2.6.6" class="anchored" data-anchor-id="calculation"><span class="header-section-number">2.6.6</span> calculation</h3>
+<div id="a2ed5923" class="cell" data-execution_count="60">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>a<span class="op">*</span>a</span>
-<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>a<span class="op">*</span>a</span>
+<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="58">
+<div class="cell-output cell-output-display" data-execution_count="60">
 <pre><code>array([[ 0,  1,  4],
        [ 9, 16, 25],
        [36, 49, 64]])</code></pre>
 </div>
 </div>
-<div id="d609223d" class="cell" data-execution_count="59">
+<div id="6e319aab" class="cell" data-execution_count="61">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>a<span class="op">+</span>a</span>
-<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>a<span class="op">+</span>a</span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="59">
+<div class="cell-output cell-output-display" data-execution_count="61">
 <pre><code>array([[ 0,  2,  4],
        [ 6,  8, 10],
        [12, 14, 16]])</code></pre>
 </div>
 </div>
 </section>
-<section id="numpy-array-to-dataframe" class="level3" data-number="2.5.7">
-<h3 data-number="2.5.7" class="anchored" data-anchor-id="numpy-array-to-dataframe"><span class="header-section-number">2.5.7</span> numpy array to dataframe</h3>
-<div id="b032f728" class="cell" data-execution_count="60">
+<section id="numpy-array-to-dataframe" class="level3" data-number="2.6.7">
+<h3 data-number="2.6.7" class="anchored" data-anchor-id="numpy-array-to-dataframe"><span class="header-section-number">2.6.7</span> numpy array to dataframe</h3>
+<div id="79eb990d" class="cell" data-execution_count="62">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(b, columns<span class="op">=</span>[<span class="st">'Column_A'</span>, <span class="st">'Column_B'</span>, <span class="st">'Column_C'</span>])</span>
-<span id="cb116-3"><a href="#cb116-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-4"><a href="#cb116-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(b, columns<span class="op">=</span>[<span class="st">'Column_A'</span>, <span class="st">'Column_B'</span>, <span class="st">'Column_C'</span>])</span>
+<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-4"><a href="#cb120-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="60">
+<div class="cell-output cell-output-display" data-execution_count="62">
 <div>
 <div>
 
@@ -1351,7 +1388,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1790,477 +1827,485 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb117" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Data structure in Python"</span></span>
-<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb117-5"><a href="#cb117-5" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
-<span id="cb117-6"><a href="#cb117-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb117-7"><a href="#cb117-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb117-8"><a href="#cb117-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb117-9"><a href="#cb117-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
-<span id="cb117-10"><a href="#cb117-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
-<span id="cb117-11"><a href="#cb117-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb117-12"><a href="#cb117-12" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb117-13"><a href="#cb117-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-bg: true</span></span>
-<span id="cb117-14"><a href="#cb117-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-border-left: "#31BAE9"</span></span>
-<span id="cb117-15"><a href="#cb117-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb117-16"><a href="#cb117-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-17"><a href="#cb117-17" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/python-data-structures.png)</span>{width="500"}</span>
-<span id="cb117-18"><a href="#cb117-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-19"><a href="#cb117-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-20"><a href="#cb117-20" aria-hidden="true" tabindex="-1"></a><span class="fu"># bulid-in data Structures</span></span>
-<span id="cb117-21"><a href="#cb117-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-22"><a href="#cb117-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## singular</span></span>
-<span id="cb117-23"><a href="#cb117-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-26"><a href="#cb117-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-27"><a href="#cb117-27" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb117-28"><a href="#cb117-28" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span>
-<span id="cb117-29"><a href="#cb117-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-30"><a href="#cb117-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-33"><a href="#cb117-33" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-34"><a href="#cb117-34" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="fl">1.3</span></span>
-<span id="cb117-35"><a href="#cb117-35" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span>
-<span id="cb117-36"><a href="#cb117-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-37"><a href="#cb117-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-40"><a href="#cb117-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-41"><a href="#cb117-41" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="st">'hell'</span></span>
-<span id="cb117-42"><a href="#cb117-42" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span>
-<span id="cb117-43"><a href="#cb117-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-44"><a href="#cb117-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-45"><a href="#cb117-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-48"><a href="#cb117-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-49"><a href="#cb117-49" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span> <span class="va">True</span></span>
-<span id="cb117-50"><a href="#cb117-50" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span>
-<span id="cb117-51"><a href="#cb117-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-52"><a href="#cb117-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-53"><a href="#cb117-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## list</span></span>
-<span id="cb117-54"><a href="#cb117-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-57"><a href="#cb117-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-58"><a href="#cb117-58" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
-<span id="cb117-59"><a href="#cb117-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-60"><a href="#cb117-60" aria-hidden="true" tabindex="-1"></a>a</span>
-<span id="cb117-61"><a href="#cb117-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-62"><a href="#cb117-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-65"><a href="#cb117-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-66"><a href="#cb117-66" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a) </span>
-<span id="cb117-67"><a href="#cb117-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-68"><a href="#cb117-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-69"><a href="#cb117-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-72"><a href="#cb117-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-73"><a href="#cb117-73" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'orange'</span>, <span class="st">'apple'</span>, <span class="st">'pear'</span>, <span class="st">'banana'</span>, <span class="st">'kiwi'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>,<span class="st">'apple'</span>]</span>
-<span id="cb117-74"><a href="#cb117-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-75"><a href="#cb117-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-76"><a href="#cb117-76" aria-hidden="true" tabindex="-1"></a><span class="fu">### find length of the list with `len()`</span></span>
-<span id="cb117-77"><a href="#cb117-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-80"><a href="#cb117-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-81"><a href="#cb117-81" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(fruits)</span>
-<span id="cb117-82"><a href="#cb117-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-83"><a href="#cb117-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-84"><a href="#cb117-84" aria-hidden="true" tabindex="-1"></a><span class="fu">### find how many time in the list with `count()`</span></span>
-<span id="cb117-85"><a href="#cb117-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-88"><a href="#cb117-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-89"><a href="#cb117-89" aria-hidden="true" tabindex="-1"></a>fruits.count(<span class="st">'apple'</span>)</span>
-<span id="cb117-90"><a href="#cb117-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-91"><a href="#cb117-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-92"><a href="#cb117-92" aria-hidden="true" tabindex="-1"></a><span class="fu">### find locaiton of on the list with `index()`</span></span>
-<span id="cb117-93"><a href="#cb117-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-94"><a href="#cb117-94" aria-hidden="true" tabindex="-1"></a>show the first 'apple' index. python list start at 0</span>
-<span id="cb117-95"><a href="#cb117-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-98"><a href="#cb117-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-99"><a href="#cb117-99" aria-hidden="true" tabindex="-1"></a>fruits.index(<span class="st">'apple'</span>)</span>
-<span id="cb117-100"><a href="#cb117-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-101"><a href="#cb117-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-102"><a href="#cb117-102" aria-hidden="true" tabindex="-1"></a>all 'apple' in the list</span>
-<span id="cb117-103"><a href="#cb117-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-106"><a href="#cb117-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-107"><a href="#cb117-107" aria-hidden="true" tabindex="-1"></a>[index <span class="cf">for</span> index, value <span class="kw">in</span> <span class="bu">enumerate</span>(fruits) <span class="cf">if</span> value <span class="op">==</span> <span class="st">'apple'</span>]</span>
-<span id="cb117-108"><a href="#cb117-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-109"><a href="#cb117-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-110"><a href="#cb117-110" aria-hidden="true" tabindex="-1"></a><span class="fu">### reverse the list</span></span>
-<span id="cb117-111"><a href="#cb117-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-114"><a href="#cb117-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-115"><a href="#cb117-115" aria-hidden="true" tabindex="-1"></a>fruits.reverse()</span>
-<span id="cb117-116"><a href="#cb117-116" aria-hidden="true" tabindex="-1"></a>fruits</span>
-<span id="cb117-117"><a href="#cb117-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-118"><a href="#cb117-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-119"><a href="#cb117-119" aria-hidden="true" tabindex="-1"></a><span class="fu">### sort the list</span></span>
-<span id="cb117-120"><a href="#cb117-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-123"><a href="#cb117-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-124"><a href="#cb117-124" aria-hidden="true" tabindex="-1"></a>fruits.sort()</span>
-<span id="cb117-125"><a href="#cb117-125" aria-hidden="true" tabindex="-1"></a>fruits</span>
-<span id="cb117-126"><a href="#cb117-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-127"><a href="#cb117-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-128"><a href="#cb117-128" aria-hidden="true" tabindex="-1"></a><span class="fu">### add element on the list</span></span>
-<span id="cb117-129"><a href="#cb117-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-132"><a href="#cb117-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-133"><a href="#cb117-133" aria-hidden="true" tabindex="-1"></a>fruits.append(<span class="st">'grape'</span>)</span>
-<span id="cb117-134"><a href="#cb117-134" aria-hidden="true" tabindex="-1"></a>fruits</span>
-<span id="cb117-135"><a href="#cb117-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-136"><a href="#cb117-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-137"><a href="#cb117-137" aria-hidden="true" tabindex="-1"></a><span class="fu">### drop last element</span></span>
-<span id="cb117-138"><a href="#cb117-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-141"><a href="#cb117-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-142"><a href="#cb117-142" aria-hidden="true" tabindex="-1"></a>fruits.pop()</span>
-<span id="cb117-143"><a href="#cb117-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-144"><a href="#cb117-144" aria-hidden="true" tabindex="-1"></a>fruits</span>
-<span id="cb117-145"><a href="#cb117-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-146"><a href="#cb117-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-147"><a href="#cb117-147" aria-hidden="true" tabindex="-1"></a><span class="fu">### List Comprehensions</span></span>
-<span id="cb117-148"><a href="#cb117-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-149"><a href="#cb117-149" aria-hidden="true" tabindex="-1"></a>using loop:</span>
-<span id="cb117-150"><a href="#cb117-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-153"><a href="#cb117-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-154"><a href="#cb117-154" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> []</span>
-<span id="cb117-155"><a href="#cb117-155" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="cb117-156"><a href="#cb117-156" aria-hidden="true" tabindex="-1"></a>  squares.append(x<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb117-157"><a href="#cb117-157" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb117-158"><a href="#cb117-158" aria-hidden="true" tabindex="-1"></a>squares</span>
-<span id="cb117-159"><a href="#cb117-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-160"><a href="#cb117-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-161"><a href="#cb117-161" aria-hidden="true" tabindex="-1"></a>using List Comprehensions</span>
-<span id="cb117-162"><a href="#cb117-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-165"><a href="#cb117-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-166"><a href="#cb117-166" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span>
-<span id="cb117-167"><a href="#cb117-167" aria-hidden="true" tabindex="-1"></a>squares</span>
-<span id="cb117-168"><a href="#cb117-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-169"><a href="#cb117-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-170"><a href="#cb117-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-171"><a href="#cb117-171" aria-hidden="true" tabindex="-1"></a><span class="fu">### list to Tuples</span></span>
-<span id="cb117-172"><a href="#cb117-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-175"><a href="#cb117-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-176"><a href="#cb117-176" aria-hidden="true" tabindex="-1"></a><span class="bu">tuple</span>(squares)</span>
-<span id="cb117-177"><a href="#cb117-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-178"><a href="#cb117-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-179"><a href="#cb117-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-180"><a href="#cb117-180" aria-hidden="true" tabindex="-1"></a><span class="fu">### list to set </span></span>
-<span id="cb117-181"><a href="#cb117-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-184"><a href="#cb117-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-185"><a href="#cb117-185" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>(squares)</span>
-<span id="cb117-186"><a href="#cb117-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-187"><a href="#cb117-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-188"><a href="#cb117-188" aria-hidden="true" tabindex="-1"></a><span class="fu">### list to dictionary </span></span>
-<span id="cb117-189"><a href="#cb117-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-190"><a href="#cb117-190" aria-hidden="true" tabindex="-1"></a><span class="fu">#### one list to dictionary</span></span>
-<span id="cb117-193"><a href="#cb117-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-194"><a href="#cb117-194" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span><span class="op">=</span>[<span class="st">'a'</span>, <span class="dv">1</span>, <span class="st">'b'</span>, <span class="dv">2</span>, <span class="st">'c'</span>, <span class="dv">3</span>]</span>
-<span id="cb117-195"><a href="#cb117-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-196"><a href="#cb117-196" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert(lst):</span>
-<span id="cb117-197"><a href="#cb117-197" aria-hidden="true" tabindex="-1"></a>   res_dict <span class="op">=</span> {}</span>
-<span id="cb117-198"><a href="#cb117-198" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(lst), <span class="dv">2</span>):</span>
-<span id="cb117-199"><a href="#cb117-199" aria-hidden="true" tabindex="-1"></a>       res_dict[lst[i]] <span class="op">=</span> lst[i <span class="op">+</span> <span class="dv">1</span>]</span>
-<span id="cb117-200"><a href="#cb117-200" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> res_dict</span>
-<span id="cb117-201"><a href="#cb117-201" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb117-202"><a href="#cb117-202" aria-hidden="true" tabindex="-1"></a>convert(<span class="bu">list</span>)</span>
-<span id="cb117-203"><a href="#cb117-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-204"><a href="#cb117-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-205"><a href="#cb117-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-206"><a href="#cb117-206" aria-hidden="true" tabindex="-1"></a><span class="fu">#### two list to dictionary</span></span>
-<span id="cb117-207"><a href="#cb117-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-210"><a href="#cb117-210" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-211"><a href="#cb117-211" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
-<span id="cb117-212"><a href="#cb117-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-213"><a href="#cb117-213" aria-hidden="true" tabindex="-1"></a>keys <span class="op">=</span> (<span class="st">'name'</span>, <span class="st">'age'</span>, <span class="st">'food'</span>)</span>
-<span id="cb117-214"><a href="#cb117-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-215"><a href="#cb117-215" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> (<span class="st">'Monty'</span>, <span class="dv">42</span>, <span class="st">'spam'</span>)</span>
-<span id="cb117-216"><a href="#cb117-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-217"><a href="#cb117-217" aria-hidden="true" tabindex="-1"></a><span class="bu">dict</span>(<span class="bu">zip</span>(keys, values))</span>
-<span id="cb117-218"><a href="#cb117-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-219"><a href="#cb117-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-220"><a href="#cb117-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-221"><a href="#cb117-221" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tuples</span></span>
-<span id="cb117-222"><a href="#cb117-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-225"><a href="#cb117-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-226"><a href="#cb117-226" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> (<span class="st">'orange'</span>, <span class="st">'apple'</span>, <span class="st">'pear'</span>, <span class="st">'banana'</span>, <span class="st">'kiwi'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>,<span class="st">'apple'</span>)</span>
-<span id="cb117-227"><a href="#cb117-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-228"><a href="#cb117-228" aria-hidden="true" tabindex="-1"></a>fruits</span>
-<span id="cb117-229"><a href="#cb117-229" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-230"><a href="#cb117-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-233"><a href="#cb117-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-234"><a href="#cb117-234" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(fruits)</span>
-<span id="cb117-235"><a href="#cb117-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-236"><a href="#cb117-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-237"><a href="#cb117-237" aria-hidden="true" tabindex="-1"></a>tuple can not be modified.</span>
-<span id="cb117-238"><a href="#cb117-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-239"><a href="#cb117-239" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sets</span></span>
-<span id="cb117-240"><a href="#cb117-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-241"><a href="#cb117-241" aria-hidden="true" tabindex="-1"></a>A set is an unordered collection with no duplicate elements.</span>
-<span id="cb117-242"><a href="#cb117-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-245"><a href="#cb117-245" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-246"><a href="#cb117-246" aria-hidden="true" tabindex="-1"></a>basket <span class="op">=</span> {<span class="st">'apple'</span>, <span class="st">'orange'</span>, <span class="st">'apple'</span>, <span class="st">'pear'</span>, <span class="st">'orange'</span>, <span class="st">'banana'</span>}</span>
-<span id="cb117-247"><a href="#cb117-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-248"><a href="#cb117-248" aria-hidden="true" tabindex="-1"></a>basket</span>
-<span id="cb117-249"><a href="#cb117-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-250"><a href="#cb117-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-253"><a href="#cb117-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-254"><a href="#cb117-254" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(basket)</span>
-<span id="cb117-255"><a href="#cb117-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-256"><a href="#cb117-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-257"><a href="#cb117-257" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dictionaries</span></span>
-<span id="cb117-258"><a href="#cb117-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-261"><a href="#cb117-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-262"><a href="#cb117-262" aria-hidden="true" tabindex="-1"></a>tel <span class="op">=</span> {<span class="st">'jack'</span>: <span class="dv">4098</span>, <span class="st">'sape'</span>: <span class="dv">4139</span>}</span>
-<span id="cb117-263"><a href="#cb117-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-264"><a href="#cb117-264" aria-hidden="true" tabindex="-1"></a>tel</span>
-<span id="cb117-265"><a href="#cb117-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-266"><a href="#cb117-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-269"><a href="#cb117-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-270"><a href="#cb117-270" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(tel)</span>
-<span id="cb117-271"><a href="#cb117-271" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-272"><a href="#cb117-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-275"><a href="#cb117-275" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-276"><a href="#cb117-276" aria-hidden="true" tabindex="-1"></a>tel[<span class="st">'jack'</span>]</span>
-<span id="cb117-277"><a href="#cb117-277" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-278"><a href="#cb117-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-279"><a href="#cb117-279" aria-hidden="true" tabindex="-1"></a><span class="fu"># numpy data Structures(matrix in python)</span></span>
-<span id="cb117-280"><a href="#cb117-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-281"><a href="#cb117-281" aria-hidden="true" tabindex="-1"></a>NumPy is the fundamental package for scientific computing in Python. It is a Python library that provides a multidimensional array object</span>
-<span id="cb117-282"><a href="#cb117-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-283"><a href="#cb117-283" aria-hidden="true" tabindex="-1"></a>Python doesn't have a built-in type for matrices. However, we can treat a list of a list as a matrix</span>
-<span id="cb117-284"><a href="#cb117-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-287"><a href="#cb117-287" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-288"><a href="#cb117-288" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
-<span id="cb117-289"><a href="#cb117-289" aria-hidden="true" tabindex="-1"></a>    [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
-<span id="cb117-290"><a href="#cb117-290" aria-hidden="true" tabindex="-1"></a>    [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>]]</span>
-<span id="cb117-291"><a href="#cb117-291" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb117-292"><a href="#cb117-292" aria-hidden="true" tabindex="-1"></a>A</span>
-<span id="cb117-293"><a href="#cb117-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-294"><a href="#cb117-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-295"><a href="#cb117-295" aria-hidden="true" tabindex="-1"></a><span class="fu">## numpy Array</span></span>
-<span id="cb117-296"><a href="#cb117-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-299"><a href="#cb117-299" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-300"><a href="#cb117-300" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb117-301"><a href="#cb117-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-302"><a href="#cb117-302" aria-hidden="true" tabindex="-1"></a>A2 <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]])</span>
-<span id="cb117-303"><a href="#cb117-303" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A2)</span>
-<span id="cb117-304"><a href="#cb117-304" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-305"><a href="#cb117-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-306"><a href="#cb117-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-309"><a href="#cb117-309" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-310"><a href="#cb117-310" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(A2)</span>
-<span id="cb117-311"><a href="#cb117-311" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-312"><a href="#cb117-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-313"><a href="#cb117-313" aria-hidden="true" tabindex="-1"></a><span class="fu">## shape</span></span>
-<span id="cb117-316"><a href="#cb117-316" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-317"><a href="#cb117-317" aria-hidden="true" tabindex="-1"></a>A2.shape</span>
-<span id="cb117-318"><a href="#cb117-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-319"><a href="#cb117-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-320"><a href="#cb117-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-321"><a href="#cb117-321" aria-hidden="true" tabindex="-1"></a><span class="fu">## row number</span></span>
-<span id="cb117-324"><a href="#cb117-324" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-325"><a href="#cb117-325" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(A2)</span>
-<span id="cb117-326"><a href="#cb117-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-327"><a href="#cb117-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-328"><a href="#cb117-328" aria-hidden="true" tabindex="-1"></a><span class="fu">## total elements</span></span>
-<span id="cb117-329"><a href="#cb117-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-332"><a href="#cb117-332" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-333"><a href="#cb117-333" aria-hidden="true" tabindex="-1"></a>A2.size</span>
-<span id="cb117-334"><a href="#cb117-334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-335"><a href="#cb117-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-336"><a href="#cb117-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-337"><a href="#cb117-337" aria-hidden="true" tabindex="-1"></a><span class="fu">## count numpy.ndarray</span></span>
-<span id="cb117-338"><a href="#cb117-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-341"><a href="#cb117-341" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-342"><a href="#cb117-342" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-343"><a href="#cb117-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-344"><a href="#cb117-344" aria-hidden="true" tabindex="-1"></a><span class="fu">### convert list into numpy array</span></span>
-<span id="cb117-345"><a href="#cb117-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-348"><a href="#cb117-348" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-349"><a href="#cb117-349" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [</span>
-<span id="cb117-350"><a href="#cb117-350" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
-<span id="cb117-351"><a href="#cb117-351" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
-<span id="cb117-352"><a href="#cb117-352" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>],</span>
-<span id="cb117-353"><a href="#cb117-353" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
-<span id="cb117-354"><a href="#cb117-354" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
-<span id="cb117-355"><a href="#cb117-355" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>],</span>
-<span id="cb117-356"><a href="#cb117-356" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
-<span id="cb117-357"><a href="#cb117-357" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
-<span id="cb117-358"><a href="#cb117-358" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>]</span>
-<span id="cb117-359"><a href="#cb117-359" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb117-360"><a href="#cb117-360" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb117-361"><a href="#cb117-361" aria-hidden="true" tabindex="-1"></a>A3 <span class="op">=</span> np.array(A)</span>
-<span id="cb117-362"><a href="#cb117-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-363"><a href="#cb117-363" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A3)</span>
-<span id="cb117-364"><a href="#cb117-364" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-365"><a href="#cb117-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-366"><a href="#cb117-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-367"><a href="#cb117-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-368"><a href="#cb117-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-369"><a href="#cb117-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-370"><a href="#cb117-370" aria-hidden="true" tabindex="-1"></a><span class="fu">### selection</span></span>
-<span id="cb117-371"><a href="#cb117-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-372"><a href="#cb117-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-373"><a href="#cb117-373" aria-hidden="true" tabindex="-1"></a><span class="fu">#### first 5 row</span></span>
-<span id="cb117-374"><a href="#cb117-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-377"><a href="#cb117-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-378"><a href="#cb117-378" aria-hidden="true" tabindex="-1"></a>A[:<span class="dv">5</span>]</span>
-<span id="cb117-379"><a href="#cb117-379" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-380"><a href="#cb117-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-381"><a href="#cb117-381" aria-hidden="true" tabindex="-1"></a><span class="fu">#### lst 5 row</span></span>
-<span id="cb117-382"><a href="#cb117-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-385"><a href="#cb117-385" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-386"><a href="#cb117-386" aria-hidden="true" tabindex="-1"></a>A[:<span class="op">-</span><span class="dv">5</span>]</span>
-<span id="cb117-387"><a href="#cb117-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-388"><a href="#cb117-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-389"><a href="#cb117-389" aria-hidden="true" tabindex="-1"></a><span class="fu">#### first row</span></span>
-<span id="cb117-390"><a href="#cb117-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-393"><a href="#cb117-393" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-394"><a href="#cb117-394" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">0</span>]</span>
-<span id="cb117-395"><a href="#cb117-395" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-396"><a href="#cb117-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-397"><a href="#cb117-397" aria-hidden="true" tabindex="-1"></a><span class="fu">#### first column</span></span>
-<span id="cb117-398"><a href="#cb117-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-401"><a href="#cb117-401" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-402"><a href="#cb117-402" aria-hidden="true" tabindex="-1"></a>A2[:,<span class="dv">0</span>]</span>
-<span id="cb117-403"><a href="#cb117-403" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-404"><a href="#cb117-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-405"><a href="#cb117-405" aria-hidden="true" tabindex="-1"></a><span class="fu">#### first row and first column element</span></span>
-<span id="cb117-406"><a href="#cb117-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-409"><a href="#cb117-409" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-410"><a href="#cb117-410" aria-hidden="true" tabindex="-1"></a>A2[<span class="dv">0</span>,<span class="dv">0</span>]</span>
-<span id="cb117-411"><a href="#cb117-411" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-412"><a href="#cb117-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-415"><a href="#cb117-415" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-416"><a href="#cb117-416" aria-hidden="true" tabindex="-1"></a>A2.dtype</span>
-<span id="cb117-417"><a href="#cb117-417" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-418"><a href="#cb117-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-419"><a href="#cb117-419" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 2 row and 3 column</span></span>
-<span id="cb117-420"><a href="#cb117-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-423"><a href="#cb117-423" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-424"><a href="#cb117-424" aria-hidden="true" tabindex="-1"></a>A2[<span class="dv">1</span>,<span class="dv">2</span>]</span>
-<span id="cb117-425"><a href="#cb117-425" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-426"><a href="#cb117-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-427"><a href="#cb117-427" aria-hidden="true" tabindex="-1"></a><span class="fu">#### filter </span></span>
-<span id="cb117-428"><a href="#cb117-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-429"><a href="#cb117-429" aria-hidden="true" tabindex="-1"></a><span class="fu">##### filter all</span></span>
-<span id="cb117-432"><a href="#cb117-432" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-433"><a href="#cb117-433" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A3)</span>
-<span id="cb117-434"><a href="#cb117-434" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-435"><a href="#cb117-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-438"><a href="#cb117-438" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-439"><a href="#cb117-439" aria-hidden="true" tabindex="-1"></a>A3<span class="op">&gt;</span><span class="dv">4</span></span>
-<span id="cb117-440"><a href="#cb117-440" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-441"><a href="#cb117-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-444"><a href="#cb117-444" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-445"><a href="#cb117-445" aria-hidden="true" tabindex="-1"></a>A3[A3<span class="op">&gt;</span><span class="dv">4</span>]</span>
-<span id="cb117-446"><a href="#cb117-446" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-447"><a href="#cb117-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-448"><a href="#cb117-448" aria-hidden="true" tabindex="-1"></a><span class="fu">##### filter row </span></span>
-<span id="cb117-449"><a href="#cb117-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-452"><a href="#cb117-452" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-453"><a href="#cb117-453" aria-hidden="true" tabindex="-1"></a>A3</span>
-<span id="cb117-454"><a href="#cb117-454" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-455"><a href="#cb117-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-456"><a href="#cb117-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-457"><a href="#cb117-457" aria-hidden="true" tabindex="-1"></a>filter secound column&gt;5</span>
-<span id="cb117-460"><a href="#cb117-460" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-461"><a href="#cb117-461" aria-hidden="true" tabindex="-1"></a>filter_val<span class="op">=</span>(A3<span class="op">&gt;</span><span class="dv">5</span>)[:,<span class="dv">2</span>]</span>
-<span id="cb117-462"><a href="#cb117-462" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-463"><a href="#cb117-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-464"><a href="#cb117-464" aria-hidden="true" tabindex="-1"></a>which only keep 2,3 row.</span>
-<span id="cb117-467"><a href="#cb117-467" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-468"><a href="#cb117-468" aria-hidden="true" tabindex="-1"></a>A3[filter_val,<span class="dv">0</span>:]</span>
-<span id="cb117-469"><a href="#cb117-469" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-470"><a href="#cb117-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-471"><a href="#cb117-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-472"><a href="#cb117-472" aria-hidden="true" tabindex="-1"></a><span class="fu">### create numpy array</span></span>
-<span id="cb117-473"><a href="#cb117-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-474"><a href="#cb117-474" aria-hidden="true" tabindex="-1"></a><span class="fu">#### create eye</span></span>
-<span id="cb117-477"><a href="#cb117-477" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-478"><a href="#cb117-478" aria-hidden="true" tabindex="-1"></a>np.eye(<span class="dv">3</span>)</span>
-<span id="cb117-479"><a href="#cb117-479" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-480"><a href="#cb117-480" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-481"><a href="#cb117-481" aria-hidden="true" tabindex="-1"></a><span class="fu">#### create zero</span></span>
-<span id="cb117-484"><a href="#cb117-484" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-485"><a href="#cb117-485" aria-hidden="true" tabindex="-1"></a>np.zeros((<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb117-486"><a href="#cb117-486" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-487"><a href="#cb117-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-488"><a href="#cb117-488" aria-hidden="true" tabindex="-1"></a><span class="fu">#### create ones</span></span>
-<span id="cb117-491"><a href="#cb117-491" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-492"><a href="#cb117-492" aria-hidden="true" tabindex="-1"></a>np.ones((<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb117-493"><a href="#cb117-493" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-494"><a href="#cb117-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-495"><a href="#cb117-495" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-496"><a href="#cb117-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-497"><a href="#cb117-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-498"><a href="#cb117-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-499"><a href="#cb117-499" aria-hidden="true" tabindex="-1"></a><span class="fu">### compare</span></span>
-<span id="cb117-500"><a href="#cb117-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-503"><a href="#cb117-503" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-504"><a href="#cb117-504" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating Array</span></span>
-<span id="cb117-505"><a href="#cb117-505" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]) </span>
-<span id="cb117-506"><a href="#cb117-506" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
-<span id="cb117-507"><a href="#cb117-507" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-508"><a href="#cb117-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-511"><a href="#cb117-511" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-512"><a href="#cb117-512" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing two arrays</span></span>
-<span id="cb117-513"><a href="#cb117-513" aria-hidden="true" tabindex="-1"></a>np.greater(a, b)</span>
-<span id="cb117-514"><a href="#cb117-514" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-515"><a href="#cb117-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-516"><a href="#cb117-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-519"><a href="#cb117-519" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-520"><a href="#cb117-520" aria-hidden="true" tabindex="-1"></a>a <span class="op">&gt;=</span> b</span>
-<span id="cb117-521"><a href="#cb117-521" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-522"><a href="#cb117-522" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-523"><a href="#cb117-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-524"><a href="#cb117-524" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-527"><a href="#cb117-527" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-528"><a href="#cb117-528" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing two arrays</span></span>
-<span id="cb117-529"><a href="#cb117-529" aria-hidden="true" tabindex="-1"></a>np.less(a, b)</span>
-<span id="cb117-530"><a href="#cb117-530" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-531"><a href="#cb117-531" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-532"><a href="#cb117-532" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-533"><a href="#cb117-533" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-536"><a href="#cb117-536" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-537"><a href="#cb117-537" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing two arrays</span></span>
-<span id="cb117-538"><a href="#cb117-538" aria-hidden="true" tabindex="-1"></a>np.equal(a, b)</span>
-<span id="cb117-539"><a href="#cb117-539" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-540"><a href="#cb117-540" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-541"><a href="#cb117-541" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-542"><a href="#cb117-542" aria-hidden="true" tabindex="-1"></a><span class="fu">### reshape</span></span>
-<span id="cb117-543"><a href="#cb117-543" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-546"><a href="#cb117-546" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-547"><a href="#cb117-547" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>np.arange(<span class="dv">9</span>).reshape(<span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb117-548"><a href="#cb117-548" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-549"><a href="#cb117-549" aria-hidden="true" tabindex="-1"></a>a</span>
-<span id="cb117-550"><a href="#cb117-550" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-551"><a href="#cb117-551" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-552"><a href="#cb117-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-553"><a href="#cb117-553" aria-hidden="true" tabindex="-1"></a><span class="fu">### calculation</span></span>
-<span id="cb117-554"><a href="#cb117-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-557"><a href="#cb117-557" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-558"><a href="#cb117-558" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>a<span class="op">*</span>a</span>
-<span id="cb117-559"><a href="#cb117-559" aria-hidden="true" tabindex="-1"></a>b</span>
-<span id="cb117-560"><a href="#cb117-560" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-561"><a href="#cb117-561" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-562"><a href="#cb117-562" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-565"><a href="#cb117-565" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-566"><a href="#cb117-566" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>a<span class="op">+</span>a</span>
-<span id="cb117-567"><a href="#cb117-567" aria-hidden="true" tabindex="-1"></a>b</span>
-<span id="cb117-568"><a href="#cb117-568" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-569"><a href="#cb117-569" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-570"><a href="#cb117-570" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-571"><a href="#cb117-571" aria-hidden="true" tabindex="-1"></a><span class="fu">### numpy array to dataframe</span></span>
-<span id="cb117-574"><a href="#cb117-574" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-575"><a href="#cb117-575" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb117-576"><a href="#cb117-576" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(b, columns<span class="op">=</span>[<span class="st">'Column_A'</span>, <span class="st">'Column_B'</span>, <span class="st">'Column_C'</span>])</span>
-<span id="cb117-577"><a href="#cb117-577" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-578"><a href="#cb117-578" aria-hidden="true" tabindex="-1"></a>df</span>
-<span id="cb117-579"><a href="#cb117-579" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-580"><a href="#cb117-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-581"><a href="#cb117-581" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-582"><a href="#cb117-582" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-583"><a href="#cb117-583" aria-hidden="true" tabindex="-1"></a><span class="fu"># pandas series</span></span>
-<span id="cb117-584"><a href="#cb117-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-587"><a href="#cb117-587" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb117-588"><a href="#cb117-588" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb117-589"><a href="#cb117-589" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-590"><a href="#cb117-590" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-591"><a href="#cb117-591" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reference</span></span>
-<span id="cb117-592"><a href="#cb117-592" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-593"><a href="#cb117-593" aria-hidden="true" tabindex="-1"></a>https://docs.python.org/3/tutorial/datastructures.html#</span>
-<span id="cb117-594"><a href="#cb117-594" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-595"><a href="#cb117-595" aria-hidden="true" tabindex="-1"></a>https://numpy.org/doc/stable/user/basics.rec.html</span>
+<div class="sourceCode" id="cb121" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Data structure in Python"</span></span>
+<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb121-5"><a href="#cb121-5" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
+<span id="cb121-6"><a href="#cb121-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb121-7"><a href="#cb121-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb121-8"><a href="#cb121-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb121-9"><a href="#cb121-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
+<span id="cb121-10"><a href="#cb121-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
+<span id="cb121-11"><a href="#cb121-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb121-12"><a href="#cb121-12" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb121-13"><a href="#cb121-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-bg: true</span></span>
+<span id="cb121-14"><a href="#cb121-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-border-left: "#31BAE9"</span></span>
+<span id="cb121-15"><a href="#cb121-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb121-16"><a href="#cb121-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-17"><a href="#cb121-17" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/python-data-structures.png)</span>{width="500"}</span>
+<span id="cb121-18"><a href="#cb121-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-19"><a href="#cb121-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-20"><a href="#cb121-20" aria-hidden="true" tabindex="-1"></a><span class="fu"># bulid-in data Structures</span></span>
+<span id="cb121-21"><a href="#cb121-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-22"><a href="#cb121-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## singular</span></span>
+<span id="cb121-23"><a href="#cb121-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-26"><a href="#cb121-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-27"><a href="#cb121-27" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb121-28"><a href="#cb121-28" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span>
+<span id="cb121-29"><a href="#cb121-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-30"><a href="#cb121-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-33"><a href="#cb121-33" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-34"><a href="#cb121-34" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="fl">1.3</span></span>
+<span id="cb121-35"><a href="#cb121-35" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span>
+<span id="cb121-36"><a href="#cb121-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-37"><a href="#cb121-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-40"><a href="#cb121-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-41"><a href="#cb121-41" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="st">'hell'</span></span>
+<span id="cb121-42"><a href="#cb121-42" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span>
+<span id="cb121-43"><a href="#cb121-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-44"><a href="#cb121-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-45"><a href="#cb121-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-48"><a href="#cb121-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-49"><a href="#cb121-49" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span> <span class="va">True</span></span>
+<span id="cb121-50"><a href="#cb121-50" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span>
+<span id="cb121-51"><a href="#cb121-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-52"><a href="#cb121-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-53"><a href="#cb121-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## list</span></span>
+<span id="cb121-54"><a href="#cb121-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-57"><a href="#cb121-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-58"><a href="#cb121-58" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb121-59"><a href="#cb121-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-60"><a href="#cb121-60" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb121-61"><a href="#cb121-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-62"><a href="#cb121-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-65"><a href="#cb121-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-66"><a href="#cb121-66" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a) </span>
+<span id="cb121-67"><a href="#cb121-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-68"><a href="#cb121-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-69"><a href="#cb121-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-72"><a href="#cb121-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-73"><a href="#cb121-73" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'orange'</span>, <span class="st">'apple'</span>, <span class="st">'pear'</span>, <span class="st">'banana'</span>, <span class="st">'kiwi'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>,<span class="st">'apple'</span>]</span>
+<span id="cb121-74"><a href="#cb121-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-75"><a href="#cb121-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-76"><a href="#cb121-76" aria-hidden="true" tabindex="-1"></a><span class="fu">### find length of the list with `len()`</span></span>
+<span id="cb121-77"><a href="#cb121-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-80"><a href="#cb121-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-81"><a href="#cb121-81" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(fruits)</span>
+<span id="cb121-82"><a href="#cb121-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-83"><a href="#cb121-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-84"><a href="#cb121-84" aria-hidden="true" tabindex="-1"></a><span class="fu">### find how many time in the list with `count()`</span></span>
+<span id="cb121-85"><a href="#cb121-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-88"><a href="#cb121-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-89"><a href="#cb121-89" aria-hidden="true" tabindex="-1"></a>fruits.count(<span class="st">'apple'</span>)</span>
+<span id="cb121-90"><a href="#cb121-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-91"><a href="#cb121-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-92"><a href="#cb121-92" aria-hidden="true" tabindex="-1"></a><span class="fu">### find locaiton of on the list with `index()`</span></span>
+<span id="cb121-93"><a href="#cb121-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-94"><a href="#cb121-94" aria-hidden="true" tabindex="-1"></a>show the first 'apple' index. python list start at 0</span>
+<span id="cb121-95"><a href="#cb121-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-98"><a href="#cb121-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-99"><a href="#cb121-99" aria-hidden="true" tabindex="-1"></a>fruits.index(<span class="st">'apple'</span>)</span>
+<span id="cb121-100"><a href="#cb121-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-101"><a href="#cb121-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-102"><a href="#cb121-102" aria-hidden="true" tabindex="-1"></a>all 'apple' in the list</span>
+<span id="cb121-103"><a href="#cb121-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-106"><a href="#cb121-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-107"><a href="#cb121-107" aria-hidden="true" tabindex="-1"></a>[index <span class="cf">for</span> index, value <span class="kw">in</span> <span class="bu">enumerate</span>(fruits) <span class="cf">if</span> value <span class="op">==</span> <span class="st">'apple'</span>]</span>
+<span id="cb121-108"><a href="#cb121-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-109"><a href="#cb121-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-110"><a href="#cb121-110" aria-hidden="true" tabindex="-1"></a><span class="fu">### reverse the list</span></span>
+<span id="cb121-111"><a href="#cb121-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-114"><a href="#cb121-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-115"><a href="#cb121-115" aria-hidden="true" tabindex="-1"></a>fruits.reverse()</span>
+<span id="cb121-116"><a href="#cb121-116" aria-hidden="true" tabindex="-1"></a>fruits</span>
+<span id="cb121-117"><a href="#cb121-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-118"><a href="#cb121-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-119"><a href="#cb121-119" aria-hidden="true" tabindex="-1"></a><span class="fu">### sort the list</span></span>
+<span id="cb121-120"><a href="#cb121-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-123"><a href="#cb121-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-124"><a href="#cb121-124" aria-hidden="true" tabindex="-1"></a>fruits.sort()</span>
+<span id="cb121-125"><a href="#cb121-125" aria-hidden="true" tabindex="-1"></a>fruits</span>
+<span id="cb121-126"><a href="#cb121-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-127"><a href="#cb121-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-128"><a href="#cb121-128" aria-hidden="true" tabindex="-1"></a><span class="fu">### add element on the list</span></span>
+<span id="cb121-129"><a href="#cb121-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-132"><a href="#cb121-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-133"><a href="#cb121-133" aria-hidden="true" tabindex="-1"></a>fruits.append(<span class="st">'grape'</span>)</span>
+<span id="cb121-134"><a href="#cb121-134" aria-hidden="true" tabindex="-1"></a>fruits</span>
+<span id="cb121-135"><a href="#cb121-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-136"><a href="#cb121-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-137"><a href="#cb121-137" aria-hidden="true" tabindex="-1"></a><span class="fu">### drop last element</span></span>
+<span id="cb121-138"><a href="#cb121-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-141"><a href="#cb121-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-142"><a href="#cb121-142" aria-hidden="true" tabindex="-1"></a>fruits.pop()</span>
+<span id="cb121-143"><a href="#cb121-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-144"><a href="#cb121-144" aria-hidden="true" tabindex="-1"></a>fruits</span>
+<span id="cb121-145"><a href="#cb121-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-146"><a href="#cb121-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-147"><a href="#cb121-147" aria-hidden="true" tabindex="-1"></a><span class="fu">### List Comprehensions</span></span>
+<span id="cb121-148"><a href="#cb121-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-149"><a href="#cb121-149" aria-hidden="true" tabindex="-1"></a>using loop:</span>
+<span id="cb121-150"><a href="#cb121-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-153"><a href="#cb121-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-154"><a href="#cb121-154" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> []</span>
+<span id="cb121-155"><a href="#cb121-155" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb121-156"><a href="#cb121-156" aria-hidden="true" tabindex="-1"></a>  squares.append(x<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb121-157"><a href="#cb121-157" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb121-158"><a href="#cb121-158" aria-hidden="true" tabindex="-1"></a>squares</span>
+<span id="cb121-159"><a href="#cb121-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-160"><a href="#cb121-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-161"><a href="#cb121-161" aria-hidden="true" tabindex="-1"></a>using List Comprehensions</span>
+<span id="cb121-162"><a href="#cb121-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-165"><a href="#cb121-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-166"><a href="#cb121-166" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span>
+<span id="cb121-167"><a href="#cb121-167" aria-hidden="true" tabindex="-1"></a>squares</span>
+<span id="cb121-168"><a href="#cb121-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-169"><a href="#cb121-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-170"><a href="#cb121-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-171"><a href="#cb121-171" aria-hidden="true" tabindex="-1"></a><span class="fu">### list to Tuples</span></span>
+<span id="cb121-172"><a href="#cb121-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-175"><a href="#cb121-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-176"><a href="#cb121-176" aria-hidden="true" tabindex="-1"></a><span class="bu">tuple</span>(squares)</span>
+<span id="cb121-177"><a href="#cb121-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-178"><a href="#cb121-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-179"><a href="#cb121-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-180"><a href="#cb121-180" aria-hidden="true" tabindex="-1"></a><span class="fu">### list to set </span></span>
+<span id="cb121-181"><a href="#cb121-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-184"><a href="#cb121-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-185"><a href="#cb121-185" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>(squares)</span>
+<span id="cb121-186"><a href="#cb121-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-187"><a href="#cb121-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-188"><a href="#cb121-188" aria-hidden="true" tabindex="-1"></a><span class="fu">### list to dictionary </span></span>
+<span id="cb121-189"><a href="#cb121-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-190"><a href="#cb121-190" aria-hidden="true" tabindex="-1"></a><span class="fu">#### one list to dictionary</span></span>
+<span id="cb121-193"><a href="#cb121-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-194"><a href="#cb121-194" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span><span class="op">=</span>[<span class="st">'a'</span>, <span class="dv">1</span>, <span class="st">'b'</span>, <span class="dv">2</span>, <span class="st">'c'</span>, <span class="dv">3</span>]</span>
+<span id="cb121-195"><a href="#cb121-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-196"><a href="#cb121-196" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert(lst):</span>
+<span id="cb121-197"><a href="#cb121-197" aria-hidden="true" tabindex="-1"></a>   res_dict <span class="op">=</span> {}</span>
+<span id="cb121-198"><a href="#cb121-198" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(lst), <span class="dv">2</span>):</span>
+<span id="cb121-199"><a href="#cb121-199" aria-hidden="true" tabindex="-1"></a>       res_dict[lst[i]] <span class="op">=</span> lst[i <span class="op">+</span> <span class="dv">1</span>]</span>
+<span id="cb121-200"><a href="#cb121-200" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> res_dict</span>
+<span id="cb121-201"><a href="#cb121-201" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb121-202"><a href="#cb121-202" aria-hidden="true" tabindex="-1"></a>convert(<span class="bu">list</span>)</span>
+<span id="cb121-203"><a href="#cb121-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-204"><a href="#cb121-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-205"><a href="#cb121-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-206"><a href="#cb121-206" aria-hidden="true" tabindex="-1"></a><span class="fu">#### two list to dictionary</span></span>
+<span id="cb121-207"><a href="#cb121-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-210"><a href="#cb121-210" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-211"><a href="#cb121-211" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
+<span id="cb121-212"><a href="#cb121-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-213"><a href="#cb121-213" aria-hidden="true" tabindex="-1"></a>keys <span class="op">=</span> (<span class="st">'name'</span>, <span class="st">'age'</span>, <span class="st">'food'</span>)</span>
+<span id="cb121-214"><a href="#cb121-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-215"><a href="#cb121-215" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> (<span class="st">'Monty'</span>, <span class="dv">42</span>, <span class="st">'spam'</span>)</span>
+<span id="cb121-216"><a href="#cb121-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-217"><a href="#cb121-217" aria-hidden="true" tabindex="-1"></a><span class="bu">dict</span>(<span class="bu">zip</span>(keys, values))</span>
+<span id="cb121-218"><a href="#cb121-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-219"><a href="#cb121-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-220"><a href="#cb121-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-221"><a href="#cb121-221" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tuples</span></span>
+<span id="cb121-222"><a href="#cb121-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-225"><a href="#cb121-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-226"><a href="#cb121-226" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> (<span class="st">'orange'</span>, <span class="st">'apple'</span>, <span class="st">'pear'</span>, <span class="st">'banana'</span>, <span class="st">'kiwi'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>,<span class="st">'apple'</span>)</span>
+<span id="cb121-227"><a href="#cb121-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-228"><a href="#cb121-228" aria-hidden="true" tabindex="-1"></a>fruits</span>
+<span id="cb121-229"><a href="#cb121-229" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-230"><a href="#cb121-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-233"><a href="#cb121-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-234"><a href="#cb121-234" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(fruits)</span>
+<span id="cb121-235"><a href="#cb121-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-236"><a href="#cb121-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-237"><a href="#cb121-237" aria-hidden="true" tabindex="-1"></a>tuple can not be modified.</span>
+<span id="cb121-238"><a href="#cb121-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-239"><a href="#cb121-239" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sets</span></span>
+<span id="cb121-240"><a href="#cb121-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-241"><a href="#cb121-241" aria-hidden="true" tabindex="-1"></a>A set is an unordered collection with no duplicate elements.</span>
+<span id="cb121-242"><a href="#cb121-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-245"><a href="#cb121-245" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-246"><a href="#cb121-246" aria-hidden="true" tabindex="-1"></a>basket <span class="op">=</span> {<span class="st">'apple'</span>, <span class="st">'orange'</span>, <span class="st">'apple'</span>, <span class="st">'pear'</span>, <span class="st">'orange'</span>, <span class="st">'banana'</span>}</span>
+<span id="cb121-247"><a href="#cb121-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-248"><a href="#cb121-248" aria-hidden="true" tabindex="-1"></a>basket</span>
+<span id="cb121-249"><a href="#cb121-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-250"><a href="#cb121-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-253"><a href="#cb121-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-254"><a href="#cb121-254" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(basket)</span>
+<span id="cb121-255"><a href="#cb121-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-256"><a href="#cb121-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-257"><a href="#cb121-257" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dictionaries</span></span>
+<span id="cb121-258"><a href="#cb121-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-261"><a href="#cb121-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-262"><a href="#cb121-262" aria-hidden="true" tabindex="-1"></a>tel <span class="op">=</span> {<span class="st">'jack'</span>: <span class="dv">4098</span>, <span class="st">'sape'</span>: <span class="dv">4139</span>}</span>
+<span id="cb121-263"><a href="#cb121-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-264"><a href="#cb121-264" aria-hidden="true" tabindex="-1"></a>tel</span>
+<span id="cb121-265"><a href="#cb121-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-266"><a href="#cb121-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-269"><a href="#cb121-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-270"><a href="#cb121-270" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(tel)</span>
+<span id="cb121-271"><a href="#cb121-271" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-272"><a href="#cb121-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-275"><a href="#cb121-275" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-276"><a href="#cb121-276" aria-hidden="true" tabindex="-1"></a>tel[<span class="st">'jack'</span>]</span>
+<span id="cb121-277"><a href="#cb121-277" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-278"><a href="#cb121-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-279"><a href="#cb121-279" aria-hidden="true" tabindex="-1"></a><span class="fu"># numpy data Structures(matrix in python)</span></span>
+<span id="cb121-280"><a href="#cb121-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-281"><a href="#cb121-281" aria-hidden="true" tabindex="-1"></a>NumPy is the fundamental package for scientific computing in Python. It is a Python library that provides a multidimensional array object</span>
+<span id="cb121-282"><a href="#cb121-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-283"><a href="#cb121-283" aria-hidden="true" tabindex="-1"></a>Python doesn't have a built-in type for matrices. However, we can treat a list of a list as a matrix</span>
+<span id="cb121-284"><a href="#cb121-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-287"><a href="#cb121-287" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-288"><a href="#cb121-288" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
+<span id="cb121-289"><a href="#cb121-289" aria-hidden="true" tabindex="-1"></a>    [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
+<span id="cb121-290"><a href="#cb121-290" aria-hidden="true" tabindex="-1"></a>    [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>]]</span>
+<span id="cb121-291"><a href="#cb121-291" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb121-292"><a href="#cb121-292" aria-hidden="true" tabindex="-1"></a>A</span>
+<span id="cb121-293"><a href="#cb121-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-294"><a href="#cb121-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-295"><a href="#cb121-295" aria-hidden="true" tabindex="-1"></a><span class="fu">## numpy Array</span></span>
+<span id="cb121-296"><a href="#cb121-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-299"><a href="#cb121-299" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-300"><a href="#cb121-300" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb121-301"><a href="#cb121-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-302"><a href="#cb121-302" aria-hidden="true" tabindex="-1"></a>A2 <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]])</span>
+<span id="cb121-303"><a href="#cb121-303" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A2)</span>
+<span id="cb121-304"><a href="#cb121-304" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-305"><a href="#cb121-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-306"><a href="#cb121-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-309"><a href="#cb121-309" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-310"><a href="#cb121-310" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(A2)</span>
+<span id="cb121-311"><a href="#cb121-311" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-312"><a href="#cb121-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-313"><a href="#cb121-313" aria-hidden="true" tabindex="-1"></a><span class="fu">## shape</span></span>
+<span id="cb121-316"><a href="#cb121-316" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-317"><a href="#cb121-317" aria-hidden="true" tabindex="-1"></a>A2.shape</span>
+<span id="cb121-318"><a href="#cb121-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-319"><a href="#cb121-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-320"><a href="#cb121-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-321"><a href="#cb121-321" aria-hidden="true" tabindex="-1"></a><span class="fu">## row number</span></span>
+<span id="cb121-324"><a href="#cb121-324" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-325"><a href="#cb121-325" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(A2)</span>
+<span id="cb121-326"><a href="#cb121-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-327"><a href="#cb121-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-328"><a href="#cb121-328" aria-hidden="true" tabindex="-1"></a><span class="fu">## total elements</span></span>
+<span id="cb121-329"><a href="#cb121-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-332"><a href="#cb121-332" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-333"><a href="#cb121-333" aria-hidden="true" tabindex="-1"></a>A2.size</span>
+<span id="cb121-334"><a href="#cb121-334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-335"><a href="#cb121-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-336"><a href="#cb121-336" aria-hidden="true" tabindex="-1"></a><span class="fu">## dimension </span></span>
+<span id="cb121-339"><a href="#cb121-339" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-340"><a href="#cb121-340" aria-hidden="true" tabindex="-1"></a>A2.ndim</span>
+<span id="cb121-341"><a href="#cb121-341" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-342"><a href="#cb121-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-343"><a href="#cb121-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-344"><a href="#cb121-344" aria-hidden="true" tabindex="-1"></a><span class="fu">## count numpy.ndarray</span></span>
+<span id="cb121-345"><a href="#cb121-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-348"><a href="#cb121-348" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-349"><a href="#cb121-349" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> collections, numpy</span>
+<span id="cb121-350"><a href="#cb121-350" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> numpy.array([<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">4</span>])</span>
+<span id="cb121-351"><a href="#cb121-351" aria-hidden="true" tabindex="-1"></a>collections.Counter(a)</span>
+<span id="cb121-352"><a href="#cb121-352" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-353"><a href="#cb121-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-354"><a href="#cb121-354" aria-hidden="true" tabindex="-1"></a><span class="fu">### convert list into numpy array</span></span>
+<span id="cb121-355"><a href="#cb121-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-358"><a href="#cb121-358" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-359"><a href="#cb121-359" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [</span>
+<span id="cb121-360"><a href="#cb121-360" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
+<span id="cb121-361"><a href="#cb121-361" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
+<span id="cb121-362"><a href="#cb121-362" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>],</span>
+<span id="cb121-363"><a href="#cb121-363" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
+<span id="cb121-364"><a href="#cb121-364" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
+<span id="cb121-365"><a href="#cb121-365" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>],</span>
+<span id="cb121-366"><a href="#cb121-366" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">12</span>], </span>
+<span id="cb121-367"><a href="#cb121-367" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>],</span>
+<span id="cb121-368"><a href="#cb121-368" aria-hidden="true" tabindex="-1"></a>  [<span class="op">-</span><span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">19</span>]</span>
+<span id="cb121-369"><a href="#cb121-369" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb121-370"><a href="#cb121-370" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb121-371"><a href="#cb121-371" aria-hidden="true" tabindex="-1"></a>A3 <span class="op">=</span> np.array(A)</span>
+<span id="cb121-372"><a href="#cb121-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-373"><a href="#cb121-373" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A3)</span>
+<span id="cb121-374"><a href="#cb121-374" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-375"><a href="#cb121-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-376"><a href="#cb121-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-377"><a href="#cb121-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-378"><a href="#cb121-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-379"><a href="#cb121-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-380"><a href="#cb121-380" aria-hidden="true" tabindex="-1"></a><span class="fu">### selection</span></span>
+<span id="cb121-381"><a href="#cb121-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-382"><a href="#cb121-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-383"><a href="#cb121-383" aria-hidden="true" tabindex="-1"></a><span class="fu">#### first 5 row</span></span>
+<span id="cb121-384"><a href="#cb121-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-387"><a href="#cb121-387" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-388"><a href="#cb121-388" aria-hidden="true" tabindex="-1"></a>A[:<span class="dv">5</span>]</span>
+<span id="cb121-389"><a href="#cb121-389" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-390"><a href="#cb121-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-391"><a href="#cb121-391" aria-hidden="true" tabindex="-1"></a><span class="fu">#### lst 5 row</span></span>
+<span id="cb121-392"><a href="#cb121-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-395"><a href="#cb121-395" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-396"><a href="#cb121-396" aria-hidden="true" tabindex="-1"></a>A[:<span class="op">-</span><span class="dv">5</span>]</span>
+<span id="cb121-397"><a href="#cb121-397" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-398"><a href="#cb121-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-399"><a href="#cb121-399" aria-hidden="true" tabindex="-1"></a><span class="fu">#### first row</span></span>
+<span id="cb121-400"><a href="#cb121-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-403"><a href="#cb121-403" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-404"><a href="#cb121-404" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">0</span>]</span>
+<span id="cb121-405"><a href="#cb121-405" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-406"><a href="#cb121-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-407"><a href="#cb121-407" aria-hidden="true" tabindex="-1"></a><span class="fu">#### first column</span></span>
+<span id="cb121-408"><a href="#cb121-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-411"><a href="#cb121-411" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-412"><a href="#cb121-412" aria-hidden="true" tabindex="-1"></a>A2[:,<span class="dv">0</span>]</span>
+<span id="cb121-413"><a href="#cb121-413" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-414"><a href="#cb121-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-415"><a href="#cb121-415" aria-hidden="true" tabindex="-1"></a><span class="fu">#### first row and first column element</span></span>
+<span id="cb121-416"><a href="#cb121-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-419"><a href="#cb121-419" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-420"><a href="#cb121-420" aria-hidden="true" tabindex="-1"></a>A2[<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb121-421"><a href="#cb121-421" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-422"><a href="#cb121-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-425"><a href="#cb121-425" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-426"><a href="#cb121-426" aria-hidden="true" tabindex="-1"></a>A2.dtype</span>
+<span id="cb121-427"><a href="#cb121-427" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-428"><a href="#cb121-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-429"><a href="#cb121-429" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 2 row and 3 column</span></span>
+<span id="cb121-430"><a href="#cb121-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-433"><a href="#cb121-433" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-434"><a href="#cb121-434" aria-hidden="true" tabindex="-1"></a>A2[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb121-435"><a href="#cb121-435" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-436"><a href="#cb121-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-437"><a href="#cb121-437" aria-hidden="true" tabindex="-1"></a><span class="fu">#### filter </span></span>
+<span id="cb121-438"><a href="#cb121-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-439"><a href="#cb121-439" aria-hidden="true" tabindex="-1"></a><span class="fu">##### filter all</span></span>
+<span id="cb121-442"><a href="#cb121-442" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-443"><a href="#cb121-443" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A3)</span>
+<span id="cb121-444"><a href="#cb121-444" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-445"><a href="#cb121-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-448"><a href="#cb121-448" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-449"><a href="#cb121-449" aria-hidden="true" tabindex="-1"></a>A3<span class="op">&gt;</span><span class="dv">4</span></span>
+<span id="cb121-450"><a href="#cb121-450" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-451"><a href="#cb121-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-454"><a href="#cb121-454" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-455"><a href="#cb121-455" aria-hidden="true" tabindex="-1"></a>A3[A3<span class="op">&gt;</span><span class="dv">4</span>]</span>
+<span id="cb121-456"><a href="#cb121-456" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-457"><a href="#cb121-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-458"><a href="#cb121-458" aria-hidden="true" tabindex="-1"></a><span class="fu">##### filter row </span></span>
+<span id="cb121-459"><a href="#cb121-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-462"><a href="#cb121-462" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-463"><a href="#cb121-463" aria-hidden="true" tabindex="-1"></a>A3</span>
+<span id="cb121-464"><a href="#cb121-464" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-465"><a href="#cb121-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-466"><a href="#cb121-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-467"><a href="#cb121-467" aria-hidden="true" tabindex="-1"></a>filter secound column&gt;5</span>
+<span id="cb121-470"><a href="#cb121-470" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-471"><a href="#cb121-471" aria-hidden="true" tabindex="-1"></a>filter_val<span class="op">=</span>(A3<span class="op">&gt;</span><span class="dv">5</span>)[:,<span class="dv">2</span>]</span>
+<span id="cb121-472"><a href="#cb121-472" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-473"><a href="#cb121-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-474"><a href="#cb121-474" aria-hidden="true" tabindex="-1"></a>which only keep 2,3 row.</span>
+<span id="cb121-477"><a href="#cb121-477" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-478"><a href="#cb121-478" aria-hidden="true" tabindex="-1"></a>A3[filter_val,<span class="dv">0</span>:]</span>
+<span id="cb121-479"><a href="#cb121-479" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-480"><a href="#cb121-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-481"><a href="#cb121-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-482"><a href="#cb121-482" aria-hidden="true" tabindex="-1"></a><span class="fu">### create numpy array</span></span>
+<span id="cb121-483"><a href="#cb121-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-484"><a href="#cb121-484" aria-hidden="true" tabindex="-1"></a><span class="fu">#### create eye</span></span>
+<span id="cb121-487"><a href="#cb121-487" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-488"><a href="#cb121-488" aria-hidden="true" tabindex="-1"></a>np.eye(<span class="dv">3</span>)</span>
+<span id="cb121-489"><a href="#cb121-489" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-490"><a href="#cb121-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-491"><a href="#cb121-491" aria-hidden="true" tabindex="-1"></a><span class="fu">#### create zero</span></span>
+<span id="cb121-494"><a href="#cb121-494" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-495"><a href="#cb121-495" aria-hidden="true" tabindex="-1"></a>np.zeros((<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb121-496"><a href="#cb121-496" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-497"><a href="#cb121-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-498"><a href="#cb121-498" aria-hidden="true" tabindex="-1"></a><span class="fu">#### create ones</span></span>
+<span id="cb121-501"><a href="#cb121-501" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-502"><a href="#cb121-502" aria-hidden="true" tabindex="-1"></a>np.ones((<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb121-503"><a href="#cb121-503" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-504"><a href="#cb121-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-505"><a href="#cb121-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-506"><a href="#cb121-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-507"><a href="#cb121-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-508"><a href="#cb121-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-509"><a href="#cb121-509" aria-hidden="true" tabindex="-1"></a><span class="fu">### compare</span></span>
+<span id="cb121-510"><a href="#cb121-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-513"><a href="#cb121-513" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-514"><a href="#cb121-514" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating Array</span></span>
+<span id="cb121-515"><a href="#cb121-515" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]) </span>
+<span id="cb121-516"><a href="#cb121-516" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
+<span id="cb121-517"><a href="#cb121-517" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-518"><a href="#cb121-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-521"><a href="#cb121-521" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-522"><a href="#cb121-522" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing two arrays</span></span>
+<span id="cb121-523"><a href="#cb121-523" aria-hidden="true" tabindex="-1"></a>np.greater(a, b)</span>
+<span id="cb121-524"><a href="#cb121-524" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-525"><a href="#cb121-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-526"><a href="#cb121-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-529"><a href="#cb121-529" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-530"><a href="#cb121-530" aria-hidden="true" tabindex="-1"></a>a <span class="op">&gt;=</span> b</span>
+<span id="cb121-531"><a href="#cb121-531" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-532"><a href="#cb121-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-533"><a href="#cb121-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-534"><a href="#cb121-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-537"><a href="#cb121-537" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-538"><a href="#cb121-538" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing two arrays</span></span>
+<span id="cb121-539"><a href="#cb121-539" aria-hidden="true" tabindex="-1"></a>np.less(a, b)</span>
+<span id="cb121-540"><a href="#cb121-540" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-541"><a href="#cb121-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-542"><a href="#cb121-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-543"><a href="#cb121-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-546"><a href="#cb121-546" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-547"><a href="#cb121-547" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing two arrays</span></span>
+<span id="cb121-548"><a href="#cb121-548" aria-hidden="true" tabindex="-1"></a>np.equal(a, b)</span>
+<span id="cb121-549"><a href="#cb121-549" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-550"><a href="#cb121-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-551"><a href="#cb121-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-552"><a href="#cb121-552" aria-hidden="true" tabindex="-1"></a><span class="fu">### reshape</span></span>
+<span id="cb121-553"><a href="#cb121-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-556"><a href="#cb121-556" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-557"><a href="#cb121-557" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>np.arange(<span class="dv">9</span>).reshape(<span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb121-558"><a href="#cb121-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-559"><a href="#cb121-559" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb121-560"><a href="#cb121-560" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-561"><a href="#cb121-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-562"><a href="#cb121-562" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-563"><a href="#cb121-563" aria-hidden="true" tabindex="-1"></a><span class="fu">### calculation</span></span>
+<span id="cb121-564"><a href="#cb121-564" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-567"><a href="#cb121-567" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-568"><a href="#cb121-568" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>a<span class="op">*</span>a</span>
+<span id="cb121-569"><a href="#cb121-569" aria-hidden="true" tabindex="-1"></a>b</span>
+<span id="cb121-570"><a href="#cb121-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-571"><a href="#cb121-571" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-572"><a href="#cb121-572" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-575"><a href="#cb121-575" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-576"><a href="#cb121-576" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>a<span class="op">+</span>a</span>
+<span id="cb121-577"><a href="#cb121-577" aria-hidden="true" tabindex="-1"></a>b</span>
+<span id="cb121-578"><a href="#cb121-578" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-579"><a href="#cb121-579" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-580"><a href="#cb121-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-581"><a href="#cb121-581" aria-hidden="true" tabindex="-1"></a><span class="fu">### numpy array to dataframe</span></span>
+<span id="cb121-584"><a href="#cb121-584" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-585"><a href="#cb121-585" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb121-586"><a href="#cb121-586" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(b, columns<span class="op">=</span>[<span class="st">'Column_A'</span>, <span class="st">'Column_B'</span>, <span class="st">'Column_C'</span>])</span>
+<span id="cb121-587"><a href="#cb121-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-588"><a href="#cb121-588" aria-hidden="true" tabindex="-1"></a>df</span>
+<span id="cb121-589"><a href="#cb121-589" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-590"><a href="#cb121-590" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-591"><a href="#cb121-591" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-592"><a href="#cb121-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-593"><a href="#cb121-593" aria-hidden="true" tabindex="-1"></a><span class="fu"># pandas series</span></span>
+<span id="cb121-594"><a href="#cb121-594" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-597"><a href="#cb121-597" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb121-598"><a href="#cb121-598" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb121-599"><a href="#cb121-599" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-600"><a href="#cb121-600" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-601"><a href="#cb121-601" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reference</span></span>
+<span id="cb121-602"><a href="#cb121-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-603"><a href="#cb121-603" aria-hidden="true" tabindex="-1"></a>https://docs.python.org/3/tutorial/datastructures.html#</span>
+<span id="cb121-604"><a href="#cb121-604" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-605"><a href="#cb121-605" aria-hidden="true" tabindex="-1"></a>https://numpy.org/doc/stable/user/basics.rec.html</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

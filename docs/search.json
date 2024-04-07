@@ -7686,8 +7686,8 @@
     "objectID": "data manipulation/2 data structure in Python .html#count-numpy.ndarray",
     "href": "data manipulation/2 data structure in Python .html#count-numpy.ndarray",
     "title": "Data structure in Python",
-    "section": "2.5 count numpy.ndarray",
-    "text": "2.5 count numpy.ndarray\n\n2.5.1 convert list into numpy array\n\n\nCode\nA = [\n  [1, 4, 5, 12], \n  [-5, 8, 9, 0],\n  [-6, 7, 11, 19],\n  [1, 4, 5, 12], \n  [-5, 8, 9, 0],\n  [-6, 7, 11, 19],\n  [1, 4, 5, 12], \n  [-5, 8, 9, 0],\n  [-6, 7, 11, 19]\n  ]\n    \nA3 = np.array(A)\n\nprint(A3)\n\n\n[[ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]\n [ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]\n [ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]]\n\n\n\n\n2.5.2 selection\n\n2.5.2.1 first 5 row\n\n\nCode\nA[:5]\n\n\n[[1, 4, 5, 12], [-5, 8, 9, 0], [-6, 7, 11, 19], [1, 4, 5, 12], [-5, 8, 9, 0]]\n\n\n\n\n2.5.2.2 lst 5 row\n\n\nCode\nA[:-5]\n\n\n[[1, 4, 5, 12], [-5, 8, 9, 0], [-6, 7, 11, 19], [1, 4, 5, 12]]\n\n\n\n\n2.5.2.3 first row\n\n\nCode\nA[0]\n\n\n[1, 4, 5, 12]\n\n\n\n\n2.5.2.4 first column\n\n\nCode\nA2[:,0]\n\n\narray([1, 3])\n\n\n\n\n2.5.2.5 first row and first column element\n\n\nCode\nA2[0,0]\n\n\n1\n\n\n\n\nCode\nA2.dtype\n\n\ndtype('int64')\n\n\n\n\n2.5.2.6 2 row and 3 column\n\n\nCode\nA2[1,2]\n\n\n5\n\n\n\n\n2.5.2.7 filter\n\n2.5.2.7.1 filter all\n\n\nCode\nprint(A3)\n\n\n[[ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]\n [ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]\n [ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]]\n\n\n\n\nCode\nA3&gt;4\n\n\narray([[False, False,  True,  True],\n       [False,  True,  True, False],\n       [False,  True,  True,  True],\n       [False, False,  True,  True],\n       [False,  True,  True, False],\n       [False,  True,  True,  True],\n       [False, False,  True,  True],\n       [False,  True,  True, False],\n       [False,  True,  True,  True]])\n\n\n\n\nCode\nA3[A3&gt;4]\n\n\narray([ 5, 12,  8,  9,  7, 11, 19,  5, 12,  8,  9,  7, 11, 19,  5, 12,  8,\n        9,  7, 11, 19])\n\n\n\n\n2.5.2.7.2 filter row\n\n\nCode\nA3\n\n\narray([[ 1,  4,  5, 12],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19],\n       [ 1,  4,  5, 12],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19],\n       [ 1,  4,  5, 12],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19]])\n\n\nfilter secound column&gt;5\n\n\nCode\nfilter_val=(A3&gt;5)[:,2]\n\n\nwhich only keep 2,3 row.\n\n\nCode\nA3[filter_val,0:]\n\n\narray([[-5,  8,  9,  0],\n       [-6,  7, 11, 19],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19]])\n\n\n\n\n\n\n2.5.3 create numpy array\n\n2.5.3.1 create eye\n\n\nCode\nnp.eye(3)\n\n\narray([[1., 0., 0.],\n       [0., 1., 0.],\n       [0., 0., 1.]])\n\n\n\n\n2.5.3.2 create zero\n\n\nCode\nnp.zeros((2,3))\n\n\narray([[0., 0., 0.],\n       [0., 0., 0.]])\n\n\n\n\n2.5.3.3 create ones\n\n\nCode\nnp.ones((2,3))\n\n\narray([[1., 1., 1.],\n       [1., 1., 1.]])\n\n\n\n\n\n2.5.4 compare\n\n\nCode\n# Creating Array\na = np.array([1,2,3,4]) \nb = np.array([3,2,5,6])\n\n\n\n\nCode\n# Comparing two arrays\nnp.greater(a, b)\n\n\narray([False, False, False, False])\n\n\n\n\nCode\na &gt;= b\n\n\narray([False,  True, False, False])\n\n\n\n\nCode\n# Comparing two arrays\nnp.less(a, b)\n\n\narray([ True, False,  True,  True])\n\n\n\n\nCode\n# Comparing two arrays\nnp.equal(a, b)\n\n\narray([False,  True, False, False])\n\n\n\n\n2.5.5 reshape\n\n\nCode\na=np.arange(9).reshape(3, 3)\n\na\n\n\narray([[0, 1, 2],\n       [3, 4, 5],\n       [6, 7, 8]])\n\n\n\n\n2.5.6 calculation\n\n\nCode\nb=a*a\nb\n\n\narray([[ 0,  1,  4],\n       [ 9, 16, 25],\n       [36, 49, 64]])\n\n\n\n\nCode\nb=a+a\nb\n\n\narray([[ 0,  2,  4],\n       [ 6,  8, 10],\n       [12, 14, 16]])\n\n\n\n\n2.5.7 numpy array to dataframe\n\n\nCode\nimport pandas as pd\ndf = pd.DataFrame(b, columns=['Column_A', 'Column_B', 'Column_C'])\n\ndf\n\n\n\n\n\n\n\n\n\n\nColumn_A\nColumn_B\nColumn_C\n\n\n\n\n0\n0\n2\n4\n\n\n1\n6\n8\n10\n\n\n2\n12\n14\n16",
+    "section": "2.6 count numpy.ndarray",
+    "text": "2.6 count numpy.ndarray\n\n\nCode\nimport collections, numpy\na = numpy.array([0, 3, 0, 4])\ncollections.Counter(a)\n\n\nCounter({0: 2, 3: 1, 4: 1})\n\n\n\n2.6.1 convert list into numpy array\n\n\nCode\nA = [\n  [1, 4, 5, 12], \n  [-5, 8, 9, 0],\n  [-6, 7, 11, 19],\n  [1, 4, 5, 12], \n  [-5, 8, 9, 0],\n  [-6, 7, 11, 19],\n  [1, 4, 5, 12], \n  [-5, 8, 9, 0],\n  [-6, 7, 11, 19]\n  ]\n    \nA3 = np.array(A)\n\nprint(A3)\n\n\n[[ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]\n [ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]\n [ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]]\n\n\n\n\n2.6.2 selection\n\n2.6.2.1 first 5 row\n\n\nCode\nA[:5]\n\n\n[[1, 4, 5, 12], [-5, 8, 9, 0], [-6, 7, 11, 19], [1, 4, 5, 12], [-5, 8, 9, 0]]\n\n\n\n\n2.6.2.2 lst 5 row\n\n\nCode\nA[:-5]\n\n\n[[1, 4, 5, 12], [-5, 8, 9, 0], [-6, 7, 11, 19], [1, 4, 5, 12]]\n\n\n\n\n2.6.2.3 first row\n\n\nCode\nA[0]\n\n\n[1, 4, 5, 12]\n\n\n\n\n2.6.2.4 first column\n\n\nCode\nA2[:,0]\n\n\narray([1, 3])\n\n\n\n\n2.6.2.5 first row and first column element\n\n\nCode\nA2[0,0]\n\n\n1\n\n\n\n\nCode\nA2.dtype\n\n\ndtype('int64')\n\n\n\n\n2.6.2.6 2 row and 3 column\n\n\nCode\nA2[1,2]\n\n\n5\n\n\n\n\n2.6.2.7 filter\n\n2.6.2.7.1 filter all\n\n\nCode\nprint(A3)\n\n\n[[ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]\n [ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]\n [ 1  4  5 12]\n [-5  8  9  0]\n [-6  7 11 19]]\n\n\n\n\nCode\nA3&gt;4\n\n\narray([[False, False,  True,  True],\n       [False,  True,  True, False],\n       [False,  True,  True,  True],\n       [False, False,  True,  True],\n       [False,  True,  True, False],\n       [False,  True,  True,  True],\n       [False, False,  True,  True],\n       [False,  True,  True, False],\n       [False,  True,  True,  True]])\n\n\n\n\nCode\nA3[A3&gt;4]\n\n\narray([ 5, 12,  8,  9,  7, 11, 19,  5, 12,  8,  9,  7, 11, 19,  5, 12,  8,\n        9,  7, 11, 19])\n\n\n\n\n2.6.2.7.2 filter row\n\n\nCode\nA3\n\n\narray([[ 1,  4,  5, 12],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19],\n       [ 1,  4,  5, 12],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19],\n       [ 1,  4,  5, 12],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19]])\n\n\nfilter secound column&gt;5\n\n\nCode\nfilter_val=(A3&gt;5)[:,2]\n\n\nwhich only keep 2,3 row.\n\n\nCode\nA3[filter_val,0:]\n\n\narray([[-5,  8,  9,  0],\n       [-6,  7, 11, 19],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19],\n       [-5,  8,  9,  0],\n       [-6,  7, 11, 19]])\n\n\n\n\n\n\n2.6.3 create numpy array\n\n2.6.3.1 create eye\n\n\nCode\nnp.eye(3)\n\n\narray([[1., 0., 0.],\n       [0., 1., 0.],\n       [0., 0., 1.]])\n\n\n\n\n2.6.3.2 create zero\n\n\nCode\nnp.zeros((2,3))\n\n\narray([[0., 0., 0.],\n       [0., 0., 0.]])\n\n\n\n\n2.6.3.3 create ones\n\n\nCode\nnp.ones((2,3))\n\n\narray([[1., 1., 1.],\n       [1., 1., 1.]])\n\n\n\n\n\n2.6.4 compare\n\n\nCode\n# Creating Array\na = np.array([1,2,3,4]) \nb = np.array([3,2,5,6])\n\n\n\n\nCode\n# Comparing two arrays\nnp.greater(a, b)\n\n\narray([False, False, False, False])\n\n\n\n\nCode\na &gt;= b\n\n\narray([False,  True, False, False])\n\n\n\n\nCode\n# Comparing two arrays\nnp.less(a, b)\n\n\narray([ True, False,  True,  True])\n\n\n\n\nCode\n# Comparing two arrays\nnp.equal(a, b)\n\n\narray([False,  True, False, False])\n\n\n\n\n2.6.5 reshape\n\n\nCode\na=np.arange(9).reshape(3, 3)\n\na\n\n\narray([[0, 1, 2],\n       [3, 4, 5],\n       [6, 7, 8]])\n\n\n\n\n2.6.6 calculation\n\n\nCode\nb=a*a\nb\n\n\narray([[ 0,  1,  4],\n       [ 9, 16, 25],\n       [36, 49, 64]])\n\n\n\n\nCode\nb=a+a\nb\n\n\narray([[ 0,  2,  4],\n       [ 6,  8, 10],\n       [12, 14, 16]])\n\n\n\n\n2.6.7 numpy array to dataframe\n\n\nCode\nimport pandas as pd\ndf = pd.DataFrame(b, columns=['Column_A', 'Column_B', 'Column_C'])\n\ndf\n\n\n\n\n\n\n\n\n\n\nColumn_A\nColumn_B\nColumn_C\n\n\n\n\n0\n0\n2\n4\n\n\n1\n6\n8\n10\n\n\n2\n12\n14\n16",
     "crumbs": [
       "data manipulation",
       "Data structure in Python"
@@ -7955,6 +7955,105 @@
     "crumbs": [
       "Intro",
       "Basic Python"
+    ]
+  },
+  {
+    "objectID": "data manipulation/2 data structure in Python .html#dimension",
+    "href": "data manipulation/2 data structure in Python .html#dimension",
+    "title": "Data structure in Python",
+    "section": "2.5 dimension",
+    "text": "2.5 dimension\n\n\nCode\nA2.ndim\n\n\n2",
+    "crumbs": [
+      "data manipulation",
+      "Data structure in Python"
+    ]
+  },
+  {
+    "objectID": "classification/9 break line.html",
+    "href": "classification/9 break line.html",
+    "title": "———————————————————",
+    "section": "",
+    "text": "Back to top",
+    "crumbs": [
+      "Classification",
+      "---------------------------------------------------------"
+    ]
+  },
+  {
+    "objectID": "clustering/4 Principal component analysis .html",
+    "href": "clustering/4 Principal component analysis .html",
+    "title": "Principal component analysis",
+    "section": "",
+    "text": "Principal component analysis (PCA) is a method of reducing the dimensionality of data and is used to improve data visualization and speed up machine learning model training.",
+    "crumbs": [
+      "Clustering",
+      "Principal component analysis"
+    ]
+  },
+  {
+    "objectID": "clustering/4 Principal component analysis .html#download-data",
+    "href": "clustering/4 Principal component analysis .html#download-data",
+    "title": "Principal component analysis",
+    "section": "2.1 download data",
+    "text": "2.1 download data\nhttps://www.kaggle.com/datasets/shwetabh123/mall-customer",
+    "crumbs": [
+      "Clustering",
+      "Principal component analysis"
+    ]
+  },
+  {
+    "objectID": "clustering/4 Principal component analysis .html#input-data",
+    "href": "clustering/4 Principal component analysis .html#input-data",
+    "title": "Principal component analysis",
+    "section": "2.2 input data",
+    "text": "2.2 input data\n\n\nCode\nimport pandas as pd\n\nurl = \"https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data\"\n\n# load dataset into Pandas DataFrame\ndf = pd.read_csv(url, names=['sepal length','sepal width','petal length','petal width','target'])\n\n# Showing overview of the train dataset\ndf.head()\n\n\n\n\n\n\n\n\n\n\nsepal length\nsepal width\npetal length\npetal width\ntarget\n\n\n\n\n0\n5.1\n3.5\n1.4\n0.2\nIris-setosa\n\n\n1\n4.9\n3.0\n1.4\n0.2\nIris-setosa\n\n\n2\n4.7\n3.2\n1.3\n0.2\nIris-setosa\n\n\n3\n4.6\n3.1\n1.5\n0.2\nIris-setosa\n\n\n4\n5.0\n3.6\n1.4\n0.2\nIris-setosa",
+    "crumbs": [
+      "Clustering",
+      "Principal component analysis"
+    ]
+  },
+  {
+    "objectID": "clustering/4 Principal component analysis .html#standardize-the-data",
+    "href": "clustering/4 Principal component analysis .html#standardize-the-data",
+    "title": "Principal component analysis",
+    "section": "2.3 STANDARDIZE THE DATA",
+    "text": "2.3 STANDARDIZE THE DATA\nPCA is affected by scale, so you need to scale the features in your data before applying PCA. Use StandardScaler to help you standardize the data set’s features onto unit scale (mean = 0 and variance = 1), which is a requirement for the optimal performance of many machine learning algorithms. If you don’t scale your data, it can have a negative effect on your algorithm.\n\n\nCode\nfrom sklearn.preprocessing import StandardScaler\n\nfeatures = ['sepal length', 'sepal width', 'petal length', 'petal width']\n\n# Separating out the features， dataframe to numpy array\nx_raw = df.loc[:, features].values\n\n# Separating out the target, dataframe to numpy array\ny = df.loc[:,['target']].values\n\n# Standardizing the features\nscaler = StandardScaler().fit(x_raw)\nx = scaler.fit_transform(x_raw)",
+    "crumbs": [
+      "Clustering",
+      "Principal component analysis"
+    ]
+  },
+  {
+    "objectID": "clustering/4 Principal component analysis .html#before-standardize",
+    "href": "clustering/4 Principal component analysis .html#before-standardize",
+    "title": "Principal component analysis",
+    "section": "2.4 Before STANDARDIZE",
+    "text": "2.4 Before STANDARDIZE\n\n\nCode\nx_raw[:3]\n\n\narray([[5.1, 3.5, 1.4, 0.2],\n       [4.9, 3. , 1.4, 0.2],\n       [4.7, 3.2, 1.3, 0.2]])\n\n\n\n\nCode\nnp.mean(x_raw, axis=0)\n\n\narray([5.84333333, 3.054     , 3.75866667, 1.19866667])\n\n\n\n\nCode\nnp.std(x_raw, axis=0)\n\n\narray([0.82530129, 0.43214658, 1.75852918, 0.76061262])\n\n\n\n\nCode\nx_raw_df=pd.DataFrame(x_raw, columns=features)\n\n\n\n\nCode\np=(\n    ggplot(data=x_raw_df)+aes(x='sepal length')+ geom_histogram()\n)\n\np",
+    "crumbs": [
+      "Clustering",
+      "Principal component analysis"
+    ]
+  },
+  {
+    "objectID": "clustering/4 Principal component analysis .html#after-standardize",
+    "href": "clustering/4 Principal component analysis .html#after-standardize",
+    "title": "Principal component analysis",
+    "section": "2.5 After STANDARDIZE",
+    "text": "2.5 After STANDARDIZE\n\n\nCode\nx[:3]\n\n\narray([[-0.90068117,  1.03205722, -1.3412724 , -1.31297673],\n       [-1.14301691, -0.1249576 , -1.3412724 , -1.31297673],\n       [-1.38535265,  0.33784833, -1.39813811, -1.31297673]])\n\n\n\n\nCode\nnp.mean(x, axis=0)\n\n\narray([-4.73695157e-16, -6.63173220e-16,  3.31586610e-16, -2.84217094e-16])\n\n\n\n\nCode\nnp.std(x, axis=0)\n\n\narray([1., 1., 1., 1.])\n\n\n\n\nCode\nx_df=pd.DataFrame(x, columns=features)\n\n\n\n\nCode\np=(\n    ggplot(data=x_df)+aes(x='sepal length')+ geom_histogram()\n)\n\np",
+    "crumbs": [
+      "Clustering",
+      "Principal component analysis"
+    ]
+  },
+  {
+    "objectID": "clustering/4 Principal component analysis .html#inverse-standardize.for-testing-purpose-only-have-no-impact-on-pca.",
+    "href": "clustering/4 Principal component analysis .html#inverse-standardize.for-testing-purpose-only-have-no-impact-on-pca.",
+    "title": "Principal component analysis",
+    "section": "2.6 inverse STANDARDIZE.for testing purpose only, have no impact on PCA.",
+    "text": "2.6 inverse STANDARDIZE.for testing purpose only, have no impact on PCA.\nfor testing purpose only.\n\n\nCode\nx_inverse=scaler.inverse_transform(x)\n\n\n\n\nCode\nnp.mean(x_inverse, axis=0)\n\n\narray([5.84333333, 3.054     , 3.75866667, 1.19866667])\n\n\n\n\nCode\nnp.std(x_inverse, axis=0)\n\n\narray([0.82530129, 0.43214658, 1.75852918, 0.76061262])",
+    "crumbs": [
+      "Clustering",
+      "Principal component analysis"
     ]
   }
 ]

@@ -1,0 +1,232 @@
+---
+title: "Principal component analysis "
+subtitle: "with Mall Customers Datase"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+
+Principal component analysis (PCA) is a method of reducing the dimensionality of data and is used to improve data visualization and speed up machine learning model training.
+
+
+
+
+
+
+# load package
+
+
+```{python}
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from plotnine import *
+```
+
+# data
+
+## download data
+
+https://www.kaggle.com/datasets/shwetabh123/mall-customer
+
+
+
+
+## input data
+
+```{python}
+import pandas as pd
+
+url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
+
+# load dataset into Pandas DataFrame
+df = pd.read_csv(url, names=['sepal length','sepal width','petal length','petal width','target'])
+
+# Showing overview of the train dataset
+df.head()
+```
+
+
+## STANDARDIZE THE DATA
+
+PCA is affected by scale, so you need to scale the features in your data before applying PCA. Use StandardScaler to help you standardize the data set’s features onto unit scale (mean = 0 and variance = 1), which is a requirement for the optimal performance of many machine learning algorithms. If you don’t scale your data, it can have a negative effect on your algorithm. 
+
+```{python}
+from sklearn.preprocessing import StandardScaler
+
+features = ['sepal length', 'sepal width', 'petal length', 'petal width']
+
+# Separating out the features， dataframe to numpy array
+x_raw = df.loc[:, features].values
+
+# Separating out the target, dataframe to numpy array
+y = df.loc[:,['target']].values
+
+# Standardizing the features
+scaler = StandardScaler().fit(x_raw)
+x = scaler.fit_transform(x_raw)
+
+
+```
+
+## Before STANDARDIZE
+```{python}
+x_raw[:3]
+```
+
+```{python}
+np.mean(x_raw, axis=0)
+```
+
+
+```{python}
+np.std(x_raw, axis=0)
+```
+
+
+```{python}
+x_raw_df=pd.DataFrame(x_raw, columns=features)
+```
+
+
+```{python}
+p=(
+    ggplot(data=x_raw_df)+aes(x='sepal length')+ geom_histogram()
+)
+
+p
+```
+
+
+## After STANDARDIZE
+```{python}
+x[:3]
+```
+
+```{python}
+np.mean(x, axis=0)
+```
+
+
+```{python}
+np.std(x, axis=0)
+```
+
+
+```{python}
+x_df=pd.DataFrame(x, columns=features)
+```
+
+
+```{python}
+p=(
+    ggplot(data=x_df)+aes(x='sepal length')+ geom_histogram()
+)
+
+p
+```
+
+
+## inverse STANDARDIZE.for testing purpose only, have no impact on PCA.
+
+for testing purpose only.
+
+```{python}
+x_inverse=scaler.inverse_transform(x)
+```
+
+
+```{python}
+np.mean(x_inverse, axis=0)
+```
+
+
+```{python}
+np.std(x_inverse, axis=0)
+```
+
+
+# PCA PROJECTION TO 2D
+
+```{python}
+from sklearn.decomposition import PCA
+
+# if using PCA(.95) , It means that scikit-learn chooses the minimum number of principal components such that 95 percent of the variance is retained. 
+pca = PCA(n_components=2)
+
+principalComponents = pca.fit_transform(x)
+
+principalDf = pd.DataFrame(data = principalComponents
+             , columns = ['principal component 1', 'principal component 2'])
+```
+
+
+```{python}
+finalDf = pd.concat([principalDf, df[['target']]], axis = 1)
+```
+
+```{python}
+finalDf.head()
+```
+
+```{python}
+from plotnine import *
+
+p=(
+    ggplot(data=finalDf)+aes(x='principal component 1',y='principal component 2')+ geom_point(aes(color="target"))
+)
+
+p
+```
+
+# PCA explained variance
+
+the first component have 0.72 variance and second have 0.23 variance.
+
+
+```{python}
+pca.explained_variance_ratio_
+```
+
+
+
+using 1 component have 0.72  variance
+
+using 2 component 0.958  variance
+
+using 3 component 0.99  variance
+
+using all 4 component 100%  variance
+
+```{python}
+for i in range(4):
+  i=i+1
+  print(i)
+  pca = PCA(i)
+
+  principalComponents = pca.fit_transform(x)
+  print(pca.explained_variance_ratio_)
+  print((pca.explained_variance_ratio_).sum())
+```
+
+
+
+
+# reference:
+
+https://www.youtube.com/watch?v=kApPBm1YsqU
+
+https://builtin.com/machine-learning/pca-in-python
+
