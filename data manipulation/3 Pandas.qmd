@@ -15,9 +15,10 @@ format:
 ---
 
 ![](images/Pandas_logo.svg.png){width="600"}
+
+
 pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
 built on top of the Python programming language.
-
 
 
 ```{python}
@@ -122,13 +123,13 @@ small_mtcars.rename(columns={'mpg':"new_name_mpg", 'cyl':'new_name_cyl'})
 
 small_mtcars['mpg2'] = small_mtcars['mpg']+1
 
-small_mtcars['mpg3'] = if_else(small_mtcars['mpg']> 20, "long", "short")
 
-small_mtcars['mpg4'] = small_mtcars["mpg"].case_when([
-    (small_mtcars.eval("mpg < 19"), "short"), 
-    (small_mtcars.eval("mpg <= 22"), "Medium"), 
-    (small_mtcars.eval("mpg > 22"), "long")
-])
+small_mtcars['mpg3']  = np.where(small_mtcars['mpg']> 20, "long", "short")
+
+
+small_mtcars['mpg4'] =np.where(small_mtcars["mpg"]<19, "short",
+                   np.where(small_mtcars["mpg"]<=22, "Medium",
+                   np.where(small_mtcars["mpg"]>22, "long","else")))
 
 
 small_mtcars
@@ -515,3 +516,14 @@ df_date.to_numpy()
 # Reference:
 
 https://pandas.pydata.org/docs/user_guide
+
+
+
+
+```{python}
+#| eval: false
+#| include: false
+
+this is hidding code chunk
+```
+
