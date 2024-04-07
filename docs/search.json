@@ -8215,7 +8215,7 @@
     "href": "data manipulation/5 SQL database.html#select",
     "title": "SQL database with python",
     "section": "2.1 select",
-    "text": "2.1 select\n\n\nCode\ndb = sqlite3.connect('pythonsqlite.db')\nsql=\"select * from tips\"\ntable = pd.read_sql_query(sql,db)\ntable.head()\n\n\n\n\n\n\n\n\n\n\nindex\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3\n\n\n3\n3\n23.68\n3.31\nMale\nNo\nSun\nDinner\n2\n\n\n4\n4\n24.59\n3.61\nFemale\nNo\nSun\nDinner\n4",
+    "text": "2.1 select\n\n\nCode\ndb = sqlite3.connect('pythonsqlite.db')\nsql=\"select * from tips LIMIT 3;\"\ntable = pd.read_sql_query(sql,db)\ntable\n\n\n\n\n\n\n\n\n\n\nindex\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3",
     "crumbs": [
       "data manipulation",
       "SQL database with python"
