@@ -229,7 +229,7 @@ p
 ## add title
 ```{python}
 p=(
-    ggplot(data=tips)+aes(x="tip",fill = 'sex')+ geom_histogram(position = 'dodge')+ ggtitle("tip by sex")+ scale_x_continuous(name="new x name")+ scale_y_continuous(name="new y name")
+    ggplot(data=tips)+aes(x="tip",fill = 'sex')+ geom_histogram(position = 'dodge')+ ggtitle("tip by sex")
 )
 
 p
@@ -250,7 +250,7 @@ p
 ## change x y name
 ```{python}
 p=(
-    ggplot(data=tips)+aes(x="tip",y="total_bill")+ geom_point()
+    ggplot(data=tips)+aes(x="tip",y="total_bill")+ geom_point()+ scale_x_continuous(name="new x name")+ scale_y_continuous(name="new y name")
 )
 
 p
@@ -265,6 +265,8 @@ p
 # applying themes
 
 find all build in themes in https://github.com/has2k1/plotnine/tree/main/plotnine/themes
+
+::: {.panel-tabset .nav-pills}
 
 ## xkcd
 
@@ -297,6 +299,9 @@ p=(
 
 p
 ```
+
+::: 
+
 # Save plot
 ```{python}
 

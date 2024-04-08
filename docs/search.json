@@ -3674,7 +3674,7 @@
     "href": "plot/2 plotnine.html#add-title",
     "title": "plotnine chart",
     "section": "8.1 add title",
-    "text": "8.1 add title\n\n\nCode\np=(\n    ggplot(data=tips)+aes(x=\"tip\",fill = 'sex')+ geom_histogram(position = 'dodge')+ ggtitle(\"tip by sex\")+ scale_x_continuous(name=\"new x name\")+ scale_y_continuous(name=\"new y name\")\n)\n\np",
+    "text": "8.1 add title\n\n\nCode\np=(\n    ggplot(data=tips)+aes(x=\"tip\",fill = 'sex')+ geom_histogram(position = 'dodge')+ ggtitle(\"tip by sex\")\n)\n\np",
     "crumbs": [
       "Plot",
       "plotnine chart"
@@ -5654,7 +5654,7 @@
     "href": "plot/2 plotnine.html#change-x-y-name",
     "title": "plotnine chart",
     "section": "8.3 change x y name",
-    "text": "8.3 change x y name\n\n\nCode\np=(\n    ggplot(data=tips)+aes(x=\"tip\",y=\"total_bill\")+ geom_point()\n)\n\np",
+    "text": "8.3 change x y name\n\n\nCode\np=(\n    ggplot(data=tips)+aes(x=\"tip\",y=\"total_bill\")+ geom_point()+ scale_x_continuous(name=\"new x name\")+ scale_y_continuous(name=\"new y name\")\n)\n\np",
     "crumbs": [
       "Plot",
       "plotnine chart"
