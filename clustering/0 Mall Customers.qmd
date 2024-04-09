@@ -14,11 +14,9 @@ format:
     code-block-border-left: "#31BAE9"
 ---
 
-
-
+![](images/download.png)
 
 # load package
-
 
 ```{python}
 import os
@@ -34,9 +32,6 @@ import seaborn as sns
 
 https://www.kaggle.com/datasets/shwetabh123/mall-customer
 
-
-
-
 ## input data
 
 ```{python}
@@ -48,20 +43,15 @@ df_train.head()
 
 ```
 
-
 ## data EDA
 
 ```{python}
 df_train.describe()
 ```
 
-
 ```{python}
 df_train.describe(include=[object])
 ```
-
-
-
 
 Missing Data
 
@@ -69,9 +59,7 @@ Missing Data
 df_train.isnull().sum()
 ```
 
-
-
-## feature 
+## feature
 
 ```{python}
 import sweetviz as sv
@@ -82,7 +70,4 @@ my_report = sv.analyze(df_train)
 my_report.show_notebook()
 ```
 
-
 https://www.kaggle.com/code/sangwookchn/clustering-techniques-using-scikit-learn
-
-

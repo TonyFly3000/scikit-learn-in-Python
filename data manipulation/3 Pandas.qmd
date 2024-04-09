@@ -281,12 +281,19 @@ mtcars.groupby("cyl")["hp"].max()
 ```{python}
 mtcars.groupby("cyl")["hp"].sum()
 ```
-### count
+
+### count record and count distinct record
 
 ```{python}
 
-mtcars.groupby("cyl")["cyl"].count()
+mtcars.groupby("cyl")["hp"].count()
 
+```
+
+
+```{python}
+
+mtcars.groupby("cyl")["hp"].nunique()
 ```
 
 

@@ -248,12 +248,17 @@ tbl_query = (mtcars
 
 tbl_query
 ```
-### count
+
+### count record and count distinct record
 
 ```{python}
 mtcars >> group_by(_.cyl)  >> summarize(n = _.shape[0])
 ```
 
+
+```{python}
+mtcars >> group_by(_.cyl)  >> summarize(n = _.hp.nunique())
+```
 
 
 
