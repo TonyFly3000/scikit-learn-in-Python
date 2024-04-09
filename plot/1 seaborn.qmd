@@ -225,6 +225,8 @@ ax.set(xlabel='x-axis label', ylabel='y-axis label')
 
 # applying themes
 
+::: {.panel-tabset .nav-pills}
+
 ## darkgrid themes
 
 If you set the set_style function without any arguments the "darkgrid" theme will be used by default, which adds a gray background and white grid lines.
@@ -345,7 +347,7 @@ sns.boxplot(x = "day", y = "total_bill", data = df)
 fig.tight_layout()
 plt.show()
 ```
-
+:::
 
 
 # Save plot

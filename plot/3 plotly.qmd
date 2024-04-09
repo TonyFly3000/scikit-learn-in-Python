@@ -239,6 +239,8 @@ fig.show()
 
 # applying themes:
 
+::: {.panel-tabset .nav-pills}
+
 ## ggplot2 themes
 
 ```{python}
@@ -261,7 +263,7 @@ fig = px.scatter(tips,x="tip", y="total_bill",template="plotly_dark")
 fig.show()
 ```
 
-
+:::
 
 # Save plot
 
