@@ -979,7 +979,7 @@
     "href": "plot/1 seaborn.html#color-by-group-1",
     "title": "seaborn chart",
     "section": "2.1 color by group",
-    "text": "2.1 color by group\n\n\nCode\nimport random\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndowjones2=dowjones&gt;&gt;mutate(type='old')\n\ndowjones3=dowjones&gt;&gt;mutate(Price=_.Price+random.random()*200,type='new')\n\ndowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)&gt;&gt; arrange(_.Date)\n\n\n\n\nCode\ndowjones4.head()\n\n\n\n\n\n\n\n\n\n\nDate\nPrice\ntype\n\n\n\n\n0\n1914-12-01\n55.000000\nold\n\n\n649\n1914-12-01\n175.253353\nnew\n\n\n1\n1915-01-01\n56.550000\nold\n\n\n650\n1915-01-01\n176.803353\nnew\n\n\n2\n1915-02-01\n56.000000\nold\n\n\n\n\n\n\n\n\n\n\nCode\nsns.lineplot(data=dowjones4,x='Date',y='Price',hue='type')",
+    "text": "2.1 color by group\n\n\nCode\nimport random\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndowjones2=dowjones&gt;&gt;mutate(type='old')\n\ndowjones3=dowjones&gt;&gt;mutate(Price=_.Price+random.random()*200,type='new')\n\ndowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)&gt;&gt; arrange(_.Date)\n\n\n\n\nCode\ndowjones4.head()\n\n\n\n\n\n\n\n\n\n\nDate\nPrice\ntype\n\n\n\n\n0\n1914-12-01\n55.000000\nold\n\n\n649\n1914-12-01\n140.834679\nnew\n\n\n1\n1915-01-01\n56.550000\nold\n\n\n650\n1915-01-01\n142.384679\nnew\n\n\n2\n1915-02-01\n56.000000\nold\n\n\n\n\n\n\n\n\n\n\nCode\nsns.lineplot(data=dowjones4,x='Date',y='Price',hue='type')",
     "crumbs": [
       "Plot",
       "seaborn chart"
@@ -2046,7 +2046,7 @@
     "href": "plot/3 plotly.html#color-by-group-1",
     "title": "Plotly chart",
     "section": "2.1 color by group",
-    "text": "2.1 color by group\n\n\nCode\nimport random\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndowjones2=dowjones&gt;&gt;mutate(type='old')\n\ndowjones3=dowjones&gt;&gt;mutate(Price=_.Price+random.random()*200,type='new')\n\ndowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)&gt;&gt; arrange(_.Date)\n\ndf = px.data.gapminder().query(\"continent=='Oceania'\")\n\n\n\n\nCode\ndowjones4.head()\n\n\n\n\n\n\n\n\n\n\nDate\nPrice\ntype\n\n\n\n\n0\n1914-12-01\n55.000000\nold\n\n\n649\n1914-12-01\n196.350882\nnew\n\n\n1\n1915-01-01\n56.550000\nold\n\n\n650\n1915-01-01\n197.900882\nnew\n\n\n2\n1915-02-01\n56.000000\nold\n\n\n\n\n\n\n\n\n\n\nCode\nimport plotly.express as px\n\nfig = px.line(dowjones4, x=\"Date\", y=\"Price\", color='type')\nfig.show()",
+    "text": "2.1 color by group\n\n\nCode\nimport random\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndowjones2=dowjones&gt;&gt;mutate(type='old')\n\ndowjones3=dowjones&gt;&gt;mutate(Price=_.Price+random.random()*200,type='new')\n\ndowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)&gt;&gt; arrange(_.Date)\n\ndf = px.data.gapminder().query(\"continent=='Oceania'\")\n\n\n\n\nCode\ndowjones4.head()\n\n\n\n\n\n\n\n\n\n\nDate\nPrice\ntype\n\n\n\n\n0\n1914-12-01\n55.000000\nold\n\n\n649\n1914-12-01\n174.717257\nnew\n\n\n1\n1915-01-01\n56.550000\nold\n\n\n650\n1915-01-01\n176.267257\nnew\n\n\n2\n1915-02-01\n56.000000\nold\n\n\n\n\n\n\n\n\n\n\nCode\nimport plotly.express as px\n\nfig = px.line(dowjones4, x=\"Date\", y=\"Price\", color='type')\nfig.show()",
     "crumbs": [
       "Plot",
       "Plotly chart"
@@ -6763,7 +6763,7 @@
     "href": "data manipulation/3 Pandas.html#group-by",
     "title": "Data manipulation with Pandas",
     "section": "0.8 group by",
-    "text": "0.8 group by\n\n0.8.1 average,min,max,sum\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].mean()\n\n\ncyl\n4     82.636364\n6    122.285714\n8    209.214286\nName: hp, dtype: float64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].min()\n\n\ncyl\n4     52\n6    105\n8    150\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].max()\n\n\ncyl\n4    113\n6    175\n8    335\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].sum()\n\n\ncyl\n4     909\n6     856\n8    2929\nName: hp, dtype: int64\n\n\n\n\n0.8.2 count\n\n\nCode\nmtcars.groupby(\"cyl\")[\"cyl\"].count()\n\n\ncyl\n4    11\n6     7\n8    14\nName: cyl, dtype: int64",
+    "text": "0.8 group by\n\n0.8.1 average,min,max,sum\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].mean()\n\n\ncyl\n4     82.636364\n6    122.285714\n8    209.214286\nName: hp, dtype: float64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].min()\n\n\ncyl\n4     52\n6    105\n8    150\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].max()\n\n\ncyl\n4    113\n6    175\n8    335\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].sum()\n\n\ncyl\n4     909\n6     856\n8    2929\nName: hp, dtype: int64\n\n\n\n\n0.8.2 count record and count distinct record\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].count()\n\n\ncyl\n4    11\n6     7\n8    14\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].nunique()\n\n\ncyl\n4    10\n6     4\n8     9\nName: hp, dtype: int64",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6939,7 +6939,7 @@
     "href": "data manipulation/4 siuba.html#group-by",
     "title": "Data manipulation with siuba",
     "section": "10 group by",
-    "text": "10 group by\n\n10.1 average,min,max,sum\n\n\nCode\ntbl_query = (mtcars\n  &gt;&gt; group_by(_.cyl)\n  &gt;&gt; summarize(avg_hp = _.hp.mean()\n              ,min_hp=_.hp.min()\n              ,max_hp=_.hp.max()\n              ,totol_disp=_.disp.sum()\n  )\n  )\n\ntbl_query\n\n\n\n\n\n\n\n\n\n\ncyl\navg_hp\nmin_hp\nmax_hp\ntotol_disp\n\n\n\n\n0\n4\n82.636364\n52\n113\n1156.5\n\n\n1\n6\n122.285714\n105\n175\n1283.2\n\n\n2\n8\n209.214286\n150\n335\n4943.4\n\n\n\n\n\n\n\n\n\n\n10.2 count\n\n\nCode\nmtcars &gt;&gt; group_by(_.cyl)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\ncyl\nn\n\n\n\n\n0\n4\n11\n\n\n1\n6\n7\n\n\n2\n8\n14",
+    "text": "10 group by\n\n10.1 average,min,max,sum\n\n\nCode\ntbl_query = (mtcars\n  &gt;&gt; group_by(_.cyl)\n  &gt;&gt; summarize(avg_hp = _.hp.mean()\n              ,min_hp=_.hp.min()\n              ,max_hp=_.hp.max()\n              ,totol_disp=_.disp.sum()\n  )\n  )\n\ntbl_query\n\n\n\n\n\n\n\n\n\n\ncyl\navg_hp\nmin_hp\nmax_hp\ntotol_disp\n\n\n\n\n0\n4\n82.636364\n52\n113\n1156.5\n\n\n1\n6\n122.285714\n105\n175\n1283.2\n\n\n2\n8\n209.214286\n150\n335\n4943.4\n\n\n\n\n\n\n\n\n\n\n10.2 count record and count distinct record\n\n\nCode\nmtcars &gt;&gt; group_by(_.cyl)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\ncyl\nn\n\n\n\n\n0\n4\n11\n\n\n1\n6\n7\n\n\n2\n8\n14\n\n\n\n\n\n\n\n\n\n\nCode\nmtcars &gt;&gt; group_by(_.cyl)  &gt;&gt; summarize(n = _.hp.nunique())\n\n\n\n\n\n\n\n\n\n\ncyl\nn\n\n\n\n\n0\n4\n10\n\n\n1\n6\n4\n\n\n2\n8\n9",
     "crumbs": [
       "data manipulation",
       "Data manipulation with siuba"

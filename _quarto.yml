@@ -70,7 +70,7 @@ website:
 
 
     - id: bar2
-      title: "model type"
+      title: "Model type"
       style: "floating"
       background: light
       collapse-level: 2
