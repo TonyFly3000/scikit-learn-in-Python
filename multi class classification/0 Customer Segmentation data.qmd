@@ -14,7 +14,7 @@ format:
     code-block-border-left: "#31BAE9"
 ---
 
-![](https://storage.googleapis.com/kaggle-datasets-images/848479/1447480/9c047f69e899ecf0c89b9e0ad15dd8bf/dataset-cover.jpg?t=2020-09-10-12-15-22)
+![](images/dataset-cover.jpg)
 
 # load package
 
@@ -81,10 +81,6 @@ df_train >> group_by(_.Segmentation)  >> summarize(n = _.shape[0])
 
 ```
 
-
-
-
-
 ```{python}
 import sweetviz as sv
 my_report = sv.analyze(df_train)
@@ -100,15 +96,12 @@ my_report.show_notebook()
 sns.countplot(data=df_train,x='Segmentation',hue='Gender')
 ```
 
-
 ```{python}
 
 pd.crosstab(df_train['Segmentation'],df_train['Gender'], normalize='index').plot.bar(stacked=True)
 ```
 
 ## compare train data and test data
-
-
 
 ```{python}
 compare = sv.compare(source=df_train, compare=df_test)
@@ -121,4 +114,3 @@ compare.show_notebook()
 ## data dictionary
 
 # reference:
-
