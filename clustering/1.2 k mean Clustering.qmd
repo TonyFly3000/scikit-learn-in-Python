@@ -15,6 +15,7 @@ format:
     code-block-border-left: "#31BAE9"
 ---
 
+
 Using K mean Clustering to replace colow on below picture
 
 

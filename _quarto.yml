@@ -37,6 +37,7 @@ website:
       - sidebar:bar2
       - sidebar:bar3   
       - sidebar:bar3b  
+      - sidebar:bar3c
       - sidebar:bar4
       - sidebar:bar5
 
@@ -90,6 +91,13 @@ website:
       background: light
       collapse-level: 2
       contents: classification2
+
+    - id: bar3c
+      title: "Multi classification"
+      style: "floating"
+      background: light
+      collapse-level: 2
+      contents: multi class classification      
 
     - id: bar4
       title: "Regression"

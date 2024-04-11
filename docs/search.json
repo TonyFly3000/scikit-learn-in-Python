@@ -8374,5 +8374,412 @@
       "Intro",
       "Basic Python"
     ]
+  },
+  {
+    "objectID": "multi class classification/0 Customer Segmentation data.html#download-data",
+    "href": "multi class classification/0 Customer Segmentation data.html#download-data",
+    "title": "Customer Segmentation Dataset",
+    "section": "2.1 download data",
+    "text": "2.1 download data\nhttps://www.kaggle.com/datasets/vetrirah/customer\n\n\nCode\nimport pandas as pd\n\ndf_train=pd.read_csv('data/Train.csv')\n\ndf_test=pd.read_csv('data/Test.csv')\n\n\n\n\nCode\ndf_train.head()\n\n\n\n\n\n\n\n\n\n\nID\nGender\nEver_Married\nAge\nGraduated\nProfession\nWork_Experience\nSpending_Score\nFamily_Size\nVar_1\nSegmentation\n\n\n\n\n0\n462809\nMale\nNo\n22\nNo\nHealthcare\n1.0\nLow\n4.0\nCat_4\nD\n\n\n1\n462643\nFemale\nYes\n38\nYes\nEngineer\nNaN\nAverage\n3.0\nCat_4\nA\n\n\n2\n466315\nFemale\nYes\n67\nYes\nEngineer\n1.0\nLow\n1.0\nCat_6\nB\n\n\n3\n461735\nMale\nYes\n67\nYes\nLawyer\n0.0\nHigh\n2.0\nCat_6\nB\n\n\n4\n462669\nFemale\nYes\n40\nYes\nEntertainment\nNaN\nHigh\n6.0\nCat_6\nA",
+    "crumbs": [
+      "multi class classification",
+      "Customer Segmentation Dataset"
+    ]
+  },
+  {
+    "objectID": "multi class classification/0 Customer Segmentation data.html#data-eda",
+    "href": "multi class classification/0 Customer Segmentation data.html#data-eda",
+    "title": "Customer Segmentation Dataset",
+    "section": "2.2 data EDA",
+    "text": "2.2 data EDA\n\n\nCode\ndf_train.describe()\n\n\n\n\n\n\n\n\n\n\nID\nAge\nWork_Experience\nFamily_Size\n\n\n\n\ncount\n8068.000000\n8068.000000\n7239.000000\n7733.000000\n\n\nmean\n463479.214551\n43.466906\n2.641663\n2.850123\n\n\nstd\n2595.381232\n16.711696\n3.406763\n1.531413\n\n\nmin\n458982.000000\n18.000000\n0.000000\n1.000000\n\n\n25%\n461240.750000\n30.000000\n0.000000\n2.000000\n\n\n50%\n463472.500000\n40.000000\n1.000000\n3.000000\n\n\n75%\n465744.250000\n53.000000\n4.000000\n4.000000\n\n\nmax\n467974.000000\n89.000000\n14.000000\n9.000000\n\n\n\n\n\n\n\n\n\n\nCode\ndf_train.describe(include=[object])\n\n\n\n\n\n\n\n\n\n\nGender\nEver_Married\nGraduated\nProfession\nSpending_Score\nVar_1\nSegmentation\n\n\n\n\ncount\n8068\n7928\n7990\n7944\n8068\n7992\n8068\n\n\nunique\n2\n2\n2\n9\n3\n7\n4\n\n\ntop\nMale\nYes\nYes\nArtist\nLow\nCat_6\nD\n\n\nfreq\n4417\n4643\n4968\n2516\n4878\n5238\n2268\n\n\n\n\n\n\n\n\nMissing Data\n\n\nCode\ndf_train.isnull().sum()\n\n\nID                   0\nGender               0\nEver_Married       140\nAge                  0\nGraduated           78\nProfession         124\nWork_Experience    829\nSpending_Score       0\nFamily_Size        335\nVar_1               76\nSegmentation         0\ndtype: int64\n\n\n\n\nCode\nimport math\n\nfrom siuba.siu import call\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndf_train &gt;&gt; group_by(_.Segmentation)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\nSegmentation\nn\n\n\n\n\n0\nA\n1972\n\n\n1\nB\n1858\n\n\n2\nC\n1970\n\n\n3\nD\n2268\n\n\n\n\n\n\n\n\n\n\nCode\nimport sweetviz as sv\nmy_report = sv.analyze(df_train)\n\n\n\n\n\n\n\nCode\nmy_report.show_notebook()",
+    "crumbs": [
+      "multi class classification",
+      "Customer Segmentation Dataset"
+    ]
+  },
+  {
+    "objectID": "multi class classification/0 Customer Segmentation data.html#feature-vs-target",
+    "href": "multi class classification/0 Customer Segmentation data.html#feature-vs-target",
+    "title": "Customer Segmentation Dataset",
+    "section": "2.3 feature vs target",
+    "text": "2.3 feature vs target\n\n\nCode\nsns.countplot(data=df_train,x='Segmentation',hue='Gender')\n\n\n\n\n\n\n\n\n\n\n\nCode\npd.crosstab(df_train['Segmentation'],df_train['Gender'], normalize='index').plot.bar(stacked=True)",
+    "crumbs": [
+      "multi class classification",
+      "Customer Segmentation Dataset"
+    ]
+  },
+  {
+    "objectID": "multi class classification/0 Customer Segmentation data.html#compare-train-data-and-test-data",
+    "href": "multi class classification/0 Customer Segmentation data.html#compare-train-data-and-test-data",
+    "title": "Customer Segmentation Dataset",
+    "section": "2.4 compare train data and test data",
+    "text": "2.4 compare train data and test data\n\n\nCode\ncompare = sv.compare(source=df_train, compare=df_test)\n\n\n\n\n\n\n\nCode\ncompare.show_notebook()",
+    "crumbs": [
+      "multi class classification",
+      "Customer Segmentation Dataset"
+    ]
+  },
+  {
+    "objectID": "multi class classification/0 Customer Segmentation data.html#data-dictionary",
+    "href": "multi class classification/0 Customer Segmentation data.html#data-dictionary",
+    "title": "Customer Segmentation Dataset",
+    "section": "2.5 data dictionary",
+    "text": "2.5 data dictionary",
+    "crumbs": [
+      "multi class classification",
+      "Customer Segmentation Dataset"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html",
+    "href": "multi class classification/multi class classification.html",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "",
+    "text": "Since we have enough rare class data(at least 1K).Let handle imbalanced data with down sample before training.",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#download-data",
+    "href": "multi class classification/multi class classification.html#download-data",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.1 download data",
+    "text": "2.1 download data\nhttps://www.kaggle.com/datasets/vetrirah/customer\n\n\nCode\nimport pandas as pd\n\ndf_tran_raw=pd.read_csv('data/Train.csv')\n\ndf_test_raw=pd.read_csv('data/Test.csv')",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#data-eda",
+    "href": "multi class classification/multi class classification.html#data-eda",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.2 data EDA",
+    "text": "2.2 data EDA",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#data-wrangling",
+    "href": "multi class classification/multi class classification.html#data-wrangling",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.3 Data Wrangling",
+    "text": "2.3 Data Wrangling\n\n\nCode\ndf_tran_raw.head()\n\n\n\n\nCode\ndf_train=df_tran_raw.drop('ID', axis=1)\n\n\n\n\nCode\ndf_test=df_test_raw.drop('ID', axis=1)\n\n\n\n\nCode\ndf_train.head()\n\n\n\n\nCode\ndf_train &gt;&gt; group_by(_.Segmentation)  &gt;&gt; summarize(n = _.shape[0])",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#categorical_cols-and-numerical_cols",
+    "href": "multi class classification/multi class classification.html#categorical_cols-and-numerical_cols",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.5 categorical_cols and numerical_cols",
+    "text": "2.5 categorical_cols and numerical_cols\n\n\nCode\ncategorical_cols = [cname for cname in X_train \n                    if X_train[cname].nunique() &lt; 10 and X_train[cname].dtype == \"object\"]\n                    \n                    \nnumerical_cols = numerical_cols = [cname for cname in X_train \n                    if X_train[cname].dtype in ['int64', 'float64']]\n\n\n\n\nCode\nprint(\"The total number of categorical columns:\", len(categorical_cols))\nprint(\"The total number of numerical columns:\", len(numerical_cols))\n\n\n\n\nCode\nmy_cols = categorical_cols + numerical_cols\nX_train = X_train[my_cols].copy()\nX_val = X_val[my_cols].copy()\nX_test= X_test[my_cols].copy()\n\nmy_cols\n#X_final = df_test[my_cols].copy()",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#split-data",
+    "href": "multi class classification/multi class classification.html#split-data",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.4 split data",
+    "text": "2.4 split data\n80% training / 10% validation/ 10% testing\n\n\n\nCode\nY=df_train['Segmentation']\nX=df_train.drop('Segmentation', axis=1)\n\n\nfrom sklearn.preprocessing import LabelEncoder\nle = LabelEncoder()\nY = le.fit_transform(Y)\n\n\n\n\nCode\nimport collections, numpy\ncollections.Counter(Y)\n\n\ninverse_transform for testing only\n\n\nCode\ninv = le.inverse_transform(Y)\n\n\n\n\nCode\nimport collections, numpy\ncollections.Counter(inv)\n\n\n\n\nCode\ntraining_size=0.8\nvalidation_size=0.1\ntesting_size=0.1\n\n\n\nX_train, X_val, Y_train, Y_val= train_test_split(X, Y, test_size=validation_size, random_state=1)\n\nX_train, X_test, Y_train, Y_test= train_test_split(X_train, Y_train, test_size=testing_size/training_size, random_state=1) \n\n\n\n\nCode\nX_train.shape\n\n\n\n\nCode\nY_train.shape\n\n\n\n\nCode\nlen(X_train)/(len(X_train) +len(X_val) +len(X_test) )\n\n\n\n\nCode\nlen(X_val)/(len(X_train) +len(X_val) +len(X_test) )\n\n\n\n\nCode\nlen(X_test)/(len(X_train) +len(X_val) +len(X_test) )",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#categorical_cols-and-numerical_cols-1",
+    "href": "multi class classification/multi class classification.html#categorical_cols-and-numerical_cols-1",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.6 categorical_cols and numerical_cols",
+    "text": "2.6 categorical_cols and numerical_cols\n\n\nCode\ncategorical_cols = [cname for cname in X_train.columns \n                    if X_train[cname].nunique() &lt; 10 and X_train[cname].dtype == \"object\"]\n                    \n                    \nnumerical_cols = numerical_cols = [cname for cname in X_train.columns \n                    if X_train[cname].dtype in ['int64', 'float64']]\n\n\n\n\nCode\nprint(\"The total number of categorical columns:\", len(categorical_cols))\nprint(\"The total number of numerical columns:\", len(numerical_cols))\n\n\n\n\nCode\nmy_cols = categorical_cols + numerical_cols\nX_train_resample = X_train_resample[my_cols].copy()\nX_val = X_val[my_cols].copy()\nX_test= X_test[my_cols].copy()\n\nmy_cols\n#X_final = df_test[my_cols].copy()",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#pipelines-for-data-preprocessing",
+    "href": "multi class classification/multi class classification.html#pipelines-for-data-preprocessing",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.6 Pipelines for Data Preprocessing",
+    "text": "2.6 Pipelines for Data Preprocessing\n\n\nCode\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.impute import SimpleImputer\nfrom sklearn.preprocessing import StandardScaler\n\n\n\n2.6.1 numerical_transformer\n\n\nCode\nnumerical_transformer = Pipeline(steps=[\n    ('imputer_num', SimpleImputer(strategy='median')), \n    ('scaler', StandardScaler())\n])\n\n\n\n\n2.6.2 categorical_transformer\n\n\nCode\nfrom sklearn.preprocessing import OneHotEncoder\n\ncategorical_transformer = Pipeline(steps=[\n    ('imputer_cat', SimpleImputer(strategy='most_frequent')),\n    ('onehot', OneHotEncoder(handle_unknown='ignore'))\n])\n\n\n\n\nCode\nfrom sklearn.compose import ColumnTransformer\n\npreprocessor = ColumnTransformer(transformers=[\n    ('num', numerical_transformer, numerical_cols),\n    ('cat', categorical_transformer, categorical_cols)])",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#define-model",
+    "href": "multi class classification/multi class classification.html#define-model",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.1 define model",
+    "text": "3.1 define model\n\n3.1.1 XGB model\n\n\nCode\nimport xgboost\nprint(xgboost.__version__)\n\n\nSince its multi calss classification so add objective='multi:softmax'\n\n\nCode\nfrom xgboost import XGBClassifier\nxgb_model = XGBClassifier(objective='multi:softprob',num_class=4)\nxgb_model\n\n\n\n\n3.1.2 Random Forest model\n\n\nCode\nfrom sklearn.ensemble import RandomForestClassifier\nrandom_forest_model = RandomForestClassifier()\nrandom_forest_model\n\n\n\n\n3.1.3 Logistic Regression model\n\n\nCode\nfrom sklearn.linear_model import LogisticRegression\nLogisticRegression_model = LogisticRegression(solver='liblinear')\nLogisticRegression_model",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#define-pipline",
+    "href": "multi class classification/multi class classification.html#define-pipline",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.2 define pipline",
+    "text": "3.2 define pipline\n\n\nCode\npipeline_xgb = Pipeline(\n  steps=[\n         ('preprocessor', preprocessor), \n         ('model', xgb_model)\n         ]\n)\n\npipeline_rf = Pipeline(\n  steps=[\n         ('preprocessor', preprocessor), \n         ('model', random_forest_model)\n         ]\n)\n\npipeline_lr = Pipeline(\n  steps=[\n         ('preprocessor', preprocessor), \n         ('model', LogisticRegression_model)\n         ]\n)",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#define-gridsearch",
+    "href": "multi class classification/multi class classification.html#define-gridsearch",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.3 define GridSearch",
+    "text": "3.3 define GridSearch\n\n\nCode\nparameters_xgb= {\n        'model__learning_rate': [0.01, 0.02,0.08,0.1],\n        'model__max_depth': [3, 5, 7,8,9,10],\n        'model__min_child_weight': [1, 3,5,8],\n        'model__subsample': [0.5, 0.7,0.9],\n        \n       # 'model__colsample__bytree': [0.5, 0.7],\n       \n        'model__n_estimators' : [100, 200],\n        'model__objective': ['reg:squarederror']\n    }\n\n\nGrid_xgb = HalvingGridSearchCV(pipeline_xgb\n                ,parameters_xgb \n                #,scoring='merror'\n                ,max_resources=100\n                , cv=10, n_jobs=-1)\n                \n                \nparameters_rf = {'model__max_depth':[20,30,40],\n                 'model__n_estimators':[200,250],\n                 'model__min_samples_leaf':[1,2,3]\n                 }                \n                \n\nGrid_rf = HalvingGridSearchCV(pipeline_rf\n                ,parameters_rf\n                #,scoring='merror'\n                ,max_resources=100\n                , cv=10, n_jobs=-1)",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#train-model",
+    "href": "multi class classification/multi class classification.html#train-model",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.4 train model",
+    "text": "3.4 train model\n\n\nCode\nstart_time = time.time()\n\n\nGrids = [Grid_xgb, Grid_rf,pipeline_xgb,pipeline_rf,pipeline_lr]\n\n\n\nfor Grid in Grids:\n    Grid.fit(X_train,Y_train)\n\n\nend_time = time.time()\nduration = end_time - start_time\nduration\n\nprint(\"trainning time:\",duration)",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#preformance",
+    "href": "multi class classification/multi class classification.html#preformance",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.5 Preformance",
+    "text": "3.5 Preformance\n\n3.5.1 dummy Preformance\n\n3.5.1.1 dummy 1 : there are 3 class, so each class random 33.33%\n\n\nCode\nimport random\nfrom array import array\n\nmylist = []\n\nfor i in range(0,len(Y_test)):\n    x = random.randrange(0, 4)\n    mylist.append(x)\n    \nY_dummy1=numpy.array(mylist)\n\n\n\n\nCode\nimport collections, numpy\nc=collections.Counter(Y_dummy1)\ndf = pd.DataFrame.from_records(list(dict(c).items()), columns=['class','count']).sort_values('class')\ndf\n\n\n\n\nCode\nprint(classification_report(le.inverse_transform(Y_test), le.inverse_transform(Y_dummy1)))\n\n\n\n\n3.5.1.2 dummy 2 : there are 3 class, random assign to each share:\neach class in Y_test\n\n\nCode\nimport collections, numpy\nc=collections.Counter(Y_test)\ndf = pd.DataFrame.from_records(list(dict(c).items()), columns=['class','count']).sort_values('class')\ndf\n\n\n\n\nCode\nimport random\nY_dummy2=numpy.array(random.choices([0, 1, 2,3], [218/sum(Y_test), 208/sum(Y_test), 218/sum(Y_test),264/sum(Y_test)], k=len(Y_test)))\n\n\n\n\nCode\nimport collections, numpy\nc=collections.Counter(Y_dummy2)\ndf = pd.DataFrame.from_records(list(dict(c).items()), columns=['class','count']).sort_values('class')\ndf\n\n\n\n\nCode\nprint(classification_report(le.inverse_transform(Y_test), le.inverse_transform(Y_dummy2)))\n\n\n\n\n\n3.5.2 model Preformance\n\n\nCode\ngrid_dict = {0: 'XGB', 1: 'random forest', 2: 'XGB non tune',3: 'ramdon forest non tune',4:'Logistic regression non tune' }\n\nfor i, model in enumerate(Grids):\n    print('{} Test Accuracy: {}'.format(grid_dict[i],\n    model.score(X_test,Y_test)))\n    #print('{} Best Params: {}'.format(grid_dict[i], model.best_params_))\n\n\n\n\nCode\nbest_ml=Grid_xgb.best_estimator_\n\n\n\n\nCode\ntype(best_ml)\n\n\n\n\n3.5.3 model feature importances\n\n\nCode\nvi=best_ml.steps[1][1].feature_importances_\nvi\n\n\n\n\nCode\n## get pipeline feature names\nvar_name=best_ml[:-1].get_feature_names_out()\n\n\n\n\nCode\ndataset = pd.DataFrame({'feature': var_name, 'importances': vi}, columns=['feature', 'importances']).sort_values('importances',ascending=False)\ndataset\n\n\n\n\nCode\n#Using predict method to test the model\nY_pred_dt = best_ml.predict(X_test) #always gets x and retuns y\n#Y_pred_dt\n\n\n\n\nCode\nfrom sklearn.metrics import classification_report\nprint(classification_report(Y_test, Y_pred_dt))\n\n\nreverse target label back to A B C D\n\n\nCode\nfrom sklearn.metrics import classification_report\nprint(classification_report(le.inverse_transform(Y_test), le.inverse_transform(Y_pred_dt)))",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#k-fold-cross-validation",
+    "href": "multi class classification/multi class classification.html#k-fold-cross-validation",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.6 k-Fold Cross-Validation",
+    "text": "3.6 k-Fold Cross-Validation\n\n\nCode\nimport numpy as np\nfrom sklearn.model_selection import KFold\nfrom sklearn.model_selection import cross_val_score\n\n\n\n\nCode\nkf_dt = KFold(n_splits=5,shuffle=True)  \ncv_dt = cross_val_score(pipeline_xgb, X_train, Y_train, cv=kf_dt)\nnp.mean(cv_dt)",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#save-model",
+    "href": "multi class classification/multi class classification.html#save-model",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.6 save model",
+    "text": "3.6 save model\n\n\nCode\nfrom joblib import dump, load\ndump(Grid_xgb, 'trained_grid_multi_calss.joblib', compress=True)",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#load-model",
+    "href": "multi class classification/multi class classification.html#load-model",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.7 load model",
+    "text": "3.7 load model\n\n\nCode\nmodel_reload = load('trained_grid_multi_calss.joblib') \n\n\n\n\nCode\nbest_ml=model_reload.best_estimator_",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/multi class classification.html#final-prediction",
+    "href": "multi class classification/multi class classification.html#final-prediction",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.8 final prediction",
+    "text": "3.8 final prediction\n\n\nCode\nY_pred_dt_final =best_ml.predict(X_val) #always gets x and retuns y\n\n\nY_pred_dt_final_lable=le.inverse_transform(Y_pred_dt_final)\nY_pred_dt_final_lable[0:5]\n\n\n\n\nCode\nimport collections, numpy\nc=collections.Counter(Y_pred_dt_final_lable)\ndf = pd.DataFrame.from_records(list(dict(c).items()), columns=['class','count']).sort_values('class')\ndf",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html",
+    "href": "multi class classification/2 multi class classification.html",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "",
+    "text": "Since we have enough rare class data(at least 1K).Let handle imbalanced data with down sample before training.",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#download-data",
+    "href": "multi class classification/2 multi class classification.html#download-data",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.1 download data",
+    "text": "2.1 download data\nhttps://www.kaggle.com/datasets/vetrirah/customer\n\n\nCode\nimport pandas as pd\n\ndf_tran_raw=pd.read_csv('data/Train.csv')\n\ndf_test_raw=pd.read_csv('data/Test.csv')",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#data-eda",
+    "href": "multi class classification/2 multi class classification.html#data-eda",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.2 data EDA",
+    "text": "2.2 data EDA",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#data-wrangling",
+    "href": "multi class classification/2 multi class classification.html#data-wrangling",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.3 Data Wrangling",
+    "text": "2.3 Data Wrangling\n\n\nCode\ndf_tran_raw.head()\n\n\n\n\n\n\n\n\n\n\nID\nGender\nEver_Married\nAge\nGraduated\nProfession\nWork_Experience\nSpending_Score\nFamily_Size\nVar_1\nSegmentation\n\n\n\n\n0\n462809\nMale\nNo\n22\nNo\nHealthcare\n1.0\nLow\n4.0\nCat_4\nD\n\n\n1\n462643\nFemale\nYes\n38\nYes\nEngineer\nNaN\nAverage\n3.0\nCat_4\nA\n\n\n2\n466315\nFemale\nYes\n67\nYes\nEngineer\n1.0\nLow\n1.0\nCat_6\nB\n\n\n3\n461735\nMale\nYes\n67\nYes\nLawyer\n0.0\nHigh\n2.0\nCat_6\nB\n\n\n4\n462669\nFemale\nYes\n40\nYes\nEntertainment\nNaN\nHigh\n6.0\nCat_6\nA\n\n\n\n\n\n\n\n\n\n\nCode\ndf_train=df_tran_raw.drop('ID', axis=1)\n\n\n\n\nCode\ndf_test=df_test_raw.drop('ID', axis=1)\n\n\n\n\nCode\ndf_train.head()\n\n\n\n\n\n\n\n\n\n\nGender\nEver_Married\nAge\nGraduated\nProfession\nWork_Experience\nSpending_Score\nFamily_Size\nVar_1\nSegmentation\n\n\n\n\n0\nMale\nNo\n22\nNo\nHealthcare\n1.0\nLow\n4.0\nCat_4\nD\n\n\n1\nFemale\nYes\n38\nYes\nEngineer\nNaN\nAverage\n3.0\nCat_4\nA\n\n\n2\nFemale\nYes\n67\nYes\nEngineer\n1.0\nLow\n1.0\nCat_6\nB\n\n\n3\nMale\nYes\n67\nYes\nLawyer\n0.0\nHigh\n2.0\nCat_6\nB\n\n\n4\nFemale\nYes\n40\nYes\nEntertainment\nNaN\nHigh\n6.0\nCat_6\nA\n\n\n\n\n\n\n\n\n\n\nCode\ndf_train &gt;&gt; group_by(_.Segmentation)  &gt;&gt; summarize(n = _.shape[0])\n\n\n\n\n\n\n\n\n\n\nSegmentation\nn\n\n\n\n\n0\nA\n1972\n\n\n1\nB\n1858\n\n\n2\nC\n1970\n\n\n3\nD\n2268",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#split-data",
+    "href": "multi class classification/2 multi class classification.html#split-data",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.4 split data",
+    "text": "2.4 split data\n80% training / 10% validation/ 10% testing\n\n\n\nCode\nY=df_train['Segmentation']\nX=df_train.drop('Segmentation', axis=1)\n\n\nfrom sklearn.preprocessing import LabelEncoder\nle = LabelEncoder()\nY = le.fit_transform(Y)\n\n\n\n\nCode\nimport collections, numpy\ncollections.Counter(Y)\n\n\nCounter({3: 2268, 0: 1972, 2: 1970, 1: 1858})\n\n\ninverse_transform for testing only\n\n\nCode\ninv = le.inverse_transform(Y)\n\n\n\n\nCode\nimport collections, numpy\ncollections.Counter(inv)\n\n\nCounter({'D': 2268, 'A': 1972, 'C': 1970, 'B': 1858})\n\n\n\n\nCode\ntraining_size=0.8\nvalidation_size=0.1\ntesting_size=0.1\n\n\n\nX_train, X_val, Y_train, Y_val= train_test_split(X, Y, test_size=validation_size, random_state=1)\n\nX_train, X_test, Y_train, Y_test= train_test_split(X_train, Y_train, test_size=testing_size/training_size, random_state=1) \n\n\n\n\nCode\nX_train.shape\n\n\n(6353, 9)\n\n\n\n\nCode\nY_train.shape\n\n\n(6353,)\n\n\n\n\nCode\nlen(X_train)/(len(X_train) +len(X_val) +len(X_test) )\n\n\n0.7874318294496777\n\n\n\n\nCode\nlen(X_val)/(len(X_train) +len(X_val) +len(X_test) )\n\n\n0.10002478929102628\n\n\n\n\nCode\nlen(X_test)/(len(X_train) +len(X_val) +len(X_test) )\n\n\n0.11254338125929599",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#categorical_cols-and-numerical_cols",
+    "href": "multi class classification/2 multi class classification.html#categorical_cols-and-numerical_cols",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.5 categorical_cols and numerical_cols",
+    "text": "2.5 categorical_cols and numerical_cols\n\n\nCode\ncategorical_cols = [cname for cname in X_train \n                    if X_train[cname].nunique() &lt; 10 and X_train[cname].dtype == \"object\"]\n                    \n                    \nnumerical_cols = numerical_cols = [cname for cname in X_train \n                    if X_train[cname].dtype in ['int64', 'float64']]\n\n\n\n\nCode\nprint(\"The total number of categorical columns:\", len(categorical_cols))\nprint(\"The total number of numerical columns:\", len(numerical_cols))\n\n\nThe total number of categorical columns: 6\nThe total number of numerical columns: 3\n\n\n\n\nCode\nmy_cols = categorical_cols + numerical_cols\nX_train = X_train[my_cols].copy()\nX_val = X_val[my_cols].copy()\nX_test= X_test[my_cols].copy()\n\nmy_cols\n#X_final = df_test[my_cols].copy()\n\n\n['Gender',\n 'Ever_Married',\n 'Graduated',\n 'Profession',\n 'Spending_Score',\n 'Var_1',\n 'Age',\n 'Work_Experience',\n 'Family_Size']",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#pipelines-for-data-preprocessing",
+    "href": "multi class classification/2 multi class classification.html#pipelines-for-data-preprocessing",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "2.6 Pipelines for Data Preprocessing",
+    "text": "2.6 Pipelines for Data Preprocessing\n\n\nCode\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.impute import SimpleImputer\nfrom sklearn.preprocessing import StandardScaler\n\n\n\n2.6.1 numerical_transformer\n\n\nCode\nnumerical_transformer = Pipeline(steps=[\n    ('imputer_num', SimpleImputer(strategy='median')), \n    ('scaler', StandardScaler())\n])\n\n\n\n\n2.6.2 categorical_transformer\n\n\nCode\nfrom sklearn.preprocessing import OneHotEncoder\n\ncategorical_transformer = Pipeline(steps=[\n    ('imputer_cat', SimpleImputer(strategy='most_frequent')),\n    ('onehot', OneHotEncoder(handle_unknown='ignore'))\n])\n\n\n\n\nCode\nfrom sklearn.compose import ColumnTransformer\n\npreprocessor = ColumnTransformer(transformers=[\n    ('num', numerical_transformer, numerical_cols),\n    ('cat', categorical_transformer, categorical_cols)])",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#define-model",
+    "href": "multi class classification/2 multi class classification.html#define-model",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.1 define model",
+    "text": "3.1 define model\n\n3.1.1 XGB model\n\n\nCode\nimport xgboost\nprint(xgboost.__version__)\n\n\n2.0.3\n\n\nSince its multi calss classification so add objective='multi:softmax'\n\n\nCode\nfrom xgboost import XGBClassifier\nxgb_model = XGBClassifier(objective='multi:softprob',num_class=4)\nxgb_model\n\n\nXGBClassifier(base_score=None, booster=None, callbacks=None,\n              colsample_bylevel=None, colsample_bynode=None,\n              colsample_bytree=None, device=None, early_stopping_rounds=None,\n              enable_categorical=False, eval_metric=None, feature_types=None,\n              gamma=None, grow_policy=None, importance_type=None,\n              interaction_constraints=None, learning_rate=None, max_bin=None,\n              max_cat_threshold=None, max_cat_to_onehot=None,\n              max_delta_step=None, max_depth=None, max_leaves=None,\n              min_child_weight=None, missing=nan, monotone_constraints=None,\n              multi_strategy=None, n_estimators=None, n_jobs=None, num_class=4,\n              num_parallel_tree=None, ...)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org. XGBClassifieriNot fittedXGBClassifier(base_score=None, booster=None, callbacks=None,\n              colsample_bylevel=None, colsample_bynode=None,\n              colsample_bytree=None, device=None, early_stopping_rounds=None,\n              enable_categorical=False, eval_metric=None, feature_types=None,\n              gamma=None, grow_policy=None, importance_type=None,\n              interaction_constraints=None, learning_rate=None, max_bin=None,\n              max_cat_threshold=None, max_cat_to_onehot=None,\n              max_delta_step=None, max_depth=None, max_leaves=None,\n              min_child_weight=None, missing=nan, monotone_constraints=None,\n              multi_strategy=None, n_estimators=None, n_jobs=None, num_class=4,\n              num_parallel_tree=None, ...) \n\n\n\n\n3.1.2 Random Forest model\n\n\nCode\nfrom sklearn.ensemble import RandomForestClassifier\nrandom_forest_model = RandomForestClassifier()\nrandom_forest_model\n\n\nRandomForestClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  RandomForestClassifier?Documentation for RandomForestClassifieriNot fittedRandomForestClassifier() \n\n\n\n\n3.1.3 Logistic Regression model\n\n\nCode\nfrom sklearn.linear_model import LogisticRegression\nLogisticRegression_model = LogisticRegression(solver='liblinear')\nLogisticRegression_model\n\n\nLogisticRegression(solver='liblinear')In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  LogisticRegression?Documentation for LogisticRegressioniNot fittedLogisticRegression(solver='liblinear')",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#define-pipline",
+    "href": "multi class classification/2 multi class classification.html#define-pipline",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.2 define pipline",
+    "text": "3.2 define pipline\n\n\nCode\npipeline_xgb = Pipeline(\n  steps=[\n         ('preprocessor', preprocessor), \n         ('model', xgb_model)\n         ]\n)\n\npipeline_rf = Pipeline(\n  steps=[\n         ('preprocessor', preprocessor), \n         ('model', random_forest_model)\n         ]\n)\n\npipeline_lr = Pipeline(\n  steps=[\n         ('preprocessor', preprocessor), \n         ('model', LogisticRegression_model)\n         ]\n)",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#define-gridsearch",
+    "href": "multi class classification/2 multi class classification.html#define-gridsearch",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.3 define GridSearch",
+    "text": "3.3 define GridSearch\n\n\nCode\nparameters_xgb= {\n        'model__learning_rate': [0.01, 0.02,0.08,0.1],\n        'model__max_depth': [3, 5, 7,8,9,10],\n        'model__min_child_weight': [1, 3,5,8],\n        'model__subsample': [0.5, 0.7,0.9],\n        \n       # 'model__colsample__bytree': [0.5, 0.7],\n       \n        'model__n_estimators' : [100, 200],\n        'model__objective': ['reg:squarederror']\n    }\n\n\nGrid_xgb = HalvingGridSearchCV(pipeline_xgb\n                ,parameters_xgb \n                #,scoring='merror'\n                ,max_resources=100\n                , cv=10, n_jobs=-1)\n                \n                \nparameters_rf = {'model__max_depth':[20,30,40],\n                 'model__n_estimators':[200,250],\n                 'model__min_samples_leaf':[1,2,3]\n                 }                \n                \n\nGrid_rf = HalvingGridSearchCV(pipeline_rf\n                ,parameters_rf\n                #,scoring='merror'\n                ,max_resources=100\n                , cv=10, n_jobs=-1)",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#train-model",
+    "href": "multi class classification/2 multi class classification.html#train-model",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.4 train model",
+    "text": "3.4 train model\n\n\nCode\nstart_time = time.time()\n\n\nGrids = [Grid_xgb, Grid_rf,pipeline_xgb,pipeline_rf,pipeline_lr]\n\n\n\nfor Grid in Grids:\n    Grid.fit(X_train,Y_train)\n\n\nend_time = time.time()\nduration = end_time - start_time\nduration\n\nprint(\"trainning time:\",duration)\n\n\ntrainning time: 38.32201099395752",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#preformance",
+    "href": "multi class classification/2 multi class classification.html#preformance",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.5 Preformance",
+    "text": "3.5 Preformance\n\n3.5.1 dummy Preformance\n\n3.5.1.1 dummy 1 : there are 3 class, so each class random 33.33%\n\n\nCode\nimport random\nfrom array import array\n\nmylist = []\n\nfor i in range(0,len(Y_test)):\n    x = random.randrange(0, 4)\n    mylist.append(x)\n    \nY_dummy1=numpy.array(mylist)\n\n\n\n\nCode\nimport collections, numpy\nc=collections.Counter(Y_dummy1)\ndf = pd.DataFrame.from_records(list(dict(c).items()), columns=['class','count']).sort_values('class')\ndf\n\n\n\n\n\n\n\n\n\n\nclass\ncount\n\n\n\n\n1\n0\n226\n\n\n0\n1\n217\n\n\n2\n2\n232\n\n\n3\n3\n233\n\n\n\n\n\n\n\n\n\n\nCode\nprint(classification_report(le.inverse_transform(Y_test), le.inverse_transform(Y_dummy1)))\n\n\n              precision    recall  f1-score   support\n\n           A       0.29      0.30      0.30       218\n           B       0.26      0.27      0.27       208\n           C       0.23      0.25      0.24       218\n           D       0.30      0.27      0.29       264\n\n    accuracy                           0.27       908\n   macro avg       0.27      0.27      0.27       908\nweighted avg       0.27      0.27      0.27       908\n\n\n\n\n\n3.5.1.2 dummy 2 : there are 3 class, random assign to each share:\neach class in Y_test\n\n\nCode\nimport collections, numpy\nc=collections.Counter(Y_test)\ndf = pd.DataFrame.from_records(list(dict(c).items()), columns=['class','count']).sort_values('class')\ndf\n\n\n\n\n\n\n\n\n\n\nclass\ncount\n\n\n\n\n3\n0\n218\n\n\n2\n1\n208\n\n\n0\n2\n218\n\n\n1\n3\n264\n\n\n\n\n\n\n\n\n\n\nCode\nimport random\nY_dummy2=numpy.array(random.choices([0, 1, 2,3], [218/sum(Y_test), 208/sum(Y_test), 218/sum(Y_test),264/sum(Y_test)], k=len(Y_test)))\n\n\n\n\nCode\nimport collections, numpy\nc=collections.Counter(Y_dummy2)\ndf = pd.DataFrame.from_records(list(dict(c).items()), columns=['class','count']).sort_values('class')\ndf\n\n\n\n\n\n\n\n\n\n\nclass\ncount\n\n\n\n\n2\n0\n238\n\n\n3\n1\n196\n\n\n1\n2\n212\n\n\n0\n3\n262\n\n\n\n\n\n\n\n\n\n\nCode\nprint(classification_report(le.inverse_transform(Y_test), le.inverse_transform(Y_dummy2)))\n\n\n              precision    recall  f1-score   support\n\n           A       0.19      0.21      0.20       218\n           B       0.24      0.23      0.24       208\n           C       0.23      0.22      0.22       218\n           D       0.22      0.22      0.22       264\n\n    accuracy                           0.22       908\n   macro avg       0.22      0.22      0.22       908\nweighted avg       0.22      0.22      0.22       908\n\n\n\n\n\n\n3.5.2 model Preformance\n\n\nCode\ngrid_dict = {0: 'XGB', 1: 'random forest', 2: 'XGB non tune',3: 'ramdon forest non tune',4:'Logistic regression non tune' }\n\nfor i, model in enumerate(Grids):\n    print('{} Test Accuracy: {}'.format(grid_dict[i],\n    model.score(X_test,Y_test)))\n    #print('{} Best Params: {}'.format(grid_dict[i], model.best_params_))\n\n\nXGB Test Accuracy: 0.5286343612334802\nrandom forest Test Accuracy: 0.47687224669603523\nXGB non tune Test Accuracy: 0.4900881057268722\nramdon forest non tune Test Accuracy: 0.46806167400881055\nLogistic regression non tune Test Accuracy: 0.513215859030837\n\n\n\n\nCode\nbest_ml=Grid_xgb.best_estimator_\n\n\n\n\nCode\ntype(best_ml)\n\n\nsklearn.pipeline.Pipeline\n\n\n\n\n3.5.3 model feature importances\n\n\nCode\nvi=best_ml.steps[1][1].feature_importances_\nvi\n\n\narray([0.1300164 , 0.01604884, 0.02913161, 0.02323757, 0.        ,\n       0.03514215, 0.        , 0.09000743, 0.        , 0.07260209,\n       0.01313873, 0.02801684, 0.04352825, 0.02897065, 0.07967481,\n       0.01538965, 0.02321333, 0.05797131, 0.04538552, 0.01300177,\n       0.14613946, 0.01958075, 0.01348854, 0.00805735, 0.03240986,\n       0.        , 0.0245581 , 0.01128895], dtype=float32)\n\n\n\n\nCode\n## get pipeline feature names\nvar_name=best_ml[:-1].get_feature_names_out()\n\n\n\n\nCode\ndataset = pd.DataFrame({'feature': var_name, 'importances': vi}, columns=['feature', 'importances']).sort_values('importances',ascending=False)\ndataset\n\n\n\n\n\n\n\n\n\n\nfeature\nimportances\n\n\n\n\n20\ncat__Spending_Score_Low\n0.146139\n\n\n0\nnum__Age\n0.130016\n\n\n7\ncat__Graduated_No\n0.090007\n\n\n14\ncat__Profession_Healthcare\n0.079675\n\n\n9\ncat__Profession_Artist\n0.072602\n\n\n17\ncat__Profession_Marketing\n0.057971\n\n\n18\ncat__Spending_Score_Average\n0.045386\n\n\n12\ncat__Profession_Entertainment\n0.043528\n\n\n5\ncat__Ever_Married_No\n0.035142\n\n\n24\ncat__Var_1_Cat_4\n0.032410\n\n\n2\nnum__Family_Size\n0.029132\n\n\n13\ncat__Profession_Executive\n0.028971\n\n\n11\ncat__Profession_Engineer\n0.028017\n\n\n26\ncat__Var_1_Cat_6\n0.024558\n\n\n3\ncat__Gender_Female\n0.023238\n\n\n16\ncat__Profession_Lawyer\n0.023213\n\n\n21\ncat__Var_1_Cat_1\n0.019581\n\n\n1\nnum__Work_Experience\n0.016049\n\n\n15\ncat__Profession_Homemaker\n0.015390\n\n\n22\ncat__Var_1_Cat_2\n0.013489\n\n\n10\ncat__Profession_Doctor\n0.013139\n\n\n19\ncat__Spending_Score_High\n0.013002\n\n\n27\ncat__Var_1_Cat_7\n0.011289\n\n\n23\ncat__Var_1_Cat_3\n0.008057\n\n\n8\ncat__Graduated_Yes\n0.000000\n\n\n25\ncat__Var_1_Cat_5\n0.000000\n\n\n6\ncat__Ever_Married_Yes\n0.000000\n\n\n4\ncat__Gender_Male\n0.000000\n\n\n\n\n\n\n\n\n\n\nCode\n#Using predict method to test the model\nY_pred_dt = best_ml.predict(X_test) #always gets x and retuns y\n#Y_pred_dt\n\n\n\n\nCode\nfrom sklearn.metrics import classification_report\nprint(classification_report(Y_test, Y_pred_dt))\n\n\n              precision    recall  f1-score   support\n\n           0       0.41      0.44      0.43       218\n           1       0.39      0.33      0.36       208\n           2       0.58      0.57      0.57       218\n           3       0.67      0.72      0.69       264\n\n    accuracy                           0.53       908\n   macro avg       0.51      0.52      0.51       908\nweighted avg       0.52      0.53      0.52       908\n\n\n\nreverse target label back to A B C D\n\n\nCode\nfrom sklearn.metrics import classification_report\nprint(classification_report(le.inverse_transform(Y_test), le.inverse_transform(Y_pred_dt)))\n\n\n              precision    recall  f1-score   support\n\n           A       0.41      0.44      0.43       218\n           B       0.39      0.33      0.36       208\n           C       0.58      0.57      0.57       218\n           D       0.67      0.72      0.69       264\n\n    accuracy                           0.53       908\n   macro avg       0.51      0.52      0.51       908\nweighted avg       0.52      0.53      0.52       908",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#save-model",
+    "href": "multi class classification/2 multi class classification.html#save-model",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.6 save model",
+    "text": "3.6 save model\n\n\nCode\nfrom joblib import dump, load\ndump(Grid_xgb, 'trained_grid_multi_calss.joblib', compress=True)  \n\n\n['trained_grid_multi_calss.joblib']",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#load-model",
+    "href": "multi class classification/2 multi class classification.html#load-model",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.7 load model",
+    "text": "3.7 load model\n\n\nCode\nmodel_reload = load('trained_grid_multi_calss.joblib') \n\n\n\n\nCode\nbest_ml=model_reload.best_estimator_",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
+  },
+  {
+    "objectID": "multi class classification/2 multi class classification.html#final-prediction",
+    "href": "multi class classification/2 multi class classification.html#final-prediction",
+    "title": "Multi Models using downsample,pipeline,fast tuning",
+    "section": "3.8 final prediction",
+    "text": "3.8 final prediction\n\n\nCode\nY_pred_dt_final =best_ml.predict(X_val) #always gets x and retuns y\n\n\nY_pred_dt_final_lable=le.inverse_transform(Y_pred_dt_final)\nY_pred_dt_final_lable[0:5]\n\n\narray(['C', 'D', 'B', 'D', 'D'], dtype=object)\n\n\n\n\nCode\nimport collections, numpy\nc=collections.Counter(Y_pred_dt_final_lable)\ndf = pd.DataFrame.from_records(list(dict(c).items()), columns=['class','count']).sort_values('class')\ndf\n\n\n\n\n\n\n\n\n\n\nclass\ncount\n\n\n\n\n3\nA\n197\n\n\n2\nB\n155\n\n\n0\nC\n208\n\n\n1\nD\n247",
+    "crumbs": [
+      "multi class classification",
+      "Multi Models using downsample,pipeline,fast tuning"
+    ]
   }
 ]

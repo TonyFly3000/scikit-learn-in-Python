@@ -1,0 +1,124 @@
+---
+title: "Customer Segmentation Dataset"
+execute:
+  warning: false
+  error: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+![](https://storage.googleapis.com/kaggle-datasets-images/848479/1447480/9c047f69e899ecf0c89b9e0ad15dd8bf/dataset-cover.jpg?t=2020-09-10-12-15-22)
+
+# load package
+
+```{python}
+import os
+#os.system('pip install xgboost')
+```
+
+```{python}
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import re
+import numpy as np
+from sklearn import tree
+from sklearn.model_selection import train_test_split
+
+```
+
+# data
+
+## download data
+
+https://www.kaggle.com/datasets/vetrirah/customer
+
+```{python}
+import pandas as pd
+
+df_train=pd.read_csv('data/Train.csv')
+
+df_test=pd.read_csv('data/Test.csv')
+```
+
+```{python}
+df_train.head()
+
+```
+
+## data EDA
+
+```{python}
+df_train.describe()
+```
+
+```{python}
+df_train.describe(include=[object])
+```
+
+Missing Data
+
+```{python}
+df_train.isnull().sum()
+```
+
+```{python}
+import math
+
+from siuba.siu import call
+from siuba import _, mutate, filter, group_by, summarize,show_query
+from siuba import *
+
+df_train >> group_by(_.Segmentation)  >> summarize(n = _.shape[0])
+
+```
+
+
+
+
+
+```{python}
+import sweetviz as sv
+my_report = sv.analyze(df_train)
+```
+
+```{python}
+my_report.show_notebook()
+```
+
+## feature vs target
+
+```{python}
+sns.countplot(data=df_train,x='Segmentation',hue='Gender')
+```
+
+
+```{python}
+
+pd.crosstab(df_train['Segmentation'],df_train['Gender'], normalize='index').plot.bar(stacked=True)
+```
+
+## compare train data and test data
+
+
+
+```{python}
+compare = sv.compare(source=df_train, compare=df_test)
+```
+
+```{python}
+compare.show_notebook()
+```
+
+## data dictionary
+
+# reference:
+
