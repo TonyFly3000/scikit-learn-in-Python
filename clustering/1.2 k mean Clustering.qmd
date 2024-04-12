@@ -15,7 +15,6 @@ format:
     code-block-border-left: "#31BAE9"
 ---
 
-
 Using K mean Clustering to replace colow on below picture
 
 
@@ -42,36 +41,13 @@ from siuba import *
 
 ## input data
 
-```{python}
-
-from PIL import Image
-image = Image.open('python logo.jpg')
- 
-# summarize some details about the image
-print(image.format)
-print(image.size)
-print(image.mode)
-
-```
-
-
-
-```{python}
-# Read in the image
-image = cv2.imread('python logo.jpg')
- 
-# Change color to RGB (from BGR)
-image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
- 
-plt.imshow(image)
-```
 
 ```{python}
 import numpy as np
 from sklearn.cluster import KMeans
 from skimage.io import imread, imsave
 
-sample_img = imread('python logo.jpg')
+sample_img = imread('images/python logo.jpg')
 w,h,c = sample_img.shape
 ```
 
@@ -97,8 +73,27 @@ sample_img.shape
 
 
 ```{python}
-x=sample_img
+#test=sample_img.tolist()
+#np.unique(test)
 ```
+
+
+Data Normalization
+
+Since the dataset contains a range of values from 0 to 255, the dataset has to be normalized. Data Normalization is an important preprocessing step which ensures that each input parameter (pixel, in this case) has a similar data distribution. This fastens the process of covergence while training the model. Also Normalization makes sure no one particular parameter influences the output significantly.
+
+
+```{python}
+x=sample_img/255
+```
+
+
+```{python}
+#test=x.tolist()
+#np.unique(test)
+```
+
+
 
 # find the best k group
 
@@ -269,6 +264,14 @@ plt.figure()
 plt.imshow(recolored_img) 
 plt.show()  # display it
 ```
+
+
+
+# reference:
+
+https://www.kaggle.com/code/sangwookchn/clustering-techniques-using-scikit-learn
+
+https://muthu.co/reduce-the-number-of-colors-of-an-image-using-k-means-clustering/
 
 # reference:
 

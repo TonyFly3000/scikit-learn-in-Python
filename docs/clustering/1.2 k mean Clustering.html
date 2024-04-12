@@ -321,7 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Customer Segmentation Dataset</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../multi class classification/multi class classification.html">
+    <a class="dropdown-item" href="../multi class classification/2 multi class classification.html">
  <span class="dropdown-text">Multi Models using downsample,pipeline,fast tuning</span></a>
   </li>  
     </ul>
@@ -488,6 +488,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#make-picture-into-3-colors" id="toc-make-picture-into-3-colors" class="nav-link" data-scroll-target="#make-picture-into-3-colors"><span class="header-section-number">4</span> make picture into 3 colors</a></li>
   <li><a href="#make-picture-into-4-colors" id="toc-make-picture-into-4-colors" class="nav-link" data-scroll-target="#make-picture-into-4-colors"><span class="header-section-number">5</span> make picture into 4 colors</a></li>
   <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">6</span> reference:</a></li>
+  <li><a href="#reference-1" id="toc-reference-1" class="nav-link" data-scroll-target="#reference-1"><span class="header-section-number">7</span> reference:</a></li>
   </ul>
 </nav>
     </div>
@@ -518,7 +519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="python logo.jpg" class="img-fluid" width="300"></p>
 <section id="load-package" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> load package</h1>
-<div id="d5a855e3" class="cell" data-execution_count="1">
+<div id="bb8339a9" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -538,129 +539,109 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="2"><span class="header-section-number">2</span> data</h1>
 <section id="input-data" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="input-data"><span class="header-section-number">2.1</span> input data</h2>
-<div id="489c801a" class="cell" data-execution_count="2">
+<div id="39612f29" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">'python logo.jpg'</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize some details about the image</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(image.<span class="bu">format</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(image.size)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(image.mode)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage.io <span class="im">import</span> imread, imsave</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sample_img <span class="op">=</span> imread(<span class="st">'images/python logo.jpg'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>w,h,c <span class="op">=</span> sample_img.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>JPEG
-(214, 235)
-RGB</code></pre>
 </div>
-</div>
-<div id="6bdc0208" class="cell" data-execution_count="3">
+<div id="7cef78f7" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the image</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> cv2.imread(<span class="st">'python logo.jpg'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Change color to RGB (from BGR)</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> cv2.cvtColor(image, cv2.COLOR_BGR2RGB)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>plt.imshow(image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>w</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>h</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="1.2 k mean Clustering_files/figure-html/cell-4-output-1.png" width="390" height="415" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="2cedeccc" class="cell" data-execution_count="4">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage.io <span class="im">import</span> imread, imsave</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>sample_img <span class="op">=</span> imread(<span class="st">'python logo.jpg'</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>w,h,c <span class="op">=</span> sample_img.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div id="1af29b9d" class="cell" data-execution_count="5">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>w</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>h</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>3</code></pre>
 </div>
 </div>
-<div id="9b01b257" class="cell" data-execution_count="6">
+<div id="2e4dc701" class="cell" data-execution_count="4">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sample_img.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>(235, 214, 3)</code></pre>
+</div>
+</div>
+<div id="1423a299" class="cell" data-execution_count="5">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sample_img <span class="op">=</span> sample_img.reshape(w<span class="op">*</span>h,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="9eecc4ec" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sample_img.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>(235, 214, 3)</code></pre>
-</div>
-</div>
-<div id="a116c09a" class="cell" data-execution_count="7">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sample_img <span class="op">=</span> sample_img.reshape(w<span class="op">*</span>h,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div id="072229a5" class="cell" data-execution_count="8">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sample_img.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>(50290, 3)</code></pre>
 </div>
 </div>
-<div id="f1d1a1ea" class="cell" data-execution_count="9">
+<div id="b104c946" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>sample_img</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#test=sample_img.tolist()</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#np.unique(test)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Data Normalization</p>
+<p>Since the dataset contains a range of values from 0 to 255, the dataset has to be normalized. Data Normalization is an important preprocessing step which ensures that each input parameter (pixel, in this case) has a similar data distribution. This fastens the process of covergence while training the model. Also Normalization makes sure no one particular parameter influences the output significantly.</p>
+<div id="3ed5512b" class="cell" data-execution_count="8">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>sample_img<span class="op">/</span><span class="dv">255</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="7dbc1e3b" class="cell" data-execution_count="9">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#test=x.tolist()</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#np.unique(test)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 </section>
 <section id="find-the-best-k-group" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> find the best k group</h1>
-<div id="417647d7" class="cell" data-execution_count="10">
+<div id="da9df974" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>wcss <span class="op">=</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>wcss <span class="op">=</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="be6d8223" class="cell" data-execution_count="11">
+<div id="1242d46b" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Iterating over 1, 2, 3, ---- 10 clusters</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>): </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    kmeans <span class="op">=</span> KMeans(n_clusters <span class="op">=</span> i, init <span class="op">=</span> <span class="st">'k-means++'</span>, max_iter <span class="op">=</span> <span class="dv">100</span>, n_init <span class="op">=</span> <span class="dv">10</span>, random_state <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    kmeans.fit(x)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    wcss.append(kmeans.inertia_) <span class="co"># intertia_ is an attribute that has the wcss number</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Iterating over 1, 2, 3, ---- 10 clusters</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>): </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    kmeans <span class="op">=</span> KMeans(n_clusters <span class="op">=</span> i, init <span class="op">=</span> <span class="st">'k-means++'</span>, max_iter <span class="op">=</span> <span class="dv">100</span>, n_init <span class="op">=</span> <span class="dv">10</span>, random_state <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    kmeans.fit(x)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    wcss.append(kmeans.inertia_) <span class="co"># intertia_ is an attribute that has the wcss number</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>The best K is 3 from the chart</p>
-<div id="44bfa77e" class="cell" data-execution_count="12">
+<div id="96f24954" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>), wcss)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Elbow method applied to find K"</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"number of clusters"</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"wcss"</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>), wcss)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Elbow method applied to find K"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"number of clusters"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"wcss"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="1.2 k mean Clustering_files/figure-html/cell-13-output-1.png" width="576" height="449" class="figure-img"></p>
+<p><img src="1.2 k mean Clustering_files/figure-html/cell-13-output-1.png" width="610" height="449" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -668,123 +649,123 @@ RGB</code></pre>
 </section>
 <section id="make-picture-into-3-colors" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> make picture into 3 colors</h1>
-<div id="8ca4e759" class="cell" data-execution_count="13">
+<div id="2f5c3641" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">0</span>).fit(sample_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">0</span>).fit(sample_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="9808c5b5" class="cell" data-execution_count="14">
+<div id="0a46a7b3" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find out which cluster each pixel belongs to.</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> kmeans.predict(sample_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find out which cluster each pixel belongs to.</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> kmeans.predict(sample_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="972745ec" class="cell" data-execution_count="15">
+<div id="434ef62e" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> collections, numpy</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>collections.Counter(labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> collections, numpy</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>collections.Counter(labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="49">
 <pre><code>Counter({0: 23099, 2: 13631, 1: 13560})</code></pre>
 </div>
 </div>
-<div id="b70c357d" class="cell" data-execution_count="16">
+<div id="4211f666" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>labels.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>labels.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>(50290,)</code></pre>
 </div>
 </div>
-<div id="441f9a32" class="cell" data-execution_count="17">
+<div id="9c3588d2" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sample_img.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sample_img.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>(50290, 3)</code></pre>
 </div>
 </div>
-<div id="076d8622" class="cell" data-execution_count="18">
+<div id="5e7df692" class="cell" data-execution_count="18">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame(sample_img, columns<span class="op">=</span>[<span class="st">'Column_A'</span>, <span class="st">'Column_B'</span>, <span class="st">'Column_C'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame(sample_img, columns<span class="op">=</span>[<span class="st">'Column_A'</span>, <span class="st">'Column_B'</span>, <span class="st">'Column_C'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="78fb9093" class="cell" data-execution_count="19">
+<div id="62ae2e2b" class="cell" data-execution_count="19">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df1.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df1.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="53">
 <pre><code>(50290, 3)</code></pre>
 </div>
 </div>
-<div id="70f36eee" class="cell" data-execution_count="20">
+<div id="a9bba93a" class="cell" data-execution_count="20">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df1[<span class="st">'group_no'</span>]<span class="op">=</span>labels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df1[<span class="st">'group_no'</span>]<span class="op">=</span>labels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="db57c559" class="cell" data-execution_count="21">
+<div id="182f06ef" class="cell" data-execution_count="21">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df1.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df1.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="55">
 <pre><code>(50290, 4)</code></pre>
 </div>
 </div>
-<div id="20b7be3e" class="cell" data-execution_count="22">
+<div id="f99a641e" class="cell" data-execution_count="22">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#green  RBG code is (0, 255, 0)</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">#black  RBG code is (0, 0, 0)</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>df1<span class="op">&gt;&gt;</span> mutate(</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                  <span class="co">############# change group1 to black</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>                  Column_A<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">0</span>, <span class="dv">0</span>, _.Column_A)</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>                ,Column_B<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">0</span>, <span class="dv">0</span>, _.Column_B)</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>                ,Column_C<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">0</span>, <span class="dv">0</span>, _.Column_C)</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>                    <span class="co">############# change group2 to green</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>                )<span class="op">&gt;&gt;</span>mutate(</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>                Column_A<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">1</span>, <span class="dv">0</span>, _.Column_A)</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>                ,Column_B<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">1</span>, <span class="dv">255</span>, _.Column_B)</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>                ,Column_C<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">1</span>, <span class="dv">0</span>, _.Column_C)</span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>                  )<span class="op">&gt;&gt;</span>select(<span class="op">~</span>_.group_no)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#green  RBG code is (0, 255, 0)</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co">#black  RBG code is (0, 0, 0)</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>df1<span class="op">&gt;&gt;</span> mutate(</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>                  <span class="co">############# change group1 to black</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>                  Column_A<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">0</span>, <span class="dv">0</span>, _.Column_A)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>                ,Column_B<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">0</span>, <span class="dv">0</span>, _.Column_B)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>                ,Column_C<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">0</span>, <span class="dv">0</span>, _.Column_C)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>                    <span class="co">############# change group2 to green</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>                )<span class="op">&gt;&gt;</span>mutate(</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>                Column_A<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">1</span>, <span class="dv">0</span>, _.Column_A)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>                ,Column_B<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">1</span>, <span class="dv">255</span>, _.Column_B)</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>                ,Column_C<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">1</span>, <span class="dv">0</span>, _.Column_C)</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>                  )<span class="op">&gt;&gt;</span>select(<span class="op">~</span>_.group_no)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="ef880b49" class="cell" data-execution_count="23">
+<div id="563849c4" class="cell" data-execution_count="23">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>output<span class="op">=</span>df2.to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>output<span class="op">=</span>df2.to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="5c835da1" class="cell" data-execution_count="24">
+<div id="29b1e77f" class="cell" data-execution_count="24">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>output.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>output.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="58">
 <pre><code>(50290, 3)</code></pre>
 </div>
 </div>
-<div id="472415b4" class="cell" data-execution_count="25">
+<div id="1892e628" class="cell" data-execution_count="25">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> output.reshape(w,h,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> output.reshape(w,h,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cc80bed8" class="cell" data-execution_count="26">
+<div id="d21cd3bb" class="cell" data-execution_count="26">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(recolored_img) </span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>plt.show()  <span class="co"># display it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(recolored_img) </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>plt.show()  <span class="co"># display it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -794,76 +775,76 @@ RGB</code></pre>
 </div>
 </div>
 </div>
-<div id="49f45bd2" class="cell" data-execution_count="27">
+<div id="0e501aae" class="cell" data-execution_count="27">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>imsave(<span class="st">'kmeans_color_q.jpg'</span>, recolored_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>imsave(<span class="st">'kmeans_color_q.jpg'</span>, recolored_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="b08a9e46" class="cell" data-execution_count="28">
+<div id="53bfdc83" class="cell" data-execution_count="28">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the cluster centroids is our color palette</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>identified_palette <span class="op">=</span> np.array(kmeans.cluster_centers_).astype(<span class="bu">int</span>)</span>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the cluster centroids is our color palette</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>identified_palette <span class="op">=</span> np.array(kmeans.cluster_centers_).astype(<span class="bu">int</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># recolor the entire image</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> np.copy(sample_img)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(recolored_img)):</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    recolored_img[index] <span class="op">=</span> identified_palette[labels[index]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="99f7a62a" class="cell" data-execution_count="29">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reshape for display</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> recolored_img.reshape(w,h,<span class="dv">3</span>)</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># recolor the entire image</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> np.copy(sample_img)</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(recolored_img)):</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    recolored_img[index] <span class="op">=</span> identified_palette[labels[index]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div id="120b07e3" class="cell" data-execution_count="29">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reshape for display</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> recolored_img.reshape(w,h,<span class="dv">3</span>)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>imsave(<span class="st">'kmeans_color_q.jpg'</span>, recolored_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>imsave(<span class="st">'kmeans_color_q.jpg'</span>, recolored_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 <section id="make-picture-into-4-colors" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> make picture into 4 colors</h1>
-<div id="8bff73af" class="cell" data-execution_count="30">
+<div id="7a35684e" class="cell" data-execution_count="30">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">4</span>, random_state<span class="op">=</span><span class="dv">0</span>).fit(sample_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">4</span>, random_state<span class="op">=</span><span class="dv">0</span>).fit(sample_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="37fbed8c" class="cell" data-execution_count="31">
+<div id="a35dc4b7" class="cell" data-execution_count="31">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find out which cluster each pixel belongs to.</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> kmeans.predict(sample_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find out which cluster each pixel belongs to.</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> kmeans.predict(sample_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="50c6a662" class="cell" data-execution_count="32">
+<div id="8fa57672" class="cell" data-execution_count="32">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the cluster centroids is our color palette</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>identified_palette <span class="op">=</span> np.array(kmeans.cluster_centers_).astype(<span class="bu">int</span>)</span>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the cluster centroids is our color palette</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>identified_palette <span class="op">=</span> np.array(kmeans.cluster_centers_).astype(<span class="bu">int</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># recolor the entire image</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> np.copy(sample_img)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(recolored_img)):</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    recolored_img[index] <span class="op">=</span> identified_palette[labels[index]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="d63519ef" class="cell" data-execution_count="33">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reshape for display</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> recolored_img.reshape(w,h,<span class="dv">3</span>)</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># recolor the entire image</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> np.copy(sample_img)</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(recolored_img)):</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    recolored_img[index] <span class="op">=</span> identified_palette[labels[index]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>imsave(<span class="st">'kmeans_color_q.jpg'</span>, recolored_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cf299922" class="cell" data-execution_count="33">
+<div id="31f59445" class="cell" data-execution_count="34">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reshape for display</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> recolored_img.reshape(w,h,<span class="dv">3</span>)</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>imsave(<span class="st">'kmeans_color_q.jpg'</span>, recolored_img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div id="2b82f656" class="cell" data-execution_count="34">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(recolored_img) </span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>plt.show()  <span class="co"># display it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(recolored_img) </span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>plt.show()  <span class="co"># display it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -876,6 +857,11 @@ RGB</code></pre>
 </section>
 <section id="reference" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> reference:</h1>
+<p>https://www.kaggle.com/code/sangwookchn/clustering-techniques-using-scikit-learn</p>
+<p>https://muthu.co/reduce-the-number-of-colors-of-an-image-using-k-means-clustering/</p>
+</section>
+<section id="reference-1" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> reference:</h1>
 <p>https://www.kaggle.com/code/sangwookchn/clustering-techniques-using-scikit-learn</p>
 <p>https://muthu.co/reduce-the-number-of-colors-of-an-image-using-k-means-clustering/</p>
 
@@ -1323,282 +1309,286 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb45" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "K mean Clustering with image"</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "with image data"</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
-<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
-<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-bg: true</span></span>
-<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-border-left: "#31BAE9"</span></span>
-<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>Using K mean Clustering to replace colow on below picture</span>
-<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a><span class="al">![](python logo.jpg)</span>{width="300"}</span>
-<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a><span class="fu"># load package</span></span>
-<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb45-31"><a href="#cb45-31" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb45-32"><a href="#cb45-32" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb45-33"><a href="#cb45-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-34"><a href="#cb45-34" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
-<span id="cb45-35"><a href="#cb45-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-36"><a href="#cb45-36" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba.siu <span class="im">import</span> call</span>
-<span id="cb45-37"><a href="#cb45-37" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> _, mutate, <span class="bu">filter</span>, group_by, summarize,show_query</span>
-<span id="cb45-38"><a href="#cb45-38" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb45-39"><a href="#cb45-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-40"><a href="#cb45-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-41"><a href="#cb45-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-42"><a href="#cb45-42" aria-hidden="true" tabindex="-1"></a><span class="fu"># data</span></span>
-<span id="cb45-43"><a href="#cb45-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-44"><a href="#cb45-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-45"><a href="#cb45-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## input data</span></span>
-<span id="cb45-46"><a href="#cb45-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-49"><a href="#cb45-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-50"><a href="#cb45-50" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
-<span id="cb45-51"><a href="#cb45-51" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">'python logo.jpg'</span>)</span>
-<span id="cb45-52"><a href="#cb45-52" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb45-53"><a href="#cb45-53" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize some details about the image</span></span>
-<span id="cb45-54"><a href="#cb45-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(image.<span class="bu">format</span>)</span>
-<span id="cb45-55"><a href="#cb45-55" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(image.size)</span>
-<span id="cb45-56"><a href="#cb45-56" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(image.mode)</span>
-<span id="cb45-57"><a href="#cb45-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-58"><a href="#cb45-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-59"><a href="#cb45-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-60"><a href="#cb45-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-61"><a href="#cb45-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-64"><a href="#cb45-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-65"><a href="#cb45-65" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the image</span></span>
-<span id="cb45-66"><a href="#cb45-66" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> cv2.imread(<span class="st">'python logo.jpg'</span>)</span>
-<span id="cb45-67"><a href="#cb45-67" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb45-68"><a href="#cb45-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Change color to RGB (from BGR)</span></span>
-<span id="cb45-69"><a href="#cb45-69" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> cv2.cvtColor(image, cv2.COLOR_BGR2RGB)</span>
-<span id="cb45-70"><a href="#cb45-70" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb45-71"><a href="#cb45-71" aria-hidden="true" tabindex="-1"></a>plt.imshow(image)</span>
-<span id="cb45-72"><a href="#cb45-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-73"><a href="#cb45-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-76"><a href="#cb45-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-77"><a href="#cb45-77" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb45-78"><a href="#cb45-78" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
-<span id="cb45-79"><a href="#cb45-79" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage.io <span class="im">import</span> imread, imsave</span>
-<span id="cb45-80"><a href="#cb45-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-81"><a href="#cb45-81" aria-hidden="true" tabindex="-1"></a>sample_img <span class="op">=</span> imread(<span class="st">'python logo.jpg'</span>)</span>
-<span id="cb45-82"><a href="#cb45-82" aria-hidden="true" tabindex="-1"></a>w,h,c <span class="op">=</span> sample_img.shape</span>
-<span id="cb45-83"><a href="#cb45-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-84"><a href="#cb45-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-87"><a href="#cb45-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-88"><a href="#cb45-88" aria-hidden="true" tabindex="-1"></a>w</span>
-<span id="cb45-89"><a href="#cb45-89" aria-hidden="true" tabindex="-1"></a>h</span>
-<span id="cb45-90"><a href="#cb45-90" aria-hidden="true" tabindex="-1"></a>c</span>
-<span id="cb45-91"><a href="#cb45-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-92"><a href="#cb45-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-93"><a href="#cb45-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-96"><a href="#cb45-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-97"><a href="#cb45-97" aria-hidden="true" tabindex="-1"></a>sample_img.shape</span>
-<span id="cb45-98"><a href="#cb45-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-99"><a href="#cb45-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-102"><a href="#cb45-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-103"><a href="#cb45-103" aria-hidden="true" tabindex="-1"></a>sample_img <span class="op">=</span> sample_img.reshape(w<span class="op">*</span>h,<span class="dv">3</span>)</span>
-<span id="cb45-104"><a href="#cb45-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-105"><a href="#cb45-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-106"><a href="#cb45-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-109"><a href="#cb45-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-110"><a href="#cb45-110" aria-hidden="true" tabindex="-1"></a>sample_img.shape</span>
-<span id="cb45-111"><a href="#cb45-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-112"><a href="#cb45-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-113"><a href="#cb45-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-116"><a href="#cb45-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-117"><a href="#cb45-117" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>sample_img</span>
-<span id="cb45-118"><a href="#cb45-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-119"><a href="#cb45-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-120"><a href="#cb45-120" aria-hidden="true" tabindex="-1"></a><span class="fu"># find the best k group</span></span>
-<span id="cb45-121"><a href="#cb45-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-124"><a href="#cb45-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-125"><a href="#cb45-125" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
-<span id="cb45-126"><a href="#cb45-126" aria-hidden="true" tabindex="-1"></a>wcss <span class="op">=</span> []</span>
-<span id="cb45-127"><a href="#cb45-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-128"><a href="#cb45-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-129"><a href="#cb45-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-132"><a href="#cb45-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-133"><a href="#cb45-133" aria-hidden="true" tabindex="-1"></a><span class="co">#Iterating over 1, 2, 3, ---- 10 clusters</span></span>
-<span id="cb45-134"><a href="#cb45-134" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>): </span>
-<span id="cb45-135"><a href="#cb45-135" aria-hidden="true" tabindex="-1"></a>    kmeans <span class="op">=</span> KMeans(n_clusters <span class="op">=</span> i, init <span class="op">=</span> <span class="st">'k-means++'</span>, max_iter <span class="op">=</span> <span class="dv">100</span>, n_init <span class="op">=</span> <span class="dv">10</span>, random_state <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb45-136"><a href="#cb45-136" aria-hidden="true" tabindex="-1"></a>    kmeans.fit(x)</span>
-<span id="cb45-137"><a href="#cb45-137" aria-hidden="true" tabindex="-1"></a>    wcss.append(kmeans.inertia_) <span class="co"># intertia_ is an attribute that has the wcss number</span></span>
-<span id="cb45-138"><a href="#cb45-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-139"><a href="#cb45-139" aria-hidden="true" tabindex="-1"></a>The best K is 3 from the chart</span>
-<span id="cb45-142"><a href="#cb45-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-143"><a href="#cb45-143" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>), wcss)</span>
-<span id="cb45-144"><a href="#cb45-144" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Elbow method applied to find K"</span>)</span>
-<span id="cb45-145"><a href="#cb45-145" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"number of clusters"</span>)</span>
-<span id="cb45-146"><a href="#cb45-146" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"wcss"</span>)</span>
-<span id="cb45-147"><a href="#cb45-147" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb45-148"><a href="#cb45-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-149"><a href="#cb45-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-150"><a href="#cb45-150" aria-hidden="true" tabindex="-1"></a><span class="fu"># make picture into 3 colors</span></span>
-<span id="cb45-151"><a href="#cb45-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-154"><a href="#cb45-154" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-155"><a href="#cb45-155" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">0</span>).fit(sample_img)</span>
-<span id="cb45-156"><a href="#cb45-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-157"><a href="#cb45-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-158"><a href="#cb45-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-161"><a href="#cb45-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-162"><a href="#cb45-162" aria-hidden="true" tabindex="-1"></a><span class="co"># find out which cluster each pixel belongs to.</span></span>
-<span id="cb45-163"><a href="#cb45-163" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> kmeans.predict(sample_img)</span>
-<span id="cb45-164"><a href="#cb45-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-165"><a href="#cb45-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-166"><a href="#cb45-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-169"><a href="#cb45-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-170"><a href="#cb45-170" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> collections, numpy</span>
-<span id="cb45-171"><a href="#cb45-171" aria-hidden="true" tabindex="-1"></a>collections.Counter(labels)</span>
-<span id="cb45-172"><a href="#cb45-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-173"><a href="#cb45-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-176"><a href="#cb45-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-177"><a href="#cb45-177" aria-hidden="true" tabindex="-1"></a>labels.shape</span>
-<span id="cb45-178"><a href="#cb45-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-179"><a href="#cb45-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-182"><a href="#cb45-182" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-183"><a href="#cb45-183" aria-hidden="true" tabindex="-1"></a>sample_img.shape</span>
-<span id="cb45-184"><a href="#cb45-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-185"><a href="#cb45-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-186"><a href="#cb45-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-189"><a href="#cb45-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-190"><a href="#cb45-190" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame(sample_img, columns<span class="op">=</span>[<span class="st">'Column_A'</span>, <span class="st">'Column_B'</span>, <span class="st">'Column_C'</span>])</span>
-<span id="cb45-191"><a href="#cb45-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-192"><a href="#cb45-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-195"><a href="#cb45-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-196"><a href="#cb45-196" aria-hidden="true" tabindex="-1"></a>df1.shape</span>
-<span id="cb45-197"><a href="#cb45-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-198"><a href="#cb45-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-201"><a href="#cb45-201" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-202"><a href="#cb45-202" aria-hidden="true" tabindex="-1"></a>df1[<span class="st">'group_no'</span>]<span class="op">=</span>labels</span>
-<span id="cb45-203"><a href="#cb45-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-204"><a href="#cb45-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-207"><a href="#cb45-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-208"><a href="#cb45-208" aria-hidden="true" tabindex="-1"></a>df1.shape</span>
-<span id="cb45-209"><a href="#cb45-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-210"><a href="#cb45-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-211"><a href="#cb45-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-214"><a href="#cb45-214" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-215"><a href="#cb45-215" aria-hidden="true" tabindex="-1"></a><span class="co">#green  RBG code is (0, 255, 0)</span></span>
-<span id="cb45-216"><a href="#cb45-216" aria-hidden="true" tabindex="-1"></a><span class="co">#black  RBG code is (0, 0, 0)</span></span>
-<span id="cb45-217"><a href="#cb45-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-218"><a href="#cb45-218" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>df1<span class="op">&gt;&gt;</span> mutate(</span>
-<span id="cb45-219"><a href="#cb45-219" aria-hidden="true" tabindex="-1"></a>                  <span class="co">############# change group1 to black</span></span>
-<span id="cb45-220"><a href="#cb45-220" aria-hidden="true" tabindex="-1"></a>                  Column_A<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">0</span>, <span class="dv">0</span>, _.Column_A)</span>
-<span id="cb45-221"><a href="#cb45-221" aria-hidden="true" tabindex="-1"></a>                ,Column_B<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">0</span>, <span class="dv">0</span>, _.Column_B)</span>
-<span id="cb45-222"><a href="#cb45-222" aria-hidden="true" tabindex="-1"></a>                ,Column_C<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">0</span>, <span class="dv">0</span>, _.Column_C)</span>
-<span id="cb45-223"><a href="#cb45-223" aria-hidden="true" tabindex="-1"></a>                    <span class="co">############# change group2 to green</span></span>
-<span id="cb45-224"><a href="#cb45-224" aria-hidden="true" tabindex="-1"></a>                )<span class="op">&gt;&gt;</span>mutate(</span>
-<span id="cb45-225"><a href="#cb45-225" aria-hidden="true" tabindex="-1"></a>                Column_A<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">1</span>, <span class="dv">0</span>, _.Column_A)</span>
-<span id="cb45-226"><a href="#cb45-226" aria-hidden="true" tabindex="-1"></a>                ,Column_B<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">1</span>, <span class="dv">255</span>, _.Column_B)</span>
-<span id="cb45-227"><a href="#cb45-227" aria-hidden="true" tabindex="-1"></a>                ,Column_C<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">1</span>, <span class="dv">0</span>, _.Column_C)</span>
-<span id="cb45-228"><a href="#cb45-228" aria-hidden="true" tabindex="-1"></a>                  )<span class="op">&gt;&gt;</span>select(<span class="op">~</span>_.group_no)</span>
-<span id="cb45-229"><a href="#cb45-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-230"><a href="#cb45-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-231"><a href="#cb45-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-232"><a href="#cb45-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-235"><a href="#cb45-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-236"><a href="#cb45-236" aria-hidden="true" tabindex="-1"></a>output<span class="op">=</span>df2.to_numpy()</span>
-<span id="cb45-237"><a href="#cb45-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-238"><a href="#cb45-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-241"><a href="#cb45-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-242"><a href="#cb45-242" aria-hidden="true" tabindex="-1"></a>output.shape</span>
-<span id="cb45-243"><a href="#cb45-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-244"><a href="#cb45-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-247"><a href="#cb45-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-248"><a href="#cb45-248" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> output.reshape(w,h,<span class="dv">3</span>)</span>
-<span id="cb45-249"><a href="#cb45-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-250"><a href="#cb45-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-251"><a href="#cb45-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-254"><a href="#cb45-254" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-255"><a href="#cb45-255" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb45-256"><a href="#cb45-256" aria-hidden="true" tabindex="-1"></a>plt.imshow(recolored_img) </span>
-<span id="cb45-257"><a href="#cb45-257" aria-hidden="true" tabindex="-1"></a>plt.show()  <span class="co"># display it</span></span>
-<span id="cb45-258"><a href="#cb45-258" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-259"><a href="#cb45-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-262"><a href="#cb45-262" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-263"><a href="#cb45-263" aria-hidden="true" tabindex="-1"></a>imsave(<span class="st">'kmeans_color_q.jpg'</span>, recolored_img)</span>
-<span id="cb45-264"><a href="#cb45-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-265"><a href="#cb45-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-266"><a href="#cb45-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-267"><a href="#cb45-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-268"><a href="#cb45-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-269"><a href="#cb45-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-270"><a href="#cb45-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-273"><a href="#cb45-273" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-274"><a href="#cb45-274" aria-hidden="true" tabindex="-1"></a><span class="co"># the cluster centroids is our color palette</span></span>
-<span id="cb45-275"><a href="#cb45-275" aria-hidden="true" tabindex="-1"></a>identified_palette <span class="op">=</span> np.array(kmeans.cluster_centers_).astype(<span class="bu">int</span>)</span>
-<span id="cb45-276"><a href="#cb45-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-277"><a href="#cb45-277" aria-hidden="true" tabindex="-1"></a><span class="co"># recolor the entire image</span></span>
-<span id="cb45-278"><a href="#cb45-278" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> np.copy(sample_img)</span>
-<span id="cb45-279"><a href="#cb45-279" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(recolored_img)):</span>
-<span id="cb45-280"><a href="#cb45-280" aria-hidden="true" tabindex="-1"></a>    recolored_img[index] <span class="op">=</span> identified_palette[labels[index]]</span>
-<span id="cb45-281"><a href="#cb45-281" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-282"><a href="#cb45-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-285"><a href="#cb45-285" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-286"><a href="#cb45-286" aria-hidden="true" tabindex="-1"></a><span class="co"># reshape for display</span></span>
-<span id="cb45-287"><a href="#cb45-287" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> recolored_img.reshape(w,h,<span class="dv">3</span>)</span>
-<span id="cb45-288"><a href="#cb45-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-289"><a href="#cb45-289" aria-hidden="true" tabindex="-1"></a>imsave(<span class="st">'kmeans_color_q.jpg'</span>, recolored_img)</span>
-<span id="cb45-290"><a href="#cb45-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-291"><a href="#cb45-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-292"><a href="#cb45-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-293"><a href="#cb45-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-294"><a href="#cb45-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-295"><a href="#cb45-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-296"><a href="#cb45-296" aria-hidden="true" tabindex="-1"></a><span class="fu"># make picture into 4 colors</span></span>
-<span id="cb45-299"><a href="#cb45-299" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-300"><a href="#cb45-300" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">4</span>, random_state<span class="op">=</span><span class="dv">0</span>).fit(sample_img)</span>
-<span id="cb45-301"><a href="#cb45-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-302"><a href="#cb45-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-303"><a href="#cb45-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-306"><a href="#cb45-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-307"><a href="#cb45-307" aria-hidden="true" tabindex="-1"></a><span class="co"># find out which cluster each pixel belongs to.</span></span>
-<span id="cb45-308"><a href="#cb45-308" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> kmeans.predict(sample_img)</span>
-<span id="cb45-309"><a href="#cb45-309" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-310"><a href="#cb45-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-313"><a href="#cb45-313" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-314"><a href="#cb45-314" aria-hidden="true" tabindex="-1"></a><span class="co"># the cluster centroids is our color palette</span></span>
-<span id="cb45-315"><a href="#cb45-315" aria-hidden="true" tabindex="-1"></a>identified_palette <span class="op">=</span> np.array(kmeans.cluster_centers_).astype(<span class="bu">int</span>)</span>
-<span id="cb45-316"><a href="#cb45-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-317"><a href="#cb45-317" aria-hidden="true" tabindex="-1"></a><span class="co"># recolor the entire image</span></span>
-<span id="cb45-318"><a href="#cb45-318" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> np.copy(sample_img)</span>
-<span id="cb45-319"><a href="#cb45-319" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(recolored_img)):</span>
-<span id="cb45-320"><a href="#cb45-320" aria-hidden="true" tabindex="-1"></a>    recolored_img[index] <span class="op">=</span> identified_palette[labels[index]]</span>
-<span id="cb45-321"><a href="#cb45-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-322"><a href="#cb45-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-325"><a href="#cb45-325" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-326"><a href="#cb45-326" aria-hidden="true" tabindex="-1"></a><span class="co"># reshape for display</span></span>
-<span id="cb45-327"><a href="#cb45-327" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> recolored_img.reshape(w,h,<span class="dv">3</span>)</span>
-<span id="cb45-328"><a href="#cb45-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-329"><a href="#cb45-329" aria-hidden="true" tabindex="-1"></a>imsave(<span class="st">'kmeans_color_q.jpg'</span>, recolored_img)</span>
-<span id="cb45-330"><a href="#cb45-330" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-331"><a href="#cb45-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-334"><a href="#cb45-334" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-335"><a href="#cb45-335" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb45-336"><a href="#cb45-336" aria-hidden="true" tabindex="-1"></a>plt.imshow(recolored_img) </span>
-<span id="cb45-337"><a href="#cb45-337" aria-hidden="true" tabindex="-1"></a>plt.show()  <span class="co"># display it</span></span>
-<span id="cb45-338"><a href="#cb45-338" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-339"><a href="#cb45-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-340"><a href="#cb45-340" aria-hidden="true" tabindex="-1"></a><span class="fu"># reference:</span></span>
-<span id="cb45-341"><a href="#cb45-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-342"><a href="#cb45-342" aria-hidden="true" tabindex="-1"></a>https://www.kaggle.com/code/sangwookchn/clustering-techniques-using-scikit-learn</span>
-<span id="cb45-343"><a href="#cb45-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-344"><a href="#cb45-344" aria-hidden="true" tabindex="-1"></a>https://muthu.co/reduce-the-number-of-colors-of-an-image-using-k-means-clustering/</span>
+<div class="sourceCode" id="cb44" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "K mean Clustering with image"</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "with image data"</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co">  error: false</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-bg: true</span></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-border-left: "#31BAE9"</span></span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>Using K mean Clustering to replace colow on below picture</span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a><span class="al">![](python logo.jpg)</span>{width="300"}</span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a><span class="fu"># load package</span></span>
+<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-28"><a href="#cb44-28" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb44-29"><a href="#cb44-29" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb44-30"><a href="#cb44-30" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb44-31"><a href="#cb44-31" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb44-32"><a href="#cb44-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-33"><a href="#cb44-33" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
+<span id="cb44-34"><a href="#cb44-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-35"><a href="#cb44-35" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba.siu <span class="im">import</span> call</span>
+<span id="cb44-36"><a href="#cb44-36" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> _, mutate, <span class="bu">filter</span>, group_by, summarize,show_query</span>
+<span id="cb44-37"><a href="#cb44-37" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb44-38"><a href="#cb44-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-39"><a href="#cb44-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-40"><a href="#cb44-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-41"><a href="#cb44-41" aria-hidden="true" tabindex="-1"></a><span class="fu"># data</span></span>
+<span id="cb44-42"><a href="#cb44-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-43"><a href="#cb44-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-44"><a href="#cb44-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## input data</span></span>
+<span id="cb44-45"><a href="#cb44-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-46"><a href="#cb44-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-49"><a href="#cb44-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-50"><a href="#cb44-50" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb44-51"><a href="#cb44-51" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb44-52"><a href="#cb44-52" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage.io <span class="im">import</span> imread, imsave</span>
+<span id="cb44-53"><a href="#cb44-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-54"><a href="#cb44-54" aria-hidden="true" tabindex="-1"></a>sample_img <span class="op">=</span> imread(<span class="st">'images/python logo.jpg'</span>)</span>
+<span id="cb44-55"><a href="#cb44-55" aria-hidden="true" tabindex="-1"></a>w,h,c <span class="op">=</span> sample_img.shape</span>
+<span id="cb44-56"><a href="#cb44-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-57"><a href="#cb44-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-60"><a href="#cb44-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-61"><a href="#cb44-61" aria-hidden="true" tabindex="-1"></a>w</span>
+<span id="cb44-62"><a href="#cb44-62" aria-hidden="true" tabindex="-1"></a>h</span>
+<span id="cb44-63"><a href="#cb44-63" aria-hidden="true" tabindex="-1"></a>c</span>
+<span id="cb44-64"><a href="#cb44-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-65"><a href="#cb44-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-66"><a href="#cb44-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-69"><a href="#cb44-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-70"><a href="#cb44-70" aria-hidden="true" tabindex="-1"></a>sample_img.shape</span>
+<span id="cb44-71"><a href="#cb44-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-72"><a href="#cb44-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-75"><a href="#cb44-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-76"><a href="#cb44-76" aria-hidden="true" tabindex="-1"></a>sample_img <span class="op">=</span> sample_img.reshape(w<span class="op">*</span>h,<span class="dv">3</span>)</span>
+<span id="cb44-77"><a href="#cb44-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-78"><a href="#cb44-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-79"><a href="#cb44-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-82"><a href="#cb44-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-83"><a href="#cb44-83" aria-hidden="true" tabindex="-1"></a>sample_img.shape</span>
+<span id="cb44-84"><a href="#cb44-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-85"><a href="#cb44-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-86"><a href="#cb44-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-89"><a href="#cb44-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-90"><a href="#cb44-90" aria-hidden="true" tabindex="-1"></a><span class="co">#test=sample_img.tolist()</span></span>
+<span id="cb44-91"><a href="#cb44-91" aria-hidden="true" tabindex="-1"></a><span class="co">#np.unique(test)</span></span>
+<span id="cb44-92"><a href="#cb44-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-93"><a href="#cb44-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-94"><a href="#cb44-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-95"><a href="#cb44-95" aria-hidden="true" tabindex="-1"></a>Data Normalization</span>
+<span id="cb44-96"><a href="#cb44-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-97"><a href="#cb44-97" aria-hidden="true" tabindex="-1"></a>Since the dataset contains a range of values from 0 to 255, the dataset has to be normalized. Data Normalization is an important preprocessing step which ensures that each input parameter (pixel, in this case) has a similar data distribution. This fastens the process of covergence while training the model. Also Normalization makes sure no one particular parameter influences the output significantly.</span>
+<span id="cb44-98"><a href="#cb44-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-99"><a href="#cb44-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-102"><a href="#cb44-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-103"><a href="#cb44-103" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>sample_img<span class="op">/</span><span class="dv">255</span></span>
+<span id="cb44-104"><a href="#cb44-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-105"><a href="#cb44-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-106"><a href="#cb44-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-109"><a href="#cb44-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-110"><a href="#cb44-110" aria-hidden="true" tabindex="-1"></a><span class="co">#test=x.tolist()</span></span>
+<span id="cb44-111"><a href="#cb44-111" aria-hidden="true" tabindex="-1"></a><span class="co">#np.unique(test)</span></span>
+<span id="cb44-112"><a href="#cb44-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-113"><a href="#cb44-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-114"><a href="#cb44-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-115"><a href="#cb44-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-116"><a href="#cb44-116" aria-hidden="true" tabindex="-1"></a><span class="fu"># find the best k group</span></span>
+<span id="cb44-117"><a href="#cb44-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-120"><a href="#cb44-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-121"><a href="#cb44-121" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb44-122"><a href="#cb44-122" aria-hidden="true" tabindex="-1"></a>wcss <span class="op">=</span> []</span>
+<span id="cb44-123"><a href="#cb44-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-124"><a href="#cb44-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-125"><a href="#cb44-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-128"><a href="#cb44-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-129"><a href="#cb44-129" aria-hidden="true" tabindex="-1"></a><span class="co">#Iterating over 1, 2, 3, ---- 10 clusters</span></span>
+<span id="cb44-130"><a href="#cb44-130" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>): </span>
+<span id="cb44-131"><a href="#cb44-131" aria-hidden="true" tabindex="-1"></a>    kmeans <span class="op">=</span> KMeans(n_clusters <span class="op">=</span> i, init <span class="op">=</span> <span class="st">'k-means++'</span>, max_iter <span class="op">=</span> <span class="dv">100</span>, n_init <span class="op">=</span> <span class="dv">10</span>, random_state <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb44-132"><a href="#cb44-132" aria-hidden="true" tabindex="-1"></a>    kmeans.fit(x)</span>
+<span id="cb44-133"><a href="#cb44-133" aria-hidden="true" tabindex="-1"></a>    wcss.append(kmeans.inertia_) <span class="co"># intertia_ is an attribute that has the wcss number</span></span>
+<span id="cb44-134"><a href="#cb44-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-135"><a href="#cb44-135" aria-hidden="true" tabindex="-1"></a>The best K is 3 from the chart</span>
+<span id="cb44-138"><a href="#cb44-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-139"><a href="#cb44-139" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>), wcss)</span>
+<span id="cb44-140"><a href="#cb44-140" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Elbow method applied to find K"</span>)</span>
+<span id="cb44-141"><a href="#cb44-141" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"number of clusters"</span>)</span>
+<span id="cb44-142"><a href="#cb44-142" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"wcss"</span>)</span>
+<span id="cb44-143"><a href="#cb44-143" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb44-144"><a href="#cb44-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-145"><a href="#cb44-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-146"><a href="#cb44-146" aria-hidden="true" tabindex="-1"></a><span class="fu"># make picture into 3 colors</span></span>
+<span id="cb44-147"><a href="#cb44-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-150"><a href="#cb44-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-151"><a href="#cb44-151" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">0</span>).fit(sample_img)</span>
+<span id="cb44-152"><a href="#cb44-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-153"><a href="#cb44-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-154"><a href="#cb44-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-157"><a href="#cb44-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-158"><a href="#cb44-158" aria-hidden="true" tabindex="-1"></a><span class="co"># find out which cluster each pixel belongs to.</span></span>
+<span id="cb44-159"><a href="#cb44-159" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> kmeans.predict(sample_img)</span>
+<span id="cb44-160"><a href="#cb44-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-161"><a href="#cb44-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-162"><a href="#cb44-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-165"><a href="#cb44-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-166"><a href="#cb44-166" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> collections, numpy</span>
+<span id="cb44-167"><a href="#cb44-167" aria-hidden="true" tabindex="-1"></a>collections.Counter(labels)</span>
+<span id="cb44-168"><a href="#cb44-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-169"><a href="#cb44-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-172"><a href="#cb44-172" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-173"><a href="#cb44-173" aria-hidden="true" tabindex="-1"></a>labels.shape</span>
+<span id="cb44-174"><a href="#cb44-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-175"><a href="#cb44-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-178"><a href="#cb44-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-179"><a href="#cb44-179" aria-hidden="true" tabindex="-1"></a>sample_img.shape</span>
+<span id="cb44-180"><a href="#cb44-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-181"><a href="#cb44-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-182"><a href="#cb44-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-185"><a href="#cb44-185" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-186"><a href="#cb44-186" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame(sample_img, columns<span class="op">=</span>[<span class="st">'Column_A'</span>, <span class="st">'Column_B'</span>, <span class="st">'Column_C'</span>])</span>
+<span id="cb44-187"><a href="#cb44-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-188"><a href="#cb44-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-191"><a href="#cb44-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-192"><a href="#cb44-192" aria-hidden="true" tabindex="-1"></a>df1.shape</span>
+<span id="cb44-193"><a href="#cb44-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-194"><a href="#cb44-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-197"><a href="#cb44-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-198"><a href="#cb44-198" aria-hidden="true" tabindex="-1"></a>df1[<span class="st">'group_no'</span>]<span class="op">=</span>labels</span>
+<span id="cb44-199"><a href="#cb44-199" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-200"><a href="#cb44-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-203"><a href="#cb44-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-204"><a href="#cb44-204" aria-hidden="true" tabindex="-1"></a>df1.shape</span>
+<span id="cb44-205"><a href="#cb44-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-206"><a href="#cb44-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-207"><a href="#cb44-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-210"><a href="#cb44-210" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-211"><a href="#cb44-211" aria-hidden="true" tabindex="-1"></a><span class="co">#green  RBG code is (0, 255, 0)</span></span>
+<span id="cb44-212"><a href="#cb44-212" aria-hidden="true" tabindex="-1"></a><span class="co">#black  RBG code is (0, 0, 0)</span></span>
+<span id="cb44-213"><a href="#cb44-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-214"><a href="#cb44-214" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>df1<span class="op">&gt;&gt;</span> mutate(</span>
+<span id="cb44-215"><a href="#cb44-215" aria-hidden="true" tabindex="-1"></a>                  <span class="co">############# change group1 to black</span></span>
+<span id="cb44-216"><a href="#cb44-216" aria-hidden="true" tabindex="-1"></a>                  Column_A<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">0</span>, <span class="dv">0</span>, _.Column_A)</span>
+<span id="cb44-217"><a href="#cb44-217" aria-hidden="true" tabindex="-1"></a>                ,Column_B<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">0</span>, <span class="dv">0</span>, _.Column_B)</span>
+<span id="cb44-218"><a href="#cb44-218" aria-hidden="true" tabindex="-1"></a>                ,Column_C<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">0</span>, <span class="dv">0</span>, _.Column_C)</span>
+<span id="cb44-219"><a href="#cb44-219" aria-hidden="true" tabindex="-1"></a>                    <span class="co">############# change group2 to green</span></span>
+<span id="cb44-220"><a href="#cb44-220" aria-hidden="true" tabindex="-1"></a>                )<span class="op">&gt;&gt;</span>mutate(</span>
+<span id="cb44-221"><a href="#cb44-221" aria-hidden="true" tabindex="-1"></a>                Column_A<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">1</span>, <span class="dv">0</span>, _.Column_A)</span>
+<span id="cb44-222"><a href="#cb44-222" aria-hidden="true" tabindex="-1"></a>                ,Column_B<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">1</span>, <span class="dv">255</span>, _.Column_B)</span>
+<span id="cb44-223"><a href="#cb44-223" aria-hidden="true" tabindex="-1"></a>                ,Column_C<span class="op">=</span>if_else(_.group_no <span class="op">==</span><span class="dv">1</span>, <span class="dv">0</span>, _.Column_C)</span>
+<span id="cb44-224"><a href="#cb44-224" aria-hidden="true" tabindex="-1"></a>                  )<span class="op">&gt;&gt;</span>select(<span class="op">~</span>_.group_no)</span>
+<span id="cb44-225"><a href="#cb44-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-226"><a href="#cb44-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-227"><a href="#cb44-227" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-228"><a href="#cb44-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-231"><a href="#cb44-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-232"><a href="#cb44-232" aria-hidden="true" tabindex="-1"></a>output<span class="op">=</span>df2.to_numpy()</span>
+<span id="cb44-233"><a href="#cb44-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-234"><a href="#cb44-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-237"><a href="#cb44-237" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-238"><a href="#cb44-238" aria-hidden="true" tabindex="-1"></a>output.shape</span>
+<span id="cb44-239"><a href="#cb44-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-240"><a href="#cb44-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-243"><a href="#cb44-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-244"><a href="#cb44-244" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> output.reshape(w,h,<span class="dv">3</span>)</span>
+<span id="cb44-245"><a href="#cb44-245" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-246"><a href="#cb44-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-247"><a href="#cb44-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-250"><a href="#cb44-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-251"><a href="#cb44-251" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb44-252"><a href="#cb44-252" aria-hidden="true" tabindex="-1"></a>plt.imshow(recolored_img) </span>
+<span id="cb44-253"><a href="#cb44-253" aria-hidden="true" tabindex="-1"></a>plt.show()  <span class="co"># display it</span></span>
+<span id="cb44-254"><a href="#cb44-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-255"><a href="#cb44-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-258"><a href="#cb44-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-259"><a href="#cb44-259" aria-hidden="true" tabindex="-1"></a>imsave(<span class="st">'kmeans_color_q.jpg'</span>, recolored_img)</span>
+<span id="cb44-260"><a href="#cb44-260" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-261"><a href="#cb44-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-262"><a href="#cb44-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-263"><a href="#cb44-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-264"><a href="#cb44-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-265"><a href="#cb44-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-266"><a href="#cb44-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-269"><a href="#cb44-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-270"><a href="#cb44-270" aria-hidden="true" tabindex="-1"></a><span class="co"># the cluster centroids is our color palette</span></span>
+<span id="cb44-271"><a href="#cb44-271" aria-hidden="true" tabindex="-1"></a>identified_palette <span class="op">=</span> np.array(kmeans.cluster_centers_).astype(<span class="bu">int</span>)</span>
+<span id="cb44-272"><a href="#cb44-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-273"><a href="#cb44-273" aria-hidden="true" tabindex="-1"></a><span class="co"># recolor the entire image</span></span>
+<span id="cb44-274"><a href="#cb44-274" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> np.copy(sample_img)</span>
+<span id="cb44-275"><a href="#cb44-275" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(recolored_img)):</span>
+<span id="cb44-276"><a href="#cb44-276" aria-hidden="true" tabindex="-1"></a>    recolored_img[index] <span class="op">=</span> identified_palette[labels[index]]</span>
+<span id="cb44-277"><a href="#cb44-277" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-278"><a href="#cb44-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-281"><a href="#cb44-281" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-282"><a href="#cb44-282" aria-hidden="true" tabindex="-1"></a><span class="co"># reshape for display</span></span>
+<span id="cb44-283"><a href="#cb44-283" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> recolored_img.reshape(w,h,<span class="dv">3</span>)</span>
+<span id="cb44-284"><a href="#cb44-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-285"><a href="#cb44-285" aria-hidden="true" tabindex="-1"></a>imsave(<span class="st">'kmeans_color_q.jpg'</span>, recolored_img)</span>
+<span id="cb44-286"><a href="#cb44-286" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-287"><a href="#cb44-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-288"><a href="#cb44-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-289"><a href="#cb44-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-290"><a href="#cb44-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-291"><a href="#cb44-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-292"><a href="#cb44-292" aria-hidden="true" tabindex="-1"></a><span class="fu"># make picture into 4 colors</span></span>
+<span id="cb44-295"><a href="#cb44-295" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-296"><a href="#cb44-296" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">4</span>, random_state<span class="op">=</span><span class="dv">0</span>).fit(sample_img)</span>
+<span id="cb44-297"><a href="#cb44-297" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-298"><a href="#cb44-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-299"><a href="#cb44-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-302"><a href="#cb44-302" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-303"><a href="#cb44-303" aria-hidden="true" tabindex="-1"></a><span class="co"># find out which cluster each pixel belongs to.</span></span>
+<span id="cb44-304"><a href="#cb44-304" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> kmeans.predict(sample_img)</span>
+<span id="cb44-305"><a href="#cb44-305" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-306"><a href="#cb44-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-309"><a href="#cb44-309" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-310"><a href="#cb44-310" aria-hidden="true" tabindex="-1"></a><span class="co"># the cluster centroids is our color palette</span></span>
+<span id="cb44-311"><a href="#cb44-311" aria-hidden="true" tabindex="-1"></a>identified_palette <span class="op">=</span> np.array(kmeans.cluster_centers_).astype(<span class="bu">int</span>)</span>
+<span id="cb44-312"><a href="#cb44-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-313"><a href="#cb44-313" aria-hidden="true" tabindex="-1"></a><span class="co"># recolor the entire image</span></span>
+<span id="cb44-314"><a href="#cb44-314" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> np.copy(sample_img)</span>
+<span id="cb44-315"><a href="#cb44-315" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(recolored_img)):</span>
+<span id="cb44-316"><a href="#cb44-316" aria-hidden="true" tabindex="-1"></a>    recolored_img[index] <span class="op">=</span> identified_palette[labels[index]]</span>
+<span id="cb44-317"><a href="#cb44-317" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-318"><a href="#cb44-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-321"><a href="#cb44-321" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-322"><a href="#cb44-322" aria-hidden="true" tabindex="-1"></a><span class="co"># reshape for display</span></span>
+<span id="cb44-323"><a href="#cb44-323" aria-hidden="true" tabindex="-1"></a>recolored_img <span class="op">=</span> recolored_img.reshape(w,h,<span class="dv">3</span>)</span>
+<span id="cb44-324"><a href="#cb44-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-325"><a href="#cb44-325" aria-hidden="true" tabindex="-1"></a>imsave(<span class="st">'kmeans_color_q.jpg'</span>, recolored_img)</span>
+<span id="cb44-326"><a href="#cb44-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-327"><a href="#cb44-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-330"><a href="#cb44-330" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb44-331"><a href="#cb44-331" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb44-332"><a href="#cb44-332" aria-hidden="true" tabindex="-1"></a>plt.imshow(recolored_img) </span>
+<span id="cb44-333"><a href="#cb44-333" aria-hidden="true" tabindex="-1"></a>plt.show()  <span class="co"># display it</span></span>
+<span id="cb44-334"><a href="#cb44-334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb44-335"><a href="#cb44-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-336"><a href="#cb44-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-337"><a href="#cb44-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-338"><a href="#cb44-338" aria-hidden="true" tabindex="-1"></a><span class="fu"># reference:</span></span>
+<span id="cb44-339"><a href="#cb44-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-340"><a href="#cb44-340" aria-hidden="true" tabindex="-1"></a>https://www.kaggle.com/code/sangwookchn/clustering-techniques-using-scikit-learn</span>
+<span id="cb44-341"><a href="#cb44-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-342"><a href="#cb44-342" aria-hidden="true" tabindex="-1"></a>https://muthu.co/reduce-the-number-of-colors-of-an-image-using-k-means-clustering/</span>
+<span id="cb44-343"><a href="#cb44-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-344"><a href="#cb44-344" aria-hidden="true" tabindex="-1"></a><span class="fu"># reference:</span></span>
+<span id="cb44-345"><a href="#cb44-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-346"><a href="#cb44-346" aria-hidden="true" tabindex="-1"></a>https://www.kaggle.com/code/sangwookchn/clustering-techniques-using-scikit-learn</span>
+<span id="cb44-347"><a href="#cb44-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-348"><a href="#cb44-348" aria-hidden="true" tabindex="-1"></a>https://muthu.co/reduce-the-number-of-colors-of-an-image-using-k-means-clustering/</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
