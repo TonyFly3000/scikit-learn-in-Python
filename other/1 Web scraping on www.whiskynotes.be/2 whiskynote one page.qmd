@@ -1,0 +1,151 @@
+---
+title: "One page reveiw"
+subtitle: "with whiskynote.be data"
+author: "Tony Duan"
+
+execute:
+  warning: false
+  error: false
+
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+
+```{python}
+import requests
+import os
+from bs4 import BeautifulSoup
+import pandas as pd
+import time
+```
+
+```{python}
+os.system('pip show beautifulsoup4')
+```
+
+Web scraping on www.whiskynotes.be
+
+# review page
+
+
+![](images/clipboard-714698276.png){width="441"}
+
+
+```{python}
+review_url='https://www.whiskynotes.be/2024/ardbeg/spheric-spirits-springbank-blended-malt-islay-malt/'
+```
+
+
+# read in html
+
+
+```{python}
+# Send an HTTP GET request to the website
+headers = {'User-Agent': 'My User Agent'}
+response = requests.get(review_url,headers=headers)
+```
+
+
+```{python}
+# success code - 200 
+print(response) 
+```
+
+```{python}
+#print(response.content)
+```
+
+
+```{python}
+# Parse the HTML code using BeautifulSoup
+soup = BeautifulSoup(response.content, 'html.parser')
+```
+
+```{python}
+#print(soup.prettify())
+```
+
+```{python}
+soup.title
+```
+
+```{python}
+soup.p
+```
+```{python}
+soup.find_all('.entry-content h2')
+```
+
+# take picture of url
+
+
+
+
+
+# bottle_name
+
+```{python}
+bottle_name=soup.find_all('h2',class_="product-main__name")
+bottle_name
+```
+
+```{python}
+bottle_name2=[]
+
+for i in bottle_name:
+  name=i.text
+  bottle_name2.append(name)
+
+bottle_name2
+```
+
+
+# bottle_review
+
+
+
+# bottle_review_Nose
+
+
+# bottle_review_Mouth
+
+
+# bottle_review_Finish
+
+
+# first score
+
+
+
+# all other score
+
+
+
+# combine all score
+
+
+# page_published_date
+
+
+# page_class
+
+
+# page_title
+
+
+
+# combine all one_page_review
+
+
+
+# output
+
+

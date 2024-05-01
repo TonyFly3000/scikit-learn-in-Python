@@ -1,0 +1,51 @@
+---
+title: "Whiskynotes.be data"
+author: "Tony Duan"
+
+execute:
+  warning: false
+  error: false
+
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: show
+    code-tools: true
+    number-sections: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+---
+
+# whiskynotes.be data
+
+<https://www.whiskynotes.be/>
+
+![](images/clipboard-2598102391.png)
+
+WhiskyNotes is a personal collection of impressions, written while searching for the ultimate single malt whisky. A work in progress, and a continuous exercise for the senses.
+
+I started it in 2008 while living in Spain for a couple of years. I had discovered whisky a few years earlier but suddenly I was cut off from festivals, shops and whisky friends in my home country. A whisky blog seemed a good way of keeping in touch. It quickly gained a following, first in Belgium but now from all over the world.
+
+# BeautifulSoup package
+
+![](https://miro.medium.com/v2/resize:fit:1200/1*muxhw09mECD24fZqJXKH1A.jpeg){width="500"}
+
+Beautiful Soup is a Python library for pulling data out of HTML and XML files. It works with your favorite parser to provide idiomatic ways of navigating, searching, and modifying the parse tree. It commonly saves programmers hours or days of work.
+
+
+
+```{python}
+import requests
+import os
+from bs4 import BeautifulSoup
+import pandas as pd
+import time
+```
+
+```{python}
+os.system('pip show beautifulsoup4')
+```
+
+
+# reference:
