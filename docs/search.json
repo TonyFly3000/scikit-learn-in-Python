@@ -1540,7 +1540,7 @@
     "href": "model type/1 decision tree.html",
     "title": "Decision tree",
     "section": "",
-    "text": "1 Pros\n\nEasier to interpret than Neural Network\nFast training and making inference\n\n\n\n2 Cons\n\nProne to overfitting\n\n\n\n3 reference:\nhttps://www.youtube.com/watch?v=6DlWndLbk90",
+    "text": "1 Pros\n\nEasier to interpret than Neural Network\nFast training and making inference\n\n\n\n2 Cons\n\nProne to overfitting\n\n\n\n3 reference:\nhttps://www.youtube.com/watch?v=6DlWndLbk90\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "model type",
       "Decision tree"
@@ -8823,7 +8823,7 @@
     "href": "other/1 Web scraping on www.whiskynotes.be/3 whiskynote one year page.html",
     "title": "One year page review",
     "section": "",
-    "text": "Code\nlibrary(tidyverse)\nlibrary(rvest)\n\n\n\n\nCode\npackageVersion(\"rvest\")\n\n\nWeb scraping on www.whiskynotes.be\n\n1 year page\n\n\nCode\nyear_ur='https://www.whiskynotes.be/2023'\n\n\n\n\n\n2 read in html\n\n\nCode\nyear_page &lt;- read_html(year_ur)\n\n\n\n\n3 review bottle name on one year\n\n\nCode\nbottle001 &lt;- year_page %&gt;% html_elements(\"p\")%&gt;% html_text2()\nbottle001[length(bottle001)]\n\n\n\n\nCode\n# drop last one which is not bottle\nbottle002=bottle001[-length(bottle001)]\nhead(bottle002,3)\n\n\n\n\nCode\nlength(bottle002)\n\n\n\n\nCode\n# split to each bottle \nbottle003=unlist(strsplit(bottle002,\"\\n\"))\n\n\n\n\nCode\nhead(bottle003,5)\n\n\n\n\nCode\nlength(bottle003)\n\n\n\n\n4 review topic name on one year\n\n\nCode\ntopic001 &lt;- year_page %&gt;% html_elements(\".archive-link\") %&gt;% html_text2()\nhead(topic001)\n\n\n\n\nCode\nlength(topic001)\n\n\n\n\n5 review topic link on one year\n\n\nCode\ntopic_link_list &lt;- year_page %&gt;%\n  html_elements(css = \".entry-permalink\")%&gt;% html_attr(\"href\")\n\nhead(topic_link_list)\n\n\n\n\nCode\nlength(topic_link_list)\n\n\n\n\n6 combine\n\n\nCode\ndata=tibble(topic001,topic_link_list)\n\n\n\n\nCode\nbottle003=tibble(bottle003)\n\n\n\n\n7 output\n\n\nCode\nlibrary(openxlsx)\nlist_of_datasets &lt;- list(\"Name of DataSheet1\" = data, \"Name of Datasheet2\" = bottle003)\n\nwrite.xlsx(list_of_datasets, file = \"on year page.xlsx\")\n\n\n\n\n8 reference:\n\n\n\n\n\n\n Back to top",
+    "text": "Code\nimport requests\nimport os\nfrom bs4 import BeautifulSoup\nimport pandas as pd\nimport time\n\n\n\n\nCode\nos.system('pip show beautifulsoup4')\n\n\nWeb scraping on www.whiskynotes.be\n\n1 year page\n\n\nCode\nyear_ur='https://www.whiskynotes.be/2023'\n\n\n\n\n\n2 read in html\n\n\nCode\n# Send an HTTP GET request to the website\nheaders = {'User-Agent': 'My User Agent'}\nresponse = requests.get(year_ur,headers=headers)\n\n\n\n\nCode\n# success code - 200 \nprint(response) \n\n\n\n\nCode\n#print(response.content)\n\n\n\n\nCode\n# Parse the HTML code using BeautifulSoup\nsoup = BeautifulSoup(response.content, 'html.parser')\n\n\n\n\n3 review bottle name on one year\n\n\nCode\nbottle001=soup.find_all('p')\n\n\n\n\nCode\nfor i in bottle001[1:5]:\n  i.get_text()\n\n\n\n\n4 review topic name on one year\n\n\nCode\ntopic001=soup.select('.archive-link')\n\n\n\n\nCode\nfor i in topic001[1:5]:\n  i.get_text()\n\n\n\n\nCode\ntopic_link=soup.select('.entry-permalink')\n\nfor link in topic_link[1:5]:\n  link.get('href')\n\n\n\n\n5 reference:\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Other",
       "1 Web scraping on www.whiskynotes.be",
