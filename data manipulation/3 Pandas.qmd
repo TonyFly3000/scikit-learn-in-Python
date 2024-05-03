@@ -61,6 +61,15 @@ small_mtcars = mtcars[["cyl", "mpg",'hp']]
 small_mtcars=small_mtcars.head(5)
 ```
 
+
+## get info on the data
+
+```{python}
+small_mtcars.info()
+```
+
+
+
 ## select column
 
 ### get column names

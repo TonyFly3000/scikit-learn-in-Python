@@ -18,6 +18,50 @@ format:
 
 ![](images/Python-logo-notext.svg.png){width="300"}
 
+# download and install python
+
+## check python version
+
+```{python}
+import sys
+print(sys.version)
+```
+
+
+
+## delete old version python in mac
+
+Go-\>computer-\>Macintosh HD-\>Library-\>Frameworks-\>Python.framework-\>Versions
+
+Delete the old version python folder:
+
+![](images/clipboard-613753018.png)
+
+## set python version in Rstudio
+
+list all file in home path
+
+```{python filename="Terminal"}
+#| eval: false
+ls -a
+```
+
+find .Renviron and edit to new version
+
+```{python filename="Terminal"}
+#| eval: false
+nano .Renviron
+```
+
+![](images/clipboard-2838033785.png){width="510"}
+
+# install jupyter
+
+```{python filename="Terminal"}
+#| eval: false
+python3 -m pip install jupyter
+```
+
 # work with file
 
 ## get current directory
@@ -177,6 +221,17 @@ def my_function(x):
 my_function('hello')
 ```
 
+## with default Arguments
+
+```{python}
+def my_function(x='hello'):
+  print(x + " !!!!!!!!!!!!!!!!!")
+```
+
+```{python}
+my_function()
+```
+
 ## return result
 
 ```{python}
@@ -216,13 +271,6 @@ print(newlist)
 
 # Package
 
-## check python version
-
-```{python}
-import sys
-print(sys.version)
-```
-
 ## install package
 
 The Python Package Index (PyPI).<https://pypi.org//>
@@ -232,7 +280,10 @@ The Python Package Index (PyPI).<https://pypi.org//>
 ```{python}
 #| eval: false
 import os
-os.system('pip install scikit-learn')
+os.system('pip3 install scikit-learn')
+os.system('pip3 install tensorflow')
+os.system('pip3 install pandas')
+os.system('pip3 install SciPy')
 ```
 
 ## check one package version
