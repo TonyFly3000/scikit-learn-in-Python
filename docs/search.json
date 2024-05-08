@@ -946,7 +946,7 @@
     "href": "plot/1 seaborn.html",
     "title": "seaborn chart",
     "section": "",
-    "text": "Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.\nCode\nimport seaborn as sns\nprint(sns.__version__)\n\n\n0.12.2\nCode\n# Import seaborn\nimport seaborn as sns\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport matplotlib\n\n# Apply the default theme\n#sns.set_theme()\n\n# Load an example dataset\ntips = sns.load_dataset(\"tips\")\ntips.head()\n\n\n\n\n\n\n\n\n\n\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3\n\n\n3\n23.68\n3.31\nMale\nNo\nSun\nDinner\n2\n\n\n4\n24.59\n3.61\nFemale\nNo\nSun\nDinner\n4",
+    "text": "Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.\nCode\nimport seaborn as sns\nprint(sns.__version__)\n\n\n0.13.2\nCode\n# Import seaborn\nimport seaborn as sns\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport matplotlib\n\n# Apply the default theme\n#sns.set_theme()\n\n# Load an example dataset\ntips = sns.load_dataset(\"tips\")\ntips.head()\n\n\n\n\n\n\n\n\n\n\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3\n\n\n3\n23.68\n3.31\nMale\nNo\nSun\nDinner\n2\n\n\n4\n24.59\n3.61\nFemale\nNo\nSun\nDinner\n4",
     "crumbs": [
       "Plot",
       "seaborn chart"
@@ -979,7 +979,7 @@
     "href": "plot/1 seaborn.html#color-by-group-1",
     "title": "seaborn chart",
     "section": "2.1 color by group",
-    "text": "2.1 color by group\n\n\nCode\nimport random\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndowjones2=dowjones&gt;&gt;mutate(type='old')\n\ndowjones3=dowjones&gt;&gt;mutate(Price=_.Price+random.random()*200,type='new')\n\ndowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)&gt;&gt; arrange(_.Date)\n\n\n\n\nCode\ndowjones4.head()\n\n\n\n\n\n\n\n\n\n\nDate\nPrice\ntype\n\n\n\n\n0\n1914-12-01\n55.000000\nold\n\n\n649\n1914-12-01\n140.834679\nnew\n\n\n1\n1915-01-01\n56.550000\nold\n\n\n650\n1915-01-01\n142.384679\nnew\n\n\n2\n1915-02-01\n56.000000\nold\n\n\n\n\n\n\n\n\n\n\nCode\nsns.lineplot(data=dowjones4,x='Date',y='Price',hue='type')",
+    "text": "2.1 color by group\n\n\nCode\nimport random\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndowjones2=dowjones&gt;&gt;mutate(type='old')\n\ndowjones3=dowjones&gt;&gt;mutate(Price=_.Price+random.random()*200,type='new')\n\ndowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)&gt;&gt; arrange(_.Date)\n\n\n\n\nCode\ndowjones4.head()\n\n\n\n\n\n\n\n\n\n\nDate\nPrice\ntype\n\n\n\n\n0\n1914-12-01\n55.000000\nold\n\n\n649\n1914-12-01\n64.430861\nnew\n\n\n1\n1915-01-01\n56.550000\nold\n\n\n650\n1915-01-01\n65.980861\nnew\n\n\n2\n1915-02-01\n56.000000\nold\n\n\n\n\n\n\n\n\n\n\nCode\nsns.lineplot(data=dowjones4,x='Date',y='Price',hue='type')",
     "crumbs": [
       "Plot",
       "seaborn chart"
@@ -3552,8 +3552,8 @@
     "objectID": "plot/1 seaborn.html#add-title",
     "href": "plot/1 seaborn.html#add-title",
     "title": "seaborn chart",
-    "section": "8.1 add title",
-    "text": "8.1 add title\n\n\nCode\ndf = sns.load_dataset(\"tips\")\n\nax=sns.boxplot(x = \"day\", y = \"total_bill\", data = df)\n\nax.set_title(\"tips box plot \")\n\n\nText(0.5, 1.0, 'tips box plot ')",
+    "section": "9.1 add title",
+    "text": "9.1 add title\n\n\nCode\ndf = sns.load_dataset(\"tips\")\n\nax=sns.boxplot(x = \"day\", y = \"total_bill\", data = df)\n\nax.set_title(\"tips box plot \")\n\n\nText(0.5, 1.0, 'tips box plot ')",
     "crumbs": [
       "Plot",
       "seaborn chart"
@@ -3563,8 +3563,8 @@
     "objectID": "plot/1 seaborn.html#adjust-size",
     "href": "plot/1 seaborn.html#adjust-size",
     "title": "seaborn chart",
-    "section": "8.2 adjust size",
-    "text": "8.2 adjust size\n\n\nCode\nplt.clf()\n\nplt.figure(figsize=(10, 6))\n\nax=sns.boxplot(x = \"day\", y = \"total_bill\", data = df)\nax.set_title(\"tips box plot \")\n\nplt.show()\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;",
+    "section": "9.2 adjust size",
+    "text": "9.2 adjust size\n\n\nCode\nplt.clf()\n\nplt.figure(figsize=(10, 6))\n\nax=sns.boxplot(x = \"day\", y = \"total_bill\", data = df)\nax.set_title(\"tips box plot \")\n\nplt.show()\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;",
     "crumbs": [
       "Plot",
       "seaborn chart"
@@ -5642,8 +5642,8 @@
     "objectID": "plot/1 seaborn.html#change-x-y-name",
     "href": "plot/1 seaborn.html#change-x-y-name",
     "title": "seaborn chart",
-    "section": "8.3 change x y name",
-    "text": "8.3 change x y name\n\n\nCode\nax=sns.boxplot(x = \"day\", y = \"total_bill\", data = df)\nax.set_title(\"tips box plot \")\nax.set(xlabel='x-axis label', ylabel='y-axis label')",
+    "section": "9.3 change x y name",
+    "text": "9.3 change x y name\n\n\nCode\nax=sns.boxplot(x = \"day\", y = \"total_bill\", data = df)\nax.set_title(\"tips box plot \")\nax.set(xlabel='x-axis label', ylabel='y-axis label')",
     "crumbs": [
       "Plot",
       "seaborn chart"
@@ -6675,7 +6675,7 @@
     "href": "data manipulation/3 Pandas.html",
     "title": "Data manipulation with Pandas",
     "section": "",
-    "text": "pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.\nCode\nimport pandas as pd\nprint('pandas version', pd.__version__)\n\n\npandas version 2.2.1\nCode\nimport os\n#os.system('pip show pandas')",
+    "text": "pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.\nCode\nimport pandas as pd\nprint('pandas version', pd.__version__)\n\n\npandas version 2.0.3\nCode\nimport os\n#os.system('pip show pandas')",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6696,8 +6696,8 @@
     "objectID": "data manipulation/3 Pandas.html#select-column",
     "href": "data manipulation/3 Pandas.html#select-column",
     "title": "Data manipulation with Pandas",
-    "section": "0.2 select column",
-    "text": "0.2 select column\n\n0.2.1 get column names\n\n\nCode\nlist(small_mtcars)\n\n\n['cyl', 'mpg', 'hp']\n\n\n\n\n0.2.2 select by name\n\n\nCode\nsmall_mtcars [[\"cyl\", \"mpg\",'hp']]\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nsmall_mtcars.filter(items=['cyl', 'mpg','hp'])\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175\n\n\n\n\n\n\n\n\n\n\n0.2.3 select columns by name match with ‘p’\n\n\nCode\nsmall_mtcars.loc[:,small_mtcars.columns.str.contains(\"p\")]\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nsmall_mtcars.filter(regex='p.*', axis=1)\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175\n\n\n\n\n\n\n\n\n\n\n0.2.4 select columns by index\n\n0.2.4.1 select first and 3rd columns\n\n\nCode\nsmall_mtcars.iloc[[0,2]]\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n\n\n\n\n\n\n\n\n0.2.4.2 select first to 3rd columns\n\n\nCode\nsmall_mtcars[0:3]\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93",
+    "section": "0.3 select column",
+    "text": "0.3 select column\n\n0.3.1 get column names\n\n\nCode\nlist(small_mtcars)\n\n\n['cyl', 'mpg', 'hp']\n\n\n\n\n0.3.2 select by name\n\n\nCode\nsmall_mtcars [[\"cyl\", \"mpg\",'hp']]\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nsmall_mtcars.filter(items=['cyl', 'mpg','hp'])\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175\n\n\n\n\n\n\n\n\n\n\n0.3.3 select columns by name match with ‘p’\n\n\nCode\nsmall_mtcars.loc[:,small_mtcars.columns.str.contains(\"p\")]\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nsmall_mtcars.filter(regex='p.*', axis=1)\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175\n\n\n\n\n\n\n\n\n\n\n0.3.4 select columns by index\n\n0.3.4.1 select first and 3rd columns\n\n\nCode\nsmall_mtcars.iloc[[0,2]]\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n\n\n\n\n\n\n\n\n0.3.4.2 select first to 3rd columns\n\n\nCode\nsmall_mtcars[0:3]\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6707,8 +6707,8 @@
     "objectID": "data manipulation/3 Pandas.html#drop-column",
     "href": "data manipulation/3 Pandas.html#drop-column",
     "title": "Data manipulation with Pandas",
-    "section": "0.3 drop column",
-    "text": "0.3 drop column\n\n\nCode\nsmall_mtcars.drop('cyl', axis=1)\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175",
+    "section": "0.4 drop column",
+    "text": "0.4 drop column\n\n\nCode\nsmall_mtcars.drop('cyl', axis=1)\n\n\n\n\n\n\n\n\n\n\nmpg\nhp\n\n\n\n\n0\n21.0\n110\n\n\n1\n21.0\n110\n\n\n2\n22.8\n93\n\n\n3\n21.4\n110\n\n\n4\n18.7\n175",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6718,8 +6718,8 @@
     "objectID": "data manipulation/3 Pandas.html#renaming-column",
     "href": "data manipulation/3 Pandas.html#renaming-column",
     "title": "Data manipulation with Pandas",
-    "section": "0.4 Renaming column",
-    "text": "0.4 Renaming column\n\n\nCode\nsmall_mtcars.rename(columns={'mpg':\"new_name_mpg\", 'cyl':'new_name_cyl'})\n\n\n\n\n\n\n\n\n\n\nnew_name_cyl\nnew_name_mpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175",
+    "section": "0.5 Renaming column",
+    "text": "0.5 Renaming column\n\n\nCode\nsmall_mtcars.rename(columns={'mpg':\"new_name_mpg\", 'cyl':'new_name_cyl'})\n\n\n\n\n\n\n\n\n\n\nnew_name_cyl\nnew_name_mpg\nhp\n\n\n\n\n0\n6\n21.0\n110\n\n\n1\n6\n21.0\n110\n\n\n2\n4\n22.8\n93\n\n\n3\n6\n21.4\n110\n\n\n4\n8\n18.7\n175",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6729,8 +6729,8 @@
     "objectID": "data manipulation/3 Pandas.html#create-column",
     "href": "data manipulation/3 Pandas.html#create-column",
     "title": "Data manipulation with Pandas",
-    "section": "0.5 Create column",
-    "text": "0.5 Create column\n\n0.5.1 Mutate\n\n\nCode\nsmall_mtcars['mpg2'] = small_mtcars['mpg']+1\n\n\nsmall_mtcars['mpg3']  = np.where(small_mtcars['mpg']&gt; 20, \"long\", \"short\")\n\n\nsmall_mtcars['mpg4'] =np.where(small_mtcars[\"mpg\"]&lt;19, \"short\",\n                   np.where(small_mtcars[\"mpg\"]&lt;=22, \"Medium\",\n                   np.where(small_mtcars[\"mpg\"]&gt;22, \"long\",\"else\")))\n\n\nsmall_mtcars\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\nmpg2\nmpg3\nmpg4\n\n\n\n\n0\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n1\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n2\n4\n22.8\n93\n23.8\nlong\nlong\n\n\n3\n6\n21.4\n110\n22.4\nlong\nMedium\n\n\n4\n8\n18.7\n175\n19.7\nshort\nshort\n\n\n\n\n\n\n\n\n\n\n0.5.2 Transmute,create column and only keep this column\n\n\nCode\nsmall_mtcars['mpg2'] = small_mtcars['mpg']+1\n\nnew_data=small_mtcars[['mpg2']]\n\nnew_data\n\n\n\n\n\n\n\n\n\n\nmpg2\n\n\n\n\n0\n22.0\n\n\n1\n22.0\n\n\n2\n23.8\n\n\n3\n22.4\n\n\n4\n19.7",
+    "section": "0.6 Create column",
+    "text": "0.6 Create column\n\n0.6.1 Mutate\n\n\nCode\nsmall_mtcars['mpg2'] = small_mtcars['mpg']+1\n\n\nsmall_mtcars['mpg3']  = np.where(small_mtcars['mpg']&gt; 20, \"long\", \"short\")\n\n\nsmall_mtcars['mpg4'] =np.where(small_mtcars[\"mpg\"]&lt;19, \"short\",\n                   np.where(small_mtcars[\"mpg\"]&lt;=22, \"Medium\",\n                   np.where(small_mtcars[\"mpg\"]&gt;22, \"long\",\"else\")))\n\n\nsmall_mtcars\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\nmpg2\nmpg3\nmpg4\n\n\n\n\n0\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n1\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n2\n4\n22.8\n93\n23.8\nlong\nlong\n\n\n3\n6\n21.4\n110\n22.4\nlong\nMedium\n\n\n4\n8\n18.7\n175\n19.7\nshort\nshort\n\n\n\n\n\n\n\n\n\n\n0.6.2 Transmute,create column and only keep this column\n\n\nCode\nsmall_mtcars['mpg2'] = small_mtcars['mpg']+1\n\nnew_data=small_mtcars[['mpg2']]\n\nnew_data\n\n\n\n\n\n\n\n\n\n\nmpg2\n\n\n\n\n0\n22.0\n\n\n1\n22.0\n\n\n2\n23.8\n\n\n3\n22.4\n\n\n4\n19.7",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6740,8 +6740,8 @@
     "objectID": "data manipulation/3 Pandas.html#filter-rows",
     "href": "data manipulation/3 Pandas.html#filter-rows",
     "title": "Data manipulation with Pandas",
-    "section": "0.6 Filter rows",
-    "text": "0.6 Filter rows\n\n\nCode\nmtcars[(mtcars['gear'] ==4)]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n7\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n18\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\n19\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\n25\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\n31\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nmtcars.query('gear==4')\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n7\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n18\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\n19\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\n25\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\n31\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\n\n0.6.1 Filters with AND conditions\n\n\nCode\nmtcars[(mtcars['cyl'] &gt;4)&(mtcars['gear'] ==5) ]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.17\n14.5\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.77\n15.5\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.57\n14.6\n0\n1\n5\n8\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nmtcars.query('cyl&gt;4 and gear==5')\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.17\n14.5\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.77\n15.5\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.57\n14.6\n0\n1\n5\n8\n\n\n\n\n\n\n\n\n\n\n0.6.2 Filters with OR conditions\n\n\nCode\nmtcars[(mtcars['cyl'] ==6) |(mtcars['gear'] ==5) ]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n5\n18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n26\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\n27\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nmtcars.query('cyl==6 or gear==5')\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n5\n18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n26\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\n27\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\n\n\n\n\n\n\n\n\n0.6.3 filter row with index\n\n0.6.3.1 5th rows\n\n\nCode\n# not in siuba, in pandas\nmtcars.iloc[[4]]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n4\n18.7\n8\n360.0\n175\n3.15\n3.44\n17.02\n0\n0\n3\n2\n\n\n\n\n\n\n\n\n\n\n0.6.3.2 1 and 5tj rows\n\n\nCode\n# not in siuba, in pandas\nmtcars.iloc[[0,4]]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.62\n16.46\n0\n1\n4\n4\n\n\n4\n18.7\n8\n360.0\n175\n3.15\n3.44\n17.02\n0\n0\n3\n2\n\n\n\n\n\n\n\n\n\n\n0.6.3.3 1 to 5th rows\n\n\nCode\n# not in siuba, in pandas\nmtcars.iloc[0:4]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n\n\n\n\n\n\n\n\n0.6.3.4 get ramdon 5 rows\n\n\nCode\nmtcars.sample(5, random_state=42)\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n15\n10.4\n8\n460.0\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n\n\n24\n19.2\n8\n400.0\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2",
+    "section": "0.7 Filter rows",
+    "text": "0.7 Filter rows\n\n\nCode\nmtcars[(mtcars['gear'] ==4)]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n7\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n18\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\n19\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\n25\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\n31\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nmtcars.query('gear==4')\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n7\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n18\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\n19\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\n25\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\n31\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\n\n0.7.1 Filters with AND conditions\n\n\nCode\nmtcars[(mtcars['cyl'] &gt;4)&(mtcars['gear'] ==5) ]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.17\n14.5\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.77\n15.5\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.57\n14.6\n0\n1\n5\n8\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nmtcars.query('cyl&gt;4 and gear==5')\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.17\n14.5\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.77\n15.5\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.57\n14.6\n0\n1\n5\n8\n\n\n\n\n\n\n\n\n\n\n0.7.2 Filters with OR conditions\n\n\nCode\nmtcars[(mtcars['cyl'] ==6) |(mtcars['gear'] ==5) ]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n5\n18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n26\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\n27\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\n\n\n\n\n\n\nother way:\n\n\nCode\nmtcars.query('cyl==6 or gear==5')\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n5\n18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n\n\n9\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\n10\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n26\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\n27\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\n28\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n30\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\n\n\n\n\n\n\n\n\n0.7.3 filter row with index\n\n0.7.3.1 5th rows\n\n\nCode\n# not in siuba, in pandas\nmtcars.iloc[[4]]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n4\n18.7\n8\n360.0\n175\n3.15\n3.44\n17.02\n0\n0\n3\n2\n\n\n\n\n\n\n\n\n\n\n0.7.3.2 1 and 5tj rows\n\n\nCode\n# not in siuba, in pandas\nmtcars.iloc[[0,4]]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.62\n16.46\n0\n1\n4\n4\n\n\n4\n18.7\n8\n360.0\n175\n3.15\n3.44\n17.02\n0\n0\n3\n2\n\n\n\n\n\n\n\n\n\n\n0.7.3.3 1 to 5th rows\n\n\nCode\n# not in siuba, in pandas\nmtcars.iloc[0:4]\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n\n\n\n\n\n\n\n\n0.7.3.4 get ramdon 5 rows\n\n\nCode\nmtcars.sample(5, random_state=42)\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n29\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\n15\n10.4\n8\n460.0\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n\n\n24\n19.2\n8\n400.0\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n\n\n17\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\n8\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6751,8 +6751,8 @@
     "objectID": "data manipulation/3 Pandas.html#append",
     "href": "data manipulation/3 Pandas.html#append",
     "title": "Data manipulation with Pandas",
-    "section": "0.7 Append",
-    "text": "0.7 Append\n\n0.7.1 append by row\n\n\nCode\n# not available in siuba yet\n#from siuba import bind_rows\n\n\n\n\nCode\n# using pandas\n\n# get 1 to 4 rows\ndata1=mtcars.iloc[0:4]\n\n# get 9 rows\ndata2=mtcars.iloc[10:11]\n\ndata3=pd.concat([data1, data2], ignore_index = True,axis=0)\n\ndata3\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n4\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n\n\n\n\n\n\n\n\n0.7.2 append by column\n\n\nCode\n# not available in siuba yet\n#from siuba import bind_columns\n\n\n\n\nCode\n# using pandas\ndata1=small_mtcars&gt;&gt;select(_.mpg)\n\ndata2=small_mtcars&gt;&gt;select(_.cyl)\n\ndata3=pd.concat([data1, data2],axis=1)\n\ndata3\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\n\n\n\n\n0\n21.0\n6\n\n\n1\n21.0\n6\n\n\n2\n22.8\n4\n\n\n3\n21.4\n6\n\n\n4\n18.7\n8\n\n\n\n\n\n\n\n\n\n\n0.7.3 Dropping NA values\n\n\n0.7.4 keep NA values",
+    "section": "0.8 Append",
+    "text": "0.8 Append\n\n0.8.1 append by row\n\n\nCode\n# not available in siuba yet\n#from siuba import bind_rows\n\n\n\n\nCode\n# using pandas\n\n# get 1 to 4 rows\ndata1=mtcars.iloc[0:4]\n\n# get 9 rows\ndata2=mtcars.iloc[10:11]\n\ndata3=pd.concat([data1, data2], ignore_index = True,axis=0)\n\ndata3\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\n0\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\n1\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\n2\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\n3\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\n4\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\n\n\n\n\n\n\n\n\n0.8.2 append by column\n\n\nCode\n# not available in siuba yet\n#from siuba import bind_columns\n\n\n\n\nCode\n# using pandas\ndata1=small_mtcars&gt;&gt;select(_.mpg)\n\ndata2=small_mtcars&gt;&gt;select(_.cyl)\n\ndata3=pd.concat([data1, data2],axis=1)\n\ndata3\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\n\n\n\n\n0\n21.0\n6\n\n\n1\n21.0\n6\n\n\n2\n22.8\n4\n\n\n3\n21.4\n6\n\n\n4\n18.7\n8\n\n\n\n\n\n\n\n\n\n\n0.8.3 Dropping NA values\n\n\n0.8.4 keep NA values",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6762,8 +6762,8 @@
     "objectID": "data manipulation/3 Pandas.html#group-by",
     "href": "data manipulation/3 Pandas.html#group-by",
     "title": "Data manipulation with Pandas",
-    "section": "0.8 group by",
-    "text": "0.8 group by\n\n0.8.1 average,min,max,sum\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].mean()\n\n\ncyl\n4     82.636364\n6    122.285714\n8    209.214286\nName: hp, dtype: float64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].min()\n\n\ncyl\n4     52\n6    105\n8    150\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].max()\n\n\ncyl\n4    113\n6    175\n8    335\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].sum()\n\n\ncyl\n4     909\n6     856\n8    2929\nName: hp, dtype: int64\n\n\n\n\n0.8.2 count record and count distinct record\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].count()\n\n\ncyl\n4    11\n6     7\n8    14\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].nunique()\n\n\ncyl\n4    10\n6     4\n8     9\nName: hp, dtype: int64",
+    "section": "0.9 group by",
+    "text": "0.9 group by\n\n0.9.1 average,min,max,sum\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].mean()\n\n\ncyl\n4     82.636364\n6    122.285714\n8    209.214286\nName: hp, dtype: float64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].min()\n\n\ncyl\n4     52\n6    105\n8    150\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].max()\n\n\ncyl\n4    113\n6    175\n8    335\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].sum()\n\n\ncyl\n4     909\n6     856\n8    2929\nName: hp, dtype: int64\n\n\n\n\n0.9.2 count record and count distinct record\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].count()\n\n\ncyl\n4    11\n6     7\n8    14\nName: hp, dtype: int64\n\n\n\n\nCode\nmtcars.groupby(\"cyl\")[\"hp\"].nunique()\n\n\ncyl\n4    10\n6     4\n8     9\nName: hp, dtype: int64",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6773,8 +6773,8 @@
     "objectID": "data manipulation/3 Pandas.html#order-rows",
     "href": "data manipulation/3 Pandas.html#order-rows",
     "title": "Data manipulation with Pandas",
-    "section": "0.9 order rows",
-    "text": "0.9 order rows\n\n\nCode\nsmall_mtcars.sort_values('hp')\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\nmpg2\nmpg3\nmpg4\n\n\n\n\n2\n4\n22.8\n93\n23.8\nlong\nlong\n\n\n0\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n1\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n3\n6\n21.4\n110\n22.4\nlong\nMedium\n\n\n4\n8\n18.7\n175\n19.7\nshort\nshort\n\n\n\n\n\n\n\n\n\n0.9.1 Sort in descending order\n\n\nCode\nsmall_mtcars.sort_values('hp',ascending=False)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\nmpg2\nmpg3\nmpg4\n\n\n\n\n4\n8\n18.7\n175\n19.7\nshort\nshort\n\n\n0\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n1\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n3\n6\n21.4\n110\n22.4\nlong\nMedium\n\n\n2\n4\n22.8\n93\n23.8\nlong\nlong\n\n\n\n\n\n\n\n\n\n\n0.9.2 Arrange by multiple variables\n\n\nCode\nsmall_mtcars.sort_values(by=['cyl','mpg'])\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\nmpg2\nmpg3\nmpg4\n\n\n\n\n2\n4\n22.8\n93\n23.8\nlong\nlong\n\n\n0\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n1\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n3\n6\n21.4\n110\n22.4\nlong\nMedium\n\n\n4\n8\n18.7\n175\n19.7\nshort\nshort",
+    "section": "0.10 order rows",
+    "text": "0.10 order rows\n\n\nCode\nsmall_mtcars.sort_values('hp')\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\nmpg2\nmpg3\nmpg4\n\n\n\n\n2\n4\n22.8\n93\n23.8\nlong\nlong\n\n\n0\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n1\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n3\n6\n21.4\n110\n22.4\nlong\nMedium\n\n\n4\n8\n18.7\n175\n19.7\nshort\nshort\n\n\n\n\n\n\n\n\n\n0.10.1 Sort in descending order\n\n\nCode\nsmall_mtcars.sort_values('hp',ascending=False)\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\nmpg2\nmpg3\nmpg4\n\n\n\n\n4\n8\n18.7\n175\n19.7\nshort\nshort\n\n\n0\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n1\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n3\n6\n21.4\n110\n22.4\nlong\nMedium\n\n\n2\n4\n22.8\n93\n23.8\nlong\nlong\n\n\n\n\n\n\n\n\n\n\n0.10.2 Arrange by multiple variables\n\n\nCode\nsmall_mtcars.sort_values(by=['cyl','mpg'])\n\n\n\n\n\n\n\n\n\n\ncyl\nmpg\nhp\nmpg2\nmpg3\nmpg4\n\n\n\n\n2\n4\n22.8\n93\n23.8\nlong\nlong\n\n\n0\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n1\n6\n21.0\n110\n22.0\nlong\nMedium\n\n\n3\n6\n21.4\n110\n22.4\nlong\nMedium\n\n\n4\n8\n18.7\n175\n19.7\nshort\nshort",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6784,8 +6784,8 @@
     "objectID": "data manipulation/3 Pandas.html#join",
     "href": "data manipulation/3 Pandas.html#join",
     "title": "Data manipulation with Pandas",
-    "section": "0.10 join",
-    "text": "0.10 join\n\n\nCode\nlhs = pd.DataFrame({'id': [1,2,3], 'val': ['lhs.1', 'lhs.2', 'lhs.3']})\nrhs = pd.DataFrame({'id': [1,2,4], 'val': ['rhs.1', 'rhs.2', 'rhs.3']})\n\n\n\n\nCode\nlhs\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n0\n1\nlhs.1\n\n\n1\n2\nlhs.2\n\n\n2\n3\nlhs.3\n\n\n\n\n\n\n\n\n\n\nCode\nrhs\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n0\n1\nrhs.1\n\n\n1\n2\nrhs.2\n\n\n2\n4\nrhs.3\n\n\n\n\n\n\n\n\n\n0.10.1 inner_join\n\n\nCode\nresult=pd.merge(lhs, rhs, on='id', how='inner')\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n\n\n\n\n\n\n\n\n0.10.2 full join\n\n\nCode\nresult=pd.merge(lhs, rhs, on='id', how='outer')\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n2\n3\nlhs.3\nNaN\n\n\n3\n4\nNaN\nrhs.3\n\n\n\n\n\n\n\n\n\n\n0.10.3 left join\n\n\nCode\nresult=pd.merge(lhs, rhs, on='id', how='left')\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n2\n3\nlhs.3\nNaN\n\n\n\n\n\n\n\n\n\n\n0.10.4 anti join\nkeep data in left which not in right\n\n\nCode\n#in siuba\nresult=lhs &gt;&gt; anti_join(_, rhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n2\n3\nlhs.3\n\n\n\n\n\n\n\n\nkeep data in right which not in left\n\n\nCode\n#in siuba\nresult=rhs &gt;&gt; anti_join(_, lhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n2\n4\nrhs.3",
+    "section": "0.11 join",
+    "text": "0.11 join\n\n\nCode\nlhs = pd.DataFrame({'id': [1,2,3], 'val': ['lhs.1', 'lhs.2', 'lhs.3']})\nrhs = pd.DataFrame({'id': [1,2,4], 'val': ['rhs.1', 'rhs.2', 'rhs.3']})\n\n\n\n\nCode\nlhs\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n0\n1\nlhs.1\n\n\n1\n2\nlhs.2\n\n\n2\n3\nlhs.3\n\n\n\n\n\n\n\n\n\n\nCode\nrhs\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n0\n1\nrhs.1\n\n\n1\n2\nrhs.2\n\n\n2\n4\nrhs.3\n\n\n\n\n\n\n\n\n\n0.11.1 inner_join\n\n\nCode\nresult=pd.merge(lhs, rhs, on='id', how='inner')\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n\n\n\n\n\n\n\n\n0.11.2 full join\n\n\nCode\nresult=pd.merge(lhs, rhs, on='id', how='outer')\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n2\n3\nlhs.3\nNaN\n\n\n3\n4\nNaN\nrhs.3\n\n\n\n\n\n\n\n\n\n\n0.11.3 left join\n\n\nCode\nresult=pd.merge(lhs, rhs, on='id', how='left')\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval_x\nval_y\n\n\n\n\n0\n1\nlhs.1\nrhs.1\n\n\n1\n2\nlhs.2\nrhs.2\n\n\n2\n3\nlhs.3\nNaN\n\n\n\n\n\n\n\n\n\n\n0.11.4 anti join\nkeep data in left which not in right\n\n\nCode\n#in siuba\nresult=lhs &gt;&gt; anti_join(_, rhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n2\n3\nlhs.3\n\n\n\n\n\n\n\n\nkeep data in right which not in left\n\n\nCode\n#in siuba\nresult=rhs &gt;&gt; anti_join(_, lhs, on=\"id\")\nresult\n\n\n\n\n\n\n\n\n\n\nid\nval\n\n\n\n\n2\n4\nrhs.3",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6795,8 +6795,8 @@
     "objectID": "data manipulation/3 Pandas.html#reshape-tables",
     "href": "data manipulation/3 Pandas.html#reshape-tables",
     "title": "Data manipulation with Pandas",
-    "section": "0.11 Reshape tables",
-    "text": "0.11 Reshape tables\n\n\nCode\ncosts = pd.DataFrame({\n    'id': [1,2],\n    'price_x': [.1, .2],\n    'price_y': [.4, .5],\n    'price_z': [.7, .8]\n})\n\ncosts\n\n\n\n\n\n\n\n\n\n\nid\nprice_x\nprice_y\nprice_z\n\n\n\n\n0\n1\n0.1\n0.4\n0.7\n\n\n1\n2\n0.2\n0.5\n0.8\n\n\n\n\n\n\n\n\n\n0.11.1 Gather data long(wide to long)\n\n\nCode\n# selecting each variable manually\nlong_date=pd.melt(costs,id_vars=['id'], value_vars=['price_x', 'price_y','price_z'])\n\nlong_date\n#costs &gt;&gt; gather('measure', 'value', _.price_x, _.price_y, _.price_z)\n\n\n\n\n\n\n\n\n\n\nid\nvariable\nvalue\n\n\n\n\n0\n1\nprice_x\n0.1\n\n\n1\n2\nprice_x\n0.2\n\n\n2\n1\nprice_y\n0.4\n\n\n3\n2\nprice_y\n0.5\n\n\n4\n1\nprice_z\n0.7\n\n\n5\n2\nprice_z\n0.8\n\n\n\n\n\n\n\n\n\n\n0.11.2 Spread data wide (long to wide)\n\n\nCode\nlong_date.pivot(index=\"id\", columns=\"variable\", values=\"value\")\n\n\n\n\n\n\n\n\n\nvariable\nprice_x\nprice_y\nprice_z\n\n\nid\n\n\n\n\n\n\n\n1\n0.1\n0.4\n0.7\n\n\n2\n0.2\n0.5\n0.8",
+    "section": "0.12 Reshape tables",
+    "text": "0.12 Reshape tables\n\n\nCode\ncosts = pd.DataFrame({\n    'id': [1,2],\n    'price_x': [.1, .2],\n    'price_y': [.4, .5],\n    'price_z': [.7, .8]\n})\n\ncosts\n\n\n\n\n\n\n\n\n\n\nid\nprice_x\nprice_y\nprice_z\n\n\n\n\n0\n1\n0.1\n0.4\n0.7\n\n\n1\n2\n0.2\n0.5\n0.8\n\n\n\n\n\n\n\n\n\n0.12.1 Gather data long(wide to long)\n\n\nCode\n# selecting each variable manually\nlong_date=pd.melt(costs,id_vars=['id'], value_vars=['price_x', 'price_y','price_z'])\n\nlong_date\n#costs &gt;&gt; gather('measure', 'value', _.price_x, _.price_y, _.price_z)\n\n\n\n\n\n\n\n\n\n\nid\nvariable\nvalue\n\n\n\n\n0\n1\nprice_x\n0.1\n\n\n1\n2\nprice_x\n0.2\n\n\n2\n1\nprice_y\n0.4\n\n\n3\n2\nprice_y\n0.5\n\n\n4\n1\nprice_z\n0.7\n\n\n5\n2\nprice_z\n0.8\n\n\n\n\n\n\n\n\n\n\n0.12.2 Spread data wide (long to wide)\n\n\nCode\nlong_date.pivot(index=\"id\", columns=\"variable\", values=\"value\")\n\n\n\n\n\n\n\n\n\nvariable\nprice_x\nprice_y\nprice_z\n\n\nid\n\n\n\n\n\n\n\n1\n0.1\n0.4\n0.7\n\n\n2\n0.2\n0.5\n0.8",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6806,8 +6806,8 @@
     "objectID": "data manipulation/3 Pandas.html#string",
     "href": "data manipulation/3 Pandas.html#string",
     "title": "Data manipulation with Pandas",
-    "section": "0.12 string",
-    "text": "0.12 string\n\n\nCode\ndf = pd.DataFrame({'text': ['abc', 'DDD','1243c','aeEe'], 'num': [3, 4,7,8]})\n\ndf\n\n\n\n\n\n\n\n\n\n\ntext\nnum\n\n\n\n\n0\nabc\n3\n\n\n1\nDDD\n4\n\n\n2\n1243c\n7\n\n\n3\naeEe\n8\n\n\n\n\n\n\n\n\n\n0.12.1 upper case\n\n\nCode\ndf&gt;&gt; mutate(text_new=_.text.str.upper())\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new\n\n\n\n\n0\nabc\n3\nABC\n\n\n1\nDDD\n4\nDDD\n\n\n2\n1243c\n7\n1243C\n\n\n3\naeEe\n8\nAEEE\n\n\n\n\n\n\n\n\n\n\n0.12.2 lower case\n\n\nCode\ndf&gt;&gt; mutate(text_new=_.text.str.lower())\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new\n\n\n\n\n0\nabc\n3\nabc\n\n\n1\nDDD\n4\nddd\n\n\n2\n1243c\n7\n1243c\n\n\n3\naeEe\n8\naeee\n\n\n\n\n\n\n\n\n\n\n0.12.3 match\n\n\nCode\ndf&gt;&gt; mutate(text_new1=if_else(_.text== \"abc\",'T','F')\n            ,text_new2=if_else(_.text.str.startswith(\"a\"),'T','F')\n            ,text_new3=if_else(_.text.str.endswith(\"c\"),'T','F')\n            ,text_new4=if_else(_.text.str.contains(\"4\"),'T','F')\n\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\ntext_new2\ntext_new3\ntext_new4\n\n\n\n\n0\nabc\n3\nT\nT\nT\nF\n\n\n1\nDDD\n4\nF\nF\nF\nF\n\n\n2\n1243c\n7\nF\nF\nT\nT\n\n\n3\naeEe\n8\nF\nT\nF\nF\n\n\n\n\n\n\n\n\n\n\n0.12.4 concatenation\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text+' is '+_.text\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\n\n\n\n\n0\nabc\n3\nabc is abc\n\n\n1\nDDD\n4\nDDD is DDD\n\n\n2\n1243c\n7\n1243c is 1243c\n\n\n3\naeEe\n8\naeEe is aeEe\n\n\n\n\n\n\n\n\n\n\n0.12.5 replace\nUse .str.replace(…, regex=True) with regular expressions to replace patterns in strings.\nFor example, the code below uses “p.”, where . is called a wildcard–which matches any character.\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text.str.replace(\"a.\", \"XX\", regex=True)\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\n\n\n\n\n0\nabc\n3\nXXc\n\n\n1\nDDD\n4\nDDD\n\n\n2\n1243c\n7\n1243c\n\n\n3\naeEe\n8\nXXEe\n\n\n\n\n\n\n\n\n\n\n0.12.6 extract\nUse str.extract() with a regular expression to pull out a matching piece of text.\nFor example the regular expression “^(.*) ” contains the following pieces:\n\na matches the literal letter “a”\n.* has a . which matches anything, and * which modifies it to apply 0 or more times.\n\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text.str.extract(\"a(.*)\")\n            ,text_new2=_.text.str.extract(\"(.*)c\")\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\ntext_new2\n\n\n\n\n0\nabc\n3\nbc\nab\n\n\n1\nDDD\n4\nNaN\nNaN\n\n\n2\n1243c\n7\nNaN\n1243\n\n\n3\naeEe\n8\neEe\nNaN",
+    "section": "0.13 string",
+    "text": "0.13 string\n\n\nCode\ndf = pd.DataFrame({'text': ['abc', 'DDD','1243c','aeEe'], 'num': [3, 4,7,8]})\n\ndf\n\n\n\n\n\n\n\n\n\n\ntext\nnum\n\n\n\n\n0\nabc\n3\n\n\n1\nDDD\n4\n\n\n2\n1243c\n7\n\n\n3\naeEe\n8\n\n\n\n\n\n\n\n\n\n0.13.1 upper case\n\n\nCode\ndf&gt;&gt; mutate(text_new=_.text.str.upper())\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new\n\n\n\n\n0\nabc\n3\nABC\n\n\n1\nDDD\n4\nDDD\n\n\n2\n1243c\n7\n1243C\n\n\n3\naeEe\n8\nAEEE\n\n\n\n\n\n\n\n\n\n\n0.13.2 lower case\n\n\nCode\ndf&gt;&gt; mutate(text_new=_.text.str.lower())\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new\n\n\n\n\n0\nabc\n3\nabc\n\n\n1\nDDD\n4\nddd\n\n\n2\n1243c\n7\n1243c\n\n\n3\naeEe\n8\naeee\n\n\n\n\n\n\n\n\n\n\n0.13.3 match\n\n\nCode\ndf&gt;&gt; mutate(text_new1=if_else(_.text== \"abc\",'T','F')\n            ,text_new2=if_else(_.text.str.startswith(\"a\"),'T','F')\n            ,text_new3=if_else(_.text.str.endswith(\"c\"),'T','F')\n            ,text_new4=if_else(_.text.str.contains(\"4\"),'T','F')\n\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\ntext_new2\ntext_new3\ntext_new4\n\n\n\n\n0\nabc\n3\nT\nT\nT\nF\n\n\n1\nDDD\n4\nF\nF\nF\nF\n\n\n2\n1243c\n7\nF\nF\nT\nT\n\n\n3\naeEe\n8\nF\nT\nF\nF\n\n\n\n\n\n\n\n\n\n\n0.13.4 concatenation\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text+' is '+_.text\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\n\n\n\n\n0\nabc\n3\nabc is abc\n\n\n1\nDDD\n4\nDDD is DDD\n\n\n2\n1243c\n7\n1243c is 1243c\n\n\n3\naeEe\n8\naeEe is aeEe\n\n\n\n\n\n\n\n\n\n\n0.13.5 replace\nUse .str.replace(…, regex=True) with regular expressions to replace patterns in strings.\nFor example, the code below uses “p.”, where . is called a wildcard–which matches any character.\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text.str.replace(\"a.\", \"XX\", regex=True)\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\n\n\n\n\n0\nabc\n3\nXXc\n\n\n1\nDDD\n4\nDDD\n\n\n2\n1243c\n7\n1243c\n\n\n3\naeEe\n8\nXXEe\n\n\n\n\n\n\n\n\n\n\n0.13.6 extract\nUse str.extract() with a regular expression to pull out a matching piece of text.\nFor example the regular expression “^(.*) ” contains the following pieces:\n\na matches the literal letter “a”\n.* has a . which matches anything, and * which modifies it to apply 0 or more times.\n\n\n\nCode\ndf&gt;&gt; mutate(text_new1=_.text.str.extract(\"a(.*)\")\n            ,text_new2=_.text.str.extract(\"(.*)c\")\n)\n\n\n\n\n\n\n\n\n\n\ntext\nnum\ntext_new1\ntext_new2\n\n\n\n\n0\nabc\n3\nbc\nab\n\n\n1\nDDD\n4\nNaN\nNaN\n\n\n2\n1243c\n7\nNaN\n1243\n\n\n3\naeEe\n8\neEe\nNaN",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -6817,8 +6817,8 @@
     "objectID": "data manipulation/3 Pandas.html#date",
     "href": "data manipulation/3 Pandas.html#date",
     "title": "Data manipulation with Pandas",
-    "section": "0.13 date",
-    "text": "0.13 date\n\n\nCode\ndf_dates = pd.DataFrame({\n    \"dates\": pd.to_datetime([\"2021-01-02\", \"2021-02-03\"]),\n    \"raw\": [\"2023-04-05 06:07:08\", \"2024-05-06 07:08:09\"],\n})\ndf_dates\n\n\n\n\n\n\n\n\n\n\ndates\nraw\n\n\n\n\n0\n2021-01-02\n2023-04-05 06:07:08\n\n\n1\n2021-02-03\n2024-05-06 07:08:09\n\n\n\n\n\n\n\n\n\n\nCode\nfrom datetime import datetime\n\ndf_date=df_dates&gt;&gt;mutate(month=_.dates.dt.month_name()\n                  ,date_format_raw = call(pd.to_datetime, _.raw)\n                  ,date_format_raw_year=_.date_format_raw.dt.year\n\n)\n\ndf_date\n\n\n\n\n\n\n\n\n\n\ndates\nraw\nmonth\ndate_format_raw\ndate_format_raw_year\n\n\n\n\n0\n2021-01-02\n2023-04-05 06:07:08\nJanuary\n2023-04-05 06:07:08\n2023\n\n\n1\n2021-02-03\n2024-05-06 07:08:09\nFebruary\n2024-05-06 07:08:09\n2024\n\n\n\n\n\n\n\n\n\n\nCode\ndf_date.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 2 entries, 0 to 1\nData columns (total 5 columns):\n #   Column                Non-Null Count  Dtype         \n---  ------                --------------  -----         \n 0   dates                 2 non-null      datetime64[ns]\n 1   raw                   2 non-null      object        \n 2   month                 2 non-null      object        \n 3   date_format_raw       2 non-null      datetime64[ns]\n 4   date_format_raw_year  2 non-null      int32         \ndtypes: datetime64[ns](2), int32(1), object(2)\nmemory usage: 204.0+ bytes",
+    "section": "0.14 date",
+    "text": "0.14 date\n\n\nCode\ndf_dates = pd.DataFrame({\n    \"dates\": pd.to_datetime([\"2021-01-02\", \"2021-02-03\"]),\n    \"raw\": [\"2023-04-05 06:07:08\", \"2024-05-06 07:08:09\"],\n})\ndf_dates\n\n\n\n\n\n\n\n\n\n\ndates\nraw\n\n\n\n\n0\n2021-01-02\n2023-04-05 06:07:08\n\n\n1\n2021-02-03\n2024-05-06 07:08:09\n\n\n\n\n\n\n\n\n\n\nCode\nfrom datetime import datetime\n\ndf_date=df_dates&gt;&gt;mutate(month=_.dates.dt.month_name()\n                  ,date_format_raw = call(pd.to_datetime, _.raw)\n                  ,date_format_raw_year=_.date_format_raw.dt.year\n\n)\n\ndf_date\n\n\n\n\n\n\n\n\n\n\ndates\nraw\nmonth\ndate_format_raw\ndate_format_raw_year\n\n\n\n\n0\n2021-01-02\n2023-04-05 06:07:08\nJanuary\n2023-04-05 06:07:08\n2023\n\n\n1\n2021-02-03\n2024-05-06 07:08:09\nFebruary\n2024-05-06 07:08:09\n2024\n\n\n\n\n\n\n\n\n\n\nCode\ndf_date.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 2 entries, 0 to 1\nData columns (total 5 columns):\n #   Column                Non-Null Count  Dtype         \n---  ------                --------------  -----         \n 0   dates                 2 non-null      datetime64[ns]\n 1   raw                   2 non-null      object        \n 2   month                 2 non-null      object        \n 3   date_format_raw       2 non-null      datetime64[ns]\n 4   date_format_raw_year  2 non-null      int32         \ndtypes: datetime64[ns](2), int32(1), object(2)\nmemory usage: 204.0+ bytes",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -7708,8 +7708,8 @@
     "objectID": "data manipulation/3 Pandas.html#dataframe-to-numpy-array",
     "href": "data manipulation/3 Pandas.html#dataframe-to-numpy-array",
     "title": "Data manipulation with Pandas",
-    "section": "0.14 dataframe to numpy array",
-    "text": "0.14 dataframe to numpy array\n\n\nCode\ndf_date.to_numpy()\n\n\narray([[Timestamp('2021-01-02 00:00:00'), '2023-04-05 06:07:08',\n        'January', Timestamp('2023-04-05 06:07:08'), 2023],\n       [Timestamp('2021-02-03 00:00:00'), '2024-05-06 07:08:09',\n        'February', Timestamp('2024-05-06 07:08:09'), 2024]], dtype=object)",
+    "section": "0.15 dataframe to numpy array",
+    "text": "0.15 dataframe to numpy array\n\n\nCode\ndf_date.to_numpy()\n\n\narray([[Timestamp('2021-01-02 00:00:00'), '2023-04-05 06:07:08',\n        'January', Timestamp('2023-04-05 06:07:08'), 2023],\n       [Timestamp('2021-02-03 00:00:00'), '2024-05-06 07:08:09',\n        'February', Timestamp('2024-05-06 07:08:09'), 2024]], dtype=object)",
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
@@ -7929,7 +7929,7 @@
     "href": "intro/0 Basic python.html#install-package",
     "title": "Basic Python",
     "section": "8.1 install package",
-    "text": "8.1 install package\nThe Python Package Index (PyPI).https://pypi.org//\n\n\n\nCode\nimport os\nos.system('pip install scikit-learn')",
+    "text": "8.1 install package\nThe Python Package Index (PyPI).https://pypi.org//\n\n\n\nCode\nimport os\nos.system('pip3 install scikit-learn')\nos.system('pip3 install tensorflow')\nos.system('pip3 install pandas')\nos.system('pip3 install SciPy')",
     "crumbs": [
       "Intro",
       "Basic Python"
@@ -8072,7 +8072,7 @@
     "href": "intro/0 Basic python.html#get-all-file-name-under-current-directory",
     "title": "Basic Python",
     "section": "3.2 get all file name under current directory",
-    "text": "3.2 get all file name under current directory\n\n\nCode\nimport os\nos.listdir(os.getcwd()) \n\n\n['.Rhistory',\n 'test_folder',\n '.DS_Store',\n 'images',\n '0 Basic python.ipynb',\n '0 Basic python.qmd',\n 'hotels.csv',\n '.RData',\n '3 statistic Book.qmd',\n '1 Python Book.qmd',\n '2 Data Book.qmd',\n 'data']",
+    "text": "3.2 get all file name under current directory\n\n\nCode\nimport os\nos.listdir(os.getcwd()) \n\n\n['.Rhistory',\n 'test_folder',\n '0 Basic python_files',\n '.DS_Store',\n 'images',\n '0 Basic python.ipynb',\n '0 Basic python.qmd',\n 'hotels.csv',\n '.RData',\n '3 statistic Book.qmd',\n '1 Python Book.qmd',\n '2 Data Book.qmd',\n 'data']",
     "crumbs": [
       "Intro",
       "Basic Python"
@@ -8083,7 +8083,7 @@
     "href": "intro/0 Basic python.html#get-file-info",
     "title": "Basic Python",
     "section": "3.3 get file info",
-    "text": "3.3 get file info\n\n\nCode\na=os.stat('3 statistic Book.qmd')\na\n\n\nos.stat_result(st_mode=33188, st_ino=29449448, st_dev=16777231, st_nlink=1, st_uid=501, st_gid=20, st_size=453, st_atime=1712570586, st_mtime=1712419159, st_ctime=1714715681)\n\n\nshow st_atime\n\n\nCode\nimport datetime as dt\n#a.st_atime\ndt.date.fromtimestamp(a.st_atime).strftime('%Y%m%d')\n\n\n'20240408'",
+    "text": "3.3 get file info\n\n\nCode\na=os.stat('3 statistic Book.qmd')\na\n\n\nos.stat_result(st_mode=33188, st_ino=29449448, st_dev=16777233, st_nlink=1, st_uid=501, st_gid=20, st_size=453, st_atime=1712570586, st_mtime=1712419159, st_ctime=1714715681)\n\n\nshow st_atime\n\n\nCode\nimport datetime as dt\n#a.st_atime\ndt.date.fromtimestamp(a.st_atime).strftime('%Y%m%d')\n\n\n'20240408'",
     "crumbs": [
       "Intro",
       "Basic Python"
@@ -8897,6 +8897,28 @@
     "crumbs": [
       "Intro",
       "Basic Python"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#show-number",
+    "href": "plot/1 seaborn.html#show-number",
+    "title": "seaborn chart",
+    "section": "4.1 show number",
+    "text": "4.1 show number\n\n\nCode\nax=sns.barplot(data=tips,x='sex',y='tip',errorbar=None)\n\nfor i in ax.containers:\n    ax.bar_label(i,)",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
+    ]
+  },
+  {
+    "objectID": "data manipulation/3 Pandas.html#get-info-on-the-data",
+    "href": "data manipulation/3 Pandas.html#get-info-on-the-data",
+    "title": "Data manipulation with Pandas",
+    "section": "0.2 get info on the data",
+    "text": "0.2 get info on the data\n\n\nCode\nsmall_mtcars.info()\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 5 entries, 0 to 4\nData columns (total 3 columns):\n #   Column  Non-Null Count  Dtype  \n---  ------  --------------  -----  \n 0   cyl     5 non-null      int64  \n 1   mpg     5 non-null      float64\n 2   hp      5 non-null      int64  \ndtypes: float64(1), int64(2)\nmemory usage: 252.0 bytes",
+    "crumbs": [
+      "data manipulation",
+      "Data manipulation with Pandas"
     ]
   }
 ]

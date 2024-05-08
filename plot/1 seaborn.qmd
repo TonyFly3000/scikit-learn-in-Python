@@ -117,7 +117,17 @@ sns.histplot(data=tips,x='tip',hue='sex',multiple="dodge")
 # bar chart
 
 ```{python}
-sns.barplot(data=tips,x='sex',y='tip')
+sns.barplot(data=tips,x='sex',y='tip',errorbar=None)
+```
+## show number
+
+```{python}
+
+ax=sns.barplot(data=tips,x='sex',y='tip',errorbar=None)
+
+for i in ax.containers:
+    ax.bar_label(i,)
+    
 ```
 
 # box plot
@@ -185,6 +195,16 @@ fig, axes = plt.subplots(1, 2)
 
 sns.boxplot(data=tips,x='day',y='tip',hue='sex',ax=axes[0])
 sns.boxplot(data=tips,x='day',y='tip',ax=axes[1])
+```
+# chinese 显示中文 in Mac
+
+```{python}
+# add following line
+plt.rcParams['font.family'] = ['Arial Unicode MS'] #用来正常显示中文标签
+plt.rcParams['axes.unicode_minus'] = False #用来正常显示负号
+sns.set_style('whitegrid',{'font.sans-serif':['Arial Unicode MS','Arial']})
+
+
 ```
 
 
