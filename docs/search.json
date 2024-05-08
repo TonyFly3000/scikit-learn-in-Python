@@ -979,7 +979,7 @@
     "href": "plot/1 seaborn.html#color-by-group-1",
     "title": "seaborn chart",
     "section": "2.1 color by group",
-    "text": "2.1 color by group\n\n\nCode\nimport random\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndowjones2=dowjones&gt;&gt;mutate(type='old')\n\ndowjones3=dowjones&gt;&gt;mutate(Price=_.Price+random.random()*200,type='new')\n\ndowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)&gt;&gt; arrange(_.Date)\n\n\n\n\nCode\ndowjones4.head()\n\n\n\n\n\n\n\n\n\n\nDate\nPrice\ntype\n\n\n\n\n0\n1914-12-01\n55.000000\nold\n\n\n649\n1914-12-01\n64.430861\nnew\n\n\n1\n1915-01-01\n56.550000\nold\n\n\n650\n1915-01-01\n65.980861\nnew\n\n\n2\n1915-02-01\n56.000000\nold\n\n\n\n\n\n\n\n\n\n\nCode\nsns.lineplot(data=dowjones4,x='Date',y='Price',hue='type')",
+    "text": "2.1 color by group\n\n\nCode\nimport random\nfrom siuba import _, mutate, filter, group_by, summarize,show_query\nfrom siuba import *\n\ndowjones2=dowjones&gt;&gt;mutate(type='old')\n\ndowjones3=dowjones&gt;&gt;mutate(Price=_.Price+random.random()*200,type='new')\n\ndowjones4=pd.concat([dowjones2, dowjones3], ignore_index = True)&gt;&gt; arrange(_.Date)\n\n\n\n\nCode\ndowjones4.head()\n\n\n\n\n\n\n\n\n\n\nDate\nPrice\ntype\n\n\n\n\n0\n1914-12-01\n55.000\nold\n\n\n649\n1914-12-01\n195.128\nnew\n\n\n1\n1915-01-01\n56.550\nold\n\n\n650\n1915-01-01\n196.678\nnew\n\n\n2\n1915-02-01\n56.000\nold\n\n\n\n\n\n\n\n\n\n\nCode\nsns.lineplot(data=dowjones4,x='Date',y='Price',hue='type')",
     "crumbs": [
       "Plot",
       "seaborn chart"
@@ -8919,6 +8919,17 @@
     "crumbs": [
       "data manipulation",
       "Data manipulation with Pandas"
+    ]
+  },
+  {
+    "objectID": "plot/1 seaborn.html#horizontal-bar-plot",
+    "href": "plot/1 seaborn.html#horizontal-bar-plot",
+    "title": "seaborn chart",
+    "section": "4.2 horizontal bar plot",
+    "text": "4.2 horizontal bar plot\n\n\nCode\nax=sns.barplot(data=tips,y='sex',x='tip',errorbar=None,orient = 'h')\nplt.show()",
+    "crumbs": [
+      "Plot",
+      "seaborn chart"
     ]
   }
 ]

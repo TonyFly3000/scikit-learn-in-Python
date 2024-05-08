@@ -130,6 +130,15 @@ for i in ax.containers:
     
 ```
 
+## horizontal bar plot 
+
+```{python}
+
+ax=sns.barplot(data=tips,y='sex',x='tip',errorbar=None,orient = 'h')
+plt.show()
+
+```
+
 # box plot
 
 ```{python}
